@@ -6,136 +6,101 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f9ff;
+      background: #eef7fc;
       padding: 20px;
       max-width: 600px;
       margin: auto;
     }
     h1 {
       text-align: center;
-      color: #007baf;
+      color: #0077cc;
     }
     .question-box {
       background: #fff;
       border: 1px solid #ccc;
-      padding: 15px;
       border-radius: 10px;
+      padding: 15px;
       margin-bottom: 20px;
     }
     .choices label {
       display: block;
       margin: 8px 0;
-      cursor: pointer;
-      padding: 5px 10px;
-      border-radius: 6px;
-    }
-    .choices input[type="radio"] {
-      margin-right: 8px;
     }
     .feedback {
-      font-weight: bold;
       margin-top: 10px;
-    }
-    button {
-      display: block;
-      margin: 20px auto;
-      background: #007baf;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
+      font-weight: bold;
     }
     .correct {
       color: green;
     }
-    .incorrect {
-      color: red;
+    .explanation {
+      color: #333;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
 
 <h1>EMS Daily Quiz</h1>
-
-<form id="quizForm">
-  <!-- Questions will be injected here -->
-</form>
-
+<form id="quizForm"></form>
 <button onclick="submitQuiz()">Submit Answers</button>
 
 <script>
-const questions = [
-  {
-    question: "1. What is the normal range for adult respiratory rate?",
-    choices: ["A. 8–14", "B. 10–16", "C. 12–20", "D. 16–24"],
-    correct: "C"
-  },
-  {
-    question: "2. What does the 'O' stand for in OPQRST?",
-    choices: ["A. Onset", "B. Oxygen", "C. Output", "D. Observation"],
-    correct: "A"
-  },
-  {
-    question: "3. Which of the following is a sign of compensated shock?",
-    choices: ["A. Hypotension", "B. Weak radial pulse", "C. Cyanosis", "D. Tachycardia"],
-    correct: "D"
-  },
-  {
-    question: "4. What is the appropriate dose of aspirin for chest pain per protocol?",
-    choices: ["A. 81 mg", "B. 160–325 mg", "C. 600 mg", "D. 500 mg"],
-    correct: "B"
-  },
-  {
-    question: "5. What is the best position to transport a stroke patient with intact airway?",
-    choices: ["A. Supine", "B. Recovery", "C. Prone", "D. Trendelenburg"],
-    correct: "B"
-  }
-];
+let questions = [];
 
-function buildQuiz() {
-  const form = document.getElementById("quizForm");
-  questions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.className = "question-box";
+async function loadQuestions() {
+  const res = await fetch('questions.json');
+  const all = await res.json();
+  // Pick 5 random questions
+  questions = all.sort(() => 0.5 - Math.random()).slice(0, 5);
+  displayQuestions();
+}
+
+function displayQuestions() {
+  const form = document.getElementById('quizForm');
+  form.innerHTML = '';
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'question-box';
     div.innerHTML = `
       <p>${q.question}</p>
-      <div class="choices">
-        ${q.choices.map((choice, i) => `
-          <label>
-            <input type="radio" name="q${index}" value="${choice.charAt(0)}">
-            ${choice}
-          </label>
-        `).join('')}
-      </div>
-      <div id="feedback${index}" class="feedback"></div>
+      ${q.choices.map(choice => `
+        <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
+      `).join('')}
+      <div class="feedback" id="feedback${i}"></div>
     `;
     form.appendChild(div);
   });
 }
 
 function submitQuiz() {
-  questions.forEach((q, index) => {
-    const selected = document.querySelector(`input[name="q${index}"]:checked`);
-    const feedback = document.getElementById(`feedback${index}`);
-    if (selected) {
-      if (selected.value === q.correct) {
-        feedback.innerHTML = "✅ Correct!";
-        feedback.className = "feedback correct";
-      } else {
-        feedback.innerHTML = `❌ Incorrect. Correct answer is ${q.correct}.`;
-        feedback.className = "feedback incorrect";
-      }
+  questions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    const feedback = document.getElementById(`feedback${i}`);
+    if (!selected) {
+      feedback.innerHTML = "No answer selected.";
+      feedback.className = "feedback explanation";
+    } else if (selected.value === q.correct) {
+      feedback.innerHTML = `✅ Correct! ${q.explanation}`;
+      feedback.className = "feedback correct";
     } else {
-      feedback.innerHTML = "❌ No answer selected.";
-      feedback.className = "feedback incorrect";
+      feedback.innerHTML = `💡 Explanation: ${q.explanation}`;
+      feedback.className = "feedback explanation";
     }
   });
 }
 
-buildQuiz();
+loadQuestions();
 </script>
-
 </body>
 </html>
