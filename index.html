@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EMS Daily Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef7fc;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #0077cc;
+    }
+    .question-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .choices label {
+      display: block;
+      margin: 8px 0;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .explanation {
+      color: #333;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>EMS Daily Quiz</h1>
+<form id="quizForm"></form>
+<button onclick="submitQuiz()">Submit Answers</button>
+
+<script>
+let questions = [];
+
+async function loadQuestions() {
+  const res = await fetch('questions.json');
+  const all = await res.json();
+  // Pick 5 random questions
+  questions = all.sort(() => 0.5 - Math.random()).slice(0, 5);
+  displayQuestions();
+}
+
+function displayQuestions() {
+  const form = document.getElementById('quizForm');
+  form.innerHTML = '';
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'question-box';
+    div.innerHTML = `
+      <p>${q.question}</p>
+      ${q.choices.map(choice => `
+        <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
+      `).join('')}
+      <div class="feedback" id="feedback${i}"></div>
+    `;
+    form.appendChild(div);
+  });
+}
+
+function submitQuiz() {
+  questions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    const feedback = document.getElementById(`feedback${i}`);
+    if (!selected) {
+      feedback.innerHTML = "No answer selected.";
+      feedback.className = "feedback explanation";
+    } else if (selected.value === q.correct) {
+      feedback.innerHTML = `✅ Correct! ${q.explanation}`;
+      feedback.className = "feedback correct";
+    } else {
+      feedback.innerHTML = `💡 Explanation: ${q.explanation}`;
+      feedback.className = "feedback explanation";
+    }
+  });
+}
+
+loadQuestions();
+</script>
+</body>
+</html>
