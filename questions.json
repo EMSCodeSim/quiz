@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What is the normal range for adult respiratory rate?",
+    "choices": ["A. 8–14", "B. 10–16", "C. 12–20", "D. 16–24"],
+    "correct": "C",
+    "explanation": "The normal adult respiratory rate is 12–20 breaths per minute."
+  },
+  {
+    "question": "What does the 'O' in OPQRST stand for?",
+    "choices": ["A. Oxygen", "B. Output", "C. Onset", "D. Observation"],
+    "correct": "C",
+    "explanation": "'O' stands for 'Onset' — when the symptoms began."
+  },
+  {
+    "question": "Which of the following is a sign of compensated shock?",
+    "choices": ["A. Cyanosis", "B. Hypotension", "C. Bradycardia", "D. Tachycardia"],
+    "correct": "D",
+    "explanation": "Tachycardia is an early sign of compensated shock."
+  }
+]
