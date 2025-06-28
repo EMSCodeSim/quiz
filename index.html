@@ -59,7 +59,7 @@
 let questions = [];
 
 function getDailyIndexSeed() {
-  const today = new Date().toISOString().split("T")[0]; // e.g., "2025-06-28"
+  const today = new Date().toISOString().split("T")[0]; // "2025-06-28"
   let hash = 0;
   for (let i = 0; i < today.length; i++) {
     hash = today.charCodeAt(i) + ((hash << 5) - hash);
@@ -68,8 +68,8 @@ function getDailyIndexSeed() {
 }
 
 function seededShuffle(array, seed) {
-  let result = [...array];
-  let random = mulberry32(seed);
+  const result = [...array];
+  const random = mulberry32(seed);
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
     [result[i], result[j]] = [result[j], result[i]];
@@ -87,13 +87,19 @@ function mulberry32(a) {
 }
 
 async function loadQuestions() {
-  const res = await fetch('emtb_1000_questions.json');
-  const all = await res.json();
+  try {
+    const res = await fetch('emtb_20_questions.json'); // Or questions.json
+    const all = await res.json();
 
-  const seed = getDailyIndexSeed();
-  const dailyQuestions = seededShuffle(all, seed).slice(0, 5);
-  questions = dailyQuestions;
-  displayQuestions();
+    const seed = getDailyIndexSeed();
+    const dailyQuestions = seededShuffle(all, seed).slice(0, Math.min(5, all.length));
+
+    questions = dailyQuestions;
+    displayQuestions();
+  } catch (err) {
+    document.getElementById('quizForm').innerHTML = `<p style="color:red;">Error loading questions. Make sure you're running a local server and that the JSON file is valid.</p>`;
+    console.error("Failed to load or parse questions.json", err);
+  }
 }
 
 function displayQuestions() {
