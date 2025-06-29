@@ -1,111 +1,5 @@
 [
   {
-    "question": "What is the normal range for adult respiratory rate?",
-    "choices": ["A. 8–14", "B. 10–16", "C. 12–20", "D. 16–24"],
-    "correct": "C",
-    "explanation": "The normal adult respiratory rate is 12–20 breaths per minute."
-  },
-  {
-    "question": "What does the 'O' in OPQRST stand for?",
-    "choices": ["A. Oxygen", "B. Output", "C. Onset", "D. Observation"],
-    "correct": "C",[
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "Which of the following best indicates inadequate breathing?",
-    "choices": [
-      "A. Speaking in full sentences",
-      "B. Respiratory rate of 16",
-      "C. Use of accessory muscles",
-      "D. Equal chest rise"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Suggests adequate tidal volume and ventilation.",
-      "B": "16 is normal \u2014 does not indicate distress.",
-      "C": "Correct \u2014 indicates increased work of breathing.",
-      "D": "Equal rise shows good bilateral ventilation."
-    }
-  },
-  {
-    "question": "Which of the following is an early sign of shock?",
-    "choices": [
-      "A. Cyanosis",
-      "B. Bradycardia",
-      "C. Tachycardia",
-      "D. Hypotension"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Late sign \u2014 cyanosis appears when perfusion is significantly impaired.",
-      "B": "Not typical \u2014 bradycardia is uncommon in early shock.",
-      "C": "Correct \u2014 tachycardia is one of the first compensatory responses.",
-      "D": "Hypotension occurs later after compensation fails."
-    }
-  },
-  {
-    "question": "Which of the following best indicates inadequate breathing?",
-    "choices": [
-      "A. Speaking in full sentences",
-      "B. Respiratory rate of 16",
-      "C. Use of accessory muscles",
-      "D. Equal chest rise"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Suggests adequate tidal volume and ventilation.",
-      "B": "16 is normal \u2014 does not indicate distress.",
-      "C": "Correct \u2014 indicates increased work of breathing.",
-      "D": "Equal rise shows good bilateral ventilation."
-    }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
     "question": "A patient with chest pain and no contraindications should first receive which medication?",
     "choices": [
       "A. Nitroglycerin",
@@ -122,99 +16,35 @@
     }
   },
   {
-    "question": "Which of the following is an early sign of shock?",
+    "question": "Which of the following best describes the purpose of the SAMPLE history?",
     "choices": [
-      "A. Cyanosis",
-      "B. Bradycardia",
-      "C. Tachycardia",
-      "D. Hypotension"
+      "A. Determine stroke severity",
+      "B. Rule out trauma",
+      "C. Guide treatment by history",
+      "D. Assess consciousness level"
     ],
     "correct": "C",
     "explanation": {
-      "A": "Late sign \u2014 cyanosis appears when perfusion is significantly impaired.",
-      "B": "Not typical \u2014 bradycardia is uncommon in early shock.",
-      "C": "Correct \u2014 tachycardia is one of the first compensatory responses.",
-      "D": "Hypotension occurs later after compensation fails."
+      "A": "Stroke scales assess stroke severity, not SAMPLE.",
+      "B": "SAMPLE applies to medical and trauma cases alike.",
+      "C": "Correct \u2014 it gathers focused history to guide treatment.",
+      "D": "AVPU or GCS assess consciousness, not SAMPLE."
     }
   },
   {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
+    "question": "Which of the following findings is most concerning in a head injury patient?",
     "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
-    "question": "What is the preferred airway maneuver in a trauma patient with suspected spinal injury?",
-    "choices": [
-      "A. Head tilt\u2013chin lift",
-      "B. Jaw-thrust",
-      "C. Oropharyngeal airway",
-      "D. Nasopharyngeal airway"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Avoid this in spinal trauma \u2014 it moves the neck.",
-      "B": "Correct \u2014 jaw-thrust opens the airway without neck movement.",
-      "C": "OPA is used after opening the airway, not to open it.",
-      "D": "NPA is useful but not the first airway-opening maneuver."
-    }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
+      "A. Vomiting once",
+      "B. Bruising",
+      "C. Unequal pupils",
+      "D. Headache"
     ],
     "correct": "C",
     "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
-    "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
-    "question": "Which of the following is an early sign of shock?",
-    "choices": [
-      "A. Cyanosis",
-      "B. Bradycardia",
-      "C. Tachycardia",
-      "D. Hypotension"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Late sign \u2014 cyanosis appears when perfusion is significantly impaired.",
-      "B": "Not typical \u2014 bradycardia is uncommon in early shock.",
-      "C": "Correct \u2014 tachycardia is one of the first compensatory responses.",
-      "D": "Hypotension occurs later after compensation fails."
+      "A": "Vomiting can occur but is not as serious as neurologic signs.",
+      "B": "Bruising is expected with trauma but not always urgent.",
+      "C": "Correct \u2014 unequal pupils indicate possible brain herniation.",
+      "D": "Headaches are common but not definitive of severe injury."
     }
   },
   {
@@ -266,38 +96,6 @@
     }
   },
   {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
-    "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
-    "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
     "question": "Which of the following best indicates inadequate breathing?",
     "choices": [
       "A. Speaking in full sentences",
@@ -312,190 +110,5 @@
       "C": "Correct \u2014 indicates increased work of breathing.",
       "D": "Equal rise shows good bilateral ventilation."
     }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "Which of the following is an early sign of shock?",
-    "choices": [
-      "A. Cyanosis",
-      "B. Bradycardia",
-      "C. Tachycardia",
-      "D. Hypotension"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Late sign \u2014 cyanosis appears when perfusion is significantly impaired.",
-      "B": "Not typical \u2014 bradycardia is uncommon in early shock.",
-      "C": "Correct \u2014 tachycardia is one of the first compensatory responses.",
-      "D": "Hypotension occurs later after compensation fails."
-    }
-  },
-  {
-    "question": "Which of the following best indicates inadequate breathing?",
-    "choices": [
-      "A. Speaking in full sentences",
-      "B. Respiratory rate of 16",
-      "C. Use of accessory muscles",
-      "D. Equal chest rise"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Suggests adequate tidal volume and ventilation.",
-      "B": "16 is normal \u2014 does not indicate distress.",
-      "C": "Correct \u2014 indicates increased work of breathing.",
-      "D": "Equal rise shows good bilateral ventilation."
-    }
-  },
-  {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
-    "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
-    "question": "Which of the following is an early sign of shock?",
-    "choices": [
-      "A. Cyanosis",
-      "B. Bradycardia",
-      "C. Tachycardia",
-      "D. Hypotension"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Late sign \u2014 cyanosis appears when perfusion is significantly impaired.",
-      "B": "Not typical \u2014 bradycardia is uncommon in early shock.",
-      "C": "Correct \u2014 tachycardia is one of the first compensatory responses.",
-      "D": "Hypotension occurs later after compensation fails."
-    }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
-    "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
-    "question": "A patient with chest pain and no contraindications should first receive which medication?",
-    "choices": [
-      "A. Nitroglycerin",
-      "B. Aspirin",
-      "C. Morphine",
-      "D. Oxygen"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Given after aspirin and vitals, and only if BP permits.",
-      "B": "Correct \u2014 aspirin is given first to reduce clot formation.",
-      "C": "Morphine may depress respiration and isn't first-line.",
-      "D": "Oxygen is only needed if hypoxic (SpO2 < 94%)."
-    }
-  },
-  {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": [
-      "A. 8\u201314",
-      "B. 10\u201316",
-      "C. 12\u201320",
-      "D. 16\u201324"
-    ],
-    "correct": "C",
-    "explanation": {
-      "A": "Too low \u2014 this may indicate hypoventilation.",
-      "B": "Borderline low \u2014 not the standard range.",
-      "C": "Correct \u2014 12\u201320 is the normal adult range.",
-      "D": "Too high \u2014 may indicate tachypnea or respiratory distress."
-    }
-  },
-  {
-    "question": "What is the preferred airway maneuver in a trauma patient with suspected spinal injury?",
-    "choices": [
-      "A. Head tilt\u2013chin lift",
-      "B. Jaw-thrust",
-      "C. Oropharyngeal airway",
-      "D. Nasopharyngeal airway"
-    ],
-    "correct": "B",
-    "explanation": {
-      "A": "Avoid this in spinal trauma \u2014 it moves the neck.",
-      "B": "Correct \u2014 jaw-thrust opens the airway without neck movement.",
-      "C": "OPA is used after opening the airway, not to open it.",
-      "D": "NPA is useful but not the first airway-opening maneuver."
-    }
-  }
-]
-    "explanation": "'O' stands for 'Onset' — when the symptoms began."
-  },
-  {
-    "question": "Which of the following is a sign of compensated shock?",
-    "choices": ["A. Cyanosis", "B. Hypotension", "C. Bradycardia", "D. Tachycardia"],
-    "correct": "D",
-    "explanation": "Tachycardia is an early sign of compensated shock."
   }
 ]
