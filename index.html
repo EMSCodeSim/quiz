@@ -8,7 +8,7 @@
       font-family: Arial, sans-serif;
       background: #eef7fc;
       padding: 20px;
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
     }
     h1 {
@@ -25,6 +25,12 @@
     .choices label {
       display: block;
       margin: 8px 0;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .choices input[type="radio"] {
+      margin-right: 8px;
     }
     .feedback {
       margin-top: 10px;
@@ -34,18 +40,18 @@
       color: green;
     }
     .explanation {
-      color: #333;
+      color: #b00000;
     }
     button {
-      background: #0077cc;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
       display: block;
       margin: 20px auto;
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -59,11 +65,15 @@
 let questions = [];
 
 async function loadQuestions() {
-  const res = await fetch('questions.json');
-  const all = await res.json();
-  // Pick 5 random questions
-  questions = all.sort(() => 0.5 - Math.random()).slice(0, 5);
-  displayQuestions();
+  try {
+    const res = await fetch('questions.json'); // Make sure this file exists in same folder
+    const all = await res.json();
+    questions = all.slice(0, 7); // Load up to 7 questions
+    displayQuestions();
+  } catch (err) {
+    document.getElementById("quizForm").innerHTML = "<p style='color:red;'>Error loading questions.json</p>";
+    console.error("Error loading or parsing JSON:", err);
+  }
 }
 
 function displayQuestions() {
@@ -73,11 +83,15 @@ function displayQuestions() {
     const div = document.createElement('div');
     div.className = 'question-box';
     div.innerHTML = `
-      <p>${q.question}</p>
-      ${q.choices.map(choice => `
-        <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
-      `).join('')}
-      <div class="feedback" id="feedback${i}"></div>
+      <p><strong>${i + 1}. ${q.question}</strong></p>
+      <div class="choices">
+        ${q.choices.map(choice => `
+          <label>
+            <input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}
+          </label>
+        `).join('')}
+      </div>
+      <div id="feedback${i}" class="feedback"></div>
     `;
     form.appendChild(div);
   });
@@ -87,15 +101,19 @@ function submitQuiz() {
   questions.forEach((q, i) => {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
     const feedback = document.getElementById(`feedback${i}`);
+    
     if (!selected) {
-      feedback.innerHTML = "No answer selected.";
+      feedback.innerHTML = `💡 No answer selected.<br><strong>Correct: ${q.correct}</strong> — ${q.explanation[q.correct]}`;
       feedback.className = "feedback explanation";
-    } else if (selected.value === q.correct) {
-      feedback.innerHTML = `✅ Correct! ${q.explanation}`;
-      feedback.className = "feedback correct";
     } else {
-      feedback.innerHTML = `💡 Explanation: ${q.explanation}`;
-      feedback.className = "feedback explanation";
+      const selectedValue = selected.value;
+      const isCorrect = selectedValue === q.correct;
+      const explanation = q.explanation[selectedValue];
+
+      feedback.innerHTML = isCorrect
+        ? `✅ Correct! ${explanation}`
+        : `❌ Incorrect. You chose ${selectedValue}: ${explanation}<br><strong>Correct is ${q.correct}</strong>: ${q.explanation[q.correct]}`;
+      feedback.className = isCorrect ? "feedback correct" : "feedback explanation";
     }
   });
 }
@@ -104,3 +122,4 @@ loadQuestions();
 </script>
 </body>
 </html>
+
