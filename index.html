@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>EMS Daily Quiz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #eef7fc;
       padding: 20px;
-      max-width: 650px;
+      max-width: 600px;
       margin: auto;
     }
     h1 {
@@ -34,87 +34,92 @@
       color: green;
     }
     .explanation {
-      color: #555;
-    }
-    select, button {
-      margin: 10px auto;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      display: block;
+      color: #333;
     }
     button {
       background: #0077cc;
       color: white;
+      padding: 10px 20px;
       border: none;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
+      display: block;
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
 
 <h1>EMS Daily Quiz</h1>
-
-<label for="dateSelector">Choose quiz date:</label>
-<select id="dateSelector"></select>
-
 <form id="quizForm"></form>
 <button onclick="submitQuiz()">Submit Answers</button>
 
-<!-- Firebase + App Scripts -->
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
-<script src="firebase-config.js"></script>
 
+<!-- Firebase Config -->
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyDM6DpRSeZueVKRpbyJyDmhf8WY66KyCDk",
+  authDomain: "dailyquiz-d5279.firebaseapp.com",
+  databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com",
+  projectId: "dailyquiz-d5279",
+  storageBucket: "dailyquiz-d5279.appspot.com",
+  messagingSenderId: "94577748034",
+  appId: "1:94577748034:web:c032d3a1d72db1313de5db",
+  measurementId: "G-19DVN7NNH7"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+// Optional connection check
+firebase.database().ref(".info/connected").on("value", (snap) => {
+  if (snap.val() === true) {
+    console.log("✅ Connected to Firebase");
+  } else {
+    console.error("❌ Not connected to Firebase");
+  }
+});
+</script>
+
+<!-- App Logic -->
 <script>
 let questions = [];
-let currentDate = getTodayString();
 
-function getTodayString(offset = 0) {
-  const d = new Date();
-  d.setDate(d.getDate() - offset);
-  return d.toISOString().split('T')[0];
-}
-
-function populateDateSelector() {
-  const selector = document.getElementById("dateSelector");
-  for (let i = 0; i <= 3; i++) {
-    const dateStr = getTodayString(i);
-    const opt = document.createElement("option");
-    opt.value = dateStr;
-    opt.innerText = i === 0 ? `Today (${dateStr})` : `${i} day(s) ago (${dateStr})`;
-    selector.appendChild(opt);
-  }
-  selector.addEventListener("change", () => {
-    currentDate = selector.value;
-    loadQuestions();
-  });
+function getTodayDateKey() {
+  const today = new Date();
+  return today.toISOString().split("T")[0]; // YYYY-MM-DD
 }
 
 function loadQuestions() {
-  const ref = firebase.database().ref("daily_quizzes/" + currentDate);
-  ref.once("value").then(snapshot => {
-    if (!snapshot.exists()) {
-      document.getElementById("quizForm").innerHTML = "<p>No quiz found for this date.</p>";
-      return;
-    }
-    questions = snapshot.val();
-    displayQuestions();
-  });
+  const dateKey = getTodayDateKey();
+  firebase.database().ref(`daily_quizzes/${dateKey}`).once("value")
+    .then(snapshot => {
+      questions = snapshot.val();
+      if (!questions || questions.length === 0) {
+        document.getElementById("quizForm").innerHTML = `<p>No quiz available for today (${dateKey}).</p>`;
+        return;
+      }
+      displayQuestions();
+    })
+    .catch(err => {
+      console.error("Error loading quiz:", err);
+    });
 }
 
 function displayQuestions() {
-  const form = document.getElementById("quizForm");
-  form.innerHTML = "";
+  const form = document.getElementById('quizForm');
+  form.innerHTML = '';
   questions.forEach((q, i) => {
-    const div = document.createElement("div");
-    div.className = "question-box";
+    const div = document.createElement('div');
+    div.className = 'question-box';
     div.innerHTML = `
       <p>${q.question}</p>
       ${q.choices.map(choice => `
         <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
-      `).join("")}
+      `).join('')}
       <div class="feedback" id="feedback${i}"></div>
     `;
     form.appendChild(div);
@@ -122,37 +127,22 @@ function displayQuestions() {
 }
 
 function submitQuiz() {
-  const results = [];
   questions.forEach((q, i) => {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
     const feedback = document.getElementById(`feedback${i}`);
-    let result = { question: q.question, selected: null, correct: q.correct };
     if (!selected) {
       feedback.innerHTML = "❌ No answer selected.";
       feedback.className = "feedback explanation";
     } else if (selected.value === q.correct) {
       feedback.innerHTML = `✅ Correct! ${q.explanation}`;
       feedback.className = "feedback correct";
-      result.selected = selected.value;
-      result.result = "correct";
     } else {
-      feedback.innerHTML = `❌ Incorrect. ${q.explanation}`;
+      feedback.innerHTML = `❌ Incorrect. Correct answer: ${q.correct}<br>💡 ${q.explanation}`;
       feedback.className = "feedback explanation";
-      result.selected = selected.value;
-      result.result = "incorrect";
     }
-    results.push(result);
-  });
-
-  // Submit to Firebase (anonymously)
-  firebase.database().ref("quiz_submissions/" + Date.now()).set({
-    date: currentDate,
-    results
   });
 }
 
-// Initialize
-populateDateSelector();
 loadQuestions();
 </script>
 
