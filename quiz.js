@@ -1,90 +1,29 @@
-const quizContainer = document.getElementById("quizContainer");
-const daySelect = document.getElementById("daySelect");
+const today = new Date().toISOString().split("T")[0]; // e.g. 2025-06-30
+const quizRef = firebase.database().ref('/quizzes/' + today);
 
-// Utility to get today's date string
-function getTodayDateString() {
-  const d = new Date();
-  return d.toISOString().split("T")[0];
-}
+quizRef.once('value')
+  .then(snapshot => {
+    const quizContainer = document.getElementById("quiz-container");
+    quizContainer.innerHTML = "";
 
-// Load last 3 days of quizzes
-function loadAvailableDays() {
-  const today = new Date();
-  for (let i = 0; i < 3; i++) {
-    const date = new Date(today);
-    date.setDate(today.getDate() - i);
-    const dateString = date.toISOString().split("T")[0];
-    const option = document.createElement("option");
-    option.value = dateString;
-    option.textContent = dateString;
-    daySelect.appendChild(option);
-  }
-  daySelect.value = getTodayDateString();
-  loadQuiz(daySelect.value);
-}
+    if (!snapshot.exists()) {
+      quizContainer.innerHTML = "<p>No quiz found for today.</p>";
+      return;
+    }
 
-daySelect.addEventListener("change", () => {
-  loadQuiz(daySelect.value);
-});
-
-function loadQuiz(dateStr) {
-  quizContainer.innerHTML = "<p>Loading...</p>";
-  firebase.database().ref(`quizzes/${dateStr}`).once("value")
-    .then(snapshot => {
-      const questions = snapshot.val();
-      if (!questions) {
-        quizContainer.innerHTML = `<p>No quiz found for ${dateStr}</p>`;
-        return;
-      }
-      renderQuestions(questions);
-    })
-    .catch(err => {
-      console.error("Error loading quiz:", err);
-      quizContainer.innerHTML = `<p>Error loading quiz data.</p>`;
+    snapshot.forEach((childSnapshot, index) => {
+      const question = childSnapshot.val();
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <p><strong>Q${index + 1}:</strong> ${question.question}</p>
+        <ul>
+          ${question.choices.map(choice => `<li>${choice}</li>`).join("")}
+        </ul>
+      `;
+      quizContainer.appendChild(div);
     });
-}
-
-function renderQuestions(questions) {
-  quizContainer.innerHTML = "";
-  questions.forEach((q, index) => {
-    const box = document.createElement("div");
-    box.className = "question-box";
-
-    const qText = document.createElement("p");
-    qText.innerHTML = `<strong>Q${index + 1}:</strong> ${q.question}`;
-    box.appendChild(qText);
-
-    const optionBox = document.createElement("div");
-    optionBox.className = "options";
-
-    q.options.forEach(option => {
-      const btn = document.createElement("button");
-      btn.textContent = option;
-      btn.onclick = () => {
-        btn.classList.add(option === q.correctAnswer ? "correct" : "wrong");
-        if (option !== q.correctAnswer) {
-          [...optionBox.children].forEach(b => {
-            if (b.textContent === q.correctAnswer) {
-              b.classList.add("correct");
-            }
-            b.disabled = true;
-          });
-        } else {
-          [...optionBox.children].forEach(b => b.disabled = true);
-        }
-
-        const expl = document.createElement("div");
-        expl.className = "explanation";
-        expl.textContent = "Explanation: " + q.explanation;
-        box.appendChild(expl);
-      };
-      optionBox.appendChild(btn);
-    });
-
-    box.appendChild(optionBox);
-    quizContainer.appendChild(box);
+  })
+  .catch(error => {
+    console.error("Error loading quiz:", error);
+    document.getElementById("quiz-container").innerHTML = "<p>Error loading quiz.</p>";
   });
-}
-
-// Start
-loadAvailableDays();
