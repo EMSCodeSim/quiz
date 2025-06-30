@@ -1,12 +1,16 @@
 const admin = require("firebase-admin");
-const serviceAccount = require("../../serviceAccountKey.json"); // Add your Firebase key
+const questionBank = require("../../questionBank.json");
 
-const questionBank = require("../../questionBank.json"); // Your 1000+ Qs
+// Parse service account key from Netlify environment variable
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com"
-});
+// Initialize Firebase only once
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com"
+  });
+}
 
 const db = admin.database();
 
@@ -16,24 +20,4 @@ exports.handler = async function (event, context) {
   const payload = {};
   selected.forEach((q, i) => payload[i] = q);
 
-  await db.ref(`quizzes/${today}`).set(payload);
-  console.log(`Quiz for ${today} uploaded`);
-
-  return {
-    statusCode: 200,
-    body: "Quiz uploaded"
-  };
-};
-
-exports.config = {
-  schedule: "@daily" // Runs at midnight UTC every day
-};
-
-function shuffleArray(array) {
-  const copy = [...array];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
+  await db.ref(`quizzes
