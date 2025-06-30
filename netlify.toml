@@ -1,10 +1,10 @@
 [build]
+  publish = "."  # Use root folder since index.html is not in /public
   functions = "netlify/functions"
-  publish = "public"  # or your build folder if using something like React or Vue
 
 [functions]
   directory = "netlify/functions"
-  node_bundler = "esbuild"  # ensures proper packaging for functions using dependencies
+  node_bundler = "esbuild"
 
 [dev]
   functions = "netlify/functions"
