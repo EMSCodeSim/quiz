@@ -12,6 +12,9 @@
       margin: auto;
       background: #f2f2f2;
     }
+    h1 {
+      text-align: center;
+    }
     #quiz-container div {
       background: white;
       padding: 1rem;
@@ -25,11 +28,11 @@
   <h1>EMS Daily Quiz</h1>
   <div id="quiz-container">Loading...</div>
 
-  <!-- Firebase -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
-  <!-- Firebase Config -->
+  <!-- Firebase Config and Initialization -->
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyDM6DpRSeZueVKRpbyJyDmhf8WY66KyCDk",
@@ -41,11 +44,11 @@
       appId: "1:94577748034:web:c032d3a1d72db1313de5db",
       measurementId: "G-19DVN7NNH7"
     };
-
     firebase.initializeApp(firebaseConfig);
   </script>
 
-  <!-- Quiz Logic -->
+  <!-- Your Quiz Logic -->
   <script src="quiz.js"></script>
 </body>
 </html>
+
