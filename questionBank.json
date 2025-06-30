@@ -1,0 +1,19 @@
+[
+  {
+    "question": "What is the normal respiratory rate for an adult?",
+    "options": ["12–20", "20–28", "10–18", "16–24"],
+    "correctAnswer": "12–20",
+    "explanation": "The normal adult respiratory rate is between 12 and 20 breaths per minute."
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "options": [
+      "Onset, Provocation, Quality, Radiation, Severity, Time",
+      "Observe, Palpate, Question, Rotate, Stabilize, Transport",
+      "Onset, Pulse, Question, Respiration, Stability, Time",
+      "Onset, Position, Quality, Relief, Severity, Transport"
+    ],
+    "correctAnswer": "Onset, Provocation, Quality, Radiation, Severity, Time",
+    "explanation": "OPQRST is used to evaluate a patient's pain or symptoms."
+  }
+]
