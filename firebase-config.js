@@ -20,3 +20,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+  firebase.database().ref(".info/connected").on("value", (snap) => {
+  if (snap.val() === true) {
+    console.log("✅ Connected to Firebase");
+  } else {
+    console.error("❌ Not connected to Firebase");
+  }
+});
+
