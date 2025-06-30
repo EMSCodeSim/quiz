@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>EMS Daily Quiz</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,12 +28,6 @@
     .choices label {
       display: block;
       margin: 8px 0;
-      padding: 5px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .choices input[type="radio"] {
-      margin-right: 8px;
     }
     .feedback {
       margin-top: 10px;
@@ -40,57 +37,74 @@
       color: green;
     }
     .explanation {
-      color: #b00000;
+      color: red;
     }
     button {
-      display: block;
-      margin: 20px auto;
       background: #0077cc;
       color: white;
-      border: none;
       padding: 10px 20px;
       font-size: 16px;
-      border-radius: 8px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
+      margin: 20px auto;
+      display: block;
+    }
+    select {
+      font-size: 16px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
 <h1>EMS Daily Quiz</h1>
+
+<label for="daySelect">Choose quiz day:</label>
+<select id="daySelect" onchange="loadQuestions()">
+  <option value="0">Today</option>
+  <option value="1">Yesterday</option>
+  <option value="2">2 Days Ago</option>
+</select>
+
 <form id="quizForm"></form>
 <button onclick="submitQuiz()">Submit Answers</button>
+<p id="scoreSummary" style="text-align:center; font-weight:bold;"></p>
 
 <script>
 let questions = [];
 
-async function loadQuestions() {
-  try {
-    const res = await fetch('questions.json'); // Make sure this file exists in same folder
-    const all = await res.json();
-    questions = all.slice(0, 7); // Load up to 7 questions
-    displayQuestions();
-  } catch (err) {
-    document.getElementById("quizForm").innerHTML = "<p style='color:red;'>Error loading questions.json</p>";
-    console.error("Error loading or parsing JSON:", err);
-  }
+function getSelectedDateOffset(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() - offsetDays);
+  return d.toISOString().split("T")[0];
+}
+
+function loadQuestions() {
+  const offset = parseInt(document.getElementById("daySelect").value);
+  const quizDate = getSelectedDateOffset(offset);
+  firebase.database().ref("daily_quizzes/" + quizDate).once("value")
+    .then(snapshot => {
+      if (!snapshot.exists()) {
+        document.getElementById("quizForm").innerHTML = "<p>No quiz available for this date.</p>";
+        return;
+      }
+      questions = snapshot.val();
+      displayQuestions();
+    });
 }
 
 function displayQuestions() {
-  const form = document.getElementById('quizForm');
+  const form = document.getElementById("quizForm");
   form.innerHTML = '';
   questions.forEach((q, i) => {
     const div = document.createElement('div');
     div.className = 'question-box';
     div.innerHTML = `
       <p><strong>${i + 1}. ${q.question}</strong></p>
-      <div class="choices">
-        ${q.choices.map(choice => `
-          <label>
-            <input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}
-          </label>
-        `).join('')}
-      </div>
+      ${q.choices.map(choice => `
+        <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
+      `).join('')}
       <div id="feedback${i}" class="feedback"></div>
     `;
     form.appendChild(div);
@@ -98,28 +112,51 @@ function displayQuestions() {
 }
 
 function submitQuiz() {
+  let correctCount = 0;
+  const answers = {};
+
   questions.forEach((q, i) => {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
     const feedback = document.getElementById(`feedback${i}`);
-    
-    if (!selected) {
-      feedback.innerHTML = `💡 No answer selected.<br><strong>Correct: ${q.correct}</strong> — ${q.explanation[q.correct]}`;
-      feedback.className = "feedback explanation";
-    } else {
-      const selectedValue = selected.value;
-      const isCorrect = selectedValue === q.correct;
-      const explanation = q.explanation[selectedValue];
+    const correctLetter = q.correct;
+    const explanation = q.explanation[selected?.value] || "";
 
-      feedback.innerHTML = isCorrect
-        ? `✅ Correct! ${explanation}`
-        : `❌ Incorrect. You chose ${selectedValue}: ${explanation}<br><strong>Correct is ${q.correct}</strong>: ${q.explanation[q.correct]}`;
-      feedback.className = isCorrect ? "feedback correct" : "feedback explanation";
+    if (!selected) {
+      feedback.innerHTML = `💡 No answer selected. Correct: ${correctLetter} - ${q.explanation[correctLetter]}`;
+      feedback.className = "feedback explanation";
+    } else if (selected.value === correctLetter) {
+      feedback.innerHTML = `✅ Correct! ${q.explanation[correctLetter]}`;
+      feedback.className = "feedback correct";
+      correctCount++;
+    } else {
+      feedback.innerHTML = `❌ Incorrect. You chose ${selected.value}: ${explanation}<br><strong>Correct is ${correctLetter}</strong>: ${q.explanation[correctLetter]}`;
+      feedback.className = "feedback explanation";
     }
+
+    answers[i] = selected ? selected.value : "none";
   });
+
+  const score = correctCount;
+  const offset = parseInt(document.getElementById("daySelect").value);
+  const quizDate = getSelectedDateOffset(offset);
+
+  const submission = {
+    answers,
+    score,
+    timestamp: Date.now()
+  };
+
+  firebase.database().ref("quiz_submissions/anon_" + Date.now()).set({
+    date: quizDate,
+    ...submission
+  });
+
+  document.getElementById("scoreSummary").innerText = `You got ${score} out of ${questions.length} correct.`;
 }
 
+// Load today by default
 loadQuestions();
 </script>
+
 </body>
 </html>
-
