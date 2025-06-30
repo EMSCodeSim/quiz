@@ -2,149 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EMS Daily Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #eef7fc;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    h1 {
-      text-align: center;
-      color: #0077cc;
-    }
-    .question-box {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-    .choices label {
-      display: block;
-      margin: 8px 0;
-    }
-    .feedback {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    .correct {
-      color: green;
-    }
-    .explanation {
-      color: #333;
-    }
-    button {
-      background: #0077cc;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 </head>
 <body>
+  <div class="container">
+    <h1>🚑 EMS Daily Quiz</h1>
+    <div>
+      <label for="daySelect">Select Quiz Date:</label>
+      <select id="daySelect"></select>
+    </div>
+    <div id="quizContainer"></div>
+  </div>
 
-<h1>EMS Daily Quiz</h1>
-<form id="quizForm"></form>
-<button onclick="submitQuiz()">Submit Answers</button>
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
-
-<!-- Firebase Config -->
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDM6DpRSeZueVKRpbyJyDmhf8WY66KyCDk",
-  authDomain: "dailyquiz-d5279.firebaseapp.com",
-  databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com",
-  projectId: "dailyquiz-d5279",
-  storageBucket: "dailyquiz-d5279.appspot.com",
-  messagingSenderId: "94577748034",
-  appId: "1:94577748034:web:c032d3a1d72db1313de5db",
-  measurementId: "G-19DVN7NNH7"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-// Optional connection check
-firebase.database().ref(".info/connected").on("value", (snap) => {
-  if (snap.val() === true) {
-    console.log("✅ Connected to Firebase");
-  } else {
-    console.error("❌ Not connected to Firebase");
-  }
-});
-</script>
-
-<!-- App Logic -->
-<script>
-let questions = [];
-
-function getTodayDateKey() {
-  const today = new Date();
-  return today.toISOString().split("T")[0]; // YYYY-MM-DD
-}
-
-function loadQuestions() {
-  const dateKey = getTodayDateKey();
-  firebase.database().ref(`daily_quizzes/${dateKey}`).once("value")
-    .then(snapshot => {
-      questions = snapshot.val();
-      if (!questions || questions.length === 0) {
-        document.getElementById("quizForm").innerHTML = `<p>No quiz available for today (${dateKey}).</p>`;
-        return;
-      }
-      displayQuestions();
-    })
-    .catch(err => {
-      console.error("Error loading quiz:", err);
-    });
-}
-
-function displayQuestions() {
-  const form = document.getElementById('quizForm');
-  form.innerHTML = '';
-  questions.forEach((q, i) => {
-    const div = document.createElement('div');
-    div.className = 'question-box';
-    div.innerHTML = `
-      <p>${q.question}</p>
-      ${q.choices.map(choice => `
-        <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
-      `).join('')}
-      <div class="feedback" id="feedback${i}"></div>
-    `;
-    form.appendChild(div);
-  });
-}
-
-function submitQuiz() {
-  questions.forEach((q, i) => {
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    const feedback = document.getElementById(`feedback${i}`);
-    if (!selected) {
-      feedback.innerHTML = "❌ No answer selected.";
-      feedback.className = "feedback explanation";
-    } else if (selected.value === q.correct) {
-      feedback.innerHTML = `✅ Correct! ${q.explanation}`;
-      feedback.className = "feedback correct";
-    } else {
-      feedback.innerHTML = `❌ Incorrect. Correct answer: ${q.correct}<br>💡 ${q.explanation}`;
-      feedback.className = "feedback explanation";
-    }
-  });
-}
-
-loadQuestions();
-</script>
-
+  <script src="firebase.js"></script>
+  <script src="quiz.js"></script>
 </body>
 </html>
