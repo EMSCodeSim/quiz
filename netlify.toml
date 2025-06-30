@@ -1,0 +1,10 @@
+[build]
+  functions = "netlify/functions"
+  publish = "public"  # or your build folder if using something like React or Vue
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"  # ensures proper packaging for functions using dependencies
+
+[dev]
+  functions = "netlify/functions"
