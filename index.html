@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>EMS Daily Quiz</title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
-  <script src="firebase-config.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #eef7fc;
       padding: 20px;
-      max-width: 700px;
+      max-width: 650px;
       margin: auto;
     }
     h1 {
@@ -37,22 +34,21 @@
       color: green;
     }
     .explanation {
-      color: red;
+      color: #555;
+    }
+    select, button {
+      margin: 10px auto;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      display: block;
     }
     button {
       background: #0077cc;
       color: white;
-      padding: 10px 20px;
-      font-size: 16px;
       border: none;
-      border-radius: 6px;
       cursor: pointer;
-      margin: 20px auto;
-      display: block;
-    }
-    select {
-      font-size: 16px;
-      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -60,101 +56,103 @@
 
 <h1>EMS Daily Quiz</h1>
 
-<label for="daySelect">Choose quiz day:</label>
-<select id="daySelect" onchange="loadQuestions()">
-  <option value="0">Today</option>
-  <option value="1">Yesterday</option>
-  <option value="2">2 Days Ago</option>
-</select>
+<label for="dateSelector">Choose quiz date:</label>
+<select id="dateSelector"></select>
 
 <form id="quizForm"></form>
 <button onclick="submitQuiz()">Submit Answers</button>
-<p id="scoreSummary" style="text-align:center; font-weight:bold;"></p>
+
+<!-- Firebase + App Scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
 
 <script>
 let questions = [];
+let currentDate = getTodayString();
 
-function getSelectedDateOffset(offsetDays) {
+function getTodayString(offset = 0) {
   const d = new Date();
-  d.setDate(d.getDate() - offsetDays);
-  return d.toISOString().split("T")[0];
+  d.setDate(d.getDate() - offset);
+  return d.toISOString().split('T')[0];
+}
+
+function populateDateSelector() {
+  const selector = document.getElementById("dateSelector");
+  for (let i = 0; i <= 3; i++) {
+    const dateStr = getTodayString(i);
+    const opt = document.createElement("option");
+    opt.value = dateStr;
+    opt.innerText = i === 0 ? `Today (${dateStr})` : `${i} day(s) ago (${dateStr})`;
+    selector.appendChild(opt);
+  }
+  selector.addEventListener("change", () => {
+    currentDate = selector.value;
+    loadQuestions();
+  });
 }
 
 function loadQuestions() {
-  const offset = parseInt(document.getElementById("daySelect").value);
-  const quizDate = getSelectedDateOffset(offset);
-  firebase.database().ref("daily_quizzes/" + quizDate).once("value")
-    .then(snapshot => {
-      if (!snapshot.exists()) {
-        document.getElementById("quizForm").innerHTML = "<p>No quiz available for this date.</p>";
-        return;
-      }
-      questions = snapshot.val();
-      displayQuestions();
-    });
+  const ref = firebase.database().ref("daily_quizzes/" + currentDate);
+  ref.once("value").then(snapshot => {
+    if (!snapshot.exists()) {
+      document.getElementById("quizForm").innerHTML = "<p>No quiz found for this date.</p>";
+      return;
+    }
+    questions = snapshot.val();
+    displayQuestions();
+  });
 }
 
 function displayQuestions() {
   const form = document.getElementById("quizForm");
-  form.innerHTML = '';
+  form.innerHTML = "";
   questions.forEach((q, i) => {
-    const div = document.createElement('div');
-    div.className = 'question-box';
+    const div = document.createElement("div");
+    div.className = "question-box";
     div.innerHTML = `
-      <p><strong>${i + 1}. ${q.question}</strong></p>
+      <p>${q.question}</p>
       ${q.choices.map(choice => `
         <label><input type="radio" name="q${i}" value="${choice.charAt(0)}"> ${choice}</label>
-      `).join('')}
-      <div id="feedback${i}" class="feedback"></div>
+      `).join("")}
+      <div class="feedback" id="feedback${i}"></div>
     `;
     form.appendChild(div);
   });
 }
 
 function submitQuiz() {
-  let correctCount = 0;
-  const answers = {};
-
+  const results = [];
   questions.forEach((q, i) => {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
     const feedback = document.getElementById(`feedback${i}`);
-    const correctLetter = q.correct;
-    const explanation = q.explanation[selected?.value] || "";
-
+    let result = { question: q.question, selected: null, correct: q.correct };
     if (!selected) {
-      feedback.innerHTML = `💡 No answer selected. Correct: ${correctLetter} - ${q.explanation[correctLetter]}`;
+      feedback.innerHTML = "❌ No answer selected.";
       feedback.className = "feedback explanation";
-    } else if (selected.value === correctLetter) {
-      feedback.innerHTML = `✅ Correct! ${q.explanation[correctLetter]}`;
+    } else if (selected.value === q.correct) {
+      feedback.innerHTML = `✅ Correct! ${q.explanation}`;
       feedback.className = "feedback correct";
-      correctCount++;
+      result.selected = selected.value;
+      result.result = "correct";
     } else {
-      feedback.innerHTML = `❌ Incorrect. You chose ${selected.value}: ${explanation}<br><strong>Correct is ${correctLetter}</strong>: ${q.explanation[correctLetter]}`;
+      feedback.innerHTML = `❌ Incorrect. ${q.explanation}`;
       feedback.className = "feedback explanation";
+      result.selected = selected.value;
+      result.result = "incorrect";
     }
-
-    answers[i] = selected ? selected.value : "none";
+    results.push(result);
   });
 
-  const score = correctCount;
-  const offset = parseInt(document.getElementById("daySelect").value);
-  const quizDate = getSelectedDateOffset(offset);
-
-  const submission = {
-    answers,
-    score,
-    timestamp: Date.now()
-  };
-
-  firebase.database().ref("quiz_submissions/anon_" + Date.now()).set({
-    date: quizDate,
-    ...submission
+  // Submit to Firebase (anonymously)
+  firebase.database().ref("quiz_submissions/" + Date.now()).set({
+    date: currentDate,
+    results
   });
-
-  document.getElementById("scoreSummary").innerText = `You got ${score} out of ${questions.length} correct.`;
 }
 
-// Load today by default
+// Initialize
+populateDateSelector();
 loadQuestions();
 </script>
 
