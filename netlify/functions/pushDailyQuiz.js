@@ -2,10 +2,19 @@ const admin = require("firebase-admin");
 
 exports.handler = async function(event, context) {
   try {
-    // Load Firebase credentials from environment variable
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    const serviceAccountString = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
 
-    // Initialize Firebase only once
+    if (!serviceAccountString) {
+      throw new Error("Missing FIREBASE_SERVICE_ACCOUNT_JSON environment variable.");
+    }
+
+    let serviceAccount;
+    try {
+      serviceAccount = JSON.parse(serviceAccountString);
+    } catch (err) {
+      throw new Error("Failed to parse service account JSON: " + err.message);
+    }
+
     if (!admin.apps.length) {
       admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
@@ -14,56 +23,30 @@ exports.handler = async function(event, context) {
     }
 
     const db = admin.database();
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const dd = String(today.getDate()).padStart(2, "0");
-    const quizDate = `${yyyy}-${mm}-${dd}`;
+    const ref = db.ref("dailyQuizzes");
 
-    // Example question set
-    const questions = [
-      {
-        question: "What does OPQRST stand for?",
-        choices: ["Onset, Provocation, Quality, Radiation, Severity, Time", "Open, Push, Qualify, React, Speak, Test", "Observe, Pulse, Question, React, Systolic, Temperature"],
-        answer: "Onset, Provocation, Quality, Radiation, Severity, Time"
-      },
-      {
-        question: "What is the normal respiratory rate for an adult?",
-        choices: ["8–14", "12–20", "20–30"],
-        answer: "12–20"
-      },
-      {
-        question: "Which of the following is a contraindication for nitroglycerin?",
-        choices: ["Chest pain", "Systolic BP < 100", "Headache"],
-        answer: "Systolic BP < 100"
-      },
-      {
-        question: "Which of these is a sign of compensated shock?",
-        choices: ["Low BP", "Unconsciousness", "Increased heart rate"],
-        answer: "Increased heart rate"
-      },
-      {
-        question: "How often should you reassess a stable patient?",
-        choices: ["Every 15 minutes", "Every 5 minutes", "Once per call"],
-        answer: "Every 15 minutes"
-      }
-    ];
+    // Replace this with your actual quiz data logic
+    const quizData = {
+      date: new Date().toISOString(),
+      questions: [
+        {
+          question: "What is the first step in EMS patient assessment?",
+          options: ["Scene safety", "Airway check", "Call for help", "Take vitals"],
+          answer: "Scene safety"
+        }
+      ]
+    };
 
-    // Upload to Firebase
-    await db.ref(`dailyQuizzes/${quizDate}`).set({
-      date: quizDate,
-      questions
-    });
+    await ref.push(quizData);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Quiz uploaded successfully", quizDate })
+      body: JSON.stringify({ message: "Quiz uploaded successfully!" })
     };
   } catch (error) {
-    console.error("Upload error:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message || "Upload failed" })
+      body: JSON.stringify({ error: error.message })
     };
   }
 };
