@@ -1,39 +1,69 @@
 const admin = require("firebase-admin");
-const fs = require("fs");
-const path = require("path");
 
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com"
-  });
-}
-
-const db = admin.database();
-
-exports.handler = async function (event, context) {
+exports.handler = async function(event, context) {
   try {
-    const filePath = path.join(__dirname, "questionBank.json"); // <--- FIXED
-    const rawData = fs.readFileSync(filePath);
-    const allQuestions = JSON.parse(rawData);
+    // Load Firebase credentials from environment variable
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
+    // Initialize Firebase only once
+    if (!admin.apps.length) {
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com"
+      });
+    }
+
+    const db = admin.database();
     const today = new Date();
-    const dayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const quizDate = `${yyyy}-${mm}-${dd}`;
 
-    const dailySet = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 5);
+    // Example question set
+    const questions = [
+      {
+        question: "What does OPQRST stand for?",
+        choices: ["Onset, Provocation, Quality, Radiation, Severity, Time", "Open, Push, Qualify, React, Speak, Test", "Observe, Pulse, Question, React, Systolic, Temperature"],
+        answer: "Onset, Provocation, Quality, Radiation, Severity, Time"
+      },
+      {
+        question: "What is the normal respiratory rate for an adult?",
+        choices: ["8–14", "12–20", "20–30"],
+        answer: "12–20"
+      },
+      {
+        question: "Which of the following is a contraindication for nitroglycerin?",
+        choices: ["Chest pain", "Systolic BP < 100", "Headache"],
+        answer: "Systolic BP < 100"
+      },
+      {
+        question: "Which of these is a sign of compensated shock?",
+        choices: ["Low BP", "Unconsciousness", "Increased heart rate"],
+        answer: "Increased heart rate"
+      },
+      {
+        question: "How often should you reassess a stable patient?",
+        choices: ["Every 15 minutes", "Every 5 minutes", "Once per call"],
+        answer: "Every 15 minutes"
+      }
+    ];
 
-    await db.ref("dailyQuizzes/" + dayKey).set(dailySet);
+    // Upload to Firebase
+    await db.ref(`dailyQuizzes/${quizDate}`).set({
+      date: quizDate,
+      questions
+    });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Daily quiz uploaded successfully", count: dailySet.length })
+      body: JSON.stringify({ message: "Quiz uploaded successfully", quizDate })
     };
   } catch (error) {
+    console.error("Upload error:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ error: error.message || "Upload failed" })
     };
   }
 };
