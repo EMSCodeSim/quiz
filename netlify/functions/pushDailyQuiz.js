@@ -1,52 +1,58 @@
-const admin = require("firebase-admin");
+const admin = require('firebase-admin');
+const { onRequest } = require('firebase-functions/v2/https');
 
-exports.handler = async function(event, context) {
-  try {
-    const serviceAccountString = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+// Decode and parse the service account JSON from environment variable
+const serviceAccountRaw = process.env.FIREBASE_SERVICE_ACCOUNT;
 
-    if (!serviceAccountString) {
-      throw new Error("Missing FIREBASE_SERVICE_ACCOUNT_JSON environment variable.");
-    }
+if (!serviceAccountRaw) {
+  throw new Error('Missing FIREBASE_SERVICE_ACCOUNT env variable.');
+}
 
-    let serviceAccount;
-    try {
-      serviceAccount = JSON.parse(serviceAccountString);
-    } catch (err) {
-      throw new Error("Failed to parse service account JSON: " + err.message);
-    }
+let serviceAccount;
+try {
+  const fixedServiceAccountJSON = serviceAccountRaw.replace(/\\n/g, '\n');
+  serviceAccount = JSON.parse(fixedServiceAccountJSON);
+} catch (error) {
+  throw new Error(`Failed to parse service account JSON: ${error.message}`);
+}
 
-    if (!admin.apps.length) {
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        databaseURL: "https://dailyquiz-d5279-default-rtdb.firebaseio.com"
-      });
-    }
+// Initialize Firebase Admin SDK
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://dailyquiz-d5279-default-rtdb.firebaseio.com',
+  });
+}
 
-    const db = admin.database();
-    const ref = db.ref("dailyQuizzes");
+const db = admin.database();
 
-    // Replace this with your actual quiz data logic
-    const quizData = {
-      date: new Date().toISOString(),
-      questions: [
-        {
-          question: "What is the first step in EMS patient assessment?",
-          options: ["Scene safety", "Airway check", "Call for help", "Take vitals"],
-          answer: "Scene safety"
-        }
-      ]
+exports.handler = async function (event, context) {
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: 'Method Not Allowed',
     };
+  }
 
-    await ref.push(quizData);
+  try {
+    const data = JSON.parse(event.body);
+
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = `${now.getMonth() + 1}`.padStart(2, '0');
+    const day = `${now.getDate()}`.padStart(2, '0');
+    const dateKey = `${year}-${month}-${day}`;
+
+    await db.ref(`dailyQuizzes/${dateKey}`).set(data);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Quiz uploaded successfully!" })
+      body: JSON.stringify({ success: true, dateKey }),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ error: error.message }),
     };
   }
 };
