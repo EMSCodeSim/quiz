@@ -1,7 +1,6 @@
 const admin = require('firebase-admin');
-const { onRequest } = require('firebase-functions/v2/https');
 
-// Decode and parse the service account JSON from environment variable
+// Decode and parse service account from Netlify env var
 const serviceAccountRaw = process.env.FIREBASE_SERVICE_ACCOUNT;
 
 if (!serviceAccountRaw) {
@@ -16,7 +15,7 @@ try {
   throw new Error(`Failed to parse service account JSON: ${error.message}`);
 }
 
-// Initialize Firebase Admin SDK
+// Initialize Firebase Admin
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
