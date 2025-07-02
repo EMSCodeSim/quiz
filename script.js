@@ -1,72 +1,92 @@
-let quizData = [];
-let userAnswers = {};
-
-fetch('questions.json')
-  .then(response => response.json())
-  .then(data => {
-    quizData = data.sort(() => 0.5 - Math.random()).slice(0, 5);
-    displayQuiz();
-  })
-  .catch(error => {
-    document.getElementById("quizContainer").innerHTML = "Failed to load quiz.";
-    console.error(error);
-  });
-
-function displayQuiz() {
-  const container = document.getElementById("quizContainer");
-  container.innerHTML = "";
-
-  quizData.forEach((q, index) => {
-    const card = document.createElement("div");
-    card.className = "question-card";
-
-    const qText = document.createElement("div");
-    qText.className = "question-text";
-    qText.textContent = `${index + 1}. ${q.question}`;
-    card.appendChild(qText);
-
-    q.options.forEach((opt, i) => {
-      const optionDiv = document.createElement("label");
-      optionDiv.className = "option";
-      optionDiv.innerHTML = `
-        <input type="radio" name="q${index}" value="${i}">
-        <span>${String.fromCharCode(65 + i)}. ${opt}</span>
-      `;
-      card.appendChild(optionDiv);
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("questions.json")
+    .then(res => res.json())
+    .then(data => {
+      const today = new Date().toISOString().slice(0, 10);
+      const seed = parseInt(today.replace(/-/g, ""));
+      const rng = mulberry32(seed);
+      const shuffled = [...data].sort(() => rng() - 0.5);
+      const questions = shuffled.slice(0, 5);
+      displayQuestions(questions);
+    })
+    .catch(err => {
+      document.getElementById("quiz-container").innerText = "Quiz not available.";
+      console.error(err);
     });
+});
 
-    container.appendChild(card);
+function displayQuestions(questions) {
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+  questions.forEach((q, i) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "question";
+    qDiv.id = `question-${i}`;
+    qDiv.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+
+    const letters = ["A", "B", "C", "D"];
+    const choices = q.choices.map((choice, j) => `
+      <label>
+        <input type="radio" name="q${i}" value="${choice}">
+        ${letters[j]}. ${choice}
+        <span class="feedback-icon" id="feedback-q${i}-${j}"></span>
+      </label>
+    `).join("");
+
+    const choiceDiv = document.createElement("div");
+    choiceDiv.className = "choices";
+    choiceDiv.innerHTML = choices;
+    qDiv.appendChild(choiceDiv);
+
+    const correctLine = document.createElement("div");
+    correctLine.className = "correct-answer";
+    correctLine.id = `correct-q${i}`;
+    qDiv.appendChild(correctLine);
+
+    container.appendChild(qDiv);
   });
+
+  document.getElementById("submit-btn").style.display = "block";
+  document.getElementById("submit-btn").onclick = () => checkAnswers(questions);
 }
 
-document.getElementById("submitBtn").addEventListener("click", () => {
-  let correct = 0;
+function checkAnswers(questions) {
+  questions.forEach((q, i) => {
+    const radios = document.querySelectorAll(`input[name="q${i}"]`);
+    let selectedValue = null;
 
-  quizData.forEach((q, index) => {
-    const selected = document.querySelector(`input[name="q${index}"]:checked`);
-    const options = document.getElementsByName(`q${index}`);
-    const card = options[0].closest(".question-card");
+    radios.forEach((radio, j) => {
+      const feedbackSpan = document.getElementById(`feedback-q${i}-${j}`);
+      feedbackSpan.textContent = "";
 
-    if (selected) {
-      const selectedIndex = parseInt(selected.value);
-      const correctIndex = q.answer;
+      if (radio.checked) {
+        selectedValue = radio.value;
+        if (radio.value === q.answer) {
+          feedbackSpan.textContent = "✅";
+          feedbackSpan.className = "feedback-icon correct";
+        } else {
+          feedbackSpan.textContent = "❌";
+          feedbackSpan.className = "feedback-icon incorrect";
+        }
+      }
+    });
 
-      const optionDivs = card.querySelectorAll(".option");
-
-      optionDivs.forEach((div, i) => {
-        div.classList.remove("correct", "incorrect");
-        if (i === correctIndex) div.classList.add("correct");
-        if (i === selectedIndex && i !== correctIndex) div.classList.add("incorrect");
-      });
-
-      if (selectedIndex === correctIndex) correct++;
-    } else {
-      card.querySelectorAll(".option")[q.answer].classList.add("correct");
+    if (selectedValue !== q.answer) {
+      const correctLine = document.getElementById(`correct-q${i}`);
+      correctLine.textContent = `Correct answer: ${q.answer}`;
     }
   });
 
-  const result = document.getElementById("result");
-  result.innerHTML = `✅ You got ${correct} out of ${quizData.length} correct.<br>📅 Come back tomorrow for more questions!`;
+  document.getElementById("submit-btn").disabled = true;
+  document.getElementById("result").innerHTML = `<p><strong>📅 Come back tomorrow for 5 new questions!</strong></p>`;
+}
 
-  document.getElementById("submitBtn").disabled = true;
-});
+// Deterministic RNG
+function mulberry32(a) {
+  return function() {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
