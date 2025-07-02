@@ -28,5 +28,25 @@
     "question": "What does OPQRST stand for?",
     "choices": ["Onset, Provocation, Quality, Radiates, Severity, Time", "Onset, Pain, Quality, Radiation, Scale, Time", "Open, Pulse, Quickness, Reaction, Signs, Temp", "Onset, Position, Quiet, Reflex, Scale, Time"],
     "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": ["25 grams", "50 grams", "75 grams", "100 grams"],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the minimum respiratory rate for a pediatric patient before considering assisted ventilation?",
+    "choices": ["8", "10", "12", "15"],
+    "answer": "10"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": ["Bradycardia", "Hypotension", "Tachycardia", "Unconsciousness"],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": ["Radial", "Brachial", "Carotid", "Femoral"],
+    "answer": "Carotid"
   }
 ]
