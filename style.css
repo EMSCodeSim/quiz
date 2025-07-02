@@ -1,0 +1,13 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+}
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+.question {
+  margin-bottom: 20px;
+}
