@@ -1,66 +1,75 @@
-async function loadQuiz() {
-  try {
-    const response = await fetch('questions.json');
-    const allQuestions = await response.json();
-
-    const today = new Date().toISOString().split("T")[0];
-    const seed = today.split("-").join(""); // e.g. 20250702
-    const questions = pickDeterministicRandom(allQuestions, 5, seed);
-
-    displayQuestions(questions);
-  } catch (error) {
-    console.error("Error loading quiz:", error);
-    document.getElementById("quiz-container").innerHTML = "<p>Error loading quiz.</p>";
-  }
-}
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("questions.json")
+    .then(res => res.json())
+    .then(data => {
+      const today = new Date().toISOString().slice(0, 10);
+      const seed = parseInt(today.replace(/-/g, ""));
+      const rng = mulberry32(seed);
+      const shuffled = [...data].sort(() => rng() - 0.5);
+      const questions = shuffled.slice(0, 5);
+      displayQuestions(questions);
+    })
+    .catch(err => {
+      document.getElementById("quiz-container").innerText = "Quiz not available.";
+      console.error(err);
+    });
+});
 
 function displayQuestions(questions) {
   const container = document.getElementById("quiz-container");
   container.innerHTML = "";
-
-  questions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.className = "question";
-
-    const questionText = document.createElement("p");
-    questionText.textContent = `${index + 1}. ${q.question}`;
-    div.appendChild(questionText);
-
-    q.choices.forEach(choice => {
-      const btn = document.createElement("button");
-      btn.textContent = choice;
-      btn.onclick = () => {
-        if (btn.textContent === q.answer) {
-          btn.style.backgroundColor = "lightgreen";
-        } else {
-          btn.style.backgroundColor = "salmon";
-        }
-      };
-      div.appendChild(btn);
-    });
-
-    container.appendChild(div);
+  questions.forEach((q, i) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "question";
+    qDiv.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+    const letters = ["A", "B", "C", "D"];
+    const choices = q.choices.map((choice, j) => `
+      <label>
+        <input type="radio" name="q${i}" value="${choice}">
+        ${letters[j]}. ${choice}
+      </label>
+    `).join("");
+    const choiceDiv = document.createElement("div");
+    choiceDiv.className = "choices";
+    choiceDiv.innerHTML = choices;
+    qDiv.appendChild(choiceDiv);
+    container.appendChild(qDiv);
   });
+
+  document.getElementById("submit-btn").style.display = "block";
+  document.getElementById("submit-btn").onclick = () => checkAnswers(questions);
 }
 
-function pickDeterministicRandom(array, count, seed) {
-  const seededRand = mulberry32(parseInt(seed));
-  const copy = [...array];
-  const result = [];
-  while (result.length < count && copy.length) {
-    const index = Math.floor(seededRand() * copy.length);
-    result.push(copy.splice(index, 1)[0]);
-  }
-  return result;
+function checkAnswers(questions) {
+  let score = 0;
+  let output = "";
+
+  questions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    const answer = q.answer;
+    const isCorrect = selected && selected.value === answer;
+
+    if (isCorrect) {
+      output += `<p class="correct">✅ Q${i + 1} Correct</p>`;
+      score++;
+    } else {
+      const wrong = selected ? selected.value : "No answer";
+      output += `<p class="incorrect">❌ Q${i + 1} Incorrect (You chose: ${wrong})<br>✅ Correct: ${answer}</p>`;
+    }
+  });
+
+  output += `<p><strong>You got ${score} out of ${questions.length} right.</strong></p>`;
+  output += `<p>📅 Come back tomorrow for 5 new questions!</p>`;
+  document.getElementById("result").innerHTML = output;
+  document.getElementById("submit-btn").disabled = true;
 }
 
+// Deterministic RNG
 function mulberry32(a) {
-  return function () {
-    var t = (a += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  return function() {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
   };
 }
-
-loadQuiz();
