@@ -1,38 +1,75 @@
-function mulberry32(seed) {
-  return function() {
-    var t = seed += 0x6D2B79F5;
-    t = Math.imul(t ^ t >>> 15, t | 1);
-    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+// script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  const quizContainer = document.getElementById("quiz");
+  const submitButton = document.getElementById("submit");
+  const resultsContainer = document.getElementById("results");
+
+  fetch("ems_quiz_test.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const questions = getRandomQuestions(data, 5);
+      buildQuiz(questions);
+
+      submitButton.addEventListener("click", function () {
+        showResults(questions);
+      });
+    })
+    .catch((error) => {
+      quizContainer.innerHTML = "<p>Error loading quiz. Please try again later.</p>";
+      console.error("Error:", error);
+    });
+
+  function getRandomQuestions(data, count) {
+    const shuffled = data.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
   }
-}
 
-function getTodaySeed() {
-  const today = new Date().toISOString().split('T')[0];
-  return parseInt(today.replace(/-/g, ''));
-}
+  function buildQuiz(questions) {
+    const output = [];
 
-function pickRandomFromCategory(rng, categoryArray) {
-  const index = Math.floor(rng() * categoryArray.length);
-  return categoryArray[index];
-}
+    questions.forEach((q, index) => {
+      const answers = [];
 
-fetch('ems_quiz_2000.json')
-  .then(res => res.json())
-  .then(data => {
-    const seed = getTodaySeed();
-    const rng = mulberry32(seed);
+      for (let letter in q.answers) {
+        answers.push(
+          `<label>
+             <input type="radio" name="question${index}" value="${letter}">
+             ${letter}: ${q.answers[letter]}
+           </label>`
+        );
+      }
 
-    const dailyQuiz = [];
+      output.push(
+        `<div class="question">${index + 1}. ${q.question}</div>
+         <div class="answers">${answers.join("")}</div>`
+      );
+    });
 
-    for (const category in data) {
-      const question = pickRandomFromCategory(rng, data[category]);
-      if (question) dailyQuiz.push(question);
-    }
+    quizContainer.innerHTML = output.join("");
+  }
 
-    startQuiz(dailyQuiz);
-  })
-  .catch(err => {
-    document.getElementById("quiz").innerHTML = "<p>Error loading quiz.</p>";
-    console.error(err);
-  });
+  function showResults(questions) {
+    const answerContainers = quizContainer.querySelectorAll(".answers");
+    let numCorrect = 0;
+    let feedback = "";
+
+    questions.forEach((q, index) => {
+      const answerContainer = answerContainers[index];
+      const selector = `input[name=question${index}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      if (userAnswer === q.correctAnswer) {
+        numCorrect++;
+        feedback += `<p>✔️ Q${index + 1}: Correct</p>`;
+      } else {
+        feedback += `<p>❌ Q${index + 1}: Incorrect – Correct answer is ${q.correctAnswer}: ${q.answers[q.correctAnswer]}</p>`;
+      }
+    });
+
+    resultsContainer.innerHTML = `
+      <h3>You got ${numCorrect} out of ${questions.length} correct.</h3>
+      ${feedback}
+    `;
+  }
+});
