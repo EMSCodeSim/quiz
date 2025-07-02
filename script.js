@@ -1,109 +1,96 @@
 let questionsData = [];
-let selectedQuestions = [];
-const quizContainer = document.getElementById('quiz-container');
-const submitBtn = document.getElementById('submit-btn');
-const resultMessage = document.getElementById('result-message');
+let todaysQuestions = [];
 
-// Load all questions
-fetch('questions.json')
-  .then(response => response.json())
-  .then(data => {
-    questionsData = data;
-    loadTodaysQuestions();
-    renderQuiz();
-  })
-  .catch(error => {
-    quizContainer.innerHTML = '<p>Error loading questions.</p>';
-    console.error('Failed to load questions:', error);
-  });
+function loadQuestions() {
+  fetch("questions.json")
+    .then(res => res.json())
+    .then(data => {
+      questionsData = data;
+      loadTodaysQuiz();
+    })
+    .catch(err => {
+      document.getElementById("quiz-container").innerText = "Failed to load questions.";
+      console.error(err);
+    });
+}
 
-// Load or pick today's 5 unique questions
-function loadTodaysQuestions() {
-  const today = new Date().toISOString().split('T')[0];
-  const stored = JSON.parse(localStorage.getItem('dailyQuiz'));
+function loadTodaysQuiz() {
+  const today = new Date().toISOString().split("T")[0];
+  const savedQuiz = JSON.parse(localStorage.getItem("dailyQuiz"));
 
-  if (stored && stored.date === today) {
-    selectedQuestions = stored.questions;
+  if (savedQuiz && savedQuiz.date === today) {
+    todaysQuestions = savedQuiz.questions;
   } else {
-    selectedQuestions = pickUniqueQuestions(5);
-    localStorage.setItem('dailyQuiz', JSON.stringify({
-      date: today,
-      questions: selectedQuestions
-    }));
+    todaysQuestions = pickUniqueQuestions(5);
+    localStorage.setItem("dailyQuiz", JSON.stringify({ date: today, questions: todaysQuestions }));
   }
+
+  displayQuiz();
 }
 
-// Picks N unique random questions
 function pickUniqueQuestions(n) {
-  const usedIndexes = new Set();
-  const result = [];
-  const maxTries = 1000;
-  let tries = 0;
+  const indexes = Array.from({ length: questionsData.length }, (_, i) => i);
 
-  while (result.length < n && tries < maxTries) {
-    const index = Math.floor(Math.random() * questionsData.length);
-    const question = questionsData[index];
-    const questionText = question.question.trim();
-
-    if (!usedIndexes.has(questionText)) {
-      usedIndexes.add(questionText);
-      result.push(question);
-    }
-    tries++;
+  for (let i = indexes.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
   }
 
-  return result;
+  return indexes.slice(0, n).map(i => questionsData[i]);
 }
 
-// Render the quiz
-function renderQuiz() {
-  quizContainer.innerHTML = '';
-  selectedQuestions.forEach((q, i) => {
-    const qBox = document.createElement('div');
-    qBox.className = 'question-container';
-    qBox.innerHTML = `
-      <div class="question-text">${i + 1}. ${q.question}</div>
-      <div class="answers">
-        ${q.choices.map((choice, j) => `
-          <label>
-            <input type="radio" name="question${i}" value="${choice}">
-            ${choice}
-          </label>
-        `).join('')}
+function displayQuiz() {
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+
+  todaysQuestions.forEach((q, idx) => {
+    const div = document.createElement("div");
+    div.className = "question-box";
+    div.innerHTML = `
+      <p><strong>Q${idx + 1}:</strong> ${q.question}</p>
+      <div class="choices">
+        ${q.choices.map((choice, i) => `
+          <label id="q${idx}a${i}">
+            <input type="radio" name="q${idx}" value="${choice}"> ${choice}
+          </label>`).join("")}
       </div>
     `;
-    quizContainer.appendChild(qBox);
+    container.appendChild(div);
   });
-
-  submitBtn.style.display = 'block';
-  submitBtn.disabled = false;
-  submitBtn.onclick = checkAnswers;
 }
 
-// Check answers and show result
-function checkAnswers() {
-  let correctCount = 0;
-  const containers = document.querySelectorAll('.question-container');
+function submitQuiz() {
+  let score = 0;
+  todaysQuestions.forEach((q, idx) => {
+    const radios = document.getElementsByName(`q${idx}`);
+    let selected = null;
 
-  selectedQuestions.forEach((q, i) => {
-    const selected = document.querySelector(`input[name="question${i}"]:checked`);
-    const labels = containers[i].querySelectorAll('label');
-
-    labels.forEach(label => {
-      const input = label.querySelector('input');
-      if (input.value === q.answer) {
-        label.classList.add('correct');
-      }
-      if (input.checked && input.value !== q.answer) {
-        label.classList.add('incorrect');
-      }
+    radios.forEach(r => {
+      if (r.checked) selected = r.value;
     });
 
-    if (selected && selected.value === q.answer) {
-      correctCount++;
-    }
+    q.choices.forEach((choice, i) => {
+      const label = document.getElementById(`q${idx}a${i}`);
+      label.classList.remove("correct", "incorrect");
+
+      if (choice === q.answer) {
+        if (selected === q.answer) {
+          score++;
+          label.classList.add("correct");
+        } else if (selected === choice) {
+          label.classList.add("incorrect");
+        } else {
+          // Show correct answer even if it wasn't selected
+          label.classList.add("correct");
+        }
+      } else if (selected === choice) {
+        label.classList.add("incorrect");
+      }
+    });
   });
 
-  resultMessage.textContent = `You got ${correctCount} out of ${selectedQuestions.length} correct. Come back tomorrow for 5 new questions!`;
-  submitBtn.disabled = true;
+  document.getElementById("result").innerHTML =
+    `You scored ${score}/5<br>Come back tomorrow for more questions!`;
 }
+
+loadQuestions();
