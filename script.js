@@ -21,18 +21,28 @@ function displayQuestions(questions) {
   questions.forEach((q, i) => {
     const qDiv = document.createElement("div");
     qDiv.className = "question";
+    qDiv.id = `question-${i}`;
     qDiv.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+
     const letters = ["A", "B", "C", "D"];
     const choices = q.choices.map((choice, j) => `
       <label>
         <input type="radio" name="q${i}" value="${choice}">
         ${letters[j]}. ${choice}
+        <span class="feedback-icon" id="feedback-q${i}-${j}"></span>
       </label>
     `).join("");
+
     const choiceDiv = document.createElement("div");
     choiceDiv.className = "choices";
     choiceDiv.innerHTML = choices;
     qDiv.appendChild(choiceDiv);
+
+    const correctLine = document.createElement("div");
+    correctLine.className = "correct-answer";
+    correctLine.id = `correct-q${i}`;
+    qDiv.appendChild(correctLine);
+
     container.appendChild(qDiv);
   });
 
@@ -41,27 +51,34 @@ function displayQuestions(questions) {
 }
 
 function checkAnswers(questions) {
-  let score = 0;
-  let output = "";
-
   questions.forEach((q, i) => {
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    const answer = q.answer;
-    const isCorrect = selected && selected.value === answer;
+    const radios = document.querySelectorAll(`input[name="q${i}"]`);
+    let selectedValue = null;
 
-    if (isCorrect) {
-      output += `<p class="correct">✅ Q${i + 1} Correct</p>`;
-      score++;
-    } else {
-      const wrong = selected ? selected.value : "No answer";
-      output += `<p class="incorrect">❌ Q${i + 1} Incorrect (You chose: ${wrong})<br>✅ Correct: ${answer}</p>`;
+    radios.forEach((radio, j) => {
+      const feedbackSpan = document.getElementById(`feedback-q${i}-${j}`);
+      feedbackSpan.textContent = "";
+
+      if (radio.checked) {
+        selectedValue = radio.value;
+        if (radio.value === q.answer) {
+          feedbackSpan.textContent = "✅";
+          feedbackSpan.className = "feedback-icon correct";
+        } else {
+          feedbackSpan.textContent = "❌";
+          feedbackSpan.className = "feedback-icon incorrect";
+        }
+      }
+    });
+
+    if (selectedValue !== q.answer) {
+      const correctLine = document.getElementById(`correct-q${i}`);
+      correctLine.textContent = `Correct answer: ${q.answer}`;
     }
   });
 
-  output += `<p><strong>You got ${score} out of ${questions.length} right.</strong></p>`;
-  output += `<p>📅 Come back tomorrow for 5 new questions!</p>`;
-  document.getElementById("result").innerHTML = output;
   document.getElementById("submit-btn").disabled = true;
+  document.getElementById("result").innerHTML = `<p><strong>📅 Come back tomorrow for 5 new questions!</strong></p>`;
 }
 
 // Deterministic RNG
