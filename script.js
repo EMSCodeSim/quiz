@@ -1,36 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-  fetch('quizzes/daily_quiz.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById("quiz-container");
-      data.questions.forEach((q, idx) => {
-        const div = document.createElement("div");
-        div.classList.add("question");
-        div.innerHTML = `
-          <p><strong>Q${idx + 1}:</strong> ${q.question}</p>
-          ${q.choices.map((choice, i) => `
-            <label>
-              <input type="radio" name="q${idx}" value="${choice}">
-              ${choice}
-            </label><br>
-          `).join("")}
-        `;
-        container.appendChild(div);
-      });
+async function loadQuiz() {
+  const container = document.getElementById("quiz-container");
 
-      document.getElementById("submit-btn").onclick = () => {
-        let score = 0;
-        data.questions.forEach((q, idx) => {
-          const selected = document.querySelector(`input[name="q${idx}"]:checked`);
-          if (selected && selected.value === q.answer) {
-            score++;
-          }
-        });
-        document.getElementById("results").innerHTML = 
-          `<p>You scored ${score} out of ${data.questions.length}</p>`;
-      };
-    })
-    .catch(() => {
-      document.getElementById("quiz-container").innerHTML = "<p>Quiz not found.</p>";
+  try {
+    const response = await fetch("quizzes/daily_quiz.json");
+    const questions = await response.json();
+
+    if (!questions || questions.length === 0) {
+      container.innerHTML = "<p>No quiz found for today.</p>";
+      return;
+    }
+
+    let quizHtml = "";
+    questions.forEach((q, i) => {
+      quizHtml += `
+        <div class="question-box" id="question-${i}">
+          <p><strong>Q${i + 1}:</strong> ${q.question}</p>
+          <div class="options">
+            ${q.options.map((opt, j) =>
+              `<label><input type="radio" name="q${i}" value="${j}" /> ${opt}</label>`
+            ).join('')}
+          </div>
+          <button onclick="checkAnswer(${i}, ${q.answer})">Check Answer</button>
+          <div id="result-${i}"></div>
+        </div>
+      `;
     });
-});
+
+    container.innerHTML = quizHtml;
+  } catch (err) {
+    console.error("Quiz load error:", err);
+    container.innerHTML = "<p>Error loading quiz.</p>";
+  }
+}
+
+function checkAnswer(index, correctIndex) {
+  const selected = document.querySelector(`input[name="q${index}"]:checked`);
+  const result = document.getElementById(`result-${index}`);
+  if (!selected) {
+    result.innerHTML = "Please select an answer.";
+    return;
+  }
+
+  const selectedVal = parseInt(selected.value);
+  if (selectedVal === correctIndex) {
+    result.innerHTML = "<span class='correct'>Correct!</span>";
+  } else {
+    result.innerHTML = "<span class='incorrect'>Incorrect. Try again.</span>";
+  }
+}
+
+loadQuiz();
