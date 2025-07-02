@@ -1,112 +1,34 @@
 {
-  "Airway": [
+  "quiz": [
     {
-      "question": "What is the most common cause of airway obstruction in unconscious patients?",
-      "options": ["Blood", "Teeth", "Tongue", "Mucus"],
-      "answer": "Tongue"
+      "question": "What is the normal respiratory rate for an adult?",
+      "options": ["8-12", "12-20", "20-28", "28-36"],
+      "answer": "12-20"
     },
     {
-      "question": "What device delivers the highest oxygen concentration?",
-      "options": ["Nasal cannula", "Simple face mask", "Non-rebreather mask", "CPAP"],
-      "answer": "Non-rebreather mask"
+      "question": "Which of the following is a sign of hypoxia?",
+      "options": ["Flushed skin", "Dilated pupils", "Cyanosis", "Bradycardia"],
+      "answer": "Cyanosis"
     },
     {
-      "question": "Which airway adjunct is used for a conscious patient with a gag reflex?",
-      "options": ["OPA", "NPA", "ET tube", "King airway"],
-      "answer": "NPA"
+      "question": "What is the first step in using an AED?",
+      "options": ["Check pulse", "Open airway", "Turn it on", "Apply pads"],
+      "answer": "Turn it on"
     },
     {
-      "question": "What is the proper rate of ventilation for an adult with a BVM?",
-      "options": ["6-8/min", "8-10/min", "10-12/min", "12-14/min"],
-      "answer": "10-12/min"
-    }
-  ],
-  "Cardiology": [
-    {
-      "question": "What is the first drug given for chest pain?",
-      "options": ["Nitroglycerin", "Oxygen", "Aspirin", "Epinephrine"],
-      "answer": "Aspirin"
+      "question": "Which medication is typically administered for chest pain?",
+      "options": ["Epinephrine", "Albuterol", "Nitroglycerin", "Glucose"],
+      "answer": "Nitroglycerin"
     },
     {
-      "question": "Which rhythm is considered shockable?",
-      "options": ["Asystole", "PEA", "V-fib", "Sinus bradycardia"],
-      "answer": "V-fib"
-    },
-    {
-      "question": "How many seconds should you check a pulse in an unresponsive adult?",
-      "options": ["2", "5", "10", "15"],
-      "answer": "10"
-    },
-    {
-      "question": "Which condition is a contraindication for nitroglycerin?",
-      "options": ["Hypertension", "Headache", "ED medication use", "Chest pain"],
-      "answer": "ED medication use"
-    }
-  ],
-  "Medical": [
-    {
-      "question": "What is the primary concern with a diabetic who is unresponsive?",
-      "options": ["Stroke", "Hypoglycemia", "Hyperglycemia", "Seizure"],
-      "answer": "Hypoglycemia"
-    },
-    {
-      "question": "What is the preferred route for Narcan in the field?",
-      "options": ["IM", "IV", "IN", "Subcutaneous"],
-      "answer": "IN"
-    },
-    {
-      "question": "Which is NOT a sign of anaphylaxis?",
-      "options": ["Hives", "Wheezing", "Bradycardia", "Hypotension"],
-      "answer": "Bradycardia"
-    },
-    {
-      "question": "Which seizure phase involves convulsions?",
-      "options": ["Postictal", "Aura", "Ictal", "Tonic"],
-      "answer": "Ictal"
-    }
-  ],
-  "Trauma": [
-    {
-      "question": "What is the first step in bleeding control?",
-      "options": ["Tourniquet", "Pressure dressing", "Direct pressure", "Elevation"],
-      "answer": "Direct pressure"
-    },
-    {
-      "question": "What injury is most concerning in a fall from height?",
-      "options": ["Sprained ankle", "Pelvic fracture", "Wrist fracture", "Laceration"],
-      "answer": "Pelvic fracture"
-    },
-    {
-      "question": "What is the best way to assess circulation in a limb?",
-      "options": ["Color", "Pulse", "Capillary refill", "Temperature"],
-      "answer": "Capillary refill"
-    },
-    {
-      "question": "Which of the following is a sign of tension pneumothorax?",
-      "options": ["Rhonchi", "Crackles", "Tracheal deviation", "Bradycardia"],
-      "answer": "Tracheal deviation"
-    }
-  ],
-  "Operations": [
-    {
-      "question": "What is the first priority at an MCI?",
-      "options": ["Transport", "Triage", "Treatment", "Extrication"],
-      "answer": "Triage"
-    },
-    {
-      "question": "Which radio code means 'En route to scene'?",
-      "options": ["10-7", "10-8", "10-17", "10-76"],
-      "answer": "10-76"
-    },
-    {
-      "question": "What is a contraindication for helicopter transport?",
-      "options": ["Long extrication time", "Severe trauma", "Unstable airway", "Short distance"],
-      "answer": "Short distance"
-    },
-    {
-      "question": "Who has ultimate responsibility for patient care on scene?",
-      "options": ["First responder", "Transporting EMT", "Highest license level", "Dispatcher"],
-      "answer": "Highest license level"
+      "question": "What does SAMPLE stand for?",
+      "options": [
+        "Signs, Allergies, Medications, Past history, Last oral intake, Events",
+        "Symptoms, Airway, Meds, Pain, Level of consciousness, Events",
+        "Seizures, Allergies, Meds, Past history, Last meal, Exposure",
+        "Signs, Assessment, Medications, Pain, Lung sounds, EKG"
+      ],
+      "answer": "Signs, Allergies, Medications, Past history, Last oral intake, Events"
     }
   ]
 }
