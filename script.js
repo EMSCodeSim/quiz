@@ -1,75 +1,55 @@
-// script.js
+function getTodayKey() {
+  const today = new Date();
+  return today.toISOString().split("T")[0];
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const quizContainer = document.getElementById("quiz");
-  const submitButton = document.getElementById("submit");
-  const resultsContainer = document.getElementById("results");
+async function loadQuiz() {
+  const quizContainer = document.getElementById("quiz-container");
+  try {
+    const response = await fetch("quizzes/daily_quiz.json");
+    const data = await response.json();
+    const todayKey = getTodayKey();
 
-  fetch("ems_quiz_test.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const questions = getRandomQuestions(data, 5);
-      buildQuiz(questions);
+    const todayQuiz = data[todayKey];
+    if (!todayQuiz) {
+      quizContainer.innerHTML = `<p>No quiz found for today: ${todayKey}</p>`;
+      return;
+    }
 
-      submitButton.addEventListener("click", function () {
-        showResults(questions);
+    quizContainer.innerHTML = "";
+    todayQuiz.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<strong>Q${index + 1}:</strong> ${q.question}`;
+      const choicesDiv = document.createElement("div");
+      choicesDiv.className = "choices";
+
+      q.choices.forEach((choice, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.onclick = () => {
+          const result = div.querySelector(".result");
+          if (choice === q.answer) {
+            result.textContent = "✅ Correct!";
+            result.style.color = "green";
+          } else {
+            result.textContent = `❌ Incorrect. Correct answer: ${q.answer}`;
+            result.style.color = "red";
+          }
+        };
+        choicesDiv.appendChild(btn);
       });
-    })
-    .catch((error) => {
-      quizContainer.innerHTML = "<p>Error loading quiz. Please try again later.</p>";
-      console.error("Error:", error);
+
+      const resultP = document.createElement("p");
+      resultP.className = "result";
+      div.appendChild(choicesDiv);
+      div.appendChild(resultP);
+      quizContainer.appendChild(div);
     });
-
-  function getRandomQuestions(data, count) {
-    const shuffled = data.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+  } catch (error) {
+    console.error("Error loading quiz:", error);
+    quizContainer.innerHTML = "<p>Error loading quiz data.</p>";
   }
+}
 
-  function buildQuiz(questions) {
-    const output = [];
-
-    questions.forEach((q, index) => {
-      const answers = [];
-
-      for (let letter in q.answers) {
-        answers.push(
-          `<label>
-             <input type="radio" name="question${index}" value="${letter}">
-             ${letter}: ${q.answers[letter]}
-           </label>`
-        );
-      }
-
-      output.push(
-        `<div class="question">${index + 1}. ${q.question}</div>
-         <div class="answers">${answers.join("")}</div>`
-      );
-    });
-
-    quizContainer.innerHTML = output.join("");
-  }
-
-  function showResults(questions) {
-    const answerContainers = quizContainer.querySelectorAll(".answers");
-    let numCorrect = 0;
-    let feedback = "";
-
-    questions.forEach((q, index) => {
-      const answerContainer = answerContainers[index];
-      const selector = `input[name=question${index}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-      if (userAnswer === q.correctAnswer) {
-        numCorrect++;
-        feedback += `<p>✔️ Q${index + 1}: Correct</p>`;
-      } else {
-        feedback += `<p>❌ Q${index + 1}: Incorrect – Correct answer is ${q.correctAnswer}: ${q.answers[q.correctAnswer]}</p>`;
-      }
-    });
-
-    resultsContainer.innerHTML = `
-      <h3>You got ${numCorrect} out of ${questions.length} correct.</h3>
-      ${feedback}
-    `;
-  }
-});
+loadQuiz();
