@@ -4,7 +4,7 @@ const quizContainer = document.getElementById('quiz-container');
 const submitBtn = document.getElementById('submit-btn');
 const resultMessage = document.getElementById('result-message');
 
-// Load questions from JSON
+// Load all questions
 fetch('questions.json')
   .then(response => response.json())
   .then(data => {
@@ -17,15 +17,15 @@ fetch('questions.json')
     console.error('Failed to load questions:', error);
   });
 
-// Use today's date as a seed to consistently pick 5 questions
+// Load or pick today's 5 unique questions
 function loadTodaysQuestions() {
-  const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
-  const storedData = JSON.parse(localStorage.getItem('dailyQuiz'));
+  const today = new Date().toISOString().split('T')[0];
+  const stored = JSON.parse(localStorage.getItem('dailyQuiz'));
 
-  if (storedData && storedData.date === today) {
-    selectedQuestions = storedData.questions;
+  if (stored && stored.date === today) {
+    selectedQuestions = stored.questions;
   } else {
-    selectedQuestions = pickRandomQuestions(5);
+    selectedQuestions = pickUniqueQuestions(5);
     localStorage.setItem('dailyQuiz', JSON.stringify({
       date: today,
       questions: selectedQuestions
@@ -33,57 +33,61 @@ function loadTodaysQuestions() {
   }
 }
 
-// Fisher-Yates shuffle for randomness
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(seedRandom() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+// Picks N unique random questions
+function pickUniqueQuestions(n) {
+  const usedIndexes = new Set();
+  const result = [];
+  const maxTries = 1000;
+  let tries = 0;
+
+  while (result.length < n && tries < maxTries) {
+    const index = Math.floor(Math.random() * questionsData.length);
+    const question = questionsData[index];
+    const questionText = question.question.trim();
+
+    if (!usedIndexes.has(questionText)) {
+      usedIndexes.add(questionText);
+      result.push(question);
+    }
+    tries++;
   }
-  return array;
+
+  return result;
 }
 
-// Seedable pseudo-random number generator (daily consistent)
-let seed = new Date().toISOString().split('T')[0].split('-').join('');
-function seedRandom() {
-  const x = Math.sin(seed++) * 10000;
-  return x - Math.floor(x);
-}
-
-function pickRandomQuestions(count) {
-  const shuffled = shuffleArray([...questionsData]);
-  return shuffled.slice(0, count);
-}
-
+// Render the quiz
 function renderQuiz() {
   quizContainer.innerHTML = '';
-  selectedQuestions.forEach((q, index) => {
-    const questionBox = document.createElement('div');
-    questionBox.className = 'question-container';
-    questionBox.innerHTML = `
-      <div class="question-text">${index + 1}. ${q.question}</div>
+  selectedQuestions.forEach((q, i) => {
+    const qBox = document.createElement('div');
+    qBox.className = 'question-container';
+    qBox.innerHTML = `
+      <div class="question-text">${i + 1}. ${q.question}</div>
       <div class="answers">
-        ${q.choices.map((choice, i) => `
+        ${q.choices.map((choice, j) => `
           <label>
-            <input type="radio" name="question${index}" value="${choice}">
+            <input type="radio" name="question${i}" value="${choice}">
             ${choice}
           </label>
         `).join('')}
       </div>
     `;
-    quizContainer.appendChild(questionBox);
+    quizContainer.appendChild(qBox);
   });
 
   submitBtn.style.display = 'block';
+  submitBtn.disabled = false;
   submitBtn.onclick = checkAnswers;
 }
 
+// Check answers and show result
 function checkAnswers() {
   let correctCount = 0;
   const containers = document.querySelectorAll('.question-container');
 
-  selectedQuestions.forEach((q, index) => {
-    const selectedInput = document.querySelector(`input[name="question${index}"]:checked`);
-    const labels = containers[index].querySelectorAll('label');
+  selectedQuestions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="question${i}"]:checked`);
+    const labels = containers[i].querySelectorAll('label');
 
     labels.forEach(label => {
       const input = label.querySelector('input');
@@ -95,7 +99,7 @@ function checkAnswers() {
       }
     });
 
-    if (selectedInput && selectedInput.value === q.answer) {
+    if (selected && selected.value === q.answer) {
       correctCount++;
     }
   });
