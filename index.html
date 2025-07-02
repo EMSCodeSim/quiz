@@ -6,92 +6,36 @@
   <title>EMS Daily Quiz</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-    }
-    .quiz-container {
-      max-width: 700px;
+      font-family: sans-serif;
+      max-width: 600px;
       margin: auto;
-      background: white;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     }
-    .question {
-      margin-bottom: 20px;
+    .question-box {
+      margin-bottom: 30px;
     }
-    .answers label {
+    .options label {
       display: block;
-      margin: 5px 0;
+      margin-bottom: 8px;
+      cursor: pointer;
     }
-    .result {
-      margin-top: 20px;
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .incorrect {
+      color: red;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>EMS Daily Quiz</h1>
-    <div id="quiz">Loading quiz...</div>
-    <button id="submit">Submit Answers</button>
-    <div id="result" class="result"></div>
-  </div>
-
-  <script>
-    let currentQuestions = [];
-
-    function loadQuiz() {
-      fetch("/.netlify/functions/pushDailyQuiz")
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.questions || data.questions.length === 0) {
-            document.getElementById("quiz").innerHTML = "No quiz found.";
-            return;
-          }
-
-          currentQuestions = data.questions;
-
-          const quizEl = document.getElementById("quiz");
-          quizEl.innerHTML = "";
-
-          data.questions.forEach((q, index) => {
-            const questionDiv = document.createElement("div");
-            questionDiv.className = "question";
-            questionDiv.innerHTML = `
-              <h3>Q${index + 1}: ${q.question}</h3>
-              <div class="answers">
-                ${q.options.map((opt, i) => `
-                  <label>
-                    <input type="radio" name="q${index}" value="${opt}"> ${opt}
-                  </label>
-                `).join("")}
-              </div>
-            `;
-            quizEl.appendChild(questionDiv);
-          });
-        })
-        .catch(err => {
-          document.getElementById("quiz").innerHTML = "Error loading quiz.";
-          console.error(err);
-        });
-    }
-
-    document.getElementById("submit").addEventListener("click", () => {
-      let score = 0;
-
-      currentQuestions.forEach((q, index) => {
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-        if (selected && selected.value === q.answer) {
-          score++;
-        }
-      });
-
-      document.getElementById("result").innerText = `You got ${score} out of ${currentQuestions.length} correct.`;
-    });
-
-    loadQuiz();
-  </script>
+  <h1>EMS Daily Quiz</h1>
+  <div id="quiz-container">Loading quiz...</div>
+  <script src="script.js"></script>
 </body>
 </html>
