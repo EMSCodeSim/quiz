@@ -1,50 +1,29 @@
 {
-  "date": "2025-07-02",
-  "questions": [
-    {
-      "question": "What is the compression-to-ventilation ratio in adult CPR (1 rescuer)?",
-      "options": [
-        "30:2",
-        "15:2",
-        "5:1"
-      ],
-      "answer": "30:2"
-    },
+  "2025-07-02": [
     {
       "question": "What does SAMPLE stand for?",
-      "options": [
-        "Signs, Allergies, Medications, Past history, Last oral intake, Events",
-        "Sugar, Airway, Medications, Past history, Lung sounds, Events",
-        "Signs, Activity, Medications, Palpitations, Last oral intake, Events"
-      ],
-      "answer": "Signs, Allergies, Medications, Past history, Last oral intake, Events"
+      "choices": ["Signs/Symptoms, Allergies, Meds, Past, Last Oral, Events", "Stop And Move Patient Later", "Signs Are Mostly Pretty Large Errors"],
+      "answer": "Signs/Symptoms, Allergies, Meds, Past, Last Oral, Events"
     },
     {
-      "question": "Which is a sign of hypoglycemia?",
-      "options": [
-        "Slow pulse",
-        "Hot, dry skin",
-        "Confusion and sweating"
-      ],
-      "answer": "Confusion and sweating"
+      "question": "How many compressions per minute in CPR?",
+      "choices": ["60-80", "100-120", "140-160"],
+      "answer": "100-120"
     },
     {
-      "question": "What does OPQRST stand for?",
-      "options": [
-        "Onset, Provocation, Quality, Radiation, Severity, Time",
-        "Oxygen, Pulse, Quickness, Rate, Symptoms, Time",
-        "Operation, Pain, Quickness, Swelling, Tenderness, Time"
-      ],
-      "answer": "Onset, Provocation, Quality, Radiation, Severity, Time"
+      "question": "Best airway for an unconscious patient without trauma?",
+      "choices": ["OPA", "NPA", "Head Tilt-Chin Lift"],
+      "answer": "Head Tilt-Chin Lift"
     },
     {
-      "question": "What is the normal respiratory rate for an adult?",
-      "options": [
-        "8\u201312 breaths per minute",
-        "12\u201320 breaths per minute",
-        "20\u201328 breaths per minute"
-      ],
-      "answer": "12\u201320 breaths per minute"
+      "question": "Which oxygen device gives the highest flow?",
+      "choices": ["Nasal Cannula", "NRB", "BVM"],
+      "answer": "BVM"
+    },
+    {
+      "question": "What is normal systolic BP for an adult?",
+      "choices": ["60-80", "90-120", "130-160"],
+      "answer": "90-120"
     }
   ]
 }
