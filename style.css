@@ -1,8 +1,8 @@
 body {
   font-family: Arial, sans-serif;
+  background: #f2f9ff;
   margin: 0;
   padding: 20px;
-  background: #f2f9ff;
 }
 
 .container {
@@ -20,24 +20,12 @@ h1 {
 }
 
 .question {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .choices label {
   display: block;
   margin-bottom: 8px;
-  cursor: pointer;
-}
-
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 24px;
-  background-color: #0077aa;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
   cursor: pointer;
 }
 
@@ -49,4 +37,15 @@ button {
 .incorrect {
   color: red;
   font-weight: bold;
+}
+
+.feedback-icon {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.correct-answer {
+  margin-top: 4px;
+  color: green;
+  font-size: 0.9em;
 }
