@@ -1,114 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EMS Daily Quiz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 10px;
-      background-color: #f0f4f8;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 10px;
-      font-size: 1.8em;
+      color: #0077aa;
     }
 
-    .question-card {
-      background: #fff;
-      padding: 15px;
-      margin: 15px auto;
+    .question-container {
+      margin-bottom: 30px;
+      background: #ffffff;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      max-width: 600px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .question-text {
-      font-size: 1.1em;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
-    .option {
-      display: flex;
-      align-items: center;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 6px;
-      background-color: #f9f9f9;
-      cursor: pointer;
-      border: 1px solid #ddd;
-      transition: background 0.2s ease;
-    }
-
-    .option:hover {
-      background-color: #e0f7fa;
-    }
-
-    .option input {
-      margin-right: 10px;
-    }
-
-    .option.correct {
-      border-color: green;
-      background-color: #e6ffe6;
-    }
-
-    .option.incorrect {
-      border-color: red;
-      background-color: #ffe6e6;
-    }
-
-    .correct-answer {
-      font-size: 0.95em;
-      color: green;
-      margin-top: 5px;
-    }
-
-    #submitBtn {
+    .answers label {
       display: block;
-      margin: 30px auto;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background-color: #007BFF;
-      color: #fff;
+      padding: 10px;
+      margin: 5px 0;
+      background: #eee;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .answers input[type="radio"] {
+      display: none;
+    }
+
+    .answers label.correct {
+      border-color: green;
+      background-color: #e1f7e1;
+    }
+
+    .answers label.incorrect {
+      border-color: red;
+      background-color: #fde2e2;
+    }
+
+    .answers label:has(input:checked) {
+      border-color: #0077aa;
+    }
+
+    #submit-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      background-color: #0077aa;
+      color: white;
       border: none;
       border-radius: 10px;
+      margin-top: 20px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    #submitBtn:hover {
-      background-color: #0056b3;
+    #submit-btn:hover {
+      background-color: #005f8a;
     }
 
-    #result {
+    #result-message {
       text-align: center;
+      font-size: 18px;
       margin-top: 30px;
-      font-size: 1.2em;
-    }
-
-    @media (max-width: 600px) {
-      .question-card {
-        margin: 10px;
-        padding: 12px;
-      }
-
-      #submitBtn {
-        width: 100%;
-      }
+      color: #0077aa;
     }
   </style>
 </head>
 <body>
-  <h1>🚑 EMS Daily Quiz</h1>
-  <div id="quizContainer"></div>
-  <button id="submitBtn">Submit Answers</button>
-  <div id="result"></div>
+  <h1>EMS Daily Quiz</h1>
+  <div id="quiz-container"></div>
+  <button id="submit-btn" style="display:none;">Submit Answers</button>
+  <div id="result-message"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
