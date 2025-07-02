@@ -2,11 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMS Daily Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0077aa;
+    }
+
+    .question-container {
+      margin-bottom: 30px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .question-text {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .answers label {
+      display: block;
+      padding: 10px;
+      margin: 5px 0;
+      background: #eee;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .answers input[type="radio"] {
+      display: none;
+    }
+
+    .answers label.correct {
+      border-color: green;
+      background-color: #e1f7e1;
+    }
+
+    .answers label.incorrect {
+      border-color: red;
+      background-color: #fde2e2;
+    }
+
+    .answers label:has(input:checked) {
+      border-color: #0077aa;
+    }
+
+    #submit-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      background-color: #0077aa;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #submit-btn:hover {
+      background-color: #005f8a;
+    }
+
+    #result-message {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 30px;
+      color: #0077aa;
+    }
+  </style>
 </head>
 <body>
-  <div id="quizContainer">Loading quiz...</div>
+  <h1>EMS Daily Quiz</h1>
+  <div id="quiz-container"></div>
+  <button id="submit-btn" style="display:none;">Submit Answers</button>
+  <div id="result-message"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
