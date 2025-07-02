@@ -1,19 +1,4 @@
 {
   "Airway": [
     {
-      "question": "What is the most common airway obstruction in unconscious patients?",
-      "options": ["Tongue", "Blood", "Teeth", "Mucus"],
-      "answer": "Tongue"
-    }
-  ],
-  "Cardiology": [
-    {
-      "question": "What is the first medication given for chest pain in EMS protocols?",
-      "options": ["Nitro", "Aspirin", "Oxygen", "Atropine"],
-      "answer": "Aspirin"
-    }
-  ],
-  "Medical": [ ... ],
-  "Trauma": [ ... ],
-  "Operations": [ ... ]
-}
+      
