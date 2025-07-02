@@ -4,24 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EMS Daily Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: sans-serif;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f8fa;
+      color: #333;
     }
-    .question {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
+
+    header {
+      background: #008080;
+      color: white;
+      padding: 1rem 1.5rem;
+      text-align: center;
     }
-    button {
-      margin-top: 10px;
+
+    main {
+      padding: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .question-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .choice-button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      background: #e0f7f7;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .choice-button:hover {
+      background: #d1f0f0;
+    }
+
+    .choice-button.correct {
+      background-color: #c8f7c5;
+    }
+
+    .choice-button.incorrect {
+      background-color: #ffc7c7;
+    }
+
+    @media (max-width: 500px) {
+      .choice-button {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+
+      .question-card h2 {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>EMS Daily Quiz</h1>
-  <div id="quiz-container">Loading quiz...</div>
+  <header>
+    <h1>EMS Daily Quiz</h1>
+    <p style="margin: 0; font-size: 0.95rem;">Test your knowledge. 5 new questions every day.</p>
+  </header>
+  <main>
+    <div id="quiz-container">Loading quiz...</div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
