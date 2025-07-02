@@ -1,52 +1,5002 @@
 [
   {
-    "question": "What is the normal adult respiratory rate?",
-    "choices": ["8–16", "12–20", "16–24", "20–28"],
-    "answer": "12–20"
-  },
-  {
-    "question": "Which medication is used for chest pain?",
-    "choices": ["Albuterol", "Nitroglycerin", "Epinephrine", "Glucose"],
-    "answer": "Nitroglycerin"
-  },
-  {
     "question": "What does SAMPLE stand for?",
-    "choices": ["Signs, Allergies, Meds, Past, Last oral intake, Events", "Symptoms, Age, Meds, Past, Location, Events", "Signs, Allergies, Meds, Past, Last, Events", "Symptoms, Assessment, Meds, Past, Last, Exposure"],
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
     "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
   },
   {
     "question": "What is the first step in scene size-up?",
-    "choices": ["Call for ALS", "Form general impression", "Scene safety", "Check pulse"],
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
     "answer": "Scene safety"
   },
   {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
     "question": "Normal systolic BP range for adults?",
-    "choices": ["80–100", "90–120", "100–130", "110–140"],
-    "answer": "90–120"
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
   },
   {
     "question": "What does OPQRST stand for?",
-    "choices": ["Onset, Provocation, Quality, Radiates, Severity, Time", "Onset, Pain, Quality, Radiation, Scale, Time", "Open, Pulse, Quickness, Reaction, Signs, Temp", "Onset, Position, Quiet, Reflex, Scale, Time"],
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
     "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
   },
   {
     "question": "What is the maximum dose of activated charcoal for adults?",
-    "choices": ["25 grams", "50 grams", "75 grams", "100 grams"],
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
     "answer": "50 grams"
   },
   {
-    "question": "What is the minimum respiratory rate for a pediatric patient before considering assisted ventilation?",
-    "choices": ["8", "10", "12", "15"],
-    "answer": "10"
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
   },
   {
     "question": "Which is a sign of compensated shock?",
-    "choices": ["Bradycardia", "Hypotension", "Tachycardia", "Unconsciousness"],
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
     "answer": "Tachycardia"
   },
   {
     "question": "Which artery is used to assess pulse in an unresponsive adult?",
-    "choices": ["Radial", "Brachial", "Carotid", "Femoral"],
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
     "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": [
+      "80\u2013100",
+      "90\u2013120",
+      "100\u2013130",
+      "110\u2013140"
+    ],
+    "answer": "90\u2013120"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": [
+      "Albuterol",
+      "Nitroglycerin",
+      "Epinephrine",
+      "Glucose"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the pediatric dose of epinephrine 1:1000 IM for anaphylaxis?",
+    "choices": [
+      "0.15 mg",
+      "0.3 mg",
+      "0.5 mg",
+      "1 mg"
+    ],
+    "answer": "0.15 mg"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": [
+      "Call for ALS",
+      "Form general impression",
+      "Scene safety",
+      "Check pulse"
+    ],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": [
+      "Signs, Allergies, Meds, Past, Last oral intake, Events",
+      "Symptoms, Age, Meds, Past, Location, Events",
+      "Signs, Allergies, Meds, Past, Last, Events",
+      "Symptoms, Assessment, Meds, Past, Last, Exposure"
+    ],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which artery is used to assess pulse in an unresponsive adult?",
+    "choices": [
+      "Radial",
+      "Brachial",
+      "Carotid",
+      "Femoral"
+    ],
+    "answer": "Carotid"
+  },
+  {
+    "question": "Which is a sign of compensated shock?",
+    "choices": [
+      "Bradycardia",
+      "Hypotension",
+      "Tachycardia",
+      "Unconsciousness"
+    ],
+    "answer": "Tachycardia"
+  },
+  {
+    "question": "What is the maximum dose of activated charcoal for adults?",
+    "choices": [
+      "25 grams",
+      "50 grams",
+      "75 grams",
+      "100 grams"
+    ],
+    "answer": "50 grams"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": [
+      "Onset, Provocation, Quality, Radiates, Severity, Time",
+      "Onset, Pain, Quality, Radiation, Scale, Time",
+      "Open, Pulse, Quickness, Reaction, Signs, Temp",
+      "Onset, Position, Quiet, Reflex, Scale, Time"
+    ],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  },
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": [
+      "8\u201316",
+      "12\u201320",
+      "16\u201324",
+      "20\u201328"
+    ],
+    "answer": "12\u201320"
   }
 ]
