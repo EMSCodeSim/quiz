@@ -1,92 +1,105 @@
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("questions.json")
-    .then(res => res.json())
-    .then(data => {
-      const today = new Date().toISOString().slice(0, 10);
-      const seed = parseInt(today.replace(/-/g, ""));
-      const rng = mulberry32(seed);
-      const shuffled = [...data].sort(() => rng() - 0.5);
-      const questions = shuffled.slice(0, 5);
-      displayQuestions(questions);
-    })
-    .catch(err => {
-      document.getElementById("quiz-container").innerText = "Quiz not available.";
-      console.error(err);
-    });
-});
+let questionsData = [];
+let selectedQuestions = [];
+const quizContainer = document.getElementById('quiz-container');
+const submitBtn = document.getElementById('submit-btn');
+const resultMessage = document.getElementById('result-message');
 
-function displayQuestions(questions) {
-  const container = document.getElementById("quiz-container");
-  container.innerHTML = "";
-  questions.forEach((q, i) => {
-    const qDiv = document.createElement("div");
-    qDiv.className = "question";
-    qDiv.id = `question-${i}`;
-    qDiv.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
-
-    const letters = ["A", "B", "C", "D"];
-    const choices = q.choices.map((choice, j) => `
-      <label>
-        <input type="radio" name="q${i}" value="${choice}">
-        ${letters[j]}. ${choice}
-        <span class="feedback-icon" id="feedback-q${i}-${j}"></span>
-      </label>
-    `).join("");
-
-    const choiceDiv = document.createElement("div");
-    choiceDiv.className = "choices";
-    choiceDiv.innerHTML = choices;
-    qDiv.appendChild(choiceDiv);
-
-    const correctLine = document.createElement("div");
-    correctLine.className = "correct-answer";
-    correctLine.id = `correct-q${i}`;
-    qDiv.appendChild(correctLine);
-
-    container.appendChild(qDiv);
+// Load questions from JSON
+fetch('questions.json')
+  .then(response => response.json())
+  .then(data => {
+    questionsData = data;
+    loadTodaysQuestions();
+    renderQuiz();
+  })
+  .catch(error => {
+    quizContainer.innerHTML = '<p>Error loading questions.</p>';
+    console.error('Failed to load questions:', error);
   });
 
-  document.getElementById("submit-btn").style.display = "block";
-  document.getElementById("submit-btn").onclick = () => checkAnswers(questions);
+// Use today's date as a seed to consistently pick 5 questions
+function loadTodaysQuestions() {
+  const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+  const storedData = JSON.parse(localStorage.getItem('dailyQuiz'));
+
+  if (storedData && storedData.date === today) {
+    selectedQuestions = storedData.questions;
+  } else {
+    selectedQuestions = pickRandomQuestions(5);
+    localStorage.setItem('dailyQuiz', JSON.stringify({
+      date: today,
+      questions: selectedQuestions
+    }));
+  }
 }
 
-function checkAnswers(questions) {
-  questions.forEach((q, i) => {
-    const radios = document.querySelectorAll(`input[name="q${i}"]`);
-    let selectedValue = null;
+// Fisher-Yates shuffle for randomness
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(seedRandom() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
-    radios.forEach((radio, j) => {
-      const feedbackSpan = document.getElementById(`feedback-q${i}-${j}`);
-      feedbackSpan.textContent = "";
+// Seedable pseudo-random number generator (daily consistent)
+let seed = new Date().toISOString().split('T')[0].split('-').join('');
+function seedRandom() {
+  const x = Math.sin(seed++) * 10000;
+  return x - Math.floor(x);
+}
 
-      if (radio.checked) {
-        selectedValue = radio.value;
-        if (radio.value === q.answer) {
-          feedbackSpan.textContent = "✅";
-          feedbackSpan.className = "feedback-icon correct";
-        } else {
-          feedbackSpan.textContent = "❌";
-          feedbackSpan.className = "feedback-icon incorrect";
-        }
+function pickRandomQuestions(count) {
+  const shuffled = shuffleArray([...questionsData]);
+  return shuffled.slice(0, count);
+}
+
+function renderQuiz() {
+  quizContainer.innerHTML = '';
+  selectedQuestions.forEach((q, index) => {
+    const questionBox = document.createElement('div');
+    questionBox.className = 'question-container';
+    questionBox.innerHTML = `
+      <div class="question-text">${index + 1}. ${q.question}</div>
+      <div class="answers">
+        ${q.choices.map((choice, i) => `
+          <label>
+            <input type="radio" name="question${index}" value="${choice}">
+            ${choice}
+          </label>
+        `).join('')}
+      </div>
+    `;
+    quizContainer.appendChild(questionBox);
+  });
+
+  submitBtn.style.display = 'block';
+  submitBtn.onclick = checkAnswers;
+}
+
+function checkAnswers() {
+  let correctCount = 0;
+  const containers = document.querySelectorAll('.question-container');
+
+  selectedQuestions.forEach((q, index) => {
+    const selectedInput = document.querySelector(`input[name="question${index}"]:checked`);
+    const labels = containers[index].querySelectorAll('label');
+
+    labels.forEach(label => {
+      const input = label.querySelector('input');
+      if (input.value === q.answer) {
+        label.classList.add('correct');
+      }
+      if (input.checked && input.value !== q.answer) {
+        label.classList.add('incorrect');
       }
     });
 
-    if (selectedValue !== q.answer) {
-      const correctLine = document.getElementById(`correct-q${i}`);
-      correctLine.textContent = `Correct answer: ${q.answer}`;
+    if (selectedInput && selectedInput.value === q.answer) {
+      correctCount++;
     }
   });
 
-  document.getElementById("submit-btn").disabled = true;
-  document.getElementById("result").innerHTML = `<p><strong>📅 Come back tomorrow for 5 new questions!</strong></p>`;
-}
-
-// Deterministic RNG
-function mulberry32(a) {
-  return function() {
-    a |= 0; a = a + 0x6D2B79F5 | 0;
-    let t = Math.imul(a ^ a >>> 15, 1 | a);
-    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-    return ((t ^ t >>> 14) >>> 0) / 4294967296;
-  };
+  resultMessage.textContent = `You got ${correctCount} out of ${selectedQuestions.length} correct. Come back tomorrow for 5 new questions!`;
+  submitBtn.disabled = true;
 }
