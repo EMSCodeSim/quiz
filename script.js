@@ -1,55 +1,66 @@
-function getTodayKey() {
-  const today = new Date();
-  return today.toISOString().split("T")[0];
-}
-
 async function loadQuiz() {
-  const quizContainer = document.getElementById("quiz-container");
   try {
-    const response = await fetch("quizzes/daily_quiz.json");
-    const data = await response.json();
-    const todayKey = getTodayKey();
+    const response = await fetch('questions.json');
+    const allQuestions = await response.json();
 
-    const todayQuiz = data[todayKey];
-    if (!todayQuiz) {
-      quizContainer.innerHTML = `<p>No quiz found for today: ${todayKey}</p>`;
-      return;
-    }
+    const today = new Date().toISOString().split("T")[0];
+    const seed = today.split("-").join(""); // e.g. 20250702
+    const questions = pickDeterministicRandom(allQuestions, 5, seed);
 
-    quizContainer.innerHTML = "";
-    todayQuiz.forEach((q, index) => {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `<strong>Q${index + 1}:</strong> ${q.question}`;
-      const choicesDiv = document.createElement("div");
-      choicesDiv.className = "choices";
-
-      q.choices.forEach((choice, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = choice;
-        btn.onclick = () => {
-          const result = div.querySelector(".result");
-          if (choice === q.answer) {
-            result.textContent = "✅ Correct!";
-            result.style.color = "green";
-          } else {
-            result.textContent = `❌ Incorrect. Correct answer: ${q.answer}`;
-            result.style.color = "red";
-          }
-        };
-        choicesDiv.appendChild(btn);
-      });
-
-      const resultP = document.createElement("p");
-      resultP.className = "result";
-      div.appendChild(choicesDiv);
-      div.appendChild(resultP);
-      quizContainer.appendChild(div);
-    });
+    displayQuestions(questions);
   } catch (error) {
     console.error("Error loading quiz:", error);
-    quizContainer.innerHTML = "<p>Error loading quiz data.</p>";
+    document.getElementById("quiz-container").innerHTML = "<p>Error loading quiz.</p>";
   }
+}
+
+function displayQuestions(questions) {
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    const questionText = document.createElement("p");
+    questionText.textContent = `${index + 1}. ${q.question}`;
+    div.appendChild(questionText);
+
+    q.choices.forEach(choice => {
+      const btn = document.createElement("button");
+      btn.textContent = choice;
+      btn.onclick = () => {
+        if (btn.textContent === q.answer) {
+          btn.style.backgroundColor = "lightgreen";
+        } else {
+          btn.style.backgroundColor = "salmon";
+        }
+      };
+      div.appendChild(btn);
+    });
+
+    container.appendChild(div);
+  });
+}
+
+function pickDeterministicRandom(array, count, seed) {
+  const seededRand = mulberry32(parseInt(seed));
+  const copy = [...array];
+  const result = [];
+  while (result.length < count && copy.length) {
+    const index = Math.floor(seededRand() * copy.length);
+    result.push(copy.splice(index, 1)[0]);
+  }
+  return result;
+}
+
+function mulberry32(a) {
+  return function () {
+    var t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
 loadQuiz();
