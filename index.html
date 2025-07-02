@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EMS Daily Quiz</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f8fb;
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f6f9;
+      margin: 0;
       padding: 20px;
       max-width: 600px;
       margin: auto;
@@ -19,27 +20,27 @@
     }
 
     .question-container {
-      margin-bottom: 30px;
-      background: #ffffff;
+      background: white;
       border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .question-text {
-      margin-bottom: 10px;
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .answers label {
       display: block;
-      padding: 10px;
-      margin: 5px 0;
-      background: #eee;
+      padding: 12px;
+      margin: 6px 0;
       border-radius: 6px;
-      cursor: pointer;
+      background-color: #f0f0f0;
       border: 2px solid transparent;
-      transition: all 0.2s;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     .answers input[type="radio"] {
@@ -61,6 +62,7 @@
     }
 
     #submit-btn {
+      display: none;
       width: 100%;
       padding: 16px;
       font-size: 18px;
@@ -70,7 +72,6 @@
       border-radius: 10px;
       margin-top: 20px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
     #submit-btn:hover {
@@ -83,12 +84,23 @@
       margin-top: 30px;
       color: #0077aa;
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      #submit-btn {
+        font-size: 16px;
+        padding: 14px;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>EMS Daily Quiz</h1>
   <div id="quiz-container"></div>
-  <button id="submit-btn" style="display:none;">Submit Answers</button>
+  <button id="submit-btn">Submit Answers</button>
   <div id="result-message"></div>
 
   <script src="script.js"></script>
