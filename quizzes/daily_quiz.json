@@ -1,0 +1,50 @@
+{
+  "date": "2025-07-02",
+  "questions": [
+    {
+      "question": "What is the compression-to-ventilation ratio in adult CPR (1 rescuer)?",
+      "options": [
+        "30:2",
+        "15:2",
+        "5:1"
+      ],
+      "answer": "30:2"
+    },
+    {
+      "question": "What does SAMPLE stand for?",
+      "options": [
+        "Signs, Allergies, Medications, Past history, Last oral intake, Events",
+        "Sugar, Airway, Medications, Past history, Lung sounds, Events",
+        "Signs, Activity, Medications, Palpitations, Last oral intake, Events"
+      ],
+      "answer": "Signs, Allergies, Medications, Past history, Last oral intake, Events"
+    },
+    {
+      "question": "Which is a sign of hypoglycemia?",
+      "options": [
+        "Slow pulse",
+        "Hot, dry skin",
+        "Confusion and sweating"
+      ],
+      "answer": "Confusion and sweating"
+    },
+    {
+      "question": "What does OPQRST stand for?",
+      "options": [
+        "Onset, Provocation, Quality, Radiation, Severity, Time",
+        "Oxygen, Pulse, Quickness, Rate, Symptoms, Time",
+        "Operation, Pain, Quickness, Swelling, Tenderness, Time"
+      ],
+      "answer": "Onset, Provocation, Quality, Radiation, Severity, Time"
+    },
+    {
+      "question": "What is the normal respiratory rate for an adult?",
+      "options": [
+        "8\u201312 breaths per minute",
+        "12\u201320 breaths per minute",
+        "20\u201328 breaths per minute"
+      ],
+      "answer": "12\u201320 breaths per minute"
+    }
+  ]
+}
