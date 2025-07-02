@@ -1,95 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EMS Daily Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f8fb;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fbfd;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    #quizContainer {
       padding: 20px;
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
     }
 
-    h1 {
-      text-align: center;
-      color: #0077aa;
-    }
-
-    .question-container {
-      margin-bottom: 30px;
-      background: #ffffff;
-      border-radius: 10px;
+    .question-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
 
     .question-text {
+      font-size: 1.1rem;
+      font-weight: 600;
       margin-bottom: 10px;
-      font-weight: bold;
     }
 
-    .answers label {
-      display: block;
-      padding: 10px;
-      margin: 5px 0;
-      background: #eee;
-      border-radius: 6px;
+    .option {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      padding: 12px;
+      background: #f2f4f7;
+      border-radius: 8px;
+      border: 1px solid #ccc;
       cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.2s;
+      transition: background 0.2s;
     }
 
-    .answers input[type="radio"] {
-      display: none;
+    .option input {
+      margin-right: 12px;
+      transform: scale(1.2);
     }
 
-    .answers label.correct {
+    .option:hover {
+      background-color: #e2efff;
+    }
+
+    .option.correct {
       border-color: green;
-      background-color: #e1f7e1;
+      background-color: #e6ffe6;
     }
 
-    .answers label.incorrect {
+    .option.incorrect {
       border-color: red;
-      background-color: #fde2e2;
+      background-color: #ffe6e6;
     }
 
-    .answers label:has(input:checked) {
-      border-color: #0077aa;
-    }
-
-    #submit-btn {
-      width: 100%;
-      padding: 16px;
-      font-size: 18px;
-      background-color: #0077aa;
-      color: white;
+    #submitBtn {
+      display: block;
+      margin: 30px auto;
+      padding: 16px 32px;
+      font-size: 1.2rem;
+      background-color: #007BFF;
+      color: #fff;
       border: none;
-      border-radius: 10px;
-      margin-top: 20px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      width: 90%;
+      max-width: 300px;
     }
 
-    #submit-btn:hover {
-      background-color: #005f8a;
+    #submitBtn:hover {
+      background-color: #0056b3;
     }
 
-    #result-message {
+    #result {
       text-align: center;
-      font-size: 18px;
       margin-top: 30px;
-      color: #0077aa;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .question-text {
+        font-size: 1rem;
+      }
+
+      .option {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+
+      #submitBtn {
+        font-size: 1rem;
+        padding: 14px 28px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>EMS Daily Quiz</h1>
-  <div id="quiz-container"></div>
-  <button id="submit-btn" style="display:none;">Submit Answers</button>
-  <div id="result-message"></div>
+  <header>🚑 EMS Daily Quiz</header>
+  <div id="quizContainer">Loading quiz...</div>
+  <button id="submitBtn">Submit Answers</button>
+  <div id="result"></div>
 
   <script src="script.js"></script>
 </body>
