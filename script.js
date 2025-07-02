@@ -1,33 +1,38 @@
-const today = new Date().toISOString().slice(0, 10);
+function mulberry32(seed) {
+  return function() {
+    var t = seed += 0x6D2B79F5;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  }
+}
 
-fetch('quizzes/daily_quiz.json')
-  .then(res => {
-    if (!res.ok) throw new Error('File not found');
-    return res.json();
-  })
+function getTodaySeed() {
+  const today = new Date().toISOString().split('T')[0];
+  return parseInt(today.replace(/-/g, ''));
+}
+
+function pickRandomFromCategory(rng, categoryArray) {
+  const index = Math.floor(rng() * categoryArray.length);
+  return categoryArray[index];
+}
+
+fetch('ems_quiz_2000.json')
+  .then(res => res.json())
   .then(data => {
-    const questions = data[today];
-    const container = document.getElementById('quiz-container');
-    if (!questions || questions.length === 0) {
-      container.innerHTML = 'No quiz found today.';
-      return;
+    const seed = getTodaySeed();
+    const rng = mulberry32(seed);
+
+    const dailyQuiz = [];
+
+    for (const category in data) {
+      const question = pickRandomFromCategory(rng, data[category]);
+      if (question) dailyQuiz.push(question);
     }
 
-    container.innerHTML = '';
-    questions.forEach((q, index) => {
-      const div = document.createElement('div');
-      div.innerHTML = `
-        <p><strong>Q${index + 1}:</strong> ${q.question}</p>
-        ${q.choices.map((c, i) => `
-          <label>
-            <input type="radio" name="q${index}" value="${c}"> ${c}
-          </label><br>
-        `).join('')}
-      `;
-      container.appendChild(div);
-    });
+    startQuiz(dailyQuiz);
   })
   .catch(err => {
-    document.getElementById('quiz-container').innerHTML = 'Error loading quiz.';
+    document.getElementById("quiz").innerHTML = "<p>Error loading quiz.</p>";
     console.error(err);
   });
