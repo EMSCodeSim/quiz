@@ -1,0 +1,32 @@
+[
+  {
+    "question": "What is the normal adult respiratory rate?",
+    "choices": ["8–16", "12–20", "16–24", "20–28"],
+    "answer": "12–20"
+  },
+  {
+    "question": "Which medication is used for chest pain?",
+    "choices": ["Albuterol", "Nitroglycerin", "Epinephrine", "Glucose"],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "What does SAMPLE stand for?",
+    "choices": ["Signs, Allergies, Meds, Past, Last oral intake, Events", "Symptoms, Age, Meds, Past, Location, Events", "Signs, Allergies, Meds, Past, Last, Events", "Symptoms, Assessment, Meds, Past, Last, Exposure"],
+    "answer": "Signs, Allergies, Meds, Past, Last oral intake, Events"
+  },
+  {
+    "question": "What is the first step in scene size-up?",
+    "choices": ["Call for ALS", "Form general impression", "Scene safety", "Check pulse"],
+    "answer": "Scene safety"
+  },
+  {
+    "question": "Normal systolic BP range for adults?",
+    "choices": ["80–100", "90–120", "100–130", "110–140"],
+    "answer": "90–120"
+  },
+  {
+    "question": "What does OPQRST stand for?",
+    "choices": ["Onset, Provocation, Quality, Radiates, Severity, Time", "Onset, Pain, Quality, Radiation, Scale, Time", "Open, Pulse, Quickness, Reaction, Signs, Temp", "Onset, Position, Quiet, Reflex, Scale, Time"],
+    "answer": "Onset, Provocation, Quality, Radiates, Severity, Time"
+  }
+]
