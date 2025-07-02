@@ -1,57 +1,29 @@
-const admin = require('firebase-admin');
-
-// Decode and parse service account from Netlify env var
-const serviceAccountRaw = process.env.FIREBASE_SERVICE_ACCOUNT;
-
-if (!serviceAccountRaw) {
-  throw new Error('Missing FIREBASE_SERVICE_ACCOUNT env variable.');
-}
-
-let serviceAccount;
-try {
-  const fixedServiceAccountJSON = serviceAccountRaw.replace(/\\n/g, '\n');
-  serviceAccount = JSON.parse(fixedServiceAccountJSON);
-} catch (error) {
-  throw new Error(`Failed to parse service account JSON: ${error.message}`);
-}
-
-// Initialize Firebase Admin
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://dailyquiz-d5279-default-rtdb.firebaseio.com',
-  });
-}
-
-const db = admin.database();
+const fs = require("fs");
+const path = require("path");
 
 exports.handler = async function (event, context) {
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: 'Method Not Allowed',
-    };
-  }
-
   try {
-    const data = JSON.parse(event.body);
+    // Your full question bank (simulate a large pool)
+    const fullQuestionBank = require("./questionBank.json"); // Make sure this file exists
+    const shuffled = fullQuestionBank.sort(() => 0.5 - Math.random());
+    const dailyQuestions = shuffled.slice(0, 5);
 
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = `${now.getMonth() + 1}`.padStart(2, '0');
-    const day = `${now.getDate()}`.padStart(2, '0');
-    const dateKey = `${year}-${month}-${day}`;
-
-    await db.ref(`dailyQuizzes/${dateKey}`).set(data);
+    // Simulate a write (to local file within build folder)
+    const outputPath = path.join(__dirname, "dailyQuiz.json");
+    fs.writeFileSync(outputPath, JSON.stringify({
+      date: new Date().toISOString().split("T")[0],
+      questions: dailyQuestions,
+    }, null, 2));
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, dateKey }),
+      body: JSON.stringify({ message: "Daily quiz created successfully", questions: dailyQuestions }),
     };
   } catch (error) {
+    console.error("Error generating quiz:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: "Failed to create quiz" }),
     };
   }
 };
