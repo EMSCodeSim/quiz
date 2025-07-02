@@ -1,53 +1,34 @@
 [
   {
-    "question": "What does AVPU stand for in patient assessment?",
-    "choices": ["Alert, Voice, Pain, Unresponsive", "Airway, Vitals, Pulse, Urine", "Assess, Verify, Protect, Understand", "Alertness, Ventilation, Pulse, Urgency"],
-    "answer": "Alert, Voice, Pain, Unresponsive"
+    "question": "What does SAMPLE stand for?",
+    "choices": ["Signs, Allergies, Meds, Past, Last oral, Events", "Signs, Airway, Movement, Pulse, LOC, Environment", "Sugar, Air, Meds, Pressure, Lung sounds, EKG", "Suction, Airway, Movement, Past history, LOC, Events"],
+    "answer": "Signs, Allergies, Meds, Past, Last oral, Events"
   },
   {
-    "question": "Which artery is palpated during CPR in adults?",
-    "choices": ["Radial", "Brachial", "Carotid", "Femoral"],
-    "answer": "Carotid"
+    "question": "What is the normal range for an adult pulse?",
+    "choices": ["40–60 bpm", "60–100 bpm", "100–120 bpm", "80–140 bpm"],
+    "answer": "60–100 bpm"
   },
   {
-    "question": "What is the first step of the primary assessment?",
-    "choices": ["Check airway", "Assess circulation", "Scene safety", "Form a general impression"],
-    "answer": "Scene safety"
+    "question": "Which of the following is a contraindication for nitroglycerin?",
+    "choices": ["Chest pain", "BP above 100 systolic", "Recent use of erectile dysfunction meds", "Shortness of breath"],
+    "answer": "Recent use of erectile dysfunction meds"
   },
   {
-    "question": "What is the normal respiratory rate for an adult?",
-    "choices": ["8–12", "10–20", "12–20", "14–24"],
-    "answer": "12–20"
+    "question": "What should be done first when arriving on scene?",
+    "choices": ["Check for breathing", "Assess circulation", "Determine scene safety", "Call medical control"],
+    "answer": "Determine scene safety"
   },
   {
-    "question": "Which of the following is a sign of compensated shock?",
-    "choices": ["Decreased blood pressure", "Bradycardia", "Cool, clammy skin", "Unconsciousness"],
-    "answer": "Cool, clammy skin"
+    "question": "How often should vitals be reassessed in an unstable patient?",
+    "choices": ["Every 30 minutes", "Every 15 minutes", "Every 5 minutes", "Only once during transport"],
+    "answer": "Every 5 minutes"
   },
   {
-    "question": "How many liters per minute (LPM) does a non-rebreather mask deliver?",
-    "choices": ["1–6 LPM", "6–10 LPM", "10–15 LPM", "15–20 LPM"],
-    "answer": "10–15 LPM"
+    "question": "Which condition is characterized by a sudden, severe headache and possibly unequal pupils?",
+    "choices": ["Asthma", "Stroke", "Hypoglycemia", "Seizure"],
+    "answer": "Stroke"
   },
   {
-    "question": "What is the compression to ventilation ratio for 2-rescuer adult CPR?",
-    "choices": ["15:2", "30:2", "5:1", "20:2"],
-    "answer": "30:2"
-  },
-  {
-    "question": "Which acronym helps assess a patient’s mental status?",
-    "choices": ["PERRL", "SAMPLE", "AVPU", "DCAP-BTLS"],
-    "answer": "AVPU"
-  },
-  {
-    "question": "When do you use an OPA (oropharyngeal airway)?",
-    "choices": ["When patient has a gag reflex", "For unconscious patients without gag reflex", "For patients with trismus", "When patient is vomiting"],
-    "answer": "For unconscious patients without gag reflex"
-  },
-  {
-    "question": "Which condition is most associated with wheezing?",
-    "choices": ["CHF", "Asthma", "Pneumonia", "Anaphylaxis"],
-    "answer": "Asthma"
-  }
-  // ... (Add 90 more following the same structure)
-]
+    "question": "What is the best way to open an airway in a trauma patient?",
+    "choices":
