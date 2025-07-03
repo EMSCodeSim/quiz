@@ -74,16 +74,11 @@ function submitQuiz() {
       label.classList.remove("correct", "incorrect");
 
       if (choice === q.answer) {
+        label.classList.add("correct");
         if (selected === q.answer) {
           score++;
-          label.classList.add("correct");
-        } else if (selected === choice) {
-          label.classList.add("incorrect");
-        } else {
-          // Show correct answer even if it wasn't selected
-          label.classList.add("correct");
         }
-      } else if (selected === choice) {
+      } else {
         label.classList.add("incorrect");
       }
     });
