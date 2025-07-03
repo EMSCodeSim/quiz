@@ -398,5 +398,405 @@
       "Long-term care"
     ],
     "answer": "Prevention and wellness"
+  },
+  {
+    "question": "Which medication is commonly administered for hypoglycemia?",
+    "choices": [
+      "Oral glucose",
+      "Epinephrine",
+      "Nitroglycerin",
+      "Aspirin"
+    ],
+    "answer": "Oral glucose"
+  },
+  {
+    "question": "Which medication is used for anaphylaxis?",
+    "choices": [
+      "Nitroglycerin",
+      "Aspirin",
+      "Albuterol",
+      "Epinephrine auto-injector"
+    ],
+    "answer": "Epinephrine auto-injector"
+  },
+  {
+    "question": "Which medication dilates the coronary arteries?",
+    "choices": [
+      "Naloxone",
+      "Oral glucose",
+      "Nitroglycerin",
+      "Epinephrine"
+    ],
+    "answer": "Nitroglycerin"
+  },
+  {
+    "question": "Which medication reverses opioid overdose?",
+    "choices": [
+      "Naloxone",
+      "Aspirin",
+      "Glucose",
+      "Albuterol"
+    ],
+    "answer": "Naloxone"
+  },
+  {
+    "question": "Which medication is indicated for chest pain of suspected cardiac origin?",
+    "choices": [
+      "Aspirin",
+      "Albuterol",
+      "Epinephrine",
+      "Oral glucose"
+    ],
+    "answer": "Aspirin"
+  },
+  {
+    "question": "What is the most appropriate airway adjunct for an unconscious patient without a gag reflex?",
+    "choices": [
+      "CPAP",
+      "Nasopharyngeal airway",
+      "Endotracheal tube",
+      "Oropharyngeal airway"
+    ],
+    "answer": "Oropharyngeal airway"
+  },
+  {
+    "question": "What is the best method to open the airway of a trauma patient?",
+    "choices": [
+      "Chin push",
+      "Head-tilt chin-lift",
+      "Cricoid pressure",
+      "Jaw-thrust maneuver"
+    ],
+    "answer": "Jaw-thrust maneuver"
+  },
+  {
+    "question": "Which device provides the highest concentration of oxygen?",
+    "choices": [
+      "Simple face mask",
+      "Nasal cannula",
+      "Bag-valve mask with reservoir",
+      "Venturi mask"
+    ],
+    "answer": "Bag-valve mask with reservoir"
+  },
+  {
+    "question": "What is the purpose of suctioning?",
+    "choices": [
+      "Deliver oxygen",
+      "Monitor airway pressure",
+      "Remove secretions and prevent aspiration",
+      "Warm inhaled air"
+    ],
+    "answer": "Remove secretions and prevent aspiration"
+  },
+  {
+    "question": "What indicates adequate artificial ventilation?",
+    "choices": [
+      "Decreased skin turgor",
+      "Increased heart rate",
+      "Visible chest rise and fall",
+      "Dry mucous membranes"
+    ],
+    "answer": "Visible chest rise and fall"
+  },
+  {
+    "question": "What does the 'P' in AVPU stand for?",
+    "choices": [
+      "Pulse",
+      "Pale",
+      "Pain",
+      "Peripheral"
+    ],
+    "answer": "Pain"
+  },
+  {
+    "question": "What is the first step in the primary assessment?",
+    "choices": [
+      "Form general impression",
+      "Take vitals",
+      "Assess SAMPLE history",
+      "Begin CPR"
+    ],
+    "answer": "Form general impression"
+  },
+  {
+    "question": "Which mnemonic helps assess a patient\u2019s chief complaint?",
+    "choices": [
+      "SAMPLE",
+      "DCAP-BTLS",
+      "OPQRST",
+      "AVPU"
+    ],
+    "answer": "OPQRST"
+  },
+  {
+    "question": "What does the 'L' in SAMPLE stand for?",
+    "choices": [
+      "Location",
+      "Level of pain",
+      "Last oral intake",
+      "Laceration"
+    ],
+    "answer": "Last oral intake"
+  },
+  {
+    "question": "What is a key part of the secondary assessment?",
+    "choices": [
+      "Performing a focused physical exam",
+      "Asking insurance information",
+      "Checking oxygen tank",
+      "Calling for ALS backup"
+    ],
+    "answer": "Performing a focused physical exam"
+  },
+  {
+    "question": "Which condition is characterized by wheezing and bronchoconstriction?",
+    "choices": [
+      "Seizure",
+      "CHF",
+      "Stroke",
+      "Asthma"
+    ],
+    "answer": "Asthma"
+  },
+  {
+    "question": "Which condition may present with crushing chest pain and diaphoresis?",
+    "choices": [
+      "Pneumonia",
+      "Asthma",
+      "Anxiety attack",
+      "Myocardial infarction"
+    ],
+    "answer": "Myocardial infarction"
+  },
+  {
+    "question": "What is a typical sign of congestive heart failure (CHF)?",
+    "choices": [
+      "Hives",
+      "Seizure",
+      "Pulmonary edema",
+      "JVD"
+    ],
+    "answer": "Pulmonary edema"
+  },
+  {
+    "question": "Which patient is most likely experiencing a transient ischemic attack (TIA)?",
+    "choices": [
+      "Severe headache and vomiting",
+      "Chest pain and diaphoresis",
+      "Symptoms resolve within 24 hours",
+      "Persistent right-side weakness"
+    ],
+    "answer": "Symptoms resolve within 24 hours"
+  },
+  {
+    "question": "Which condition is treated with albuterol?",
+    "choices": [
+      "Stroke",
+      "Seizure",
+      "Hypoglycemia",
+      "Bronchospasm"
+    ],
+    "answer": "Bronchospasm"
+  },
+  {
+    "question": "What is the compression rate for adult CPR?",
+    "choices": [
+      "80\u2013100",
+      "60\u201380",
+      "100\u2013120 compressions per minute",
+      "120\u2013140"
+    ],
+    "answer": "100\u2013120 compressions per minute"
+  },
+  {
+    "question": "How deep should compressions be on an adult?",
+    "choices": [
+      "Less than 1 inch",
+      "2.5 inches",
+      "At least 2 inches",
+      "1 inch"
+    ],
+    "answer": "At least 2 inches"
+  },
+  {
+    "question": "When should the AED be applied to a pulseless patient?",
+    "choices": [
+      "After airway is secured",
+      "After 5 cycles",
+      "As soon as it is available",
+      "After 2 minutes of CPR"
+    ],
+    "answer": "As soon as it is available"
+  },
+  {
+    "question": "Which rhythm is shockable by an AED?",
+    "choices": [
+      "Ventricular fibrillation",
+      "Asystole",
+      "Normal sinus rhythm",
+      "First-degree AV block"
+    ],
+    "answer": "Ventricular fibrillation"
+  },
+  {
+    "question": "What is the ratio of compressions to ventilations in two-rescuer adult CPR?",
+    "choices": [
+      "5:1",
+      "20:2",
+      "30:2",
+      "15:2"
+    ],
+    "answer": "30:2"
+  },
+  {
+    "question": "What is the first step in controlling external bleeding?",
+    "choices": [
+      "Apply direct pressure",
+      "Use a tourniquet",
+      "Elevate the limb",
+      "Apply cold packs"
+    ],
+    "answer": "Apply direct pressure"
+  },
+  {
+    "question": "Which type of bleed is most likely arterial?",
+    "choices": [
+      "Bright red and spurting",
+      "Dark red and oozing",
+      "No visible bleeding",
+      "Steady flow"
+    ],
+    "answer": "Bright red and spurting"
+  },
+  {
+    "question": "A burn that blisters is classified as:",
+    "choices": [
+      "Deep-tissue",
+      "Full-thickness",
+      "Partial-thickness",
+      "Superficial"
+    ],
+    "answer": "Partial-thickness"
+  },
+  {
+    "question": "Which sign suggests internal bleeding?",
+    "choices": [
+      "Rigid, distended abdomen",
+      "Bradycardia",
+      "Low oxygen saturation",
+      "Red skin"
+    ],
+    "answer": "Rigid, distended abdomen"
+  },
+  {
+    "question": "What is the best method to control bleeding from a leg amputation?",
+    "choices": [
+      "Cold compress",
+      "Tourniquet",
+      "Elevation",
+      "Direct pressure only"
+    ],
+    "answer": "Tourniquet"
+  },
+  {
+    "question": "What is the first step in assisting with a normal delivery?",
+    "choices": [
+      "Support the head as it emerges",
+      "Pull the baby out",
+      "Deliver the placenta",
+      "Clamp the cord"
+    ],
+    "answer": "Support the head as it emerges"
+  },
+  {
+    "question": "What does APGAR assess in a newborn?",
+    "choices": [
+      "Airway, Pulse, Gag reflex, Activity, Reflexes",
+      "Alertness, Position, Gait, Activity, Response",
+      "Appearance, Position, Grunt, Agitation, Reflex",
+      "Appearance, Pulse, Grimace, Activity, Respirations"
+    ],
+    "answer": "Appearance, Pulse, Grimace, Activity, Respirations"
+  },
+  {
+    "question": "What is the most common cause of cardiac arrest in pediatric patients?",
+    "choices": [
+      "Seizure",
+      "Fever",
+      "Respiratory failure",
+      "Heart attack"
+    ],
+    "answer": "Respiratory failure"
+  },
+  {
+    "question": "How should an EMT assess a child\u2019s airway?",
+    "choices": [
+      "Hyperextend the neck",
+      "Insert an OPA immediately",
+      "Use a jaw thrust on all pediatric patients",
+      "Use a head tilt\u2013chin lift unless trauma suspected"
+    ],
+    "answer": "Use a head tilt\u2013chin lift unless trauma suspected"
+  },
+  {
+    "question": "What is a sign of respiratory distress in infants?",
+    "choices": [
+      "Bradycardia",
+      "Decreased level of consciousness",
+      "Cool skin",
+      "Nasal flaring"
+    ],
+    "answer": "Nasal flaring"
+  },
+  {
+    "question": "What is the purpose of the START triage system?",
+    "choices": [
+      "Evacuate non-ambulatory patients",
+      "Sort patients by severity",
+      "Transport first arrivals",
+      "Treat all patients the same"
+    ],
+    "answer": "Sort patients by severity"
+  },
+  {
+    "question": "What color tag is assigned to patients who are deceased in triage?",
+    "choices": [
+      "Red",
+      "Green",
+      "Yellow",
+      "Black"
+    ],
+    "answer": "Black"
+  },
+  {
+    "question": "Which of the following best describes the role of the EMT at a crime scene?",
+    "choices": [
+      "Take photos of the scene",
+      "Interview witnesses",
+      "Avoid disturbing evidence while providing care",
+      "Collect evidence for police"
+    ],
+    "answer": "Avoid disturbing evidence while providing care"
+  },
+  {
+    "question": "When driving an ambulance with lights and sirens, what must EMTs still do?",
+    "choices": [
+      "Follow all traffic laws with due regard",
+      "Drive at any speed",
+      "Ignore traffic signals",
+      "Pass on the shoulder at will"
+    ],
+    "answer": "Follow all traffic laws with due regard"
+  },
+  {
+    "question": "What is a primary goal of incident command at an MCI?",
+    "choices": [
+      "Establish control and coordination",
+      "Perform surgery",
+      "Load all patients rapidly",
+      "Avoid documentation"
+    ],
+    "answer": "Establish control and coordination"
   }
 ]
