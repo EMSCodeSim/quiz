@@ -18,8 +18,8 @@ function loadTodaysQuiz() {
   const today = new Date().toISOString().split("T")[0];
   const savedQuiz = JSON.parse(localStorage.getItem("dailyQuiz"));
 
-  // DEV MODE: Always generate fresh quiz (bypass cache)
-  if (false && savedQuiz && savedQuiz.date === today) {
+  // Normal behavior: use saved questions if date matches
+  if (savedQuiz && savedQuiz.date === today) {
     todaysQuestions = savedQuiz.questions;
   } else {
     todaysQuestions = pickUniqueQuestions(5);
@@ -80,7 +80,9 @@ function submitQuiz() {
           score++;
         }
       } else {
-        label.classList.add("incorrect");
+        if (selected === choice) {
+          label.classList.add("incorrect"); // Only show red if user selected it
+        }
       }
     });
   });
