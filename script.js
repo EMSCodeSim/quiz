@@ -18,7 +18,8 @@ function loadTodaysQuiz() {
   const today = new Date().toISOString().split("T")[0];
   const savedQuiz = JSON.parse(localStorage.getItem("dailyQuiz"));
 
-if (false && savedQuiz && savedQuiz.date === today)
+  // DEV MODE: Always generate fresh quiz (bypass cache)
+  if (false && savedQuiz && savedQuiz.date === today) {
     todaysQuestions = savedQuiz.questions;
   } else {
     todaysQuestions = pickUniqueQuestions(5);
