@@ -18,7 +18,7 @@ function loadTodaysQuiz() {
   const today = new Date().toISOString().split("T")[0];
   const savedQuiz = JSON.parse(localStorage.getItem("dailyQuiz"));
 
-  if (savedQuiz && savedQuiz.date === today) {
+if (false && savedQuiz && savedQuiz.date === today)
     todaysQuestions = savedQuiz.questions;
   } else {
     todaysQuestions = pickUniqueQuestions(5);
