@@ -1,0 +1,262 @@
+[
+  {
+    "question": "A 36-year-old female presents with right-sided weakness, slurred speech, and facial droop that started 30 minutes ago. Her blood glucose is 98 mg/dL. What is the most appropriate next action?",
+    "choices": [
+      "Transport to a stroke center immediately",
+      "Administer oral glucose",
+      "Give aspirin 324 mg",
+      "Perform spinal immobilization"
+    ],
+    "answer": "Transport to a stroke center immediately",
+    "reason": "The patient is within the window for stroke intervention and has a normal glucose. Rapid transport is key.",
+    "subtopic": "Stroke",
+    "topic": "Medical Emergencies"
+  },
+  {
+    "question": "A 50-year-old male has circumferential burns to his chest and is struggling to breathe. Breath sounds are decreased bilaterally. What is your most immediate concern?",
+    "choices": [
+      "Impaired chest wall expansion",
+      "Hypoglycemia from burn stress",
+      "Cardiac tamponade",
+      "Tension pneumothorax"
+    ],
+    "answer": "Impaired chest wall expansion",
+    "reason": "Circumferential chest burns can restrict breathing due to tightening of skin and tissue.",
+    "subtopic": "Burns",
+    "topic": "Trauma"
+  },
+  {
+    "question": "A combative patient is threatening bystanders and screaming unintelligibly. Vitals are normal. What is the safest initial management?",
+    "choices": [
+      "Ensure scene safety and wait for law enforcement",
+      "Physically restrain the patient immediately",
+      "Administer haloperidol without consent",
+      "Attempt to reason with the patient alone"
+    ],
+    "answer": "Ensure scene safety and wait for law enforcement",
+    "reason": "Scene safety is the top priority, especially with behavioral emergencies involving potential violence.",
+    "subtopic": "Behavioral/Psychiatric",
+    "topic": "Medical Emergencies"
+  },
+  {
+    "question": "A 26-year-old male has open femur fractures and is pulseless after a motorcycle crash. What should you do first?",
+    "choices": [
+      "Start CPR and apply a tourniquet",
+      "Apply splints before initiating CPR",
+      "Perform a focused trauma assessment",
+      "Transport without interventions"
+    ],
+    "answer": "Start CPR and apply a tourniquet",
+    "reason": "Life-threatening bleeding and cardiac arrest require simultaneous resuscitative actions.",
+    "subtopic": "Bleeding and Shock",
+    "topic": "Trauma"
+  },
+  {
+    "question": "During hazmat response, you see a placard with skull and crossbones and the number 6. What does this indicate?",
+    "choices": [
+      "Poisonous material",
+      "Flammable gas",
+      "Corrosive liquid",
+      "Radioactive substance"
+    ],
+    "answer": "Poisonous material",
+    "reason": "Class 6 placards with a skull and crossbones represent toxic substances.",
+    "subtopic": "Hazmat Awareness",
+    "topic": "EMS Operations"
+  },
+  {
+    "question": "A 22-year-old woman is in active labor with crowning visible. What is your next immediate action?",
+    "choices": [
+      "Prepare for imminent delivery",
+      "Insert a gloved hand for breech rotation",
+      "Transport immediately with lights and sirens",
+      "Administer oxygen and delay delivery"
+    ],
+    "answer": "Prepare for imminent delivery",
+    "reason": "Visible crowning indicates that birth is imminent and should occur on scene with proper preparation.",
+    "subtopic": "Obstetrics",
+    "topic": "Special Populations"
+  },
+  {
+    "question": "A patient presents after diving into a shallow pool and complains of neck pain. Vitals are stable. What should you do first?",
+    "choices": [
+      "Manually stabilize the spine",
+      "Apply high-flow oxygen",
+      "Log roll onto long spine board",
+      "Ask the patient to walk to the stretcher"
+    ],
+    "answer": "Manually stabilize the spine",
+    "reason": "Manual stabilization is the first step in suspected spinal injury, even before assessment or oxygen.",
+    "subtopic": "Spinal Trauma",
+    "topic": "Trauma"
+  },
+  {
+    "question": "You arrive to find an adult patient gasping and cyanotic with inspiratory stridor after a bee sting. What should you do first?",
+    "choices": [
+      "Administer epinephrine IM",
+      "Apply a non-rebreather mask",
+      "Initiate chest compressions",
+      "Place the patient in Trendelenburg"
+    ],
+    "answer": "Administer epinephrine IM",
+    "reason": "This is anaphylaxis with airway involvement. Epinephrine is life-saving and must be given immediately.",
+    "subtopic": "Respiratory Distress",
+    "topic": "Airway Management, Respiration & Ventilation"
+  },
+  {
+    "question": "A trauma patient has a weak radial pulse, altered mental status, and pale, cool skin. What does this indicate?",
+    "choices": [
+      "Compensated shock",
+      "Normal perfusion",
+      "Spinal cord injury",
+      "Hypothermia"
+    ],
+    "answer": "Compensated shock",
+    "reason": "These signs point to early hypoperfusion, when the body is still maintaining blood pressure.",
+    "subtopic": "Bleeding and Shock",
+    "topic": "Trauma"
+  },
+  {
+    "question": "A 2-week-old infant is unresponsive and apneic. Bystanders report he stopped breathing after feeding. What is your priority intervention?",
+    "choices": [
+      "Start CPR with 3:1 compression ratio",
+      "Administer naloxone",
+      "Provide blow-by oxygen",
+      "Perform abdominal thrusts"
+    ],
+    "answer": "Start CPR with 3:1 compression ratio",
+    "reason": "Neonatal CPR uses a 3:1 ratio due to the high likelihood of cardiac arrest from respiratory failure.",
+    "subtopic": "Neonatal Resuscitation",
+    "topic": "Special Populations"
+  },
+  {
+    "question": "A 54-year-old male is complaining of crushing substernal chest pain radiating to his left arm. He is diaphoretic and short of breath. What is the most appropriate initial treatment?",
+    "choices": [
+      "Administer aspirin and provide oxygen",
+      "Begin CPR immediately",
+      "Apply a cervical collar",
+      "Perform rapid extrication"
+    ],
+    "answer": "Administer aspirin and provide oxygen",
+    "reason": "The presentation suggests an acute coronary syndrome. Aspirin reduces clot formation and oxygen addresses hypoxia, making this the correct initial treatment.",
+    "subtopic": "Cardiac Emergencies",
+    "topic": "Cardiovascular"
+  },
+  {
+    "question": "A 25-year-old male is found unconscious after a suspected opioid overdose. Respirations are 6/min and shallow. What is the most appropriate first action?",
+    "choices": [
+      "Insert an OPA and ventilate with a BVM",
+      "Administer naloxone IM",
+      "Apply a non-rebreather mask",
+      "Place the patient in the recovery position"
+    ],
+    "answer": "Insert an OPA and ventilate with a BVM",
+    "reason": "The priority is airway and ventilation. Reversing the opioid is important, but airway support comes first when respirations are inadequate.",
+    "subtopic": "Toxicology",
+    "topic": "Medical Emergencies"
+  },
+  {
+    "question": "A 3-year-old child presents with inspiratory stridor, a barking cough, and mild fever. What condition is most likely?",
+    "choices": [
+      "Croup",
+      "Asthma",
+      "Epiglottitis",
+      "Foreign body aspiration"
+    ],
+    "answer": "Croup",
+    "reason": "Croup presents with stridor, a seal-like cough, and is common in toddlers. Epiglottitis typically involves high fever and drooling.",
+    "subtopic": "Pediatrics",
+    "topic": "Special Populations"
+  },
+  {
+    "question": "A 70-year-old female complains of dizziness and has a heart rate of 38 bpm. Blood pressure is 84/60. What is the best next step?",
+    "choices": [
+      "Begin transcutaneous pacing",
+      "Administer nitroglycerin",
+      "Have the patient walk to the stretcher",
+      "Apply a cold pack to the neck"
+    ],
+    "answer": "Begin transcutaneous pacing",
+    "reason": "Bradycardia with hypotension and symptoms indicates unstable bradycardia, for which pacing is the treatment of choice.",
+    "subtopic": "Cardiac Emergencies",
+    "topic": "Cardiovascular"
+  },
+  {
+    "question": "A 19-year-old female has been assaulted and complains of lower abdominal pain with vaginal bleeding. What is your priority?",
+    "choices": [
+      "Treat for shock and transport",
+      "Question her about the assailant",
+      "Administer oxygen and notify police",
+      "Apply a cervical collar and long board"
+    ],
+    "answer": "Treat for shock and transport",
+    "reason": "Bleeding and trauma may indicate internal injury. Rapid transport and shock management take priority over legal aspects.",
+    "subtopic": "Gynecological",
+    "topic": "Medical Emergencies"
+  },
+  {
+    "question": "A 34-year-old diabetic patient is confused and combative. Blood glucose reads 35 mg/dL. What is the most appropriate action?",
+    "choices": [
+      "Administer oral glucose if able",
+      "Apply a cardiac monitor",
+      "Begin cooling measures",
+      "Transport without treatment"
+    ],
+    "answer": "Administer oral glucose if able",
+    "reason": "A glucose of 35 indicates hypoglycemia. If the patient can protect their airway, oral glucose is appropriate.",
+    "subtopic": "Endocrine",
+    "topic": "Medical Emergencies"
+  },
+  {
+    "question": "You arrive on scene where multiple patients are involved in a building collapse. What is your first action?",
+    "choices": [
+      "Ensure scene safety",
+      "Start triaging patients",
+      "Call for a second ambulance",
+      "Begin CPR on a pulseless patient"
+    ],
+    "answer": "Ensure scene safety",
+    "reason": "Scene safety always comes first. Entering an unsafe environment risks additional casualties.",
+    "subtopic": "Scene Size-Up",
+    "topic": "Patient Assessment"
+  },
+  {
+    "question": "A patient involved in a motorcycle crash presents with paradoxical chest wall movement. What is your most immediate concern?",
+    "choices": [
+      "Flail chest and impaired ventilation",
+      "Spinal cord injury",
+      "Hypovolemia",
+      "Airway obstruction from tongue"
+    ],
+    "answer": "Flail chest and impaired ventilation",
+    "reason": "Paradoxical movement indicates flail chest, which compromises ventilation and requires stabilization and oxygen support.",
+    "subtopic": "Chest Trauma",
+    "topic": "Trauma"
+  },
+  {
+    "question": "A patient presents with pinpoint pupils, bradypnea, and hypotension. Which medication is most likely involved?",
+    "choices": [
+      "Heroin",
+      "Cocaine",
+      "Atropine",
+      "Aspirin"
+    ],
+    "answer": "Heroin",
+    "reason": "Heroin and other opioids cause miosis (pinpoint pupils), respiratory depression, and hypotension.",
+    "subtopic": "Toxicology",
+    "topic": "Medical Emergencies"
+  },
+  {
+    "question": "A newborn is apneic and has a heart rate of 50 bpm. After drying and stimulating, what is your next step?",
+    "choices": [
+      "Begin positive pressure ventilation",
+      "Perform chest compressions",
+      "Administer epinephrine",
+      "Suction the airway"
+    ],
+    "answer": "Begin positive pressure ventilation",
+    "reason": "For newborns with HR <100 and no breathing, PPV is the immediate next step per neonatal resuscitation guidelines.",
+    "subtopic": "Neonatal Resuscitation",
+    "topic": "Special Populations"
+  }
+]
