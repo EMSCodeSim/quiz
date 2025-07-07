@@ -62,10 +62,28 @@
       font-weight: bold;
       text-align: center;
     }
+    .quiz-selector {
+      margin: 10px auto 20px;
+      text-align: center;
+    }
+    select {
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
   <h1>Daily EMS Quiz</h1>
+
+  <div class="quiz-selector">
+    <label for="quizType">Select Quiz Type:</label>
+    <select id="quizType" onchange="loadQuiz()">
+      <option value="emt">EMT</option>
+      <option value="paramedic">Paramedic</option>
+    </select>
+  </div>
+
   <div id="quiz-container">Loading quiz...</div>
   <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
   <div class="result" id="result"></div>
