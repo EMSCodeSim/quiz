@@ -3,7 +3,7 @@ let todaysQuestions = [];
 
 function loadQuiz() {
   const quizType = document.getElementById("quizType").value;
-  const fileName = quizType === "paramedic" ? "paramedic_questions.json" : "emt_questions.json";
+  const fileName = quizType === "paramedic" ? "paramedic_quiz.json" : "emt_quiz.json";
 
   fetch(fileName)
     .then(res => res.json())
@@ -58,7 +58,8 @@ function displayQuiz() {
     `;
     container.appendChild(div);
   });
-  document.getElementById("result").innerHTML = ""; // Clear old result
+
+  document.getElementById("result").innerHTML = "";
 }
 
 function submitQuiz() {
@@ -80,8 +81,10 @@ function submitQuiz() {
         if (selected === q.answer) {
           score++;
         }
-      } else if (selected === choice) {
-        label.classList.add("incorrect");
+      } else {
+        if (selected === choice) {
+          label.classList.add("incorrect");
+        }
       }
     });
   });
