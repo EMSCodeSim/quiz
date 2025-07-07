@@ -798,5 +798,60 @@
       "Avoid documentation"
     ],
     "answer": "Establish control and coordination"
+  },
+  {
+    "question": "A 56-year-old male with a history of angina is complaining of chest discomfort. His vital signs are BP 124/82, HR 96, RR 18, and SpO\u2082 95%. What should you do first?",
+    "choices": [
+      "Administer nitroglycerin",
+      "Apply oxygen via non-rebreather",
+      "Assist the patient with his prescribed nitroglycerin",
+      "Obtain a detailed SAMPLE history"
+    ],
+    "answer": "Obtain a detailed SAMPLE history",
+    "reason": "The patient is stable and has a normal oxygen saturation. The first step should be assessment and history gathering before administering medications."
+  },
+  {
+    "question": "You arrive to find a 67-year-old man slumped over the wheel of his car. He is unresponsive, breathing at 8 breaths per minute, and has a carotid pulse. What should you do?",
+    "choices": [
+      "Begin chest compressions",
+      "Deliver oxygen via nasal cannula",
+      "Ventilate with BVM at 10\u201312/min",
+      "Wait for ALS before intervening"
+    ],
+    "answer": "Ventilate with BVM at 10\u201312/min",
+    "reason": "Inadequate respiratory rate requires immediate assisted ventilations with a bag-valve mask (BVM)."
+  },
+  {
+    "question": "Which of the following findings most clearly indicates that a patient is in compensated shock?",
+    "choices": [
+      "Slow capillary refill and bradycardia",
+      "Cool skin, restlessness, and tachycardia",
+      "Cyanosis and absent radial pulse",
+      "Irregular breathing with dilated pupils"
+    ],
+    "answer": "Cool skin, restlessness, and tachycardia",
+    "reason": "These are signs that the body is still compensating to maintain perfusion despite the onset of shock."
+  },
+  {
+    "question": "A construction worker falls from a ladder and is found lying supine. He is conscious and complaining of back pain. What is your first priority?",
+    "choices": [
+      "Log-roll the patient onto the stretcher",
+      "Assess vital signs",
+      "Perform a rapid trauma exam",
+      "Manually stabilize the cervical spine"
+    ],
+    "answer": "Manually stabilize the cervical spine",
+    "reason": "In trauma with suspected spinal injury, immediate manual stabilization of the spine is critical to prevent further injury."
+  },
+  {
+    "question": "Which of the following is the most appropriate action when assisting ventilations with a BVM in an adult patient?",
+    "choices": [
+      "Ventilate once every 3 seconds",
+      "Deliver large tidal volumes to ensure chest rise",
+      "Ensure a tight mask seal with two hands",
+      "Use 6 L/min oxygen to conserve tank usage"
+    ],
+    "answer": "Ensure a tight mask seal with two hands",
+    "reason": "A good seal is essential for effective ventilation and delivery of oxygen."
   }
 ]
