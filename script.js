@@ -1,12 +1,15 @@
 let questionsData = [];
 let todaysQuestions = [];
 
-function loadQuestions() {
-  fetch("questions.json")
+function loadQuiz() {
+  const quizType = document.getElementById("quizType").value;
+  const fileName = quizType === "paramedic" ? "paramedic_questions.json" : "emt_questions.json";
+
+  fetch(fileName)
     .then(res => res.json())
     .then(data => {
       questionsData = data;
-      loadTodaysQuiz();
+      loadTodaysQuiz(quizType);
     })
     .catch(err => {
       document.getElementById("quiz-container").innerText = "Failed to load questions.";
@@ -14,16 +17,15 @@ function loadQuestions() {
     });
 }
 
-function loadTodaysQuiz() {
+function loadTodaysQuiz(type) {
   const today = new Date().toISOString().split("T")[0];
-  const savedQuiz = JSON.parse(localStorage.getItem("dailyQuiz"));
+  const savedQuiz = JSON.parse(localStorage.getItem(`dailyQuiz_${type}`));
 
-  // Normal behavior: use saved questions if date matches
   if (savedQuiz && savedQuiz.date === today) {
     todaysQuestions = savedQuiz.questions;
   } else {
     todaysQuestions = pickUniqueQuestions(5);
-    localStorage.setItem("dailyQuiz", JSON.stringify({ date: today, questions: todaysQuestions }));
+    localStorage.setItem(`dailyQuiz_${type}`, JSON.stringify({ date: today, questions: todaysQuestions }));
   }
 
   displayQuiz();
@@ -31,12 +33,10 @@ function loadTodaysQuiz() {
 
 function pickUniqueQuestions(n) {
   const indexes = Array.from({ length: questionsData.length }, (_, i) => i);
-
   for (let i = indexes.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
   }
-
   return indexes.slice(0, n).map(i => questionsData[i]);
 }
 
@@ -58,6 +58,7 @@ function displayQuiz() {
     `;
     container.appendChild(div);
   });
+  document.getElementById("result").innerHTML = ""; // Clear old result
 }
 
 function submitQuiz() {
@@ -79,10 +80,8 @@ function submitQuiz() {
         if (selected === q.answer) {
           score++;
         }
-      } else {
-        if (selected === choice) {
-          label.classList.add("incorrect"); // Only show red if user selected it
-        }
+      } else if (selected === choice) {
+        label.classList.add("incorrect");
       }
     });
   });
@@ -91,4 +90,4 @@ function submitQuiz() {
     `You scored ${score}/5<br>Come back tomorrow for more questions!`;
 }
 
-loadQuestions();
+window.addEventListener("DOMContentLoaded", loadQuiz);
