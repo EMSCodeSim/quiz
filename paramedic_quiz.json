@@ -258,5 +258,65 @@
     "reason": "For newborns with HR <100 and no breathing, PPV is the immediate next step per neonatal resuscitation guidelines.",
     "subtopic": "Neonatal Resuscitation",
     "topic": "Special Populations"
+  },
+  {
+    "topic": "Cardiovascular",
+    "question": "What is the primary purpose of administering aspirin to a patient experiencing chest pain?",
+    "choices": [
+      "To relieve pain",
+      "To reduce inflammation",
+      "To inhibit platelet aggregation",
+      "To dilate the coronary arteries"
+    ],
+    "answer": "To inhibit platelet aggregation",
+    "explanation": "Aspirin inhibits platelet aggregation, which reduces the risk of clot formation in coronary arteries during an acute coronary syndrome."
+  },
+  {
+    "topic": "Cardiovascular",
+    "question": "What is the contraindication for giving aspirin to a patient with chest pain?",
+    "choices": [
+      "History of diabetes",
+      "Recent surgery",
+      "Active gastrointestinal bleeding",
+      "Mild hypertension"
+    ],
+    "answer": "Active gastrointestinal bleeding",
+    "explanation": "Aspirin can worsen bleeding, and is contraindicated in patients with active GI bleeding due to its antiplatelet effects."
+  },
+  {
+    "topic": "Cardiovascular",
+    "question": "What is the typical dose of aspirin given to a patient with suspected acute coronary syndrome?",
+    "choices": [
+      "81 mg",
+      "324 mg",
+      "500 mg",
+      "650 mg"
+    ],
+    "answer": "324 mg",
+    "explanation": "The usual field dose is 324 mg, administered as four 81 mg baby aspirin tablets chewed by the patient."
+  },
+  {
+    "topic": "Cardiovascular",
+    "question": "Which of the following is a common side effect of aspirin administration?",
+    "choices": [
+      "Shortness of breath",
+      "Ringing in the ears",
+      "Seizures",
+      "Numbness"
+    ],
+    "answer": "Ringing in the ears",
+    "explanation": "Tinnitus (ringing in the ears) is a known side effect of salicylates like aspirin, especially in higher doses."
+  },
+  {
+    "topic": "Cardiovascular",
+    "question": "What is the proper route of administration for aspirin in the prehospital setting?",
+    "choices": [
+      "Sublingual",
+      "Intravenous",
+      "Oral, chewed",
+      "Intramuscular"
+    ],
+    "answer": "Oral, chewed",
+    "explanation": "Aspirin should be given orally and chewed for faster absorption in the setting of suspected cardiac events."
   }
 ]
