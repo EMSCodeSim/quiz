@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily EMS Quiz</title>
-  <meta name="description" content="Free daily EMS quiz for EMTs and paramedics. New questions every day to help you study for the NREMT.">
+  <meta name="description" content="Free daily EMS quiz for EMTs and paramedics. New questions every day to help you study for the NREMT." />
   <meta name="google-site-verification" content="beiC5oR50FvL1vAho8GFtmDotzs_4IXq6jprlHDn550" />
   <meta property="og:title" content="Daily EMS Quiz" />
   <meta property="og:description" content="Sharpen your EMS knowledge with daily quizzes. Free, fast, and NREMT-style!" />
@@ -27,10 +27,14 @@
     }
 
     .quiz-selector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 30px auto;
     }
 
     .quiz-button {
+      width: 250px;
       padding: 15px 25px;
       font-size: 18px;
       background-color: #0077b6;
@@ -74,8 +78,12 @@
   <p>Select your quiz level:</p>
 
   <div class="quiz-selector">
-    <button class="quiz-button" onclick="location.href='emt_quiz.html'">EMT Quiz</button>
-    <button class="quiz-button" onclick="location.href='paramedic_quiz.html'">Paramedic Quiz</button>
+    <a href="emt_quiz.html">
+      <button class="quiz-button">EMT Quiz</button>
+    </a>
+    <a href="paramedic_quiz.html">
+      <button class="quiz-button">Paramedic Quiz</button>
+    </a>
   </div>
 
   <div class="share-buttons">
