@@ -1,133 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="google-site-verification" content="beiC5oR50FvL1vAho8GFtmDotzs_4IXq6jprlHDn550" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily EMS Quiz – Free NREMT-style questions for EMT & Paramedic</title>
+  <meta name="robots" content="index, follow">
+  <title>Daily EMS Quiz - Free NREMT Practice Questions</title>
+  <meta name="description" content="Daily EMT and Paramedic quiz questions based on NREMT standards. Updated daily with explanations. No login needed.">
+  <meta name="keywords" content="EMT quiz, paramedic quiz, NREMT practice test, EMS study, daily EMS quiz">
+  <meta name="author" content="DailyEMSQuiz.com">
+  <link rel="canonical" href="https://dailyemsquiz.com/">
 
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="beiC5oR50FvL1vAho8GFtmDotzs_4IXq6jprlHDn550" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Daily EMS Quiz - Free NREMT Practice Questions">
+  <meta property="og:description" content="New daily EMT & Paramedic quiz. Practice NREMT-style multiple choice questions with explanations.">
+  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg">
+  <meta property="og:url" content="https://dailyemsquiz.com/">
+  <meta property="og:type" content="website">
 
-  <!-- SEO Meta -->
-  <meta name="description" content="Sharpen your EMS knowledge with free daily quizzes for EMT and Paramedic certification. New questions daily." />
-  <meta name="keywords" content="EMS quiz, EMT, Paramedic, daily EMS, NREMT practice, EMS test prep" />
-  <meta name="author" content="DailyEMSQuiz.com" />
-  <link rel="canonical" href="https://dailyemsquiz.com/" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daily EMS Quiz">
+  <meta name="twitter:description" content="Free daily EMS questions for EMT & Paramedic students. Updated every day. No sign-up.">
+  <meta name="twitter:image" content="https://dailyemsquiz.com/og-image.jpg">
 
-  <!-- Open Graph Meta -->
-  <meta property="og:title" content="Daily EMS Quiz" />
-  <meta property="og:description" content="Free daily quizzes for EMT and Paramedic students. Practice NREMT-style questions every day." />
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
-  <meta property="og:url" content="https://dailyemsquiz.com/" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0077b6" />
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- Google Analytics (replace with real ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Sitemap auto-ping -->
+  <script>
+    fetch("https://www.google.com/ping?sitemap=https://dailyemsquiz.com/sitemap.xml").catch(()=>{});
+    fetch("https://www.bing.com/ping?sitemap=https://dailyemsquiz.com/sitemap.xml").catch(()=>{});
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalProgram",
+    "name": "Daily EMS Quiz",
+    "educationalProgramMode": "Online",
+    "description": "Free daily EMT and Paramedic quiz questions based on NREMT standards.",
+    "occupationalCategory": "Emergency Medical Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "DailyEMSQuiz",
+      "url": "https://dailyemsquiz.com"
+    }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-19DVN7NNH7');
   </script>
-
-  <!-- FAQ Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is the EMS quiz free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, it’s completely free with no login."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How often are new quizzes added?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Updated daily with new questions for EMT and Paramedic levels."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
-  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f7faff;
-      text-align: center;
-    }
-    header {
-      padding: 2rem 1rem;
-    }
-    header img {
-      max-width: 180px;
+      background-color: #f7f7f7;
+      padding: 10px;
     }
     h1 {
-      margin-top: 0.5rem;
-      font-size: 2rem;
-      color: #005a8d;
+      text-align: center;
+      color: #005f73;
     }
-    .quiz-buttons {
-      margin: 2rem auto;
+    .question-box {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    button {
-      font-size: 1.2rem;
-      margin: 1rem;
-      padding: 1rem 2rem;
-      background-color: #0077c2;
+    .choices label {
+      display: block;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 6px 0;
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .choices input[type="radio"] {
+      margin-right: 8px;
+    }
+    .correct {
+      background-color: #d4edda !important;
+      border-color: #28a745;
+    }
+    .incorrect {
+      background-color: #f8d7da !important;
+      border-color: #dc3545;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #0077b6;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #005fa3;
+    .submit-btn:hover {
+      background-color: #023e8a;
     }
-    .share-links a {
-      margin: 0 1rem;
-      color: #0077c2;
-      text-decoration: none;
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
     }
-    footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
+    .quiz-selector {
+      margin: 10px auto 20px;
+      text-align: center;
+    }
+    select {
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="favicon.png" alt="Daily EMS Quiz Logo" />
-    <h1>Daily EMS Quiz</h1>
-    <p>Select your level to start your free daily quiz:</p>
-  </header>
+  <h1>Daily EMS Quiz</h1>
 
-  <div class="quiz-buttons">
-    <button onclick="window.location.href='emt_quiz.html'">EMT Quiz</button>
-    <button onclick="window.location.href='paramedic_quiz.html'">Paramedic Quiz</button>
+  <div class="quiz-selector">
+    <label for="quizType">Select Quiz Type:</label>
+    <select id="quizType" onchange="loadQuiz()">
+      <option value="emt">EMT</option>
+      <option value="paramedic">Paramedic</option>
+    </select>
   </div>
 
-  <div class="share-links">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dailyemsquiz.com/">Share on Facebook</a>
-    <a href="https://twitter.com/intent/tweet?text=Try%20today%E2%80%99s%20EMS%20quiz&url=https://dailyemsquiz.com/">Tweet this</a>
-  </div>
+  <div id="quiz-container">Loading quiz...</div>
+  <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+  <div class="result" id="result"></div>
 
-  <footer>
-    &copy; 2025 <a href="https://dailyemsquiz.com/">DailyEMSQuiz.com</a> — All rights reserved.
-  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
