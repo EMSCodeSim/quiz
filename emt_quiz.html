@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EMT Daily Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("quiz-container");
+
+      const response = await fetch("emt_quiz.json");
+      const questions = await response.json();
+
+      const dailyIndex = new Date().getDate() % questions.length;
+      const dailyQuestions = questions.slice(dailyIndex, dailyIndex + 5);
+
+      let html = `<form id="quiz-form">`;
+      dailyQuestions.forEach((q, i) => {
+        html += `<div class="question-block">
+          <p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+        q.options.forEach((opt, j) => {
+          html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
+        });
+        html += `</div>`;
+      });
+      html += `<button type="submit">Submit Answers</button></form>`;
+      container.innerHTML = html;
+
+      document.getElementById("quiz-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        let result = "";
+        dailyQuestions.forEach((q, i) => {
+          const selected = form.get(`q${i}`);
+          const correct = selected === q.correctAnswer;
+          result += `<p><strong>Q${i + 1}:</strong> ${correct ? "✅" : "❌"}<br>
+          ${q.reason}</p>`;
+        });
+        container.innerHTML = result;
+      });
+    });
+  </script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    .question-block { margin-bottom: 20px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>EMT Daily Quiz</h1>
+  <div id="quiz-container">Loading quiz...</div>
+</body>
+</html>
