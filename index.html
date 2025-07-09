@@ -43,10 +43,26 @@
       margin-top: 20px;
       font-size: 18px;
     }
+    .share-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .share-buttons a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
   <h1>Daily EMS Quiz</h1>
+
+  <div class="share-buttons">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dailyemsquiz.com" target="_blank">📘 Facebook</a>
+    <a href="https://twitter.com/intent/tweet?url=https://dailyemsquiz.com&text=Check out this free Daily EMS Quiz!" target="_blank">🐦 Twitter</a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dailyemsquiz.com" target="_blank">🔗 LinkedIn</a>
+  </div>
 
   <label for="quizType" style="text-align:center; display:block;">Select Quiz Type:</label>
   <select id="quizType">
@@ -61,7 +77,6 @@
 
   <script src="script.js"></script>
   <script>
-    // Reload quiz on dropdown change
     document.getElementById("quizType").addEventListener("change", loadQuiz);
   </script>
 </body>
