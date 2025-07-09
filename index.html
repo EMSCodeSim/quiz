@@ -2,148 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Daily EMS Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="beiC5oR50FvL1vAho8GFtmDotzs_4IXq6jprlHDn550" />
-  <meta name="robots" content="index, follow">
-  <title>Daily EMS Quiz - Free NREMT Practice Questions</title>
-  <meta name="description" content="Daily EMT and Paramedic quiz questions based on NREMT standards. Updated daily with explanations. No login needed.">
-  <meta name="keywords" content="EMT quiz, paramedic quiz, NREMT practice test, EMS study, daily EMS quiz">
-  <meta name="author" content="DailyEMSQuiz.com">
-  <link rel="canonical" href="https://dailyemsquiz.com/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Daily EMS Quiz - Free NREMT Practice Questions">
-  <meta property="og:description" content="New daily EMT & Paramedic quiz. Practice NREMT-style multiple choice questions with explanations.">
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg">
-  <meta property="og:url" content="https://dailyemsquiz.com/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Daily EMS Quiz">
-  <meta name="twitter:description" content="Free daily EMS questions for EMT & Paramedic students. Updated every day. No sign-up.">
-  <meta name="twitter:image" content="https://dailyemsquiz.com/og-image.jpg">
-
-  <!-- Icons -->
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <!-- Sitemap auto-ping -->
-  <script>
-    fetch("https://www.google.com/ping?sitemap=https://dailyemsquiz.com/sitemap.xml").catch(()=>{});
-    fetch("https://www.bing.com/ping?sitemap=https://dailyemsquiz.com/sitemap.xml").catch(()=>{});
-  </script>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOccupationalProgram",
-    "name": "Daily EMS Quiz",
-    "educationalProgramMode": "Online",
-    "description": "Free daily EMT and Paramedic quiz questions based on NREMT standards.",
-    "occupationalCategory": "Emergency Medical Services",
-    "provider": {
-      "@type": "Organization",
-      "name": "DailyEMSQuiz",
-      "url": "https://dailyemsquiz.com"
-    }
-  }
-  </script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-19DVN7NNH7');
-  </script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
       padding: 20px;
+      background-color: #f4f4f4;
     }
     h1 {
       text-align: center;
-      color: #004d7a;
     }
-    .quiz-selector {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .quiz-button {
+    select, button {
       display: block;
-      width: 100%;
-      max-width: 300px;
       margin: 10px auto;
-      padding: 14px;
-      background-color: #0077b6;
-      color: white;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: center;
-    }
-    .quiz-button:hover {
-      background-color: #023e8a;
+      padding: 10px;
+      font-size: 16px;
     }
     .question-box {
-      background-color: white;
-      padding: 16px;
-      margin-bottom: 15px;
+      background: white;
+      padding: 15px;
+      margin: 10px auto;
       border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      max-width: 600px;
+      box-shadow: 0 0 5px #aaa;
     }
     .choices label {
       display: block;
-      padding: 8px;
-      margin: 6px 0;
-      background-color: #eee;
-      border-radius: 6px;
+      padding: 5px;
       cursor: pointer;
     }
-    .choices input[type="radio"] {
-      margin-right: 8px;
+    .correct {
+      background-color: #d4edda;
     }
-    .submit-btn {
-      display: block;
-      margin: 20px auto;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    .incorrect {
+      background-color: #f8d7da;
     }
-    .submit-btn:hover {
-      background-color: #218838;
-    }
-    .result {
+    #result {
       text-align: center;
-      font-weight: bold;
       margin-top: 20px;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-
   <h1>Daily EMS Quiz</h1>
 
-  <div class="quiz-selector">
-    <button class="quiz-button" onclick="loadQuiz('emt')">Take EMT Quiz</button>
-    <button class="quiz-button" onclick="loadQuiz('paramedic')">Take Paramedic Quiz</button>
-  </div>
+  <label for="quizType" style="text-align:center; display:block;">Select Quiz Type:</label>
+  <select id="quizType">
+    <option value="emt">EMT</option>
+    <option value="paramedic">Paramedic</option>
+  </select>
 
-  <div id="quiz-container">Select a quiz above to begin.</div>
-  <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
-  <div id="result" class="result"></div>
+  <div id="quiz-container"></div>
+
+  <button onclick="submitQuiz()">Submit Answers</button>
+  <div id="result"></div>
 
   <script src="script.js"></script>
+  <script>
+    // Reload quiz on dropdown change
+    document.getElementById("quizType").addEventListener("change", loadQuiz);
+  </script>
 </body>
 </html>
