@@ -853,5 +853,165 @@
     ],
     "answer": "Ensure a tight mask seal with two hands",
     "reason": "A good seal is essential for effective ventilation and delivery of oxygen."
+  },
+  {
+    "question": "What is the primary reason EMTs administer aspirin to a patient with chest pain?",
+    "choices": [
+      "To lower blood pressure",
+      "To relieve pain",
+      "To reduce fever",
+      "To inhibit blood clotting"
+    ],
+    "answer": "To inhibit blood clotting"
+  },
+  {
+    "question": "Which of the following is a contraindication for aspirin administration?",
+    "choices": [
+      "Chest discomfort",
+      "Known allergy to aspirin",
+      "History of hypertension",
+      "Age over 40"
+    ],
+    "answer": "Known allergy to aspirin"
+  },
+  {
+    "question": "What is the typical dose of aspirin administered by EMTs for chest pain?",
+    "choices": [
+      "81 mg total",
+      "325 mg total",
+      "400 mg total",
+      "1,000 mg total"
+    ],
+    "answer": "325 mg total"
+  },
+  {
+    "question": "Aspirin is most beneficial during a suspected heart attack because it:",
+    "choices": [
+      "Relaxes chest muscles",
+      "Improves oxygen delivery",
+      "Prevents clot growth",
+      "Stops chest pain immediately"
+    ],
+    "answer": "Prevents clot growth"
+  },
+  {
+    "question": "Under what condition can an EMT assist a patient with nitroglycerin?",
+    "choices": [
+      "The patient has chest trauma",
+      "The patient has a prescription and systolic BP > 100 mmHg",
+      "The patient is unconscious",
+      "The EMT carries nitroglycerin"
+    ],
+    "answer": "The patient has a prescription and systolic BP > 100 mmHg"
+  },
+  {
+    "question": "What is the typical route of nitroglycerin administration?",
+    "choices": [
+      "Intramuscular",
+      "Oral",
+      "Sublingual",
+      "Intravenous"
+    ],
+    "answer": "Sublingual"
+  },
+  {
+    "question": "Which condition is a contraindication to assisting with nitroglycerin?",
+    "choices": [
+      "Chest pain radiating to the jaw",
+      "Use of erectile dysfunction medications within 48 hours",
+      "History of angina",
+      "Mild headache"
+    ],
+    "answer": "Use of erectile dysfunction medications within 48 hours"
+  },
+  {
+    "question": "How does nitroglycerin help patients with chest pain?",
+    "choices": [
+      "It increases heart rate",
+      "It decreases respiratory rate",
+      "It dilates blood vessels to improve blood flow",
+      "It constricts coronary arteries"
+    ],
+    "answer": "It dilates blood vessels to improve blood flow"
+  },
+  {
+    "question": "What is the primary action of albuterol when used for a respiratory emergency?",
+    "choices": [
+      "Reduces mucus secretion",
+      "Suppresses cough reflex",
+      "Dilates the bronchioles",
+      "Decreases respiratory rate"
+    ],
+    "answer": "Dilates the bronchioles"
+  },
+  {
+    "question": "Which patient condition is an indication for albuterol use?",
+    "choices": [
+      "Chest trauma",
+      "Wheezing and shortness of breath",
+      "Bradycardia",
+      "Nasal congestion"
+    ],
+    "answer": "Wheezing and shortness of breath"
+  },
+  {
+    "question": "What is a common side effect of albuterol?",
+    "choices": [
+      "Slow heart rate",
+      "Drowsiness",
+      "Shakiness and increased heart rate",
+      "Low blood sugar"
+    ],
+    "answer": "Shakiness and increased heart rate"
+  },
+  {
+    "question": "EMTs may assist with albuterol if:",
+    "choices": [
+      "The patient is unresponsive",
+      "They have verbal orders from medical control",
+      "The patient has their own prescribed inhaler",
+      "They carry a department-issued inhaler"
+    ],
+    "answer": "The patient has their own prescribed inhaler"
+  },
+  {
+    "question": "What is the main effect of epinephrine during anaphylaxis?",
+    "choices": [
+      "Promotes digestion",
+      "Constricts airways",
+      "Relaxes smooth muscles and opens airways",
+      "Slows the heart rate"
+    ],
+    "answer": "Relaxes smooth muscles and opens airways"
+  },
+  {
+    "question": "When should epinephrine be administered by EMTs?",
+    "choices": [
+      "For mild allergic reactions",
+      "Only after contacting the ER",
+      "When signs of severe allergic reaction are present",
+      "Only for patients with asthma"
+    ],
+    "answer": "When signs of severe allergic reaction are present"
+  },
+  {
+    "question": "What is the most common route of administration for EMTs giving epinephrine?",
+    "choices": [
+      "Oral",
+      "Intranasal",
+      "Intramuscular (auto-injector)",
+      "Sublingual"
+    ],
+    "answer": "Intramuscular (auto-injector)"
+  },
+  {
+    "question": "What is a possible side effect of epinephrine?",
+    "choices": [
+      "Bradycardia",
+      "Low blood pressure",
+      "Anxiety and rapid heartbeat",
+      "Sedation"
+    ],
+    "answer": "Anxiety and rapid heartbeat"
   }
 ]
