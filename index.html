@@ -2,49 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily EMS Quiz</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMS Daily Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7f7f7;
+      padding: 10px;
+    }
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-19DVN7NNH7');
-  </script>
+  gtag('config', 'G-19DVN7NNH7');
+</script>
+    h1 {
+      text-align: center;
+      color: #005f73;
+    }
+    .question-box {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .choices label {
+      display: block;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 6px 0;
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .choices input[type="radio"] {
+      margin-right: 8px;
+    }
+    .correct {
+      background-color: #d4edda !important;
+      border-color: #28a745;
+    }
+    .incorrect {
+      background-color: #f8d7da !important;
+      border-color: #dc3545;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #023e8a;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .quiz-selector {
+      margin: 10px auto 20px;
+      text-align: center;
+    }
+    select {
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Daily EMS Quiz</h1>
+  <h1>Daily EMS Quiz</h1>
 
+  <div class="quiz-selector">
     <label for="quizType">Select Quiz Type:</label>
-    <select id="quizType">
+    <select id="quizType" onchange="loadQuiz()">
       <option value="emt">EMT</option>
       <option value="paramedic">Paramedic</option>
     </select>
-
-    <div id="quizContainer">
-      <!-- Questions will be injected here -->
-    </div>
-
-    <button id="submitQuiz">Submit</button>
-
-    <div id="scoreContainer"></div>
-    <div id="explanationsContainer"></div>
   </div>
 
-  <script src="script.js"></script>
+  <div id="quiz-container">Loading quiz...</div>
+  <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+  <div class="result" id="result"></div>
 
-  <!-- Google Analytics Test Event Debugging -->
-  <script>
-    gtag('event', 'test_event', {
-      event_category: 'debug',
-      event_label: 'Page Load'
-    });
-    console.log("✅ Google Analytics test event fired");
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
