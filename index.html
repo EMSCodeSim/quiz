@@ -49,6 +49,12 @@
     gtag('config', 'G-19DVN7NNH7');
   </script>
 
+  <!-- Sitemap auto-ping -->
+  <script>
+    fetch("https://www.google.com/ping?sitemap=https://yourdomain.com/sitemap.xml").catch(()=>{});
+    fetch("https://www.bing.com/ping?sitemap=https://yourdomain.com/sitemap.xml").catch(()=>{});
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
