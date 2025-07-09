@@ -6,21 +6,21 @@
                       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://yourdomain.com/</loc>
+    <loc>https://dailyemsquiz.com/</loc>
     <lastmod>2025-07-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://yourdomain.com/emt_quiz.json</loc>
+    <loc>https://dailyemsquiz.com/emt_quiz.json</loc>
     <lastmod>2025-07-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://yourdomain.com/paramedic_quiz.json</loc>
+    <loc>https://dailyemsquiz.com/paramedic_quiz.json</loc>
     <lastmod>2025-07-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
