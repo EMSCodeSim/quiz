@@ -4,51 +4,106 @@
   <meta charset="UTF-8" />
   <title>Paramedic Daily Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Free daily quiz to test your paramedic knowledge.">
+  <meta name="theme-color" content="#0d9488" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      background-color: #0d9488;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    #quiz-container {
+      max-width: 700px;
+      background: white;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .question-block {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 4px 0;
+    }
+    button {
+      background-color: #0d9488;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0b7e76;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Paramedic Daily Quiz</h1>
+  </header>
+  <div id="quiz-container">Loading quiz...</div>
+
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       const container = document.getElementById("quiz-container");
 
-      const response = await fetch("paramedic_quiz.json");
-      const questions = await response.json();
+      try {
+        const response = await fetch("paramedic_quiz.json");
+        const questions = await response.json();
 
-      const dailyIndex = new Date().getDate() % questions.length;
-      const dailyQuestions = questions.slice(dailyIndex, dailyIndex + 5);
+        const today = new Date().getDate();
+        const dailyQuestions = questions.slice(today % questions.length, (today % questions.length) + 5);
 
-      let html = `<form id="quiz-form">`;
-      dailyQuestions.forEach((q, i) => {
-        html += `<div class="question-block">
-          <p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
-        q.options.forEach((opt, j) => {
-          html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
-        });
-        html += `</div>`;
-      });
-      html += `<button type="submit">Submit Answers</button></form>`;
-      container.innerHTML = html;
-
-      document.getElementById("quiz-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        let result = "";
+        let html = '<form id="quiz-form">';
         dailyQuestions.forEach((q, i) => {
-          const selected = form.get(`q${i}`);
-          const correct = selected === q.correctAnswer;
-          result += `<p><strong>Q${i + 1}:</strong> ${correct ? "✅" : "❌"}<br>
-          ${q.reason}</p>`;
+          html += `<div class="question-block">
+            <p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+          q.options.forEach(opt => {
+            html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label>`;
+          });
+          html += '</div>';
         });
-        container.innerHTML = result;
-      });
+        html += '<button type="submit">Submit Answers</button></form>';
+        container.innerHTML = html;
+
+        document.getElementById("quiz-form").addEventListener("submit", e => {
+          e.preventDefault();
+          const form = new FormData(e.target);
+          let result = "";
+          dailyQuestions.forEach((q, i) => {
+            const selected = form.get(`q${i}`);
+            const correct = selected === q.correctAnswer;
+            result += `<p><strong>Q${i + 1}:</strong> ${correct ? "✅" : "❌"}<br>${q.reason}</p>`;
+          });
+          container.innerHTML = result;
+        });
+      } catch (err) {
+        container.innerHTML = "<p>Error loading quiz.</p>";
+        console.error("Quiz load error:", err);
+      }
     });
   </script>
-  <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
-    .question-block { margin-bottom: 20px; }
-    button { padding: 10px 20px; font-size: 16px; }
-  </style>
-</head>
-<body>
-  <h1>Paramedic Daily Quiz</h1>
-  <div id="quiz-container">Loading quiz...</div>
 </body>
 </html>
