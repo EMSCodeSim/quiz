@@ -20,9 +20,11 @@
       color: red;
       transition: transform 0.1s ease-in-out;
       margin: 30px 0;
+      visibility: hidden;
     }
     #slider {
       width: 80%;
+      margin-top: 10px;
     }
     #bpmValue {
       font-weight: bold;
@@ -31,7 +33,7 @@
       font-size: 1.2em;
       margin-top: 20px;
     }
-    button {
+    button, .start-btn {
       margin-top: 20px;
       padding: 12px 24px;
       font-size: 1em;
@@ -41,7 +43,7 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
+    button:hover, .start-btn:hover {
       background-color: #005b99;
     }
     .back-button {
@@ -55,14 +57,16 @@
 </head>
 <body>
   <h1>❤️ The Daily Beat</h1>
-  <p>Listen to the heartbeat. Can you guess today’s heart rate?</p>
+  <p>Tap Start to hear today’s heartbeat. Can you guess the rate?</p>
+
+  <button class="start-btn" onclick="startBeat()">▶️ Start</button>
 
   <div id="heart">❤️</div>
 
-  <input type="range" id="slider" min="0" max="250" value="75">
-  <p>BPM Guess: <span id="bpmValue">75</span></p>
+  <input type="range" id="slider" min="0" max="250" value="75" style="display:none;">
+  <p id="sliderText" style="display:none;">BPM Guess: <span id="bpmValue">75</span></p>
 
-  <button onclick="checkAnswer()">Check Answer</button>
+  <button onclick="checkAnswer()" id="checkBtn" style="display:none;">Check Answer</button>
   <div id="result"></div>
 
   <a href="index.html" class="back-button">← Back to DailyEMSQuiz</a>
@@ -72,26 +76,32 @@
     const slider = document.getElementById("slider");
     const bpmDisplay = document.getElementById("bpmValue");
     const result = document.getElementById("result");
+    const checkBtn = document.getElementById("checkBtn");
+    const sliderText = document.getElementById("sliderText");
 
-    // Generate a daily BPM based on today's date
+    // Daily BPM based on date
     function getDailyBPM() {
       const today = new Date().toISOString().split('T')[0];
       let hash = 0;
       for (let i = 0; i < today.length; i++) {
         hash = today.charCodeAt(i) + ((hash << 5) - hash);
       }
-      const bpm = 60 + Math.abs(hash % 161); // Range: 60–220
-      return bpm;
+      return 60 + Math.abs(hash % 161); // 60–220
     }
 
     const actualBPM = getDailyBPM();
-
-    // Play a heartbeat sound
     const beatSound = new Audio("https://www.soundjay.com/button/sounds/beep-07.mp3");
+    let beatInterval;
 
-    function startHeartbeat(bpm) {
-      const interval = 60000 / bpm;
-      setInterval(() => {
+    function startBeat() {
+      document.querySelector('.start-btn').style.display = 'none';
+      heart.style.visibility = "visible";
+      slider.style.display = "block";
+      checkBtn.style.display = "inline-block";
+      sliderText.style.display = "block";
+
+      const interval = 60000 / actualBPM;
+      beatInterval = setInterval(() => {
         beatSound.currentTime = 0;
         beatSound.play();
         heart.style.transform = "scale(1.3)";
@@ -105,19 +115,15 @@
       const guess = parseInt(slider.value);
       const diff = Math.abs(guess - actualBPM);
       if (diff <= 3) {
-        result.innerHTML = `✅ Correct! The heart rate was <strong>${actualBPM} BPM</strong>. Great job!<br>Come back tomorrow for a new beat.`;
+        result.innerHTML = `✅ Correct! It was <strong>${actualBPM} BPM</strong>. Come back tomorrow for a new beat.`;
       } else {
-        result.innerHTML = `❌ Close, but not quite. The heart rate was <strong>${actualBPM} BPM</strong>. Try again tomorrow!`;
+        result.innerHTML = `❌ Close! It was <strong>${actualBPM} BPM</strong>. Try again tomorrow.`;
       }
     }
 
-    // Update slider label in real time
     slider.addEventListener("input", () => {
       bpmDisplay.textContent = slider.value;
     });
-
-    // Start beat animation and sound
-    startHeartbeat(actualBPM);
   </script>
 </body>
 </html>
