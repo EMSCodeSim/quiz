@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Home Medication</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0077cc;
+    }
+
+    .medication {
+      margin: 20px 0;
+    }
+
+    .medication p {
+      margin: 8px 0;
+    }
+
+    .note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 20px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Daily Home Medication</h1>
+    <div class="medication" id="medication">
+      Loading medication info...
+    </div>
+    <p class="note">Come back tomorrow for a new medication tip!</p>
+    <a class="back-btn" href="index.html">← Back</a>
+  </div>
+
+  <script>
+    fetch('home_med.json')
+      .then(response => response.json())
+      .then(data => {
+        const today = new Date();
+        const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+        const medIndex = dayOfYear % data.length;
+        const med = data[medIndex];
+
+        const medDiv = document.getElementById('medication');
+        medDiv.innerHTML = `
+          <p><strong>Generic Name:</strong> ${med.generic}</p>
+          <p><strong>Brand Name:</strong> ${med.brand}</p>
+          <p><strong>Class:</strong> ${med.class}</p>
+          <p><strong>Common Use:</strong> ${med.use}</p>
+          <p><strong>EMS Consideration:</strong> ${med.ems_consideration}</p>
+        `;
+      })
+      .catch(error => {
+        document.getElementById('medication').innerText = 'Failed to load medication.';
+        console.error('Error loading home_med.json:', error);
+      });
+  </script>
+</body>
+</html>
