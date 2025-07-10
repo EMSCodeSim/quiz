@@ -71,6 +71,9 @@
 
   <a href="index.html" class="back-button">← Back to DailyEMSQuiz</a>
 
+  <!-- Use a locally hosted, small heartbeat file -->
+  <audio id="beat" src="heartbeat.mp3" preload="auto"></audio>
+
   <script>
     const heart = document.getElementById("heart");
     const slider = document.getElementById("slider");
@@ -78,9 +81,7 @@
     const result = document.getElementById("result");
     const checkBtn = document.getElementById("checkBtn");
     const sliderText = document.getElementById("sliderText");
-
-    // Embedded base64 heartbeat sound (works on all browsers)
-    const beatSound = new Audio("data:audio/mp3;base64,//uQxAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAACcQCAAwAAAAFh..."); // shortened for readability
+    const beatSound = document.getElementById("beat");
 
     function getDailyBPM() {
       const today = new Date().toISOString().split('T')[0];
@@ -103,12 +104,8 @@
 
       const interval = 60000 / actualBPM;
       beatInterval = setInterval(() => {
-        try {
-          beatSound.currentTime = 0;
-          beatSound.play();
-        } catch (e) {
-          console.log("Audio play failed:", e);
-        }
+        beatSound.currentTime = 0;
+        beatSound.play();
         heart.style.transform = "scale(1.3)";
         setTimeout(() => {
           heart.style.transform = "scale(1)";
