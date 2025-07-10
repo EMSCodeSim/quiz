@@ -2,53 +2,176 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EMT Daily Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily EMS Quiz - EMT Practice</title>
+  <meta name="description" content="Free daily EMT quiz with NREMT-style multiple choice questions and answer explanations. No login needed.">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="EMT quiz, NREMT practice test, EMS study, daily EMT quiz">
+  <link rel="canonical" href="https://dailyemsquiz.com/emt_quiz.html" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Social Share -->
+  <meta property="og:title" content="Daily EMT Quiz - Free NREMT Practice Questions">
+  <meta property="og:description" content="Test your EMT knowledge with daily NREMT-style quiz questions and explanations.">
+  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg">
+  <meta property="og:url" content="https://dailyemsquiz.com/emt_quiz.html">
+  <meta property="og:type" content="website">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const container = document.getElementById("quiz-container");
-
-      const response = await fetch("emt_quiz.json");
-      const questions = await response.json();
-
-      const dailyIndex = new Date().getDate() % questions.length;
-      const dailyQuestions = questions.slice(dailyIndex, dailyIndex + 5);
-
-      let html = `<form id="quiz-form">`;
-      dailyQuestions.forEach((q, i) => {
-        html += `<div class="question-block">
-          <p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
-        q.options.forEach((opt, j) => {
-          html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
-        });
-        html += `</div>`;
-      });
-      html += `<button type="submit">Submit Answers</button></form>`;
-      container.innerHTML = html;
-
-      document.getElementById("quiz-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        let result = "";
-        dailyQuestions.forEach((q, i) => {
-          const selected = form.get(`q${i}`);
-          const correct = selected === q.correctAnswer;
-          result += `<p><strong>Q${i + 1}:</strong> ${correct ? "✅" : "❌"}<br>
-          ${q.reason}</p>`;
-        });
-        container.innerHTML = result;
-      });
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-19DVN7NNH7');
   </script>
+
   <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
-    .question-block { margin-bottom: 20px; }
-    button { padding: 10px 20px; font-size: 16px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7f7f7;
+      padding: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #005f73;
+    }
+    .question-box {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .choices label {
+      display: block;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 6px 0;
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .choices input[type="radio"] {
+      margin-right: 8px;
+    }
+    .correct {
+      background-color: #d4edda !important;
+      border-color: #28a745;
+    }
+    .incorrect {
+      background-color: #f8d7da !important;
+      border-color: #dc3545;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #023e8a;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h1>EMT Daily Quiz</h1>
+  <h1>Daily EMT Quiz</h1>
   <div id="quiz-container">Loading quiz...</div>
+  <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    const quizType = "emt"; // Force EMT mode
+    let questionsData = [];
+    let todaysQuestions = [];
+
+    fetch("emt_quiz.json")
+      .then(res => res.json())
+      .then(data => {
+        questionsData = data;
+        const today = new Date().toISOString().split("T")[0];
+        const saved = JSON.parse(localStorage.getItem("dailyQuiz_emt"));
+        if (saved && saved.date === today) {
+          todaysQuestions = saved.questions;
+        } else {
+          todaysQuestions = pickUniqueQuestions(5);
+          localStorage.setItem("dailyQuiz_emt", JSON.stringify({ date: today, questions: todaysQuestions }));
+        }
+        displayQuiz();
+      })
+      .catch(err => {
+        document.getElementById("quiz-container").innerText = "Failed to load questions.";
+        console.error(err);
+      });
+
+    function pickUniqueQuestions(n) {
+      const indexes = Array.from({ length: questionsData.length }, (_, i) => i);
+      for (let i = indexes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+      }
+      return indexes.slice(0, n).map(i => questionsData[i]);
+    }
+
+    function displayQuiz() {
+      const container = document.getElementById("quiz-container");
+      container.innerHTML = "";
+
+      todaysQuestions.forEach((q, idx) => {
+        const div = document.createElement("div");
+        div.className = "question-box";
+        div.innerHTML = `
+          <p><strong>Q${idx + 1}:</strong> ${q.question}</p>
+          <div class="choices">
+            ${q.choices.map((choice, i) => `
+              <label id="q${idx}a${i}">
+                <input type="radio" name="q${idx}" value="${choice}"> ${choice}
+              </label>`).join("")}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      todaysQuestions.forEach((q, idx) => {
+        const radios = document.getElementsByName(`q${idx}`);
+        let selected = null;
+
+        radios.forEach(r => { if (r.checked) selected = r.value; });
+
+        q.choices.forEach((choice, i) => {
+          const label = document.getElementById(`q${idx}a${i}`);
+          label.classList.remove("correct", "incorrect");
+
+          if (choice === q.answer) {
+            label.classList.add("correct");
+            if (selected === q.answer) score++;
+          } else {
+            if (selected === choice) label.classList.add("incorrect");
+          }
+        });
+      });
+
+      document.getElementById("result").innerHTML =
+        `You scored ${score}/5<br>Come back tomorrow for more questions!`;
+    }
+  </script>
 </body>
 </html>
