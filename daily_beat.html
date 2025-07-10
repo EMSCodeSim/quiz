@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +25,7 @@
     #slider {
       width: 80%;
       margin-top: 10px;
+      accent-color: green;
     }
     #bpmValue {
       font-weight: bold;
@@ -64,13 +64,15 @@
 
   <div id="heart">❤️</div>
 
-  <input type="range" id="slider" min="0" max="250" value="75" style="display:none;">
+  <input type="range" id="slider" min="0" max="160" value="75" style="display:none;">
   <p id="sliderText" style="display:none;">BPM Guess: <span id="bpmValue">75</span></p>
 
   <button onclick="checkAnswer()" id="checkBtn" style="display:none;">Check Answer</button>
   <div id="result"></div>
 
   <a href="index.html" class="back-button">← Back to DailyEMSQuiz</a>
+
+  <audio id="beat" src="beep.mp3" preload="auto"></audio>
 
   <script>
     const heart = document.getElementById("heart");
@@ -79,6 +81,7 @@
     const result = document.getElementById("result");
     const checkBtn = document.getElementById("checkBtn");
     const sliderText = document.getElementById("sliderText");
+    const beatSound = document.getElementById("beat");
 
     function getDailyBPM() {
       const today = new Date().toISOString().split('T')[0];
@@ -86,31 +89,29 @@
       for (let i = 0; i < today.length; i++) {
         hash = today.charCodeAt(i) + ((hash << 5) - hash);
       }
-      return 60 + Math.abs(hash % 161); // 60–220 bpm
+      return 60 + Math.abs(hash % 101); // 60–160 bpm
     }
 
     const actualBPM = getDailyBPM();
-    let beatInterval;
+    const interval = 60000 / actualBPM;
 
-    function getBeepFile(bpm) {
-      if (bpm < 60) return "beep_slow.mp3";
-      if (bpm < 100) return "beep_normal.mp3";
-      if (bpm < 140) return "beep_fast.mp3";
-      return "beep_ultra.mp3";
+    function playBeep() {
+      const beep = new Audio("beep.mp3");
+      beep.play();
     }
 
-    function getAnimationScale(bpm) {
-      if (bpm < 60) return 1.4;
-      if (bpm < 100) return 1.3;
-      if (bpm < 140) return 1.2;
-      return 1.1;
+    function animateHeart() {
+      heart.style.transform = "scale(1.3)";
+      setTimeout(() => {
+        heart.style.transform = "scale(1)";
+      }, 100);
     }
 
-    function getPulseDuration(bpm) {
-      if (bpm < 60) return 150;
-      if (bpm < 100) return 100;
-      if (bpm < 140) return 80;
-      return 50;
+    function updateSliderColor(bpm) {
+      let color = "green";
+      if (bpm < 60) color = "blue";
+      else if (bpm > 100) color = "orange";
+      slider.style.accentColor = color;
     }
 
     function startBeat() {
@@ -119,21 +120,29 @@
       slider.style.display = "block";
       checkBtn.style.display = "inline-block";
       sliderText.style.display = "block";
+      updateSliderColor(actualBPM);
 
-      const interval = 60000 / actualBPM;
-      const scale = getAnimationScale(actualBPM);
-      const duration = getPulseDuration(actualBPM);
-      const audioSrc = getBeepFile(actualBPM);
+      let startTime = null;
+      let nextBeat = 0;
 
-      beatInterval = setInterval(() => {
-        const beep = new Audio(audioSrc);
-        beep.play();
+      function tick(timestamp) {
+        if (!startTime) {
+          startTime = timestamp;
+          nextBeat = 0;
+        }
 
-        heart.style.transform = `scale(${scale})`;
-        setTimeout(() => {
-          heart.style.transform = "scale(1)";
-        }, duration);
-      }, interval);
+        const elapsed = timestamp - startTime;
+
+        if (elapsed >= nextBeat) {
+          playBeep();
+          animateHeart();
+          nextBeat += interval;
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
     }
 
     function checkAnswer() {
@@ -147,7 +156,9 @@
     }
 
     slider.addEventListener("input", () => {
-      bpmDisplay.textContent = slider.value;
+      const bpm = parseInt(slider.value);
+      bpmDisplay.textContent = bpm;
+      updateSliderColor(bpm);
     });
   </script>
 </body>
