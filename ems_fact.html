@@ -2,90 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Random EMS Fact – Daily EMS Quiz</title>
-  <meta name="description" content="Get a new random EMS fact each time you load the page." />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMS Daily Fact</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #e7f4f9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 1rem;
       text-align: center;
-      padding: 2rem;
-      background: #f0f8ff;
-      color: #333;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    #fact-box {
-      margin-top: 2rem;
+    .card {
+      background: white;
       padding: 2rem;
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.25rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    button {
-      margin-top: 2rem;
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #007BFF;
-      color: white;
-      cursor: pointer;
+    h1 {
+      color: #007B8A;
     }
-
-    button:hover {
-      background-color: #0056b3;
+    .category {
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 0.5rem;
     }
-
-    a {
-      display: block;
-      margin-top: 3rem;
-      color: #007BFF;
-      text-decoration: none;
+    .fact {
+      font-size: 1.2rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <h1>📚 Random EMS Fact</h1>
-
-  <div id="fact-box">Loading EMS fact...</div>
-
-  <button onclick="generateFact()">🔁 Show Another Fact</button>
-
-  <a href="index.html">⬅️ Back to Quiz Selection</a>
+  <div class="card">
+    <h1>EMS Daily Fact</h1>
+    <div id="category" class="category"></div>
+    <div id="fact" class="fact"></div>
+  </div>
 
   <script>
-    const facts = [
-      "The normal adult respiratory rate is 12–20 breaths per minute.",
-      "Nitroglycerin is contraindicated in patients with systolic BP < 90 mmHg.",
-      "The Glasgow Coma Scale evaluates eye, verbal, and motor responses.",
-      "Epinephrine 1:1,000 is typically administered IM during anaphylaxis.",
-      "A capillary refill time over 2 seconds may indicate poor perfusion.",
-      "The mnemonic 'OPQRST' is used to assess a patient’s pain.",
-      "Albuterol is a beta-2 agonist used to treat bronchospasm.",
-      "BLS includes CPR, airway management, and AED use.",
-      "Normal adult heart rate ranges from 60–100 bpm.",
-      "Pupils that are unequal or non-reactive can indicate brain injury."
-    ];
-
-    function generateFact() {
-      const randomIndex = Math.floor(Math.random() * facts.length);
-      document.getElementById("fact-box").innerText = facts[randomIndex];
-    }
-
-    // Generate a fact on load
-    window.onload = generateFact;
+    fetch('ems_fact.json')
+      .then(response => response.json())
+      .then(facts => {
+        const today = new Date();
+        const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+        const index = dayOfYear % facts.length;
+        const fact = facts[index];
+        document.getElementById('category').textContent = fact.category;
+        document.getElementById('fact').textContent = fact.fact;
+      })
+      .catch(error => {
+        document.getElementById('fact').textContent = "Unable to load fact.";
+        console.error("Error loading EMS fact:", error);
+      });
   </script>
 </body>
 </html>
