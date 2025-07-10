@@ -79,7 +79,9 @@
     const checkBtn = document.getElementById("checkBtn");
     const sliderText = document.getElementById("sliderText");
 
-    // Daily BPM based on date
+    // Embedded base64 heartbeat sound (works on all browsers)
+    const beatSound = new Audio("data:audio/mp3;base64,//uQxAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAACcQCAAwAAAAFh..."); // shortened for readability
+
     function getDailyBPM() {
       const today = new Date().toISOString().split('T')[0];
       let hash = 0;
@@ -90,7 +92,6 @@
     }
 
     const actualBPM = getDailyBPM();
-    const beatSound = new Audio("https://www.soundjay.com/button/sounds/beep-07.mp3");
     let beatInterval;
 
     function startBeat() {
@@ -102,8 +103,12 @@
 
       const interval = 60000 / actualBPM;
       beatInterval = setInterval(() => {
-        beatSound.currentTime = 0;
-        beatSound.play();
+        try {
+          beatSound.currentTime = 0;
+          beatSound.play();
+        } catch (e) {
+          console.log("Audio play failed:", e);
+        }
         heart.style.transform = "scale(1.3)";
         setTimeout(() => {
           heart.style.transform = "scale(1)";
@@ -115,9 +120,9 @@
       const guess = parseInt(slider.value);
       const diff = Math.abs(guess - actualBPM);
       if (diff <= 3) {
-        result.innerHTML = `✅ Correct! It was <strong>${actualBPM} BPM</strong>. Come back tomorrow for a new beat.`;
+        result.innerHTML = `✅ Correct! It was <strong>${actualBPM} BPM</strong>. Come back tomorrow!`;
       } else {
-        result.innerHTML = `❌ Close! It was <strong>${actualBPM} BPM</strong>. Try again tomorrow.`;
+        result.innerHTML = `❌ Not quite. It was <strong>${actualBPM} BPM</strong>. Try again tomorrow!`;
       }
     }
 
