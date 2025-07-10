@@ -71,8 +71,8 @@
 
   <a href="index.html" class="back-button">← Back to DailyEMSQuiz</a>
 
-  <!-- Use a locally hosted, small heartbeat file -->
-  <audio id="beat" src="heartbeat.mp3" preload="auto"></audio>
+  <!-- ✅ Use hosted audio file for cross-platform support -->
+  <audio id="beat" src="https://firebasestorage.googleapis.com/v0/b/ems-code-sim.appspot.com/o/audio%2Fheartbeat-short.mp3?alt=media" preload="auto"></audio>
 
   <script>
     const heart = document.getElementById("heart");
@@ -89,7 +89,7 @@
       for (let i = 0; i < today.length; i++) {
         hash = today.charCodeAt(i) + ((hash << 5) - hash);
       }
-      return 60 + Math.abs(hash % 161); // 60–220
+      return 60 + Math.abs(hash % 161); // 60–220 bpm
     }
 
     const actualBPM = getDailyBPM();
@@ -105,7 +105,7 @@
       const interval = 60000 / actualBPM;
       beatInterval = setInterval(() => {
         beatSound.currentTime = 0;
-        beatSound.play();
+        beatSound.play().catch(e => console.warn("Playback blocked:", e));
         heart.style.transform = "scale(1.3)";
         setTimeout(() => {
           heart.style.transform = "scale(1)";
