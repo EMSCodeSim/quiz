@@ -58,7 +58,7 @@
 </head>
 <body>
   <h1>❤️ The Daily Beat</h1>
-  <p>Tap Start to hear today’s beep. Can you guess the rate?</p>
+  <p>Tap Start to hear today’s rhythm. Can you guess the rate?</p>
 
   <button class="start-btn" onclick="startBeat()">▶️ Start</button>
 
@@ -72,8 +72,6 @@
 
   <a href="index.html" class="back-button">← Back to DailyEMSQuiz</a>
 
-  <audio id="beat" src="beep.mp3" preload="auto"></audio>
-
   <script>
     const heart = document.getElementById("heart");
     const slider = document.getElementById("slider");
@@ -81,7 +79,6 @@
     const result = document.getElementById("result");
     const checkBtn = document.getElementById("checkBtn");
     const sliderText = document.getElementById("sliderText");
-    const beatSound = document.getElementById("beat");
 
     function getDailyBPM() {
       const today = new Date().toISOString().split('T')[0];
@@ -95,6 +92,27 @@
     const actualBPM = getDailyBPM();
     let beatInterval;
 
+    function getBeepFile(bpm) {
+      if (bpm < 60) return "beep_slow.mp3";
+      if (bpm < 100) return "beep_normal.mp3";
+      if (bpm < 140) return "beep_fast.mp3";
+      return "beep_ultra.mp3";
+    }
+
+    function getAnimationScale(bpm) {
+      if (bpm < 60) return 1.4;
+      if (bpm < 100) return 1.3;
+      if (bpm < 140) return 1.2;
+      return 1.1;
+    }
+
+    function getPulseDuration(bpm) {
+      if (bpm < 60) return 150;
+      if (bpm < 100) return 100;
+      if (bpm < 140) return 80;
+      return 50;
+    }
+
     function startBeat() {
       document.querySelector('.start-btn').style.display = 'none';
       heart.style.visibility = "visible";
@@ -103,13 +121,18 @@
       sliderText.style.display = "block";
 
       const interval = 60000 / actualBPM;
+      const scale = getAnimationScale(actualBPM);
+      const duration = getPulseDuration(actualBPM);
+      const audioSrc = getBeepFile(actualBPM);
+
       beatInterval = setInterval(() => {
-        beatSound.currentTime = 0;
-        beatSound.play().catch(e => console.warn("Playback blocked:", e));
-        heart.style.transform = "scale(1.3)";
+        const beep = new Audio(audioSrc);
+        beep.play();
+
+        heart.style.transform = `scale(${scale})`;
         setTimeout(() => {
           heart.style.transform = "scale(1)";
-        }, 100);
+        }, duration);
       }, interval);
     }
 
