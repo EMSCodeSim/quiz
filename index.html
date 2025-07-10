@@ -2,82 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Daily EMS Quiz - EMT & Paramedic Practice</title>
-  <meta name="description" content="Take a free daily EMT or Paramedic quiz. Refresh your EMS knowledge every day. No login required." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Choose between EMT and Paramedic practice quizzes. Daily EMS Quiz is free and NREMT-style." />
+  <meta name="keywords" content="EMT Quiz, Paramedic Quiz, NREMT practice, EMS training, Daily EMS Quiz" />
+  <meta name="author" content="Daily EMS Quiz" />
   <meta name="google-site-verification" content="beiC5oR50FvL1vAho8GFtmDotzs_4IXq6jprlHDn550" />
-
-  <!-- OG Tags for social media -->
-  <meta property="og:title" content="Daily EMS Quiz" />
-  <meta property="og:description" content="Free EMT & Paramedic quizzes every day. Improve your EMS skills now!" />
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
-  <meta property="og:url" content="https://dailyemsquiz.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicon and Apple Touch -->
-  <link rel="icon" href="favicon.png" />
-  <link rel="apple-touch-icon" href="apple-icon.png" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B3Z6VEX0ZC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-B3Z6VEX0ZC');
-  </script>
-
+  <title>Daily EMS Quiz – Choose Your Quiz</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f8ff;
       text-align: center;
-      padding: 40px 20px;
+      margin: 0;
+      padding: 2rem;
+      background: #f8f9fa;
     }
+
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    p {
-      font-size: 1.2em;
-      color: #444;
-      margin-bottom: 30px;
-    }
-    .quiz-buttons {
+
+    .quiz-options {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      max-width: 300px;
-      margin: auto;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .quiz-buttons a {
-      display: block;
-      padding: 15px;
-      font-size: 1.1em;
-      background-color: #007acc;
+
+    .quiz-options a {
+      display: inline-block;
+      background-color: #007BFF;
       color: white;
+      padding: 1rem 2rem;
+      width: 250px;
+      text-align: center;
+      font-size: 1.2rem;
       text-decoration: none;
       border-radius: 8px;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
-    .quiz-buttons a:hover {
-      background-color: #005fa3;
+
+    .quiz-options a:hover {
+      background-color: #0056b3;
     }
-    @media (min-width: 600px) {
-      .quiz-buttons {
-        flex-direction: row;
-        justify-content: center;
-      }
+
+    footer {
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Daily EMS Quiz</h1>
-  <p>Choose your level and sharpen your EMS knowledge with 5 fresh questions every day.</p>
-  <div class="quiz-buttons">
-    <a href="emt_quiz.html">Take EMT Quiz</a>
-    <a href="paramedic_quiz.html">Take Paramedic Quiz</a>
+  <h1>Welcome to Daily EMS Quiz</h1>
+  <p>Select a quiz type to begin:</p>
+
+  <div class="quiz-options">
+    <a href="emt_quiz.html">🚑 EMT Daily Quiz</a>
+    <a href="paramedic_quiz.html">🩺 Paramedic Daily Quiz</a>
   </div>
+
+  <footer>
+    <p>&copy; 2025 DailyEMSQuiz.com</p>
+  </footer>
 </body>
 </html>
