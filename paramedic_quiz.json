@@ -116,19 +116,7 @@
     "subtopic": "Bleeding and Shock",
     "topic": "Trauma"
   },
-  {
-    "question": "A 2-week-old infant is unresponsive and apneic. Bystanders report he stopped breathing after feeding. What is your priority intervention?",
-    "choices": [
-      "Start CPR with 3:1 compression ratio",
-      "Administer naloxone",
-      "Provide blow-by oxygen",
-      "Perform abdominal thrusts"
-    ],
-    "answer": "Start CPR with 3:1 compression ratio",
-    "reason": "Neonatal CPR uses a 3:1 ratio due to the high likelihood of cardiac arrest from respiratory failure.",
-    "subtopic": "Neonatal Resuscitation",
-    "topic": "Special Populations"
-  },
+  
   {
     "question": "A 54-year-old male is complaining of crushing substernal chest pain radiating to his left arm. He is diaphoretic and short of breath. What is the most appropriate initial treatment?",
     "choices": [
@@ -246,19 +234,7 @@
     "subtopic": "Toxicology",
     "topic": "Medical Emergencies"
   },
-  {
-    "question": "A newborn is apneic and has a heart rate of 50 bpm. After drying and stimulating, what is your next step?",
-    "choices": [
-      "Begin positive pressure ventilation",
-      "Perform chest compressions",
-      "Administer epinephrine",
-      "Suction the airway"
-    ],
-    "answer": "Begin positive pressure ventilation",
-    "reason": "For newborns with HR <100 and no breathing, PPV is the immediate next step per neonatal resuscitation guidelines.",
-    "subtopic": "Neonatal Resuscitation",
-    "topic": "Special Populations"
-  },
+
   {
     "topic": "Cardiovascular",
     "question": "What is the primary purpose of administering aspirin to a patient experiencing chest pain?",
