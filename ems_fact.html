@@ -36,6 +36,15 @@
       font-size: 1.2rem;
       color: #333;
     }
+    .back-btn {
+      margin-top: 1.5rem;
+      padding: 10px 16px;
+      background-color: #ccc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -43,6 +52,7 @@
     <h1>EMS Daily Fact</h1>
     <div id="category" class="category"></div>
     <div id="fact" class="fact"></div>
+    <button class="back-btn" onclick="goBack()">⬅️ Back</button>
   </div>
 
   <script>
@@ -60,6 +70,10 @@
         document.getElementById('fact').textContent = "Unable to load fact.";
         console.error("Error loading EMS fact:", error);
       });
+
+    function goBack() {
+      window.history.back();
+    }
   </script>
 </body>
 </html>
