@@ -40,6 +40,14 @@
       text-align: center;
       color: #005f73;
     }
+    .back-btn {
+      background-color: #ccc;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
     .question-box {
       background: #fff;
       padding: 15px;
@@ -91,6 +99,10 @@
 </head>
 <body>
   <h1>Daily Paramedic Quiz</h1>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="goBack()">⬅️ Back</button>
+
   <div id="quiz-container">Loading quiz...</div>
   <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
   <div class="result" id="result"></div>
@@ -171,6 +183,10 @@
 
       document.getElementById("result").innerHTML =
         `You scored ${score}/5<br>Come back tomorrow for more questions!`;
+    }
+
+    function goBack() {
+      window.history.back();
     }
   </script>
 </body>
