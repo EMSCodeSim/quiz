@@ -318,5 +318,159 @@
     ],
     "answer": "Oral, chewed",
     "explanation": "Aspirin should be given orally and chewed for faster absorption in the setting of suspected cardiac events."
+  },
+  {
+    "question": "What is the primary mechanism of action of adenosine in treating supraventricular tachycardia (SVT)?",
+    "choices": [
+      "Beta-adrenergic blockade",
+      "Inhibition of calcium channels",
+      "Slowing conduction through the AV node",
+      "Prolongation of QT interval"
+    ],
+    "answer": "Slowing conduction through the AV node",
+    "reason": "Adenosine temporarily blocks AV node conduction, which often breaks reentrant tachycardias like SVT."
+  },
+  {
+    "question": "A 58-year-old with atrial fibrillation suddenly becomes hypotensive with altered mental status. What is the immediate intervention?",
+    "choices": [
+      "Amiodarone 150 mg IV over 10 minutes",
+      "Synchronized cardioversion",
+      "Administer aspirin",
+      "Defibrillation"
+    ],
+    "answer": "Synchronized cardioversion",
+    "reason": "Unstable atrial fibrillation (hypotension, AMS) requires synchronized cardioversion per ACLS protocol."
+  },
+  {
+    "question": "Which of the following is a contraindication for nitroglycerin administration in chest pain?",
+    "choices": [
+      "Tachycardia",
+      "BP 110/70 mmHg",
+      "Use of sildenafil within 24 hours",
+      "History of diabetes"
+    ],
+    "answer": "Use of sildenafil within 24 hours",
+    "reason": "Phosphodiesterase inhibitors combined with nitro can cause life-threatening hypotension."
+  },
+  {
+    "question": "What is the correct initial dose of ketamine for sedation in a violent patient (IM route)?",
+    "choices": [
+      "0.1 mg/kg",
+      "1 mg/kg",
+      "4 mg/kg",
+      "10 mg/kg"
+    ],
+    "answer": "4 mg/kg",
+    "reason": "IM ketamine for sedation is commonly dosed at 4 mg/kg for rapid control of agitation."
+  },
+  {
+    "question": "A patient with CHF is given furosemide. What is the most concerning side effect to monitor for prehospital?",
+    "choices": [
+      "Tinnitus",
+      "Hypokalemia",
+      "Seizures",
+      "Hyperglycemia"
+    ],
+    "answer": "Hypokalemia",
+    "reason": "Furosemide is a loop diuretic and can cause electrolyte imbalances, particularly hypokalemia."
+  },
+  {
+    "question": "Which medication is most appropriate to manage a stable patient with ventricular ectopy and a history of myocardial infarction?",
+    "choices": [
+      "Epinephrine",
+      "Amiodarone",
+      "Atropine",
+      "Lidocaine"
+    ],
+    "answer": "Amiodarone",
+    "reason": "Amiodarone is preferred for ventricular arrhythmias, especially in post-MI patients."
+  },
+  {
+    "question": "Which of the following best explains the effect of glucagon in beta blocker overdose?",
+    "choices": [
+      "Increases acetylcholine release",
+      "Enhances insulin sensitivity",
+      "Stimulates cAMP independently of beta receptors",
+      "Blocks calcium influx"
+    ],
+    "answer": "Stimulates cAMP independently of beta receptors",
+    "reason": "Glucagon activates cAMP without using beta-adrenergic receptors, restoring cardiac contractility."
+  },
+  {
+    "question": "What is the correct prehospital dose of magnesium sulfate for torsades de pointes in an adult patient?",
+    "choices": [
+      "0.5 g IV over 10 min",
+      "1 g IV push",
+      "2 g IV diluted over 2\u20135 minutes",
+      "4 g IM"
+    ],
+    "answer": "2 g IV diluted over 2\u20135 minutes",
+    "reason": "Magnesium 2 g IV over 2\u20135 minutes is the ACLS-recommended dose for torsades."
+  },
+  {
+    "question": "Which of the following conditions is most associated with a pulsus paradoxus and muffled heart sounds?",
+    "choices": [
+      "Tension pneumothorax",
+      "Pulmonary embolism",
+      "Cardiac tamponade",
+      "Aortic dissection"
+    ],
+    "answer": "Cardiac tamponade",
+    "reason": "Tamponade causes fluid compression around the heart, resulting in decreased stroke volume and pulsus paradoxus."
+  },
+  {
+    "question": "What ECG finding is most indicative of hyperkalemia?",
+    "choices": [
+      "Peaked T waves",
+      "Shortened PR interval",
+      "U waves",
+      "ST depression"
+    ],
+    "answer": "Peaked T waves",
+    "reason": "Peaked T waves are the earliest and most classic ECG sign of elevated serum potassium."
+  },
+  {
+    "question": "What is the appropriate dose of epinephrine for adult anaphylaxis via IM route?",
+    "choices": [
+      "0.3 mg of 1:1,000",
+      "1 mg of 1:10,000",
+      "0.1 mg of 1:1,000",
+      "0.5 mg of 1:10,000"
+    ],
+    "answer": "0.3 mg of 1:1,000",
+    "reason": "The standard adult dose is 0.3 mg IM using a 1:1,000 concentration."
+  },
+  {
+    "question": "A patient is postictal after a tonic-clonic seizure. What drug should be administered if seizures continue?",
+    "choices": [
+      "Epinephrine",
+      "Midazolam",
+      "Naloxone",
+      "Diazoxide"
+    ],
+    "answer": "Midazolam",
+    "reason": "Benzodiazepines like midazolam are the treatment of choice for status epilepticus."
+  },
+  {
+    "question": "Which medication is used to reverse the effects of benzodiazepines?",
+    "choices": [
+      "Naloxone",
+      "Romazicon (Flumazenil)",
+      "Atropine",
+      "Fomepizole"
+    ],
+    "answer": "Romazicon (Flumazenil)",
+    "reason": "Flumazenil is a benzodiazepine antagonist, used in very selective cases due to seizure risk."
+  },
+  {
+    "question": "A patient with COPD is given too much oxygen. What complication are you most concerned about?",
+    "choices": [
+      "Cardiac ischemia",
+      "Seizures",
+      "Hypoventilation due to loss of hypoxic drive",
+      "Hyperthermia"
+    ],
+    "answer": "Hypoventilation due to loss of hypoxic drive",
+    "reason": "COPD patients rely partially on hypoxic respiratory drive; high-flow O\u2082 can reduce their respiratory effort."
   }
 ]
