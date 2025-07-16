@@ -69,7 +69,7 @@
 
   <div id="heart">❤️</div>
 
-  <input type="range" id="slider" min="0" max="160" value="75" style="display:none;">
+  <input type="range" id="slider" min="30" max="200" value="75" style="display:none;">
   <p id="sliderText" style="display:none;">BPM Guess: <span id="bpmValue">75</span></p>
 
   <button onclick="checkAnswer()" id="checkBtn" style="display:none;">Check Answer</button>
@@ -91,7 +91,8 @@
       for (let i = 0; i < today.length; i++) {
         hash = today.charCodeAt(i) + ((hash << 5) - hash);
       }
-      return 60 + Math.abs(hash % 101); // 60–160 BPM
+      const randomSeed = Math.abs(hash % 171); // 0–170
+      return 30 + randomSeed; // 30–200 BPM
     }
 
     const actualBPM = getDailyBPM();
