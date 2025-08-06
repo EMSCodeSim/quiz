@@ -2,91 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Blood Pressure Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Beat | DailyEMSQuiz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f8ff;
       text-align: center;
       padding: 20px;
+      background: #f0f8ff;
     }
-    label {
-      font-size: 18px;
-      margin: 10px;
+    h1 {
+      font-size: 2.2em;
+      color: #b30000;
     }
-    input {
-      width: 60px;
-      font-size: 18px;
+    #heart {
+      font-size: 100px;
+      color: red;
+      margin: 30px 0;
+      visibility: hidden;
     }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
+    #slider {
+      width: 80%;
+      margin-top: 10px;
+      accent-color: green;
     }
-    #needle {
-      transition: transform 0.05s linear;
+    #bpmValue {
+      font-weight: bold;
+    }
+    #result {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    button, .start-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover, .start-btn:hover {
+      background-color: #005b99;
+    }
+    .back-button {
+      margin-top: 40px;
+      display: inline-block;
+      text-decoration: none;
+      color: #007acc;
+      font-size: 1em;
+    }
+    @keyframes beat {
+      0%   { transform: scale(1); }
+      20%  { transform: scale(1.3); }
+      40%  { transform: scale(1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
+  <h1>❤️ The Daily Beat</h1>
+  <p>Tap Start to hear today’s rhythm. Can you guess the rate?</p>
 
-  <h1>Blood Pressure Cuff Simulator</h1>
+  <button class="start-btn" onclick="startBeat()">▶️ Start</button>
 
-  <label>Systolic:
-    <input type="number" id="sys" value="120" min="50" max="250">
-  </label>
-  <label>Diastolic:
-    <input type="number" id="dia" value="80" min="30" max="200">
-  </label>
-  <br>
-  <button onclick="startSimulation()">Start Simulation</button>
+  <div id="heart">❤️</div>
 
-  <svg id="bpDial" width="300" height="300" viewBox="0 0 300 300">
-    <circle cx="150" cy="150" r="140" fill="#fdfdfd" stroke="#333" stroke-width="4"/>
-    <g id="ticks">
-      <!-- Major Ticks -->
-      ${[...Array(11)].map((_, i) => {
-        const angle = -135 + i * 27;
-        return `<line x1="150" y1="20" x2="150" y2="35" stroke="black" stroke-width="2" transform="rotate(${angle},150,150)" />`
-      }).join('')}
-    </g>
-    <g id="minorTicks">
-      ${[...Array(10)].map((_, i) => {
-        const angle = -135 + (i * 27 + 13.5);
-        return `<line x1="150" y1="20" x2="150" y2="28" stroke="black" stroke-width="1" transform="rotate(${angle},150,150)" />`
-      }).join('')}
-    </g>
-    <text x="150" y="285" text-anchor="middle" font-size="14">0</text>
-    <text x="65" y="255" text-anchor="middle" font-size="14">40</text>
-    <text x="30" y="180" text-anchor="middle" font-size="14">80</text>
-    <text x="45" y="100" text-anchor="middle" font-size="14">120</text>
-    <text x="100" y="45" text-anchor="middle" font-size="14">160</text>
-    <text x="190" y="45" text-anchor="middle" font-size="14">200</text>
-    <text x="255" y="100" text-anchor="middle" font-size="14">240</text>
-    <text x="270" y="180" text-anchor="middle" font-size="14">280</text>
-    <text x="235" y="255" text-anchor="middle" font-size="14">300</text>
-    <line id="needle" x1="150" y1="150" x2="150" y2="30" stroke="red" stroke-width="4" transform="rotate(-135,150,150)" />
-    <circle cx="150" cy="150" r="6" fill="#333" />
-  </svg>
+  <input type="range" id="slider" min="30" max="200" value="75" style="display:none;">
+  <p id="sliderText" style="display:none;">BPM Guess: <span id="bpmValue">75</span></p>
+
+  <button onclick="checkAnswer()" id="checkBtn" style="display:none;">Check Answer</button>
+  <div id="result"></div>
+
+  <a href="index.html" class="back-button">← Back to DailyEMSQuiz</a>
 
   <script>
-    function bpToAngle(bp) {
-      return ((bp / 300) * 270) - 135;
+    const heart = document.getElementById("heart");
+    const slider = document.getElementById("slider");
+    const bpmDisplay = document.getElementById("bpmValue");
+    const result = document.getElementById("result");
+    const checkBtn = document.getElementById("checkBtn");
+    const sliderText = document.getElementById("sliderText");
+
+    function getDailyBPM() {
+      const today = new Date().toISOString().split('T')[0];
+      let hash = 0;
+      for (let i = 0; i < today.length; i++) {
+        hash = today.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const randomSeed = Math.abs(hash % 171); // 0–170
+      return 30 + randomSeed; // 30–200 BPM
     }
 
-    function updateNeedle(bp) {
-      const angle = bpToAngle(bp);
-      document.getElementById('needle').setAttribute('transform', \`rotate(\${angle},150,150)\`);
-    }
+    const actualBPM = getDailyBPM();
+    const beatInterval = 60 / actualBPM;
 
-    function playBeatPattern(durationMs = 6000, bpm = 75) {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const beatInterval = 60 / bpm;
-      const startTime = ctx.currentTime;
-      const totalBeats = Math.floor(durationMs / (beatInterval * 1000));
+    function playBeatPattern() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const ctx = new AudioContext();
+      const duration = 60; // 60 seconds total
+      const now = ctx.currentTime;
 
-      for (let i = 0; i < totalBeats; i++) {
-        const start = startTime + i * beatInterval;
+      for (let i = 0; i < actualBPM; i++) {
+        const start = now + i * beatInterval;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.frequency.value = 660;
@@ -98,26 +117,40 @@
       }
     }
 
-    function startSimulation() {
-      const sys = parseInt(document.getElementById('sys').value);
-      const dia = parseInt(document.getElementById('dia').value);
-      let pressure = 300;
+    function startBeat() {
+      document.querySelector('.start-btn').style.display = 'none';
+      heart.style.visibility = "visible";
+      slider.style.display = "block";
+      checkBtn.style.display = "inline-block";
+      sliderText.style.display = "block";
+      updateSliderColor(actualBPM);
 
-      const interval = setInterval(() => {
-        updateNeedle(pressure);
+      playBeatPattern();
+      heart.style.animation = `beat ${beatInterval}s infinite ease-in-out`;
+    }
 
-        if (pressure === sys) {
-          playBeatPattern(10000, 75); // 10 seconds of beats at 75 BPM
-        }
+    function checkAnswer() {
+      const guess = parseInt(slider.value);
+      const diff = Math.abs(guess - actualBPM);
+      if (diff <= 3) {
+        result.innerHTML = `✅ Correct! It was <strong>${actualBPM} BPM</strong>. Come back tomorrow!`;
+      } else {
+        result.innerHTML = `❌ Not quite. It was <strong>${actualBPM} BPM</strong>. Try again tomorrow!`;
+      }
+    }
 
-        if (pressure <= dia) {
-          clearInterval(interval);
-        }
+    slider.addEventListener("input", () => {
+      const bpm = parseInt(slider.value);
+      bpmDisplay.textContent = bpm;
+      updateSliderColor(bpm);
+    });
 
-        pressure--;
-      }, 40);
+    function updateSliderColor(bpm) {
+      let color = "green";
+      if (bpm < 60) color = "blue";
+      else if (bpm > 100) color = "orange";
+      slider.style.accentColor = color;
     }
   </script>
-
 </body>
 </html>
