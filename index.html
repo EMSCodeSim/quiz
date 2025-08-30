@@ -3,43 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Daily EMS Quiz — modern, mobile-first EMT & Paramedic practice with quick tools like Home Meds, EMS Facts, and Daily Beat." />
-  <meta name="keywords" content="EMT Quiz, Paramedic Quiz, NREMT practice, EMS training, Daily EMS Quiz, Home Meds, EMS flashcards, NREMT prep" />
-  <meta name="author" content="Daily EMS Quiz" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://dailyemsquiz.com/" />
+  <meta name="description" content="Daily EMS Quiz — quick, clean EMT & Paramedic practice with streak tracking." />
+  <title>Daily EMS Quiz</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Daily EMS Quiz — Free, Modern NREMT Practice" />
-  <meta property="og:description" content="Tap in daily. EMT & Paramedic practice questions, plus Daily Beat, EMS Facts, and Home Meds — all free." />
-  <meta property="og:url" content="https://dailyemsquiz.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://dailyemsquiz.com/preview.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Daily EMS Quiz — Free, Modern NREMT Practice" />
-  <meta name="twitter:description" content="Daily EMT & Paramedic practice with extra learning tools — mobile-first and lightning fast." />
-  <meta name="twitter:image" content="https://dailyemsquiz.com/preview.jpg" />
-
-  <title>Daily EMS Quiz — Tap In Daily</title>
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0f14;
-      --bg2:#111827;
-      --glass:rgba(255,255,255,.08);
-      --glass-strong:rgba(255,255,255,.14);
-      --text:#eaf2ff;
-      --muted:#a5b4fc;
-      --accent:#60a5fa;
-      --accent2:#a78bfa;
-      --good:#34d399;
-      --edge:rgba(255,255,255,.12);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:20px;
+      --bg:#0b0f14; --panel:#101826; --text:#eaf2ff; --muted:#b6c2ff;
+      --edge:rgba(255,255,255,.12); --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --btn:linear-gradient(135deg,#3b82f6,#8b5cf6);
+      --btn2:linear-gradient(135deg,#06b6d4,#6366f1);
+      --btn3:linear-gradient(135deg,#22c55e,#3b82f6);
+      --btn4:linear-gradient(135deg,#f59e0b,#ef4444);
+      --btn5:linear-gradient(135deg,#14b8a6,#84cc16);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -48,191 +29,153 @@
       color:var(--text); background: radial-gradient(1200px 600px at 10% 0%, #0b1220 0%, #0b0f14 40%, #090d12 100%), var(--bg);
       overflow-x:hidden;
     }
-    /* animated gradient orbs */
     .orbs::before,.orbs::after{
-      content:""; position:fixed; inset:auto; width:52vmin; height:52vmin; filter:blur(60px);
-      z-index:-2; border-radius:50%;
+      content:""; position:fixed; z-index:-2; border-radius:50%;
+      filter:blur(60px);
+    }
+    .orbs::before{ width:52vmin;height:52vmin; top:-8vmin; left:-8vmin;
       background:radial-gradient(circle at 30% 30%, #2563eb55, #7c3aed33 60%, transparent 70%);
-      animation: drift1 18s ease-in-out infinite;
-      top:-10vmin; left:-10vmin;
+      animation:float1 18s ease-in-out infinite;
     }
-    .orbs::after{
+    .orbs::after{ width:60vmin;height:60vmin; bottom:-12vmin; right:-10vmin;
       background:radial-gradient(circle at 70% 70%, #22d3ee55, #6366f155 60%, transparent 70%);
-      width:60vmin; height:60vmin; top:auto; bottom:-12vmin; right:-10vmin; left:auto;
-      animation: drift2 22s ease-in-out infinite;
+      animation:float2 22s ease-in-out infinite;
     }
-    @keyframes drift1{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(6vmin,4vmin)}}
-    @keyframes drift2{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(-5vmin,-3vmin)}}
+    @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(6vmin,4vmin)}}
+    @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-5vmin,-3vmin)}}
 
-    .wrap{max-width:1100px; margin:0 auto; padding: clamp(20px, 3vw, 40px);}
+    .wrap{max-width:760px; margin:0 auto; padding: clamp(20px, 3.5vw, 44px);}
+
     header{
-      display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0 8px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px;
     }
     .brand{
       display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
     }
     .logo{
-      width:40px; height:40px; border-radius:12px;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
-      display:grid; place-items:center; box-shadow:var(--shadow);
+      width:44px; height:44px; border-radius:12px; overflow:hidden; flex:0 0 44px;
+      background:#0f172a; border:1px solid var(--edge); box-shadow:var(--shadow);
+      display:grid; place-items:center;
     }
-    .logo span{font-weight:800}
-    .brand h1{font-size: clamp(20px, 3vw, 24px); margin:0; letter-spacing:.2px}
-    .tag{font-size:12px; opacity:.75}
+    .logo img{
+      width:100%; height:100%; object-fit:cover;
+    }
+    .title{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .title b{font-size: clamp(18px, 3.2vw, 22px)}
+    .title span{font-size:12px; opacity:.75}
 
-    .hero{
-      margin-top: clamp(8px, 2vw, 16px);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--edge);
-      border-radius: clamp(18px, 2vw, 26px);
-      padding: clamp(20px, 3.2vw, 36px);
-      box-shadow: var(--shadow);
-      position:relative; overflow:hidden;
-      backdrop-filter: blur(8px);
-    }
-    .hero h2{
-      margin:0 0 8px; font-size: clamp(26px, 4.6vw, 44px); line-height:1.05; letter-spacing:.2px;
-    }
-    .hero p{margin:0; color:#c7d2fe; font-size: clamp(14px, 2.1vw, 18px)}
-    .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
-    .btn{
-      --pad: clamp(12px, 1.6vw, 14px);
-      display:inline-flex; align-items:center; gap:10px;
-      padding: var(--pad) clamp(16px, 2vw, 22px);
-      border-radius:14px; border:1px solid var(--glass-strong);
-      text-decoration:none; color:white; font-weight:700; letter-spacing:.2px;
-      background:linear-gradient(135deg, #2563eb, #7c3aed);
-      transition: transform .15s ease, box-shadow .15s ease, filter .2s ease;
-      box-shadow: 0 6px 18px rgba(99,102,241,.3);
-      position:relative; overflow:hidden;
-    }
-    .btn:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(99,102,241,.35); }
-    .btn.secondary{
-      background:linear-gradient(135deg, #0ea5e9, #6366f1);
-      box-shadow: 0 6px 18px rgba(14,165,233,.28);
-    }
-    .btn.ghost{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--edge); font-weight:600;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      background:rgba(20,184,166,.12); color:#99f6e4; padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(20,184,166,.22); font-size:12px; margin-top:10px;
-    }
-
-    /* Cards */
-    .grid{
-      display:grid; gap:14px; margin-top:22px;
-      grid-template-columns: repeat(12, 1fr);
-    }
-    .card{
-      grid-column: span 12;
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--edge);
-      border-radius: var(--radius);
-      padding: clamp(16px, 2vw, 22px);
-      box-shadow: var(--shadow);
-    }
-    .card h3{margin:0 0 6px; font-size: clamp(18px, 2.2vw, 22px)}
-    .card p{margin:0; color:#c7d2fe}
-    .card .row{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-
-    /* Layout for larger screens */
-    @media (min-width: 860px){
-      .hero{display:grid; grid-template-columns: 1.1fr .9fr; align-items:center; gap:24px}
-      .grid .span-6{grid-column: span 6}
-      .grid .span-4{grid-column: span 4}
-    }
-
-    /* Streak widget */
     .streak{
-      display:flex; align-items:center; gap:10px; margin-top:14px;
+      display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px;
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--edge); border-radius:14px; padding:10px 12px;
-      width:fit-content;
+      border:1px solid var(--edge);
     }
     .streak b{color:#fde68a}
-    .tiny{font-size:12px; opacity:.75}
 
-    footer{
-      margin:34px 0 16px; color:#cbd5e1; text-align:center; font-size:14px;
+    /* Simple list of big colorful buttons */
+    .list{
+      display:grid; gap:12px; margin-top:8px;
     }
+    .btn{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      text-decoration:none; color:white; font-weight:800; letter-spacing:.2px;
+      padding:16px 18px; border-radius:16px; border:1px solid rgba(255,255,255,.16);
+      box-shadow:var(--shadow); position:relative; overflow:hidden;
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.35); }
+    .btn:active{ transform: translateY(0) scale(.995); }
+    .btn .left{display:flex; align-items:center; gap:12px}
+    .btn .icon{
+      width:36px; height:36px; border-radius:10px; background:rgba(0,0,0,.18);
+      display:grid; place-items:center; font-size:20px; flex:0 0 36px;
+    }
+    .btn .label{font-size:16px}
+    .btn .go{opacity:.9; font-weight:700}
+
+    .b1{ background:var(--btn); }
+    .b2{ background:var(--btn2); }
+    .b3{ background:var(--btn3); }
+    .b4{ background:var(--btn4); }
+    .b5{ background:var(--btn5); }
+
+    footer{margin:28px 0 10px; text-align:center; color:#cbd5e1; font-size:14px;}
     footer a{color:#93c5fd; text-decoration:none; border-bottom:1px dashed rgba(147,197,253,.5)}
     footer a:hover{border-bottom-color:transparent}
-
-    /* subtle button ripple */
-    .btn::after{
-      content:""; position:absolute; inset:0; background: radial-gradient(120px 120px at var(--x,50%) var(--y,50%), rgba(255,255,255,.18), transparent 40%);
-      opacity:0; transition:opacity .25s ease;
-    }
-    .btn:active::after{opacity:1; transition:opacity .05s ease}
   </style>
 
-  <!-- GA -->
+  <!-- GA (leave as-is if you use Analytics) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-19DVN7NNH7');
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-19DVN7NNH7');
   </script>
 </head>
 <body>
   <div class="orbs"></div>
   <div class="wrap">
     <header>
-      <a class="brand" href="./">
-        <div class="logo" aria-hidden="true">🩺</div>
-        <div>
-          <h1>Daily EMS Quiz</h1>
-          <div class="tag">Tap in daily • NREMT-style practice</div>
+      <a class="brand" href="./" aria-label="Daily EMS Quiz home">
+        <!-- Replace src below with your real icon path (e.g. /assets/daily-ems-quiz-icon.png) -->
+        <div class="logo">
+          <img src="./images/daily-ems-quiz-icon.png" alt="Daily EMS Quiz icon"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'🩺',style:'font-size:22px'}))">
+        </div>
+        <div class="title">
+          <b>Daily EMS Quiz</b>
+          <span>Fast EMT & Paramedic practice</span>
         </div>
       </a>
+
       <div class="streak" aria-live="polite">
         🔥 Streak: <b id="streakCount">0</b> day<span id="plural">s</span>
       </div>
     </header>
 
-    <section class="hero" role="banner" aria-label="Daily EMS Quiz hero">
-      <div>
-        <h2>Practice smarter. <br/>Just one tap away.</h2>
-        <p>Fast, focused EMT & Paramedic questions built for busy schedules. Track your streak and level up with quick tools.</p>
-        <div class="pill">✨ New look · mobile-first</div>
-        <div class="cta-row">
-          <a class="btn" href="emt_quiz.html" data-ripple>🚑 Start EMT Daily Quiz</a>
-          <a class="btn secondary" href="paramedic_quiz.html" data-ripple>🧠 Start Paramedic Daily Quiz</a>
-          <a class="btn ghost" href="ems_fact.html" data-ripple>📚 Random EMS Fact</a>
+    <!-- Clean, simple list of colorful buttons -->
+    <nav class="list" aria-label="Main actions">
+      <a class="btn b1" href="emt_quiz.html">
+        <div class="left">
+          <div class="icon">🚑</div>
+          <div class="label">Start EMT Daily Quiz</div>
         </div>
-      </div>
-      <div class="card" aria-label="Highlights">
-        <h3>Why learners love it</h3>
-        <p>Zero fluff. High-yield questions, clean design, and bite-size study boosts.</p>
-        <div class="row tiny">
-          <span>✅ NREMT-style prompts</span>
-          <span>•</span>
-          <span>📈 Track your daily streak</span>
-          <span>•</span>
-          <span>⚡ Loads instantly</span>
-        </div>
-      </div>
-    </section>
+        <div class="go">Start</div>
+      </a>
 
-    <section class="grid" aria-label="Quick Tools">
-      <div class="card span-6">
-        <h3>Quick Tools</h3>
-        <p>Power-ups for fast reps and spaced recall.</p>
-        <div class="row">
-          <a class="btn ghost" href="home_med.html" data-ripple>💊 Daily Home Med</a>
-          <a class="btn ghost" href="daily_beat.html" data-ripple>🫀 Daily Beat</a>
+      <a class="btn b2" href="paramedic_quiz.html">
+        <div class="left">
+          <div class="icon">🧠</div>
+          <div class="label">Start Paramedic Daily Quiz</div>
         </div>
-      </div>
+        <div class="go">Start</div>
+      </a>
 
-      <div class="card span-6">
-        <h3>Pro tip</h3>
-        <p>Bookmark this page and come back daily — consistent micro-sessions win the marathon.</p>
-      </div>
-    </section>
+      <a class="btn b3" href="ems_fact.html">
+        <div class="left">
+          <div class="icon">📚</div>
+          <div class="label">Random EMS Fact</div>
+        </div>
+        <div class="go">Open</div>
+      </a>
+
+      <a class="btn b4" href="home_med.html">
+        <div class="left">
+          <div class="icon">💊</div>
+          <div class="label">Daily Home Med</div>
+        </div>
+        <div class="go">Open</div>
+      </a>
+
+      <a class="btn b5" href="daily_beat.html">
+        <div class="left">
+          <div class="icon">🫀</div>
+          <div class="label">Daily Beat</div>
+        </div>
+        <div class="go">Play</div>
+      </a>
+    </nav>
 
     <footer>
       <div>&copy; 2025 DailyEMSQuiz.com · Not affiliated with NREMT</div>
@@ -243,44 +186,33 @@
   </div>
 
   <script>
-    // Button ripple coordinates
-    document.querySelectorAll('[data-ripple]').forEach(btn=>{
-      btn.addEventListener('pointerdown', e=>{
-        const rect = btn.getBoundingClientRect();
-        btn.style.setProperty('--x', (e.clientX - rect.left) + 'px');
-        btn.style.setProperty('--y', (e.clientY - rect.top) + 'px');
-      });
-    });
-
-    // Simple daily streak using localStorage (client-only)
+    // Daily streak using localStorage (client-only)
     (function(){
       try{
-        const key = 'deq_streak';
-        const lastKey = 'deq_last';
-        const today = new Date(); today.setHours(0,0,0,0);
-        const last = localStorage.getItem(lastKey);
-        let streak = parseInt(localStorage.getItem(key)||'0',10);
+        const key='deq_streak', lastKey='deq_last';
+        const today=new Date(); today.setHours(0,0,0,0);
+        const last=localStorage.getItem(lastKey);
+        let streak=parseInt(localStorage.getItem(key)||'0',10);
 
         if(!last){
-          streak = 1;
-        } else {
-          const lastDate = new Date(parseInt(last,10));
-          const diff = (today - lastDate) / 86400000; // days
-          if (diff === 0) {
+          streak=1;
+        }else{
+          const lastDate=new Date(parseInt(last,10));
+          const diff=(today-lastDate)/86400000;
+          if(diff===0){
             // already counted today
-          } else if (diff === 1) {
-            streak += 1;
-          } else if (diff > 1) {
-            streak = 1; // reset
+          }else if(diff===1){
+            streak+=1;
+          }else if(diff>1){
+            streak=1;
           }
         }
-        localStorage.setItem(key, String(streak));
-        localStorage.setItem(lastKey, String(+today));
-
-        const el = document.getElementById('streakCount');
-        const pl = document.getElementById('plural');
-        if(el){ el.textContent = String(streak); }
-        if(pl){ pl.style.display = (streak === 1) ? 'none' : 'inline'; }
+        localStorage.setItem(key,String(streak));
+        localStorage.setItem(lastKey,String(+today));
+        const el=document.getElementById('streakCount');
+        const pl=document.getElementById('plural');
+        if(el) el.textContent=String(streak);
+        if(pl) pl.style.display=(streak===1)?'none':'inline';
       }catch(e){}
     })();
   </script>
