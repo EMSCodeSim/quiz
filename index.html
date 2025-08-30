@@ -78,7 +78,7 @@
       display:grid; gap:12px; margin-top:8px;
     }
     .btn{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      display:flex; align-items:center; gap:12px;
       text-decoration:none; color:white; font-weight:800; letter-spacing:.2px;
       padding:16px 18px; border-radius:16px; border:1px solid rgba(255,255,255,.16);
       box-shadow:var(--shadow); position:relative; overflow:hidden;
@@ -86,13 +86,11 @@
     }
     .btn:hover{ transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.35); }
     .btn:active{ transform: translateY(0) scale(.995); }
-    .btn .left{display:flex; align-items:center; gap:12px}
     .btn .icon{
       width:36px; height:36px; border-radius:10px; background:rgba(0,0,0,.18);
       display:grid; place-items:center; font-size:20px; flex:0 0 36px;
     }
     .btn .label{font-size:16px}
-    .btn .go{opacity:.9; font-weight:700}
 
     .b1{ background:var(--btn); }
     .b2{ background:var(--btn2); }
@@ -118,7 +116,7 @@
   <div class="wrap">
     <header>
       <a class="brand" href="./" aria-label="Daily EMS Quiz home">
-        <!-- Replace src below with your real icon path (e.g. /assets/daily-ems-quiz-icon.png) -->
+        <!-- Replace src below with your real icon path -->
         <div class="logo">
           <img src="./images/daily-ems-quiz-icon.png" alt="Daily EMS Quiz icon"
                onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'🩺',style:'font-size:22px'}))">
@@ -137,43 +135,28 @@
     <!-- Clean, simple list of colorful buttons -->
     <nav class="list" aria-label="Main actions">
       <a class="btn b1" href="emt_quiz.html">
-        <div class="left">
-          <div class="icon">🚑</div>
-          <div class="label">Start EMT Daily Quiz</div>
-        </div>
-        <div class="go">Start</div>
+        <div class="icon">🚑</div>
+        <div class="label">Start EMT Daily Quiz</div>
       </a>
 
       <a class="btn b2" href="paramedic_quiz.html">
-        <div class="left">
-          <div class="icon">🧠</div>
-          <div class="label">Start Paramedic Daily Quiz</div>
-        </div>
-        <div class="go">Start</div>
+        <div class="icon">🧠</div>
+        <div class="label">Start Paramedic Daily Quiz</div>
       </a>
 
       <a class="btn b3" href="ems_fact.html">
-        <div class="left">
-          <div class="icon">📚</div>
-          <div class="label">Random EMS Fact</div>
-        </div>
-        <div class="go">Open</div>
+        <div class="icon">📚</div>
+        <div class="label">Random EMS Fact</div>
       </a>
 
       <a class="btn b4" href="home_med.html">
-        <div class="left">
-          <div class="icon">💊</div>
-          <div class="label">Daily Home Med</div>
-        </div>
-        <div class="go">Open</div>
+        <div class="icon">💊</div>
+        <div class="label">Daily Home Med</div>
       </a>
 
-      <a class="btn b5" href="daily_beat.html">
-        <div class="left">
-          <div class="icon">🫀</div>
-          <div class="label">Daily Beat</div>
-        </div>
-        <div class="go">Play</div>
+      <a class="btn b5" href="daily_sim.html">
+        <div class="icon">🧪</div>
+        <div class="label">Daily Sim</div>
       </a>
     </nav>
 
