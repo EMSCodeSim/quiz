@@ -3,20 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MedWordle — Daily EMS Term</title>
-  <link rel="icon" href="data:," />
+  <title>MedWord — Daily EMS Term</title>
+  <link rel="icon" href="favicon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
   <style>
     :root{
       --bg:#0b0f14; --panel:#111827; --grid:#0f1624; --text:#eaf2ff; --muted:#9fb0c7;
-      --accent1:#60a5fa; --accent2:#22d3ee; --good:#10b981; --warn:#f59e0b; --bad:#ef4444; --edge:rgba(255,255,255,.12);
+      --accent1:#60a5fa; --accent2:#22d3ee; --good:#10b981; --warn:#f59e0b; --edge:rgba(255,255,255,.12);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.18), transparent),
-                              radial-gradient(1000px 700px at -20% 120%, rgba(96,165,250,.18), transparent), var(--bg);
-      color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
+    html,body{
+      height:100%; margin:0; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.14), transparent),
+        radial-gradient(1000px 700px at -20% 120%, rgba(96,165,250,.14), transparent),
+        var(--bg);
+      -webkit-text-size-adjust:100%;
     }
     .wrap{max-width:780px;margin:0 auto;padding:28px 16px 60px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
     .title{display:flex;align-items:center;gap:12px}
     .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));
       display:grid;place-items:center;box-shadow:0 10px 30px rgba(34,211,238,.2)}
@@ -53,21 +60,22 @@
     .hint{font-size:14px;color:var(--muted);margin-top:4px}
 
     .toast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:#111827;border:1px solid var(--edge);
-      padding:10px 14px;border-radius:12px;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease}
+      padding:10px 14px;border-radius:12px;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease; z-index:50}
     .toast.show{opacity:1}
 
     footer{margin-top:20px;text-align:center;color:var(--muted);font-size:12px}
-    a{color:#7dd3fc}
+    a{color:#7dd3fc;text-decoration:none}
+    a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="title">
-        <div class="logo"></div>
+        <a href="./" class="logo" title="Back to home"></a>
         <div>
-          <h1>MedWordle</h1>
-          <div class="subtitle">A daily EMS medical terminology mini‑game</div>
+          <h1>MedWord</h1>
+          <div class="subtitle">A daily EMS medical terminology mini-game</div>
         </div>
       </div>
       <div class="streak" id="streakBox" title="Your daily streak">
@@ -79,7 +87,7 @@
       <div class="bar">
         <div>
           <strong id="dateLabel"></strong>
-          <div class="hint" id="hintLine">Guess today’s 5‑letter EMS term in 6 tries.</div>
+          <div class="hint" id="hintLine">Guess today’s 5-letter EMS term in 6 tries.</div>
         </div>
         <div class="row">
           <button class="btn secondary" id="hintBtn" title="Reveal a short hint">Hint</button>
@@ -101,12 +109,12 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
-// ========= Word Bank =========
-// 5‑letter EMS/medical terms + simple learner‑friendly definitions
+/* ========= Word Bank =========
+   5-letter EMS/medical terms + simple learner-friendly definitions */
 const WORDS = [
   ["EDEMA","Swelling from fluid buildup"],
-  ["SHOCK","Life‑threatening poor perfusion"],
-  ["STEMI","ST‑elevation heart attack"],
+  ["SHOCK","Life-threatening poor perfusion"],
+  ["STEMI","ST-elevation heart attack"],
   ["NARES","Nostrils (external nose openings)"],
   ["LUNGS","Organs for gas exchange"],
   ["HEART","Pump that circulates blood"],
@@ -157,12 +165,10 @@ const WORDS = [
   ["LAPAR","Abdominal (root)"],
   ["BRADY","Slow (prefix)"],
   ["TACHY","Fast (prefix)"],
-  ["UTERI","Uteruses (pl.)"],
-  ["AURAL","Relating to the ear"],
-  ["ILIUS","(see ILEUS variant)"],
+  ["AURAL","Relating to the ear"]
 ].filter(([w])=>w.length===5);
 
-// Build a quick lookup for allowed guesses (you can expand this to a bigger dictionary later)
+// Allow list = these words (can expand later)
 const ALLOWED = new Set(WORDS.map(([w])=>w));
 
 // ========= Daily Word Selection =========
@@ -193,7 +199,7 @@ if(saved.lastDate && saved.lastDate!==today && saved.playedToday===true){
 saved.lastDate = today; saved.playedToday = false; saved.answer = ANSWER;
 localStorage.setItem(LS_KEY, JSON.stringify(saved));
 
-// ========= UI Build =========
+// ========= UI Refs =========
 const boardEl = document.getElementById('board');
 const kbEl = document.getElementById('kb');
 const toastEl = document.getElementById('toast');
@@ -207,6 +213,7 @@ const hintLine = document.getElementById('hintLine');
 streakNum.textContent = saved.streak || 0;
 dateLabel.textContent = new Date().toLocaleDateString(undefined,{weekday:'long', month:'short', day:'numeric'});
 
+// ========= Build UI =========
 function buildBoard(){
   boardEl.innerHTML='';
   for(let r=0;r<ROWS;r++){
@@ -218,7 +225,6 @@ function buildBoard(){
     }
   }
 }
-
 function buildKeyboard(){
   const layout = [
     'qwertyuiop',
@@ -228,12 +234,11 @@ function buildKeyboard(){
   kbEl.innerHTML = '';
   const wrap = document.createElement('div');
   wrap.className = 'keyboard';
-  const keys=[];
   for(const rowStr of layout){
     for(const ch of rowStr){
       const k=document.createElement('div');
       k.className='key'; k.textContent=ch; k.dataset.key=ch;
-      keys.push(k); wrap.appendChild(k);
+      wrap.appendChild(k);
     }
   }
   // special keys
@@ -247,11 +252,11 @@ function buildKeyboard(){
   });
 }
 
+// ========= Helpers =========
 function toast(msg, ms=1400){
   toastEl.textContent=msg; toastEl.classList.add('show');
   clearTimeout(toastEl._t); toastEl._t=setTimeout(()=>toastEl.classList.remove('show'), ms);
 }
-
 function render(){
   for(let r=0;r<ROWS;r++){
     for(let c=0;c<COLS;c++){
@@ -267,6 +272,7 @@ function render(){
   }
 }
 
+// ========= Core Logic =========
 function commitRow(){
   const guess = board[row].join('').toUpperCase();
   if(guess.length<COLS){ toast('Not enough letters'); return; }
@@ -306,21 +312,38 @@ function commitRow(){
     kbState[ch]=st;
   }
 
-  if(guess===answer){ endGame(true); return; }
-  row++; col=0;
-  if(row>=ROWS){ endGame(false); return; }
+  if(guess===answer){
+    endGame(true);
+    return;
+  }
+
+  // advance to the next row if not solved
+  row++;
+  col=0;
+
+  // only end game when all rows used
+  if(row>=ROWS){
+    endGame(false);
+    return;
+  }
+
   render();
 }
 
 function endGame(win){
   saved.playedToday=true; saved.lastDate=today;
-  if(win){ saved.streak=(saved.streak||0)+(saved.wonToday?0:1); saved.wonToday=true; }
-  else { saved.wonToday=false; }
+  if(win){
+    saved.streak=(saved.streak||0)+(saved.wonToday?0:1);
+    saved.wonToday=true;
+  } else {
+    saved.wonToday=false;
+  }
   localStorage.setItem(LS_KEY, JSON.stringify(saved));
   streakNum.textContent = saved.streak||0;
 
   const msg = win ? `✅ ${ANSWER} — ${DEFN}` : `❌ ${ANSWER} — ${DEFN}`;
   toast(msg, 3200);
+
   // disable input
   document.removeEventListener('keydown', keyHandler);
   kbEl.style.pointerEvents='none';
@@ -343,29 +366,28 @@ function keyHandler(e){
   else if(/^[a-zA-Z]$/.test(e.key)) onKey(e.key.toLowerCase());
 }
 
-// Buttons
+// ========= Buttons =========
 hintBtn.addEventListener('click', ()=>{
   hintLine.textContent = `Hint: ${DEFN}`;
 });
 howBtn.addEventListener('click', ()=>{
-  toast('Guess the 5‑letter EMS term in 6 tries. Green=correct spot, Orange=letter in word, Gray=not in word.');
+  toast('Guess the 5-letter EMS term in 6 tries. Green=right spot, Orange=letter in word, Gray=not in word.');
 });
 shareBtn.addEventListener('click', async()=>{
   // Build emoji grid for sharing
   let rows='';
-  const cells = boardEl.querySelectorAll('.cell');
-  for(let r=0;r<ROWS;r++){
+  for(let r=0;r<=row;r++){
     let line='';
     for(let c=0;c<COLS;c++){
       const cell=document.getElementById(`cell-${r}-${c}`);
-      if(!cell.classList.contains('reveal')) continue;
+      if(!cell || !cell.classList.contains('reveal')) continue;
       if(cell.classList.contains('ok')) line+='🟩';
       else if(cell.classList.contains('near')) line+='🟧';
       else line+='⬛';
     }
     if(line) rows += line+"\n";
   }
-  const text = `MedWordle ${today} \n${rows}\n${saved.wonToday?`Solved (${row+1}/${ROWS})`:'Unsolved'} — ${ANSWER}`;
+  const text = `MedWord ${today}\n${rows}\n${saved.wonToday?`Solved (${row+1}/${ROWS})`:'Unsolved'} — ${ANSWER}`;
   try{
     await navigator.clipboard.writeText(text);
     toast('Result copied to clipboard');
@@ -378,10 +400,9 @@ document.getElementById('reset').addEventListener('click',(e)=>{
   e.preventDefault(); localStorage.removeItem(LS_KEY); location.reload();
 });
 
-// Init
+// ========= Init =========
 buildBoard(); buildKeyboard(); render();
 document.addEventListener('keydown', keyHandler);
-
 </script>
 </body>
 </html>
