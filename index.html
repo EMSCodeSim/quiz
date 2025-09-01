@@ -206,6 +206,12 @@
   const factBtn=document.getElementById('factBtn');
   const tabFacts=document.getElementById('tabFacts');
   for(const url of factCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ factBtn.href=url; if(tabFacts) tabFacts.href=url; break; } }catch(_){} }
+
+  // Sim page candidates
+  const simCands=['sim.html','daily_sim.html','vitals.html','simulator.html'];
+  const simBtn=document.querySelector('a.btn[href*="sim"]');
+  const tabSim=document.getElementById('tabSim');
+  for(const url of simCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ if(simBtn) simBtn.href=url; if(tabSim) tabSim.href=url; break; } }catch(_){} }
 })();
 
 </script>
