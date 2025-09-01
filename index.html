@@ -68,7 +68,7 @@
     <div class="bar">
       <div class="brand">
         <div class="logo">
-          <img src="./images/daily-ems-quiz-icon.png" alt="Daily EMS Quiz"
+          <img src="./favicon.png" alt="Daily EMS Quiz"
                onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'🩺',style:'font-size:22px'}))">
         </div>
         <div class="titles">
@@ -83,18 +83,26 @@
   <main class="wrap">
     <section class="grid" aria-label="Main">
       <article class="card">
-        <h2>Daily Quiz</h2>
-        <p>10 fresh questions every day. Track streaks and speed.</p>
+        <h2>EMT Daily Quiz</h2>
+        <p>Exactly 5 fresh EMT questions every day. Keep your streak alive.</p>
         <div class="cta">
-          <a class="btn" href="quiz.html"><span class="pill">🚑</span> Start Quiz</a>
+          <a class="btn" id="emtQuizBtn" href="emt_quiz.html"><span class="pill">🚑</span> Start EMT (5 Q)</a>
         </div>
       </article>
 
       <article class="card">
-        <h2>Daily Sim</h2>
-        <p>Vitals & skills mini‑apps: BP, pulse, pupils, stroke, Rule of Nines.</p>
+        <h2>Paramedic Daily Quiz</h2>
+        <p>Exactly 5 Paramedic‑level questions delivered daily.</p>
         <div class="cta">
-          <a class="btn" href="sim.html"><span class="pill">🧪</span> Open Simulator</a>
+          <a class="btn" id="medicQuizBtn" href="paramedic_quiz.html"><span class="pill">🧠</span> Start Medic (5 Q)</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Random EMS Fact</h2>
+        <p>One quick, high‑yield fact. Great for elevator learning.</p>
+        <div class="cta">
+          <a class="btn" id="factBtn" href="ems_fact.html"><span class="pill">📚</span> Open Fact</a>
         </div>
       </article>
 
@@ -107,10 +115,17 @@
       </article>
 
       <article class="card">
+        <h2>Daily Sim</h2>
+        <p>Vitals & skills mini‑apps: BP, pulse, pupils, stroke, Rule of Nines.</p>
+        <div class="cta">
+          <a class="btn" href="sim.html"><span class="pill">🧪</span> Open Simulator</a>
+        </div>
+      </article>
+
+      <article class="card">
         <h2>Daily Home Med</h2>
         <p>One medication per day: name, indication, dose, contraindications.</p>
         <div class="cta">
-          <!-- We will resolve the correct file at runtime if your filename differs -->
           <a id="homeMedLink" class="btn" href="#"><span class="pill">💊</span> Open Daily Home Med</a>
         </div>
       </article>
@@ -123,10 +138,10 @@
   <nav class="tabs safe" role="navigation" aria-label="Primary">
     <div class="row">
       <a class="tab active" href="./"><span class="i">🏠</span>Home</a>
-      <a class="tab" href="quiz.html"><span class="i">📝</span>Quiz</a>
+      <a class="tab" id="tabEmt" href="emt_quiz.html"><span class="i">📝</span>EMT</a>
+      <a class="tab" id="tabMedic" href="paramedic_quiz.html"><span class="i">🧠</span>Medic</a>
       <a class="tab" href="medword.html"><span class="i">🧩</span>MedWord</a>
-      <a class="tab" href="sim.html"><span class="i">🧪</span>Sim</a>
-      <a class="tab" id="tabHomeMed" href="#"><span class="i">💊</span>Home Med</a>
+      <a class="tab" id="tabFacts" href="ems_fact.html"><span class="i">📚</span>Facts</a>
     </div>
   </nav>
 
@@ -172,6 +187,27 @@
   a.href='medications.html'; if(tab) tab.href='medications.html';
   console.warn('Daily Home Med link: using default medications.html (HEAD checks failed).');
 })();
+// Link auto-resolvers to fix broken links without changing filenames
+(async function(){
+  // EMT quiz candidates
+  const emtCands=['emt_quiz.html','quiz_emt.html','daily_emt_quiz.html','emt.html'];
+  const emtBtn=document.getElementById('emtQuizBtn');
+  const tabEmt=document.getElementById('tabEmt');
+  for(const url of emtCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ emtBtn.href=url; if(tabEmt) tabEmt.href=url; break; } }catch(_){} }
+
+  // Medic quiz candidates
+  const medicCands=['paramedic_quiz.html','quiz_paramedic.html','daily_paramedic_quiz.html','medic.html'];
+  const medicBtn=document.getElementById('medicQuizBtn');
+  const tabMedic=document.getElementById('tabMedic');
+  for(const url of medicCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ medicBtn.href=url; if(tabMedic) tabMedic.href=url; break; } }catch(_){} }
+
+  // Fact page candidates
+  const factCands=['ems_fact.html','fact.html','facts.html','daily_fact.html'];
+  const factBtn=document.getElementById('factBtn');
+  const tabFacts=document.getElementById('tabFacts');
+  for(const url of factCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ factBtn.href=url; if(tabFacts) tabFacts.href=url; break; } }catch(_){} }
+})();
+
 </script>
 </body>
 </html>
