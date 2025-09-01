@@ -6,7 +6,6 @@
   <title>MedWord — Daily EMS Term</title>
   <link rel="icon" href="favicon.png" />
   <meta name="apple-mobile-web-app-capable" content="yes">
-
   <style>
     :root{
       --bg:#0b0f14; --panel:#111827; --grid:#0f1624; --text:#eaf2ff; --muted:#9fb0c7;
@@ -30,7 +29,6 @@
     .logo:before{content:"⚕️";font-size:22px}
     h1{font-size:22px;line-height:1.1;margin:0}
     .subtitle{font-size:13px;color:var(--muted)}
-
     .streak{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--edge);
       padding:10px 12px;border-radius:14px}
     .streak .num{font-weight:700}
@@ -53,12 +51,12 @@
     .key.no{background:#3b1d1d;border-color:#3b1d1d;color:#a6b0bf}
 
     .row{display:flex;gap:8px;justify-content:center}
-
     .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px}
     .btn{background:linear-gradient(135deg,var(--accent1),var(--accent2));border:none;color:#07131f;padding:10px 14px;font-weight:700;border-radius:12px;cursor:pointer}
     .btn.secondary{background:#1f2937;border:1px solid var(--edge);color:var(--text)}
     .hint{font-size:14px;color:var(--muted);margin-top:4px}
 
+    .revealLine{margin:10px auto 0;max-width:520px;text-align:center;color:#cfe1ff;font-size:14px}
     .toast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:#111827;border:1px solid var(--edge);
       padding:10px 14px;border-radius:12px;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease; z-index:50}
     .toast.show{opacity:1}
@@ -97,8 +95,8 @@
       </div>
 
       <div id="board" class="grid" aria-label="Guess grid"></div>
-
       <div id="kb"></div>
+      <div id="reveal" class="revealLine" hidden></div>
     </section>
 
     <footer>
@@ -109,8 +107,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
-/* ========= Word Bank =========
-   5-letter EMS/medical terms + simple learner-friendly definitions */
+/* ========= Word Bank ========= */
 const WORDS = [
   ["EDEMA","Swelling from fluid buildup"],
   ["SHOCK","Life-threatening poor perfusion"],
@@ -159,7 +156,6 @@ const WORDS = [
   ["FETUS","Developing baby (uterus)"],
   ["SEIZE","Have a seizure"],
   ["NARCS","Slang: narcotics"],
-  ["PEACE","For EMS: scene safety vibe 🙂"],
   ["PLATE","Bone growth plate / lab"],
   ["LAPSE","Loss of consciousness episode"],
   ["LAPAR","Abdominal (root)"],
@@ -168,25 +164,19 @@ const WORDS = [
   ["AURAL","Relating to the ear"]
 ].filter(([w])=>w.length===5);
 
-// Allow list = these words (can expand later)
-const ALLOWED = new Set(WORDS.map(([w])=>w));
-
-// ========= Daily Word Selection =========
+/* ========= Daily Word (new each day) ========= */
 function yyyymmdd(d=new Date()){return d.toISOString().slice(0,10);} // YYYY-MM-DD
-function seededIndex(dateStr, mod){
-  // Simple deterministic hash → index
-  let h=0; for(const ch of dateStr){h=(h*31 + ch.charCodeAt(0))>>>0} return h % mod;
-}
+function seededIndex(dateStr, mod){ let h=0; for(const ch of dateStr){h=(h*31 + ch.charCodeAt(0))>>>0} return h % mod; }
 const today = yyyymmdd(new Date());
 const todaysIdx = seededIndex(today, WORDS.length);
 const [ANSWER, DEFN] = WORDS[todaysIdx];
 
-// ========= State =========
+/* ========= State ========= */
 const ROWS = 6, COLS = 5;
-let row=0, col=0; // current cursor
-let board = Array.from({length:ROWS},()=>Array(COLS).fill(""));
-const tried = new Set();
-const kbState = {}; // letter → status: ok | near | no
+let row=0, col=0;
+let gameOver = false;
+const board = Array.from({length:ROWS},()=>Array(COLS).fill(""));
+const kbState = {}; // letter → ok | near | no
 
 // Streaks
 const LS_KEY = "medwordle";
@@ -199,10 +189,11 @@ if(saved.lastDate && saved.lastDate!==today && saved.playedToday===true){
 saved.lastDate = today; saved.playedToday = false; saved.answer = ANSWER;
 localStorage.setItem(LS_KEY, JSON.stringify(saved));
 
-// ========= UI Refs =========
+/* ========= UI Refs ========= */
 const boardEl = document.getElementById('board');
 const kbEl = document.getElementById('kb');
 const toastEl = document.getElementById('toast');
+const revealEl = document.getElementById('reveal');
 const streakNum = document.getElementById('streakNum');
 const dateLabel = document.getElementById('dateLabel');
 const hintBtn = document.getElementById('hintBtn');
@@ -213,7 +204,7 @@ const hintLine = document.getElementById('hintLine');
 streakNum.textContent = saved.streak || 0;
 dateLabel.textContent = new Date().toLocaleDateString(undefined,{weekday:'long', month:'short', day:'numeric'});
 
-// ========= Build UI =========
+/* ========= Build UI ========= */
 function buildBoard(){
   boardEl.innerHTML='';
   for(let r=0;r<ROWS;r++){
@@ -226,11 +217,7 @@ function buildBoard(){
   }
 }
 function buildKeyboard(){
-  const layout = [
-    'qwertyuiop',
-    'asdfghjkl',
-    'zxcvbnm'
-  ];
+  const layout = ['qwertyuiop','asdfghjkl','zxcvbnm'];
   kbEl.innerHTML = '';
   const wrap = document.createElement('div');
   wrap.className = 'keyboard';
@@ -241,18 +228,16 @@ function buildKeyboard(){
       wrap.appendChild(k);
     }
   }
-  // special keys
   const enter = document.createElement('div'); enter.className='key'; enter.dataset.key='enter'; enter.textContent='Enter'; enter.dataset.wide='1';
   const back = document.createElement('div'); back.className='key'; back.dataset.key='back'; back.textContent='⌫'; back.dataset.wide='1';
   wrap.appendChild(enter); wrap.appendChild(back);
   kbEl.appendChild(wrap);
-
   wrap.addEventListener('click', (e)=>{
     const k=e.target.closest('.key'); if(!k) return; onKey(k.dataset.key);
   });
 }
 
-// ========= Helpers =========
+/* ========= Helpers ========= */
 function toast(msg, ms=1400){
   toastEl.textContent=msg; toastEl.classList.add('show');
   clearTimeout(toastEl._t); toastEl._t=setTimeout(()=>toastEl.classList.remove('show'), ms);
@@ -265,49 +250,48 @@ function render(){
       cell.classList.toggle('filled', !!board[r][c]);
     }
   }
-  // keyboard coloring
   for(const [ch,state] of Object.entries(kbState)){
     const k = kbEl.querySelector(`.key[data-key="${ch}"]`);
     if(k) k.className = `key ${state}`;
   }
 }
 
-// ========= Core Logic =========
+/* ========= Core Logic ========= */
 function commitRow(){
+  if(gameOver) return;
+
   const guess = board[row].join('').toUpperCase();
   if(guess.length<COLS){ toast('Not enough letters'); return; }
-  if(!ALLOWED.has(guess)) { toast('Not in word list'); return; }
-  tried.add(guess);
+
+  // Accept ANY 5-letter alphabetic guess to avoid dictionary blocks
+  if(!/^[A-Z]{5}$/.test(guess)){ toast('Use letters A–Z only'); return; }
 
   // evaluate
   const answer = ANSWER;
   const ansCounts = {};
   for(const ch of answer){ ansCounts[ch]=(ansCounts[ch]||0)+1; }
 
-  // first pass: exact matches
   const res = Array(COLS).fill('no');
   for(let i=0;i<COLS;i++){
     if(guess[i]===answer[i]){ res[i]='ok'; ansCounts[guess[i]]--; }
   }
-  // second pass: near matches
   for(let i=0;i<COLS;i++){
     if(res[i]==='ok') continue;
     const ch=guess[i];
     if(ansCounts[ch]>0){ res[i]='near'; ansCounts[ch]--; }
   }
 
-  // paint cells
   for(let c=0;c<COLS;c++){
     const cell=document.getElementById(`cell-${row}-${c}`);
     cell.classList.add('reveal', res[c]);
   }
 
-  // keyboard states (prioritize ok > near > no)
+  // keyboard state with priority ok > near > no
   for(let i=0;i<COLS;i++){
     const ch=guess[i].toLowerCase();
     const st=res[i];
     const prev=kbState[ch];
-    if(prev==='ok') continue; // keep best
+    if(prev==='ok') continue;
     if(prev==='near' && st==='no') continue;
     kbState[ch]=st;
   }
@@ -317,11 +301,10 @@ function commitRow(){
     return;
   }
 
-  // advance to the next row if not solved
-  row++;
-  col=0;
+  // advance to next row on miss
+  row = row + 1;
+  col = 0;
 
-  // only end game when all rows used
   if(row>=ROWS){
     endGame(false);
     return;
@@ -331,6 +314,7 @@ function commitRow(){
 }
 
 function endGame(win){
+  gameOver = true;
   saved.playedToday=true; saved.lastDate=today;
   if(win){
     saved.streak=(saved.streak||0)+(saved.wonToday?0:1);
@@ -344,12 +328,19 @@ function endGame(win){
   const msg = win ? `✅ ${ANSWER} — ${DEFN}` : `❌ ${ANSWER} — ${DEFN}`;
   toast(msg, 3200);
 
-  // disable input
+  // show final reveal line when lost
+  if(!win){
+    revealEl.hidden = false;
+    revealEl.textContent = `Answer: ${ANSWER} — ${DEFN}`;
+  }
+
+  // lock input at the very end only
   document.removeEventListener('keydown', keyHandler);
   kbEl.style.pointerEvents='none';
 }
 
 function onKey(k){
+  if(gameOver) return;
   if(k==='enter') return commitRow();
   if(k==='back'){
     if(col>0){ col--; board[row][col]=''; render(); }
@@ -361,22 +352,18 @@ function onKey(k){
 }
 
 function keyHandler(e){
+  if(gameOver) return;
   if(e.key==='Enter') onKey('enter');
   else if(e.key==='Backspace') onKey('back');
   else if(/^[a-zA-Z]$/.test(e.key)) onKey(e.key.toLowerCase());
 }
 
-// ========= Buttons =========
-hintBtn.addEventListener('click', ()=>{
-  hintLine.textContent = `Hint: ${DEFN}`;
-});
-howBtn.addEventListener('click', ()=>{
-  toast('Guess the 5-letter EMS term in 6 tries. Green=right spot, Orange=letter in word, Gray=not in word.');
-});
+/* ========= Buttons ========= */
+hintBtn.addEventListener('click', ()=>{ hintLine.textContent = `Hint: ${DEFN}`; });
+howBtn.addEventListener('click', ()=>{ toast('Guess the 5-letter EMS term in 6 tries. Green=right spot, Orange=letter in word, Gray=not in word.'); });
 shareBtn.addEventListener('click', async()=>{
-  // Build emoji grid for sharing
   let rows='';
-  for(let r=0;r<=row;r++){
+  for(let r=0;r<=row && r<ROWS;r++){
     let line='';
     for(let c=0;c<COLS;c++){
       const cell=document.getElementById(`cell-${r}-${c}`);
@@ -387,20 +374,16 @@ shareBtn.addEventListener('click', async()=>{
     }
     if(line) rows += line+"\n";
   }
-  const text = `MedWord ${today}\n${rows}\n${saved.wonToday?`Solved (${row+1}/${ROWS})`:'Unsolved'} — ${ANSWER}`;
-  try{
-    await navigator.clipboard.writeText(text);
-    toast('Result copied to clipboard');
-  }catch{
-    toast('Copy failed');
-  }
+  const text = `MedWord ${today}\n${rows}\n${saved.wonToday?`Solved (${Math.min(row+1,ROWS)}/${ROWS})`:'Unsolved'} — ${ANSWER}`;
+  try{ await navigator.clipboard.writeText(text); toast('Result copied to clipboard'); }
+  catch{ toast('Copy failed'); }
 });
 
 document.getElementById('reset').addEventListener('click',(e)=>{
   e.preventDefault(); localStorage.removeItem(LS_KEY); location.reload();
 });
 
-// ========= Init =========
+/* ========= Init ========= */
 buildBoard(); buildKeyboard(); render();
 document.addEventListener('keydown', keyHandler);
 </script>
