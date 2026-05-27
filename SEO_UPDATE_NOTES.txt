@@ -1,0 +1,22 @@
+DailyEMSQuiz modern + SEO update (2026-05-27)
+
+Main files changed:
+- index.html
+- dailyemsquiz.css
+- emt_quiz.html
+- paramedic_quiz.html
+- sitemap.xml
+- robots.txt
+- site.webmanifest
+- _headers
+- _redirects
+
+Supporting pages received better titles/descriptions/canonical tags:
+- ems_fact.html
+- home_med.html
+- daily_sim.html
+- daily_beat.html
+- medword.html
+
+Upload the entire folder to Netlify/GitHub so the new CSS, sitemap, headers, and redirects deploy together.
+After deploy, submit https://dailyemsquiz.com/sitemap.xml in Google Search Console.

@@ -2,78 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EMS Daily Fact</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e7f4f9;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 1rem;
-      text-align: center;
-    }
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 600px;
-    }
-    h1 {
-      color: #007B8A;
-    }
-    .category {
-      font-weight: bold;
-      color: #555;
-      margin-bottom: 0.5rem;
-    }
-    .fact {
-      font-size: 1.2rem;
-      color: #333;
-    }
-    .back-btn {
-      margin-top: 1.5rem;
-      padding: 10px 16px;
-      background-color: #ccc;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>EMS Daily Fact | Daily EMS Quiz</title>
+  <meta name="description" content="Read one quick EMS fact each day for fast EMT and paramedic review." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://dailyemsquiz.com/ems_fact.html" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <meta name="theme-color" content="#07111f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Daily EMS Quiz" />
+  <meta property="og:title" content="EMS Daily Fact | Daily EMS Quiz" />
+  <meta property="og:description" content="Read one quick EMS fact each day for fast EMT and paramedic review." />
+  <meta property="og:url" content="https://dailyemsquiz.com/ems_fact.html" />
+  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <link rel="stylesheet" href="/dailyemsquiz.css" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "EMS Daily Fact | Daily EMS Quiz",
+  "url": "https://dailyemsquiz.com/ems_fact.html",
+  "description": "Read one quick EMS fact each day for fast EMT and paramedic review.",
+  "isPartOf": {
+    "@id": "https://dailyemsquiz.com/#website"
+  },
+  "inLanguage": "en-US"
+}</script>
 </head>
 <body>
-  <div class="card">
-    <h1>EMS Daily Fact</h1>
-    <div id="category" class="category"></div>
-    <div id="fact" class="fact"></div>
-    <button class="back-btn" onclick="goBack()">⬅️ Back</button>
-  </div>
-
+  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">⚕</span><span class="brand-text">Daily EMS Quiz <small>EMT & Paramedic study tools</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html" >EMT Quiz</a><a href="/paramedic_quiz.html" >Paramedic Quiz</a><a href="/ems_fact.html" aria-current="page">EMS Facts</a><a href="/medword.html" >MedWord</a><a href="/home_med.html" >Home Meds</a></nav></div></header>
+  <main class="container quiz-shell">
+    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">📚 Daily EMS refresher</span><h1>EMS Daily Fact</h1><p>Read one fast EMS fact each day for a quick review, classroom discussion starter, or shift-change knowledge check.</p></div><aside class="score-card"><div class="daily-label"><span>Today’s fact</span><span>New daily</span></div><div class="score-big">Fact</div><p style="color:var(--muted);line-height:1.5;margin:0">Come back tomorrow for another EMS fact.</p></aside></section><section class="helper-section"><div class="question-kicker"><span id="category">Loading category…</span><span>DailyEMSQuiz</span></div><h2 id="factTitle" style="margin-top:12px">Loading today’s EMS fact...</h2><p id="fact" style="font-size:20px;color:#d9efff"></p><div class="cta-row"><a class="btn btn-primary" href="/emt_quiz.html">Practice EMT quiz</a><a class="btn btn-secondary" href="/paramedic_quiz.html">Practice paramedic quiz</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice site. Not affiliated with NREMT.</div><div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div></div></footer>
   <script>
-    fetch('ems_fact.json')
-      .then(response => response.json())
-      .then(facts => {
-        const today = new Date();
-        const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
-        const index = dayOfYear % facts.length;
-        const fact = facts[index];
-        document.getElementById('category').textContent = fact.category;
-        document.getElementById('fact').textContent = fact.fact;
-      })
-      .catch(error => {
-        document.getElementById('fact').textContent = "Unable to load fact.";
-        console.error("Error loading EMS fact:", error);
-      });
-
-    function goBack() {
-      window.history.back();
-    }
-  </script>
+function escapeHtml(value){return String(value ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+fetch('/ems_fact.json').then(r=>r.json()).then(facts=>{const today=new Date();const dayOfYear=Math.floor((today-new Date(today.getFullYear(),0,0))/86400000);const item=facts[dayOfYear % facts.length];document.getElementById('category').textContent=item.category||'EMS Fact';document.getElementById('factTitle').textContent=item.category||'Today’s EMS fact';document.getElementById('fact').innerHTML=escapeHtml(item.fact||'Check back tomorrow for a new EMS fact.');}).catch(()=>{document.getElementById('fact').textContent='Unable to load today’s EMS fact.';});
+</script>
 </body>
 </html>

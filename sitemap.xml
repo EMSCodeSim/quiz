@@ -1,43 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dailyemsquiz.com/</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://dailyemsquiz.com/emt_quiz.html</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
-
   <url>
     <loc>https://dailyemsquiz.com/paramedic_quiz.html</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
-
   <url>
-    <loc>https://dailyemsquiz.com/emt_quiz.json</loc>
-    <lastmod>2025-07-09</lastmod>
+    <loc>https://dailyemsquiz.com/ems_fact.html</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
-
   <url>
-    <loc>https://dailyemsquiz.com/paramedic_quiz.json</loc>
-    <lastmod>2025-07-09</lastmod>
+    <loc>https://dailyemsquiz.com/medword.html</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
-
+  <url>
+    <loc>https://dailyemsquiz.com/home_med.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://dailyemsquiz.com/daily_sim.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://dailyemsquiz.com/daily_beat.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://dailyemsquiz.com/privacy.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
 </urlset>

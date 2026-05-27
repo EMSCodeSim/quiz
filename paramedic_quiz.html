@@ -2,134 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily EMS Quiz - Paramedic Practice</title>
-  <meta name="description" content="Free daily paramedic quiz with NREMT-style multiple choice questions and answer explanations. No login needed.">
-  <meta name="robots" content="index, follow">
-  <meta name="keywords" content="Paramedic quiz, NREMT practice test, EMS study, daily paramedic quiz">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Daily Paramedic Quiz | Free ALS Practice Questions</title>
+  <meta name="description" content="Free daily paramedic quiz with five NREMT-style ALS practice questions for paramedic students and EMS providers. Review cardiology, airway, medications, ECG concepts, and scenario decisions." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://dailyemsquiz.com/paramedic_quiz.html" />
-
-  <!-- Icons -->
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <!-- Social Share -->
-  <meta property="og:title" content="Daily Paramedic Quiz - Free NREMT Practice Questions">
-  <meta property="og:description" content="Test your Paramedic knowledge with daily NREMT-style quiz questions and explanations.">
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg">
-  <meta property="og:url" content="https://dailyemsquiz.com/paramedic_quiz.html">
-  <meta property="og:type" content="website">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-19DVN7NNH7');
-  </script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f7f7f7;
-      padding: 10px;
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="keywords" content="paramedic quiz, daily paramedic quiz, NREMT paramedic practice questions, ALS practice test, EMS study, paramedic exam prep" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Daily EMS Quiz" />
+  <meta property="og:title" content="Daily Paramedic Quiz | Free ALS Practice Questions" />
+  <meta property="og:description" content="Free daily paramedic quiz with five NREMT-style ALS practice questions for paramedic students and EMS providers. Review cardiology, airway, medications, ECG concepts, and scenario decisions." />
+  <meta property="og:url" content="https://dailyemsquiz.com/paramedic_quiz.html" />
+  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/dailyemsquiz.css" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://dailyemsquiz.com/paramedic_quiz.html#webpage",
+      "url": "https://dailyemsquiz.com/paramedic_quiz.html",
+      "name": "Daily Paramedic Quiz | Free ALS Practice Questions",
+      "description": "Free daily paramedic quiz with five NREMT-style ALS practice questions for paramedic students and EMS providers. Review cardiology, airway, medications, ECG concepts, and scenario decisions.",
+      "isPartOf": {
+        "@id": "https://dailyemsquiz.com/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Quiz",
+      "@id": "https://dailyemsquiz.com/paramedic_quiz.html#quiz",
+      "name": "Daily Paramedic Quiz",
+      "description": "Free daily paramedic quiz with five NREMT-style ALS practice questions for paramedic students and EMS providers. Review cardiology, airway, medications, ECG concepts, and scenario decisions.",
+      "about": [
+        "Paramedic assessment",
+        "Cardiology",
+        "Airway management",
+        "Medications",
+        "ECG concepts",
+        "ALS decision-making"
+      ],
+      "educationalLevel": "Paramedic",
+      "isAccessibleForFree": true,
+      "hasPart": [
+        {
+          "@type": "Question",
+          "name": "A 36-year-old female presents with right-sided weakness, slurred speech, and facial droop that started 30 minutes ago. Her blood glucose is 98 mg/dL. What is the most appropriate next action?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transport to a stroke center immediately"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A 50-year-old male has circumferential burns to his chest and is struggling to breathe. Breath sounds are decreased bilaterally. What is your most immediate concern?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Impaired chest wall expansion"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A combative patient is threatening bystanders and screaming unintelligibly. Vitals are normal. What is the safest initial management?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ensure scene safety and wait for law enforcement"
+          }
+        }
+      ]
     }
-    h1 {
-      text-align: center;
-      color: #005f73;
-    }
-    .back-btn {
-      background-color: #ccc;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    .question-box {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .choices label {
-      display: block;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin: 6px 0;
-      cursor: pointer;
-      background-color: #f0f0f0;
-    }
-    .choices input[type="radio"] {
-      margin-right: 8px;
-    }
-    .correct {
-      background-color: #d4edda !important;
-      border-color: #28a745;
-    }
-    .incorrect {
-      background-color: #f8d7da !important;
-      border-color: #dc3545;
-    }
-    .submit-btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      margin-top: 20px;
-      font-size: 16px;
-      background-color: #0077b6;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .submit-btn:hover {
-      background-color: #023e8a;
-    }
-    .result {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
+  ]
+}</script>
 </head>
 <body>
-  <h1>Daily Paramedic Quiz</h1>
+  <a class="skip-link" href="#quiz-container">Skip to quiz</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Daily EMS Quiz home">
+        <span class="brand-mark">⚕</span>
+        <span class="brand-text">Daily EMS Quiz <small>EMT & Paramedic study tools</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/emt_quiz.html" >EMT Quiz</a>
+        <a href="/paramedic_quiz.html" aria-current="page">Paramedic Quiz</a>
+        <a href="/ems_fact.html">EMS Facts</a>
+        <a href="/medword.html">MedWord</a>
+        <a href="/home_med.html">Home Meds</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Back Button -->
-  <button class="back-btn" onclick="goBack()">⬅️ Back</button>
+  <main class="container quiz-shell">
+    <section class="quiz-hero">
+      <div class="quiz-title-card">
+        <span class="eyebrow">🧠 Free daily Paramedic practice</span>
+        <h1>Daily Paramedic Quiz</h1>
+        <p>Free daily paramedic quiz with five NREMT-style ALS practice questions for paramedic students and EMS providers. Review cardiology, airway, medications, ECG concepts, and scenario decisions. Each quiz gives you five questions for fast review on a phone, tablet, or desktop.</p>
+        <div class="badge-row"><span class="badge">Paramedic assessment</span><span class="badge">Cardiology</span><span class="badge">Airway management</span><span class="badge">Medications</span><span class="badge">ECG concepts</span><span class="badge">ALS decision-making</span></div>
+      </div>
+      <aside class="score-card" aria-live="polite">
+        <div class="daily-label"><span>Today’s score</span><span id="answeredLabel">0 of 5 answered</span></div>
+        <div class="score-big" id="scoreBig">Ready</div>
+        <div class="progress-track" aria-label="Quiz progress"><div class="progress-bar" id="progressBar"></div></div>
+        <p style="color:var(--muted);line-height:1.5;margin:6px 0 0">Submit when finished to see correct answers and explanations.</p>
+      </aside>
+    </section>
 
-  <div id="quiz-container">Loading quiz...</div>
-  <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
-  <div class="result" id="result"></div>
+    <section id="quiz-container" class="quiz-container" aria-label="Daily Paramedic quiz questions"><div class="loading">Loading today’s Paramedic quiz...</div></section>
+
+    <section class="quiz-actions" aria-label="Quiz actions">
+      <div class="result" id="result">Answer the questions, then submit.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-ghost" href="/">Home</a>
+        <button class="btn btn-primary" type="button" id="submitBtn">Submit Answers</button>
+      </div>
+    </section>
+
+    <section class="helper-section">
+      <h2>Paramedic quiz topics</h2>
+      <p>This daily paramedic quiz is intended for EMS review and test preparation. Questions may cover assessment, safety, airway, patient care, medications, operations, and scenario-based decision-making.</p>
+      <ul>
+        <li>Use the quiz as a quick daily warm-up before class, clinicals, or shift review.</li>
+        <li>Review missed questions and write down the topic you need to study next.</li>
+        <li>This is an independent practice resource and is not affiliated with NREMT.</li>
+      </ul>
+    </section>
+
+    <section class="helper-section">
+      <h2>Sample Paramedic practice questions</h2>
+      <p>These examples show the style of questions used on this page and help search engines understand the educational content.</p>
+      <div class="faq"><details><summary>1. A 36-year-old female presents with right-sided weakness, slurred speech, and facial droop that started 30 minutes ago. Her blood glucose is 98 mg/dL. What is the most appropriate next action?</summary><p><strong>Answer:</strong> Transport to a stroke center immediately</p></details><details><summary>2. A 50-year-old male has circumferential burns to his chest and is struggling to breathe. Breath sounds are decreased bilaterally. What is your most immediate concern?</summary><p><strong>Answer:</strong> Impaired chest wall expansion</p></details><details><summary>3. A combative patient is threatening bystanders and screaming unintelligibly. Vitals are normal. What is the safest initial management?</summary><p><strong>Answer:</strong> Ensure scene safety and wait for law enforcement</p></details></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>© 2026 Daily EMS Quiz. Independent EMS education practice site. Not affiliated with NREMT.</div>
+      <div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div>
+    </div>
+  </footer>
 
   <script>
-    const quizType = "paramedic"; // Force Paramedic mode
+    const quizFile = "paramedic_quiz.json";
+    const storageKey = "dailyQuiz_paramedic";
     let questionsData = [];
     let todaysQuestions = [];
+    let submitted = false;
 
-    fetch("paramedic_quiz.json")
-      .then(res => res.json())
-      .then(data => {
-        questionsData = data;
-        const today = new Date().toISOString().split("T")[0];
-        const saved = JSON.parse(localStorage.getItem("dailyQuiz_paramedic"));
-        if (saved && saved.date === today) {
-          todaysQuestions = saved.questions;
-        } else {
-          todaysQuestions = pickUniqueQuestions(5);
-          localStorage.setItem("dailyQuiz_paramedic", JSON.stringify({ date: today, questions: todaysQuestions }));
-        }
-        displayQuiz();
-      })
-      .catch(err => {
-        document.getElementById("quiz-container").innerText = "Failed to load questions.";
-        console.error(err);
+    const quizContainer = document.getElementById("quiz-container");
+    const resultEl = document.getElementById("result");
+    const progressBar = document.getElementById("progressBar");
+    const answeredLabel = document.getElementById("answeredLabel");
+    const scoreBig = document.getElementById("scoreBig");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, function(ch) {
+        return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch] || ch;
       });
+    }
+
+    function getTodayKey() { return new Date().toISOString().split("T")[0]; }
 
     function pickUniqueQuestions(n) {
       const indexes = Array.from({ length: questionsData.length }, (_, i) => i);
@@ -137,57 +173,101 @@
         const j = Math.floor(Math.random() * (i + 1));
         [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
       }
-      return indexes.slice(0, n).map(i => questionsData[i]);
+      return indexes.slice(0, Math.min(n, indexes.length)).map(i => questionsData[i]);
+    }
+
+    function normalizeQuestion(q) {
+      return {
+        question: q.question || "",
+        choices: q.choices || q.options || [],
+        answer: q.answer || "",
+        reason: q.reason || q.explanation || "Review the topic and confirm why the correct answer best matches the patient care priority."
+      };
+    }
+
+    function loadSavedOrNewQuiz() {
+      const today = getTodayKey();
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(storageKey)); } catch (_) { saved = null; }
+      if (saved && saved.date === today && Array.isArray(saved.questions)) {
+        todaysQuestions = saved.questions.map(normalizeQuestion);
+      } else {
+        todaysQuestions = pickUniqueQuestions(5).map(normalizeQuestion);
+        localStorage.setItem(storageKey, JSON.stringify({ date: today, questions: todaysQuestions }));
+      }
+      displayQuiz();
     }
 
     function displayQuiz() {
-      const container = document.getElementById("quiz-container");
-      container.innerHTML = "";
-
+      quizContainer.innerHTML = "";
+      if (!todaysQuestions.length) {
+        quizContainer.innerHTML = '<div class="loading">No quiz questions are available right now.</div>';
+        return;
+      }
       todaysQuestions.forEach((q, idx) => {
-        const div = document.createElement("div");
+        const div = document.createElement("article");
         div.className = "question-box";
         div.innerHTML = `
-          <p><strong>Q${idx + 1}:</strong> ${q.question}</p>
+          <div class="question-kicker"><span>Question ${idx + 1}</span><span>Paramedic practice</span></div>
+          <div class="question-text">${escapeHtml(q.question)}</div>
           <div class="choices">
             ${q.choices.map((choice, i) => `
-              <label id="q${idx}a${i}">
-                <input type="radio" name="q${idx}" value="${choice}"> ${choice}
+              <label class="choice" id="q${idx}a${i}">
+                <input type="radio" name="q${idx}" value="${i}" aria-label="${escapeHtml(choice)}" />
+                <span>${escapeHtml(choice)}</span>
               </label>`).join("")}
           </div>
+          <div class="explanation" id="explain${idx}" hidden></div>
         `;
-        container.appendChild(div);
+        quizContainer.appendChild(div);
       });
+      document.querySelectorAll('input[type="radio"]').forEach(input => input.addEventListener('change', updateProgress));
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answered = todaysQuestions.filter((_, idx) => document.querySelector(`input[name="q${idx}"]:checked`)).length;
+      const total = todaysQuestions.length || 5;
+      answeredLabel.textContent = `${answered} of ${total} answered`;
+      progressBar.style.width = `${Math.round((answered / total) * 100)}%`;
+      if (!submitted) scoreBig.textContent = answered ? `${answered}/${total}` : 'Ready';
     }
 
     function submitQuiz() {
+      submitted = true;
       let score = 0;
       todaysQuestions.forEach((q, idx) => {
-        const radios = document.getElementsByName(`q${idx}`);
-        let selected = null;
-
-        radios.forEach(r => { if (r.checked) selected = r.value; });
-
+        const selectedInput = document.querySelector(`input[name="q${idx}"]:checked`);
+        const selectedIndex = selectedInput ? Number(selectedInput.value) : -1;
         q.choices.forEach((choice, i) => {
           const label = document.getElementById(`q${idx}a${i}`);
           label.classList.remove("correct", "incorrect");
-
           if (choice === q.answer) {
             label.classList.add("correct");
-            if (selected === q.answer) score++;
-          } else {
-            if (selected === choice) label.classList.add("incorrect");
+            if (selectedIndex === i) score++;
+          } else if (selectedIndex === i) {
+            label.classList.add("incorrect");
           }
         });
+        const explanation = document.getElementById(`explain${idx}`);
+        explanation.hidden = false;
+        explanation.innerHTML = `<strong>Answer:</strong> ${escapeHtml(q.answer)}<br>${escapeHtml(q.reason)}`;
       });
-
-      document.getElementById("result").innerHTML =
-        `You scored ${score}/5<br>Come back tomorrow for more questions!`;
+      scoreBig.textContent = `${score}/${todaysQuestions.length}`;
+      resultEl.innerHTML = `Score: ${score}/${todaysQuestions.length}. Come back tomorrow for a new daily Paramedic quiz.`;
+      progressBar.style.width = '100%';
+      submitBtn.textContent = 'Submitted';
     }
 
-    function goBack() {
-      window.history.back();
-    }
+    submitBtn.addEventListener('click', submitQuiz);
+
+    fetch(quizFile)
+      .then(res => { if(!res.ok) throw new Error('HTTP '+res.status); return res.json(); })
+      .then(data => { questionsData = Array.isArray(data) ? data : (data.quiz || []); loadSavedOrNewQuiz(); })
+      .catch(err => {
+        console.error(err);
+        quizContainer.innerHTML = '<div class="loading">Failed to load questions. Please refresh and try again.</div>';
+      });
   </script>
 </body>
 </html>

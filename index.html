@@ -3,217 +3,251 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Daily EMS Quiz</title>
-  <!-- iOS / PWA polish -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="/images/daily-ems-quiz-icon.png">
-  <style>
-    :root{
-      --bg:#0b0f14; --surface:#0f1624; --card:#111827; --text:#eaf2ff; --muted:#9fb0c7;
-      --grad1:#60a5fa; --grad2:#22d3ee; --edge:rgba(255,255,255,.12); --edge2:rgba(255,255,255,.22);
-      --accent:#7dd3fc;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
-      background:radial-gradient(1200px 700px at 85% -10%, rgba(34,211,238,.14), transparent),
-                 radial-gradient(1000px 700px at -20% 120%, rgba(96,165,250,.14), transparent), var(--bg);
-    }
-    .safe{padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom)}
-
-    /* Top app bar */
-    header{position:sticky;top:0;z-index:5; backdrop-filter:saturate(1.2) blur(8px);
-      background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(34,211,238,.25));
-      border-bottom:1px solid var(--edge);}
-    .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:42px;height:42px;border-radius:12px;overflow:hidden;border:1px solid var(--edge);box-shadow:0 8px 24px rgba(0,0,0,.35);
-      background:linear-gradient(135deg,#3b82f6,#22d3ee);display:grid;place-items:center}
-    .logo img{width:100%;height:100%;object-fit:cover}
-    .titles{display:flex;flex-direction:column}
-    .titles b{font-size:18px;letter-spacing:.2px}
-    .titles small{color:var(--muted)}
-    .streak{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:14px;background:rgba(255,255,255,.04);
-      border:1px solid var(--edge);font-weight:700}
-
-    /* Content cards */
-    .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border:1px solid var(--edge); border-radius:18px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .card h2{margin:0 0 6px;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .cta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
-    .btn{flex:1;display:flex;align-items:center;gap:10px;justify-content:center;padding:12px 14px;border-radius:12px;
-      text-decoration:none;font-weight:800;color:#06111b;border:1px solid var(--edge2);
-      background:linear-gradient(135deg,var(--grad1),var(--grad2)); box-shadow:0 8px 24px rgba(34,211,238,.18);
-      transition:transform .08s ease;}
-    .btn:active{transform:scale(.98)}
-    .pill{min-width:36px;height:36px;border-radius:10px;background:rgba(0,0,0,.16);display:grid;place-items:center}
-
-    /* Bottom tab bar */
-    .tabs{position:sticky;bottom:0;z-index:5; background:rgba(8,12,18,.72); backdrop-filter:saturate(1.2) blur(8px);
-      border-top:1px solid var(--edge);}
-    .tabs .row{display:grid;grid-template-columns:repeat(5,1fr);}
-    .tab{padding:8px 4px;text-align:center;color:var(--muted);text-decoration:none;font-size:12px}
-    .tab .i{display:block;font-size:18px;margin-bottom:4px}
-    .tab.active{color:var(--accent)}
-
-    footer{max-width:980px;margin:18px auto 90px;color:var(--muted);text-align:center;font-size:12px}
-  </style>
+  <title>Daily EMS Quiz | Free EMT & Paramedic Practice Questions</title>
+  <meta name="description" content="Free daily EMT and paramedic practice questions, EMS facts, MedWord, home medication review, and quick EMS study tools. No login required." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://dailyemsquiz.com/" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#07111f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Daily EMS Quiz" />
+  <meta property="og:title" content="Daily EMS Quiz | Free EMT & Paramedic Practice" />
+  <meta property="og:description" content="Build EMS knowledge with free daily EMT and paramedic quiz questions, quick facts, medication review, and EMS mini-games." />
+  <meta property="og:url" content="https://dailyemsquiz.com/" />
+  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/dailyemsquiz.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://dailyemsquiz.com/#website",
+        "name":"Daily EMS Quiz",
+        "url":"https://dailyemsquiz.com/",
+        "description":"Free daily EMT and paramedic quiz practice, EMS facts, home medication review, and EMS study tools.",
+        "inLanguage":"en-US",
+        "publisher":{"@id":"https://dailyemsquiz.com/#organization"}
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://dailyemsquiz.com/#organization",
+        "name":"Daily EMS Quiz",
+        "url":"https://dailyemsquiz.com/",
+        "logo":"https://dailyemsquiz.com/favicon.png",
+        "sameAs":["https://emscodesim.com/"]
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://dailyemsquiz.com/#app",
+        "name":"Daily EMS Quiz",
+        "applicationCategory":"EducationalApplication",
+        "operatingSystem":"Any",
+        "url":"https://dailyemsquiz.com/",
+        "isAccessibleForFree":true,
+        "audience":{"@type":"EducationalAudience","educationalRole":"student"},
+        "about":["EMT practice questions","Paramedic practice questions","EMS education","NREMT-style review"]
+      },
+      {
+        "@type":"ItemList",
+        "@id":"https://dailyemsquiz.com/#tools",
+        "name":"Daily EMS Quiz study tools",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Daily EMT Quiz","url":"https://dailyemsquiz.com/emt_quiz.html"},
+          {"@type":"ListItem","position":2,"name":"Daily Paramedic Quiz","url":"https://dailyemsquiz.com/paramedic_quiz.html"},
+          {"@type":"ListItem","position":3,"name":"EMS Daily Fact","url":"https://dailyemsquiz.com/ems_fact.html"},
+          {"@type":"ListItem","position":4,"name":"MedWord EMS Word Game","url":"https://dailyemsquiz.com/medword.html"},
+          {"@type":"ListItem","position":5,"name":"Daily Home Medication","url":"https://dailyemsquiz.com/home_med.html"}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header class="safe">
-    <div class="bar">
-      <div class="brand">
-        <div class="logo">
-          <img src="./favicon.png" alt="Daily EMS Quiz"
-               onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'🩺',style:'font-size:22px'}))">
-        </div>
-        <div class="titles">
-          <b>Daily EMS Quiz</b>
-          <small>Fast EMT & Paramedic practice</small>
-        </div>
-      </div>
-      <div class="streak" aria-live="polite">🔥 Streak: <span id="streak">0</span></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Daily EMS Quiz home">
+        <span class="brand-mark">⚕</span>
+        <span class="brand-text">Daily EMS Quiz <small>EMT & Paramedic study tools</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/emt_quiz.html">EMT Quiz</a>
+        <a href="/paramedic_quiz.html">Paramedic Quiz</a>
+        <a href="/ems_fact.html">EMS Facts</a>
+        <a href="/medword.html">MedWord</a>
+        <a href="/home_med.html">Home Meds</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="grid" aria-label="Main">
-      <article class="card">
-        <h2>EMT Daily Quiz</h2>
-        <p>Exactly 5 fresh EMT questions every day. Keep your streak alive.</p>
-        <div class="cta">
-          <a class="btn" id="emtQuizBtn" href="emt_quiz.html"><span class="pill">🚑</span> Start EMT (5 Q)</a>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">🚑 Free EMS practice • No login required</span>
+          <h1>Daily EMT and paramedic quiz practice.</h1>
+          <p class="lead">Build EMS knowledge one short session at a time with daily NREMT-style questions, quick facts, medication review, and EMS mini-games.</p>
+          <p class="hero-copy">Daily EMS Quiz is designed for EMT students, paramedic students, EMS instructors, and providers who want fast review between calls, before class, or while preparing for exams.</p>
+          <div class="cta-row" aria-label="Start studying">
+            <a class="btn btn-primary" href="/emt_quiz.html">Start EMT Quiz</a>
+            <a class="btn btn-secondary" href="/paramedic_quiz.html">Start Paramedic Quiz</a>
+            <a class="btn btn-ghost" href="#study-tools">View all tools</a>
+          </div>
         </div>
-      </article>
-
-      <article class="card">
-        <h2>Paramedic Daily Quiz</h2>
-        <p>Exactly 5 Paramedic‑level questions delivered daily.</p>
-        <div class="cta">
-          <a class="btn" id="medicQuizBtn" href="paramedic_quiz.html"><span class="pill">🧠</span> Start Medic (5 Q)</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>Random EMS Fact</h2>
-        <p>One quick, high‑yield fact. Great for elevator learning.</p>
-        <div class="cta">
-          <a class="btn" id="factBtn" href="ems_fact.html"><span class="pill">📚</span> Open Fact</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>MedWord</h2>
-        <p>Guess today’s 5‑letter EMS term in 6 tries.</p>
-        <div class="cta">
-          <a class="btn" href="medword.html"><span class="pill">🧩</span> Play MedWord</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>Daily Sim</h2>
-        <p>Vitals & skills mini‑apps: BP, pulse, pupils, stroke, Rule of Nines.</p>
-        <div class="cta">
-          <a class="btn" href="sim.html"><span class="pill">🧪</span> Open Simulator</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>Daily Home Med</h2>
-        <p>One medication per day: name, indication, dose, contraindications.</p>
-        <div class="cta">
-          <a id="homeMedLink" class="btn" href="#"><span class="pill">💊</span> Open Daily Home Med</a>
-        </div>
-      </article>
+        <aside class="hero-panel" aria-label="Quiz preview">
+          <div class="phone-card">
+            <div class="daily-label"><span>Today’s practice</span><span id="streakLabel">🔥 Streak: 0</span></div>
+            <div class="quiz-preview">
+              <h2>Sample EMS question</h2>
+              <p>A patient has chest pressure, pale skin, and shortness of breath. What should an EMT do first?</p>
+              <span class="answer-chip">A. Delay transport for full history</span>
+              <span class="answer-chip good">B. Assess ABCs and treat life threats</span>
+              <span class="answer-chip">C. Give any medication found at scene</span>
+            </div>
+            <div class="mini-stats">
+              <div class="mini-stat"><strong>5</strong><span>daily EMT Qs</span></div>
+              <div class="mini-stat"><strong>5</strong><span>daily medic Qs</span></div>
+              <div class="mini-stat"><strong>0</strong><span>logins</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <footer>© 2025 DailyEMSQuiz • Not affiliated with NREMT<br><span style=\"display:block;margin-top:6px\">Part of the <a href="https://emscodesim.com" target="_blank" rel="noopener">EMSCodeSim ecosystem</a></span></footer>
+    <section class="section" id="study-tools">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>EMS study tools</h2>
+            <p class="section-intro">Short, repeatable practice tools for EMS learners. Each page is linked directly so students and search engines can find the right study resource.</p>
+          </div>
+        </div>
+        <div class="cards">
+          <article class="tool-card featured">
+            <div class="tool-icon">📝</div>
+            <h3>Daily EMT Quiz</h3>
+            <p>Five quick EMT-level practice questions covering patient assessment, airway, trauma, medical emergencies, operations, and EMS fundamentals.</p>
+            <div class="badge-row"><span class="badge">EMT review</span><span class="badge">5 questions</span><span class="badge">Daily practice</span></div>
+            <a class="btn btn-primary" href="/emt_quiz.html">Practice EMT questions</a>
+          </article>
+          <article class="tool-card featured">
+            <div class="tool-icon">🧠</div>
+            <h3>Daily Paramedic Quiz</h3>
+            <p>Paramedic-level review questions for ALS assessment, cardiology, medications, airway, ECG concepts, and treatment decision-making.</p>
+            <div class="badge-row"><span class="badge">Paramedic review</span><span class="badge">ALS topics</span><span class="badge">Exam prep</span></div>
+            <a class="btn btn-primary" href="/paramedic_quiz.html">Practice paramedic questions</a>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon">📚</div>
+            <h3>EMS Daily Fact</h3>
+            <p>One high-yield EMS fact each day for quick refresher learning and classroom discussion starters.</p>
+            <div class="badge-row"><span class="badge">Quick fact</span><span class="badge">Fast review</span></div>
+            <a class="btn btn-secondary" href="/ems_fact.html">Read today’s EMS fact</a>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon">🧩</div>
+            <h3>MedWord</h3>
+            <p>A daily EMS word game that reinforces medical terminology and keeps review quick and fun.</p>
+            <div class="badge-row"><span class="badge">Terminology</span><span class="badge">Mini-game</span></div>
+            <a class="btn btn-secondary" href="/medword.html">Play MedWord</a>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon">💊</div>
+            <h3>Daily Home Medication</h3>
+            <p>Review a common home medication, class, use, and EMS consideration to improve patient history and medication recognition.</p>
+            <div class="badge-row"><span class="badge">Home meds</span><span class="badge">Assessment</span></div>
+            <a class="btn btn-secondary" href="/home_med.html">Review today’s medication</a>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon">🧪</div>
+            <h3>Daily Sim</h3>
+            <p>Mini EMS simulation practice for vitals, recognition, and assessment skills as the DailyEMSQuiz project grows.</p>
+            <div class="badge-row"><span class="badge">Simulation</span><span class="badge">Skills practice</span></div>
+            <a class="btn btn-secondary" href="/daily_sim.html">Open EMS sim</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container info-grid">
+        <article class="info-box steps">
+          <h2>How to use Daily EMS Quiz</h2>
+          <div class="step"><h3>Pick EMT or Paramedic</h3><p>Start with the level that matches your current class, certification, or review goal.</p></div>
+          <div class="step"><h3>Answer five questions</h3><p>Each short quiz is built for quick daily repetition instead of long study sessions.</p></div>
+          <div class="step"><h3>Review missed answers</h3><p>Use the feedback after submission to identify weak topics and decide what to study next.</p></div>
+        </article>
+        <article class="info-box">
+          <h2>Built for EMS learners</h2>
+          <p>This site is meant to become the main DailyEMSQuiz and EMSCodeSim learning hub for future EMS education projects.</p>
+          <ul>
+            <li>Free EMT practice questions for entry-level EMS review.</li>
+            <li>Paramedic questions for ALS decision-making and exam prep.</li>
+            <li>Short daily tools that are easy to use on a phone.</li>
+            <li>Future EMS scenario, medication, assessment, and instructor tools can be added from this homepage.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Daily EMS Quiz FAQ</h2>
+        <p class="section-intro">Common questions about the free EMT and paramedic practice tools.</p>
+        <div class="faq" style="margin-top:18px">
+          <details open>
+            <summary>Is Daily EMS Quiz free?</summary>
+            <p>Yes. The daily EMT quiz, paramedic quiz, EMS fact, MedWord, and medication review tools are available without a login.</p>
+          </details>
+          <details>
+            <summary>Is this an official NREMT site?</summary>
+            <p>No. Daily EMS Quiz is an independent EMS study resource and is not affiliated with or endorsed by the National Registry of Emergency Medical Technicians.</p>
+          </details>
+          <details>
+            <summary>Who is this site for?</summary>
+            <p>It is designed for EMT students, paramedic students, EMS instructors, and providers who want short, repeatable EMS review.</p>
+          </details>
+          <details>
+            <summary>Will more EMS tools be added?</summary>
+            <p>Yes. This homepage is structured as a hub so future EMSCodeSim projects, simulators, medication tools, and scenario practice pages can be added cleanly.</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Bottom tab bar for an "app" feel -->
-  <nav class="tabs safe" role="navigation" aria-label="Primary">
-    <div class="row">
-      <a class="tab active" href="./"><span class="i">🏠</span>Home</a>
-      <a class="tab" id="tabEmt" href="emt_quiz.html"><span class="i">📝</span>EMT</a>
-      <a class="tab" id="tabMedic" href="paramedic_quiz.html"><span class="i">🧠</span>Medic</a>
-      <a class="tab" href="medword.html"><span class="i">🧩</span>MedWord</a>
-      <a class="tab" id="tabFacts" href="ems_fact.html"><span class="i">📚</span>Facts</a>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>© 2026 Daily EMS Quiz. Independent EMS education practice site. Not affiliated with NREMT.</div>
+      <div class="footer-links"><a href="/privacy.html">Privacy</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a><a href="/sitemap.xml">Sitemap</a></div>
     </div>
-  </nav>
+  </footer>
 
-<script>
-// Simple client streak counter (local-only)
-(function(){
-  try{
-    const key='deq_streak', lastKey='deq_last';
-    const today=new Date(); today.setHours(0,0,0,0);
-    const last=localStorage.getItem(lastKey);
-    let streak=parseInt(localStorage.getItem(key)||'0',10);
-    if(!last){ streak=1; }
-    else{
-      const lastDate=new Date(parseInt(last,10)); lastDate.setHours(0,0,0,0);
-      const diffDays=Math.round((today-lastDate)/(1000*60*60*24));
-      if(diffDays===1) streak=Math.max(1,streak+1);
-      else if(diffDays>1) streak=1;
-    }
-    localStorage.setItem(key,String(streak));
-    localStorage.setItem(lastKey,String(+today));
-    document.getElementById('streak').textContent=String(streak);
-  }catch(e){}
-})();
-
-// Fix the Daily Home Med link if your file is named differently.
-(async function(){
-  const candidates=[
-    'medications.html',
-    'home_med.html',
-    'daily_home_med.html',
-    'meds.html',
-    'daily_meds.html'
-  ];
-  const a=document.getElementById('homeMedLink');
-  const tab=document.getElementById('tabHomeMed');
-  for(const url of candidates){
+  <script>
+  (function(){
     try{
-      const res=await fetch(url,{method:'HEAD'});
-      if(res.ok){ a.href=url; if(tab) tab.href=url; return; }
-    }catch(_){ /* ignore and try next */ }
-  }
-  // Fallback: point to medications.html and leave a console hint.
-  a.href='medications.html'; if(tab) tab.href='medications.html';
-  console.warn('Daily Home Med link: using default medications.html (HEAD checks failed).');
-})();
-// Link auto-resolvers to fix broken links without changing filenames
-(async function(){
-  // EMT quiz candidates
-  const emtCands=['emt_quiz.html','quiz_emt.html','daily_emt_quiz.html','emt.html'];
-  const emtBtn=document.getElementById('emtQuizBtn');
-  const tabEmt=document.getElementById('tabEmt');
-  for(const url of emtCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ emtBtn.href=url; if(tabEmt) tabEmt.href=url; break; } }catch(_){} }
-
-  // Medic quiz candidates
-  const medicCands=['paramedic_quiz.html','quiz_paramedic.html','daily_paramedic_quiz.html','medic.html'];
-  const medicBtn=document.getElementById('medicQuizBtn');
-  const tabMedic=document.getElementById('tabMedic');
-  for(const url of medicCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ medicBtn.href=url; if(tabMedic) tabMedic.href=url; break; } }catch(_){} }
-
-  // Fact page candidates
-  const factCands=['ems_fact.html','fact.html','facts.html','daily_fact.html'];
-  const factBtn=document.getElementById('factBtn');
-  const tabFacts=document.getElementById('tabFacts');
-  for(const url of factCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ factBtn.href=url; if(tabFacts) tabFacts.href=url; break; } }catch(_){} }
-
-  // Sim page candidates
-  const simCands=['sim.html','daily_sim.html','vitals.html','simulator.html'];
-  const simBtn=document.querySelector('a.btn[href*="sim"]');
-  const tabSim=document.getElementById('tabSim');
-  for(const url of simCands){ try{ const r=await fetch(url,{method:'HEAD'}); if(r.ok){ if(simBtn) simBtn.href=url; if(tabSim) tabSim.href=url; break; } }catch(_){} }
-})();
-
-</script>
+      const key='deq_streak', lastKey='deq_last';
+      const today=new Date(); today.setHours(0,0,0,0);
+      const last=localStorage.getItem(lastKey);
+      let streak=parseInt(localStorage.getItem(key)||'0',10);
+      if(!last) streak=1;
+      else{
+        const lastDate=new Date(parseInt(last,10)); lastDate.setHours(0,0,0,0);
+        const diffDays=Math.round((today-lastDate)/(1000*60*60*24));
+        if(diffDays===1) streak=Math.max(1,streak+1);
+        else if(diffDays>1) streak=1;
+      }
+      localStorage.setItem(key,String(streak));
+      localStorage.setItem(lastKey,String(+today));
+      const label=document.getElementById('streakLabel');
+      if(label) label.textContent='🔥 Streak: '+streak;
+    }catch(e){}
+  })();
+  </script>
 </body>
 </html>
