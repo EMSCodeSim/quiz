@@ -3,40 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>EMS Daily Fact | Daily EMS Quiz</title>
-  <meta name="description" content="Read one quick EMS fact each day for fast EMT and paramedic review." />
+  <title>EMS Daily Fact | Current EMT & Paramedic Microlearning</title>
+  <meta name="description" content="Read one sourced EMS fact each day for EMT and paramedic review, with a short explanation and a link to the primary NREMT, AHA, CDC, or EMS.gov source." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://dailyemsquiz.com/ems_fact.html" />
   <link rel="icon" href="/favicon.png" type="image/png" />
-  <meta name="theme-color" content="#07111f" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Daily EMS Quiz" />
-  <meta property="og:title" content="EMS Daily Fact | Daily EMS Quiz" />
-  <meta property="og:description" content="Read one quick EMS fact each day for fast EMT and paramedic review." />
-  <meta property="og:url" content="https://dailyemsquiz.com/ems_fact.html" />
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <meta name="theme-color" content="#f5f1e9" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Daily EMS Quiz" /><meta property="og:title" content="EMS Daily Fact | Current EMS Microlearning" /><meta property="og:description" content="One sourced EMS fact per day, with the reason it matters and a primary-source link." /><meta property="og:url" content="https://dailyemsquiz.com/ems_fact.html" /><meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
   <link rel="stylesheet" href="/dailyemsquiz.css" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "EMS Daily Fact | Daily EMS Quiz",
-  "url": "https://dailyemsquiz.com/ems_fact.html",
-  "description": "Read one quick EMS fact each day for fast EMT and paramedic review.",
-  "isPartOf": {
-    "@id": "https://dailyemsquiz.com/#website"
-  },
-  "inLanguage": "en-US"
-}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"EMS Daily Fact","url":"https://dailyemsquiz.com/ems_fact.html","description":"Daily sourced EMS microlearning for EMT and paramedic learners.","isPartOf":{"@id":"https://dailyemsquiz.com/#website"},"inLanguage":"en-US"}</script>
 </head>
 <body>
-  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">⚕</span><span class="brand-text">Daily EMS Quiz <small>EMT & Paramedic study tools</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html" >EMT Quiz</a><a href="/paramedic_quiz.html" >Paramedic Quiz</a><a href="/ems_fact.html" aria-current="page">EMS Facts</a><a href="/medword.html" >MedWord</a><a href="/home_med.html" >Home Meds</a></nav></div></header>
+  <a class="skip-link" href="#factCard">Skip to today’s fact</a>
+  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">DEQ</span><span class="brand-text">Daily EMS Quiz <small>five-minute field review</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/nremt-study-guide.html">Study Guide</a><a href="/ems_fact.html" aria-current="page">EMS Fact</a><a href="/medword.html">MedWord</a><a href="/home_med.html">Home Meds</a></nav></div></header>
   <main class="container quiz-shell">
-    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">📚 Daily EMS refresher</span><h1>EMS Daily Fact</h1><p>Read one fast EMS fact each day for a quick review, classroom discussion starter, or shift-change knowledge check.</p></div><aside class="score-card"><div class="daily-label"><span>Today’s fact</span><span>New daily</span></div><div class="score-big">Fact</div><p style="color:var(--muted);line-height:1.5;margin:0">Come back tomorrow for another EMS fact.</p></aside></section><section class="helper-section"><div class="question-kicker"><span id="category">Loading category…</span><span>DailyEMSQuiz</span></div><h2 id="factTitle" style="margin-top:12px">Loading today’s EMS fact...</h2><p id="fact" style="font-size:20px;color:#d9efff"></p><div class="cta-row"><a class="btn btn-primary" href="/emt_quiz.html">Practice EMT quiz</a><a class="btn btn-secondary" href="/paramedic_quiz.html">Practice paramedic quiz</a></div></section>
+    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">One fact • one primary source • one minute</span><h1>EMS Daily Fact</h1><p>No body-trivia filler. Today’s card is pulled from a reviewed bank focused on current NREMT testing, resuscitation science, stroke, toxicology, and EMS practice.</p></div><aside class="score-card"><div class="daily-label"><span>Editorial rule</span><span>Sourced</span></div><div class="score-big" style="font-size:35px">Know why it matters.</div><p class="score-meta">Each card includes a primary-source link so you can check the full context instead of trusting a one-line claim.</p></aside></section>
+
+    <section class="helper-section" id="factCard"><div class="question-kicker"><span id="category">Loading category…</span><span id="dateLabel">Daily fact</span></div><h2 id="factTitle" style="margin-top:12px">Loading today’s EMS fact...</h2><p id="fact" class="lead" style="font-size:22px;max-width:900px"></p><div class="explanation" id="why" style="margin-top:18px" hidden></div><p class="source-note" id="source" style="margin-top:15px" hidden></p><div class="cta-row"><a class="btn btn-primary" href="/emt_quiz.html">Practice EMT</a><a class="btn btn-secondary" href="/paramedic_quiz.html">Practice Paramedic</a><a class="btn btn-ghost" href="/nremt-study-guide.html">Open study guide</a></div></section>
+
+    <section class="helper-section"><h2>Why the fact bank changed</h2><p>Fast facts are useful only if they are dependable. Daily EMS Quiz now favors facts that affect assessment, testing, treatment priorities, or EMS systems knowledge. Claims are linked back to sources such as the National Registry, American Heart Association, CDC, and EMS.gov.</p><p class="editorial-note"><strong>Clinical use:</strong> A daily fact is a memory prompt, not a complete protocol. Follow your education program, current service protocols, medical direction, and state scope of practice.</p></section>
   </main>
-  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice site. Not affiliated with NREMT.</div><div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div></div></footer>
-  <script>
-function escapeHtml(value){return String(value ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
-fetch('/ems_fact.json').then(r=>r.json()).then(facts=>{const today=new Date();const dayOfYear=Math.floor((today-new Date(today.getFullYear(),0,0))/86400000);const item=facts[dayOfYear % facts.length];document.getElementById('category').textContent=item.category||'EMS Fact';document.getElementById('factTitle').textContent=item.category||'Today’s EMS fact';document.getElementById('fact').innerHTML=escapeHtml(item.fact||'Check back tomorrow for a new EMS fact.');}).catch(()=>{document.getElementById('fact').textContent='Unable to load today’s EMS fact.';});
+  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice; not affiliated with NREMT.</div><div class="footer-links"><a href="/nremt-study-guide.html#sources">Sources</a><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div></div></footer>
+<script>
+function safe(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function localDayKey(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
+fetch('/ems_fact.json').then(r=>{if(!r.ok)throw new Error('load');return r.json();}).then(facts=>{if(!Array.isArray(facts)||!facts.length)throw new Error('empty');const item=facts[hash(localDayKey()+' fact')%facts.length];document.getElementById('category').textContent=item.category||'EMS Fact';document.getElementById('dateLabel').textContent=new Date().toLocaleDateString(undefined,{month:'short',day:'numeric'});document.getElementById('factTitle').textContent=item.category||'Today’s EMS fact';document.getElementById('fact').textContent=item.fact||'';const why=document.getElementById('why');why.hidden=false;why.innerHTML=`<strong>Why it matters:</strong> ${safe(item.why||'Use this as a prompt for deeper review.')}`;const source=document.getElementById('source');source.hidden=false;source.innerHTML=`<strong>Primary source:</strong> <a href="${safe(item.url||'#')}" rel="noopener">${safe(item.source||'Source')}</a>`;}).catch(()=>{document.getElementById('factTitle').textContent='Fact card unavailable';document.getElementById('fact').textContent='The daily fact dataset could not be loaded.';});
 </script>
 </body>
 </html>

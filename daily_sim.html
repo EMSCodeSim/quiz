@@ -3,210 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Daily EMS Sim | EMS Assessment Practice</title>
+  <title>Free EMS Skills Simulators | Blood Pressure, Pulse, Pupils & Stroke</title>
+  <meta name="description" content="Practice EMS assessment skills with free mini simulators for blood pressure, pulse, pupils/PERL, stroke assessment, and Rule of Nines burns. No login required." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://dailyemsquiz.com/daily_sim.html" />
-  <meta name="description" content="Open daily EMS simulation practice tools for vitals, assessment, and patient care review." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <meta name="theme-color" content="#f5f1e9" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Daily EMS Quiz" /><meta property="og:title" content="Free EMS Skills Simulators" /><meta property="og:description" content="Hands-on mini simulators for blood pressure, pulse, pupils, stroke assessment, and burns." /><meta property="og:url" content="https://dailyemsquiz.com/daily_sim.html" /><meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <link rel="stylesheet" href="/dailyemsquiz.css" />
   <style>
-    :root{
-      --bg:#0b0f14; --panel:#101826; --text:#eaf2ff; --muted:#b6c2ff;
-      --edge:rgba(255,255,255,.12); --shadow:0 10px 30px rgba(0,0,0,.35);
-      --btn:linear-gradient(135deg,#06b6d4,#6366f1);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0b0f14; color:var(--text);}
-    .wrap{max-width:900px; margin:0 auto; padding:clamp(16px,3.5vw,32px)}
-    header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
-    .logo{width:40px; height:40px; border-radius:12px; overflow:hidden; border:1px solid var(--edge); display:grid; place-items:center; box-shadow:var(--shadow)}
-    .logo img{width:100%; height:100%; object-fit:cover}
-    .title{line-height:1.1}
-    .title b{font-size:18px}
-    .tiny{font-size:12px; opacity:.75}
-
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid var(--edge); border-radius:18px; box-shadow:var(--shadow);}
-    .hero{padding:14px 16px; display:grid; grid-template-columns: 1fr; gap:8px}
-    .simName{font-size:16px; font-weight:800; letter-spacing:.2px}
-    .howto{font-size:14px; color:#c7d2fe}
-    .rule{font-size:12px; color:#a5b4fc}
-
-    .frameWrap{margin-top:12px; height:72vh; min-height:440px}
-    iframe{width:100%; height:100%; border:0; border-radius:18px; background:#0b0f14}
-    .fallback{padding:16px}
-    .fallback a{display:inline-block; margin-top:8px; padding:10px 12px; border-radius:12px; text-decoration:none; color:white; border:1px solid rgba(255,255,255,.16); background:var(--btn)}
-    footer{margin:18px 0 8px; text-align:center; color:#cbd5e1; font-size:14px}
-    footer a{color:#93c5fd; text-decoration:none; border-bottom:1px dashed rgba(147,197,253,.5)}
-    footer a:hover{border-bottom-color:transparent}
+    .sim-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:14px 0}.sim-pick{border:1px solid var(--line-dark);background:#faf7f1;padding:12px 8px;cursor:pointer;text-align:left;font-weight:900;color:var(--ink);min-height:76px}.sim-pick span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:5px}.sim-pick.active{border:2px solid var(--red);background:#fff}.sim-frame{border:1px solid var(--line-dark);background:#fff;min-height:610px;position:relative}.sim-frame iframe{width:100%;height:610px;border:0;background:#fff}.sim-status{padding:18px;color:var(--muted);text-align:center}.sim-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0}.sim-toolbar strong{font-family:Georgia,"Times New Roman",serif;font-size:22px}.sim-toolbar p{margin:3px 0 0;color:var(--muted);font-size:13px;max-width:720px}@media(max-width:760px){.sim-picker{grid-template-columns:1fr 1fr}.sim-frame,.sim-frame iframe{min-height:560px;height:560px}}@media(max-width:460px){.sim-picker{grid-template-columns:1fr}.sim-frame,.sim-frame iframe{min-height:520px;height:520px}}
   </style>
-
-  <!-- Optional: GA (uses your site’s existing property if present) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19DVN7NNH7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-19DVN7NNH7');
-  </script>
-
-  <script>
-    // --- CONFIG: Your daily sims (corrected paths) ---
-    const SIMS = [
-      {
-        slug:'bp',
-        title:'Blood Pressure Simulator',
-        url:'https://emscodesim.com/vitals/bp',
-        icon:'🩺',
-        howto:'Pump the cuff, then slowly deflate. Watch/listen for Korotkoff sounds to capture systolic/diastolic.'
-      },
-      {
-        slug:'pulse',
-        title:'Pulse Trainer',
-        url:'https://emscodesim.com/vitals/pulse',
-        icon:'💓',
-        howto:'Palpate radial/carotid, count beats for the interval, multiply as directed to get rate. Note rhythm and quality.'
-      },
-      {
-        slug:'pupil',
-        title:'Pupil / PERL',
-        url:'https://emscodesim.com/vitals/pupil',
-        icon:'👁️',
-        howto:'Adjust size/reactivity and compare left vs right. Practice documenting PERL, anisocoria, and reactivity.'
-      },
-      {
-        slug:'stroke',
-        title:'Stroke (BE-FAST)',
-        url:'https://emscodesim.com/vitals/stroke',
-        icon:'🧠',
-        howto:'Run BE-FAST checks (Balance, Eyes, Face, Arms, Speech, Time). Identify deficits and set LKW.'
-      },
-      {
-        slug:'nines',
-        title:'Rule of Nines',
-        url:'https://emscodesim.com/vitals/nines',
-        icon:'🔥',
-        howto:'Estimate %TBSA with adult/peds charts for burn triage and fluid planning.'
-      }
-    ];
-
-    // Utilities
-    function formatDateTZ(tz='America/Denver'){
-      const now = new Date();
-      const parts = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit' }).formatToParts(now);
-      const y = parts.find(p=>p.type==='year').value;
-      const m = parts.find(p=>p.type==='month').value;
-      const d = parts.find(p=>p.type==='day').value;
-      return `${y}-${m}-${d}`; // YYYY-MM-DD
-    }
-    function dayOfYearInTZ(tz='America/Denver'){
-      const todayStr = formatDateTZ(tz);
-      const y = todayStr.slice(0,4);
-      // Using -07:00 keeps date correct for DOY purposes; DOY value is all we need
-      const today = new Date(`${todayStr}T00:00:00-07:00`);
-      const jan1 = new Date(`${y}-01-01T00:00:00-07:00`);
-      return Math.floor((today - jan1)/86400000) + 1;
-    }
-
-    // One-sim-per-day enforcement (client-side)
-    function selectTodaysSim(){
-      const tz = 'America/Denver';
-      const today = formatDateTZ(tz);
-      const storedDate = localStorage.getItem('dsim_date');
-      const storedSlug = localStorage.getItem('dsim_slug');
-
-      // If already chosen today, stick with it (prevents changing sims via hacks/old code)
-      if (storedDate === today && storedSlug){
-        const found = SIMS.find(s=>s.slug === storedSlug) || SIMS[0];
-        return { sim: found, date: today, locked: true };
-      }
-
-      // Fresh selection by deterministic rotation
-      const enabled = SIMS; // all enabled
-      const doy = dayOfYearInTZ(tz);
-      const pick = enabled[doy % enabled.length];
-
-      // Persist today’s pick
-      localStorage.setItem('dsim_date', today);
-      localStorage.setItem('dsim_slug', pick.slug);
-
-      return { sim: pick, date: today, locked: false };
-    }
-
-    function loadSim(sim){
-      const nameEl = document.getElementById('simName');
-      const iconEl = document.getElementById('simIcon');
-      const howtoEl = document.getElementById('simHowTo');
-      const ruleEl = document.getElementById('ruleText');
-      const frameWrap = document.getElementById('frameWrap');
-
-      nameEl.textContent = sim.title;
-      iconEl.textContent = sim.icon;
-      howtoEl.textContent = sim.howto;
-      ruleEl.textContent = 'You can use one sim per day. This selection resets each new day (America/Denver).';
-
-      const iframe = document.createElement('iframe');
-      iframe.src = sim.url; // Correct paths without .html
-      iframe.loading = 'eager';
-      iframe.referrerPolicy = 'no-referrer';
-      iframe.allow = 'fullscreen; autoplay; clipboard-read; clipboard-write';
-
-      let loaded = false;
-      const timeout = setTimeout(()=>{
-        if(!loaded){
-          frameWrap.innerHTML = `
-            <div class="fallback">
-              <p><strong>Heads up:</strong> This sim can’t be embedded here. Open it directly:</p>
-              <p><a href="${sim.url}" target="_blank" rel="noopener">${sim.icon} Open ${sim.title}</a></p>
-            </div>`;
-        }
-      }, 3500);
-
-      iframe.onload = ()=>{ loaded = true; clearTimeout(timeout); };
-
-      frameWrap.innerHTML = '';
-      frameWrap.appendChild(iframe);
-
-      if(window.gtag){ gtag('event','daily_sim_load',{sim_slug:sim.slug, sim_title:sim.title}); }
-    }
-
-    document.addEventListener('DOMContentLoaded', ()=>{
-      // Disable any override via URL params; one per day only.
-      const { sim } = selectTodaysSim();
-      loadSim(sim);
-    });
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Free EMS skills simulators","itemListElement":[{"@type":"ListItem","position":1,"name":"Blood Pressure Simulator","url":"https://emscodesim.com/vitals/bp"},{"@type":"ListItem","position":2,"name":"Pulse Trainer","url":"https://emscodesim.com/vitals/pulse"},{"@type":"ListItem","position":3,"name":"Pupil / PERL Simulator","url":"https://emscodesim.com/vitals/pupil"},{"@type":"ListItem","position":4,"name":"Stroke Assessment Simulator","url":"https://emscodesim.com/vitals/stroke"},{"@type":"ListItem","position":5,"name":"Rule of Nines Simulator","url":"https://emscodesim.com/vitals/nines"}]}</script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="./">
-        <div class="logo">
-          <!-- Swap to your actual icon path if different -->
-          <img src="./images/daily-ems-quiz-icon.png" alt="Daily EMS Quiz icon"
-               onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'🩺',style:'font-size:20px'}))">
-        </div>
-        <div class="title">
-          <b>Daily Sim</b>
-          <div class="tiny">Loads a different mini-app each day</div>
-        </div>
-      </a>
-    </header>
+  <a class="skip-link" href="#skills">Skip to skills simulators</a>
+  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">DEQ</span><span class="brand-text">Daily EMS Quiz <small>five-minute field review</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/clinical-judgment.html">Clinical Judgment</a><a href="/nremt-study-guide.html">Study Guide</a><a href="/ems_fact.html">EMS Fact</a><a href="/medword.html">MedWord</a></nav></div></header>
 
-    <section class="card hero" aria-live="polite">
-      <div class="simName"><span id="simIcon">🧪</span> <span id="simName">Loading…</span></div>
-      <div id="simHowTo" class="howto">Preparing instructions…</div>
-      <div id="ruleText" class="rule"></div>
+  <main class="container quiz-shell" id="skills">
+    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">Free hands-on assessment practice</span><h1>EMS Skills Bench</h1><p>Use a mini simulator when a quiz exposes a weak skill. The featured drill rotates each day, but every skill remains available—because deliberate practice is more useful than an artificial daily lock.</p></div><aside class="score-card"><div class="daily-label"><span>Practice loop</span><span>Do → check → repeat</span></div><div class="score-big" style="font-size:34px">Hands on beats rereading.</div><p class="score-meta">These simulators are part of EMSCodeSim and open here when embedding is supported.</p></aside></section>
+
+    <section class="helper-section">
+      <div class="question-kicker"><span>Choose a skill</span><span id="featuredLabel">Today’s featured drill</span></div>
+      <div class="sim-picker" id="simPicker"></div>
+      <div class="sim-toolbar"><div><strong id="simTitle">Loading…</strong><p id="simHow"></p></div><a class="btn btn-ghost" id="openDirect" href="https://emscodesim.com/" target="_blank" rel="noopener">Open directly</a></div>
+      <div class="sim-frame" id="frameWrap"><div class="sim-status">Loading simulator…</div></div>
     </section>
 
-    <section id="frameWrap" class="frameWrap card" aria-live="polite"></section>
+    <section class="helper-section"><h2>Suggested practice order</h2><div class="cards"><article class="tool-card"><div class="tool-icon">VITAL SIGNS</div><h3>Blood pressure + pulse</h3><p>Practice the mechanics first, then document rate, rhythm, quality and pressure in a patient context.</p></article><article class="tool-card"><div class="tool-icon">NEURO</div><h3>Pupils + stroke</h3><p>Use findings as decision cues. A pupil finding or stroke deficit matters because it changes the differential, priority, or destination.</p></article><article class="tool-card"><div class="tool-icon">TRAUMA</div><h3>Rule of Nines</h3><p>Practice estimating burn surface area, then connect the estimate to severity, transport planning and local protocol.</p></article></div></section>
 
-    <footer>
-      <div>&copy; 2025 DailyEMSQuiz.com · Not affiliated with NREMT</div>
-      <div style="margin-top:8px">
-        <a href="https://emscodesim.com/" target="_blank" rel="noopener">Part of the EMS Code Sim training ecosystem</a>
-      </div>
-    </footer>
-  </div>
+    <section class="helper-section"><h2>Skill practice is not a protocol</h2><p>The simulators are educational approximations designed to strengthen observation and assessment habits. Real equipment, patient anatomy, audio findings, local procedures and scope vary. Use your course, service equipment, and medical direction for competency validation.</p></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Skills powered by the EMSCodeSim learning ecosystem.</div><div class="footer-links"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a></div></div></footer>
+<script>
+const SIMS=[
+ {slug:'bp',title:'Blood Pressure Simulator',url:'https://emscodesim.com/vitals/bp',how:'Practice cuff inflation and controlled deflation while identifying systolic and diastolic pressure.'},
+ {slug:'pulse',title:'Pulse Trainer',url:'https://emscodesim.com/vitals/pulse',how:'Practice estimating pulse rate, then connect the rate to rhythm and pulse quality.'},
+ {slug:'pupil',title:'Pupil / PERL Trainer',url:'https://emscodesim.com/vitals/pupil',how:'Compare pupil size and reactivity and practice describing findings accurately.'},
+ {slug:'stroke',title:'Stroke Assessment Trainer',url:'https://emscodesim.com/vitals/stroke',how:'Practice recognizing stroke findings and connecting them to last-known-well time and rapid stroke-system care.'},
+ {slug:'nines',title:'Rule of Nines Burn Trainer',url:'https://emscodesim.com/vitals/nines',how:'Practice estimating adult burn surface area and organizing a quick TBSA calculation.'}
+];
+function dayIndex(){const d=new Date(),start=new Date(d.getFullYear(),0,0);return Math.floor((d-start)/86400000)%SIMS.length;}
+let active=dayIndex();const picker=document.getElementById('simPicker'),wrap=document.getElementById('frameWrap'),title=document.getElementById('simTitle'),how=document.getElementById('simHow'),direct=document.getElementById('openDirect'),featured=document.getElementById('featuredLabel');
+function renderPicker(){picker.innerHTML=SIMS.map((s,i)=>`<button type="button" class="sim-pick${i===active?' active':''}" data-i="${i}">${s.title}<span>${i===dayIndex()?'Featured today':'Practice anytime'}</span></button>`).join('');picker.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{active=Number(b.dataset.i);renderPicker();loadSim();}));}
+function loadSim(){const s=SIMS[active];title.textContent=s.title;how.textContent=s.how;direct.href=s.url;featured.textContent=active===dayIndex()?'Today’s featured drill':'Selected skill';wrap.innerHTML='<div class="sim-status">Loading simulator…</div>';const iframe=document.createElement('iframe');iframe.src=s.url;iframe.loading='eager';iframe.title=s.title;iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allow='fullscreen; autoplay';let loaded=false;const timer=setTimeout(()=>{if(!loaded)wrap.innerHTML=`<div class="sim-status"><strong>This simulator may block embedding.</strong><br><br><a class="btn btn-secondary" href="${s.url}" target="_blank" rel="noopener">Open ${s.title}</a></div>`;},5000);iframe.onload=()=>{loaded=true;clearTimeout(timer);};wrap.innerHTML='';wrap.appendChild(iframe);}
+renderPicker();loadSim();
+</script>
 </body>
 </html>

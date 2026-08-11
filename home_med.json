@@ -1,149 +1,34 @@
 [
-  {
-    "Brand": "Lisinopril",
-    "Generic": "Lisinopril",
-    "Class": "ACE Inhibitor",
-    "Use": "Hypertension, CHF, Post-MI",
-    "EMS_Consideration": "May cause hypotension; assess BP and compliance"
-  },
-  {
-    "Brand": "Metoprolol",
-    "Generic": "Metoprolol",
-    "Class": "Beta Blocker",
-    "Use": "Hypertension, Tachycardia, CHF",
-    "EMS_Consideration": "Bradycardia, hypotension, masks hypoglycemia"
-  },
-  {
-    "Brand": "Lasix",
-    "Generic": "Furosemide",
-    "Class": "Loop Diuretic",
-    "Use": "CHF, Edema, Hypertension",
-    "EMS_Consideration": "Monitor for dehydration, electrolyte imbalance"
-  },
-  {
-    "Brand": "Coumadin",
-    "Generic": "Warfarin",
-    "Class": "Anticoagulant",
-    "Use": "AFib, DVT, PE prevention",
-    "EMS_Consideration": "Bleeding risk; check for bruising, recent INR"
-  },
-  {
-    "Brand": "Lipitor",
-    "Generic": "Atorvastatin",
-    "Class": "Statin",
-    "Use": "High cholesterol",
-    "EMS_Consideration": "Muscle pain may indicate rhabdo"
-  },
-  {
-    "Brand": "Synthroid",
-    "Generic": "Levothyroxine",
-    "Class": "Thyroid Hormone",
-    "Use": "Hypothyroidism",
-    "EMS_Consideration": "Look for signs of hypo/hyperthyroidism"
-  },
-  {
-    "Brand": "Plavix",
-    "Generic": "Clopidogrel",
-    "Class": "Antiplatelet",
-    "Use": "Post-stent, MI prevention",
-    "EMS_Consideration": "Increased bleeding risk"
-  },
-  {
-    "Brand": "Albuterol",
-    "Generic": "Albuterol",
-    "Class": "Beta-2 Agonist",
-    "Use": "Asthma, COPD",
-    "EMS_Consideration": "Tachycardia, tremors"
-  },
-  {
-    "Brand": "Advair",
-    "Generic": "Fluticasone/Salmeterol",
-    "Class": "Steroid/LABA",
-    "Use": "COPD, Asthma",
-    "EMS_Consideration": "Inhaled; monitor airway status"
-  },
-  {
-    "Brand": "Zoloft",
-    "Generic": "Sertraline",
-    "Class": "SSRI",
-    "Use": "Depression, Anxiety",
-    "EMS_Consideration": "Watch for serotonin syndrome"
-  },
-  {
-    "Brand": "Aspirin",
-    "Generic": "Aspirin",
-    "Class": "Antiplatelet/NSAID",
-    "Use": "Pain, MI prevention",
-    "EMS_Consideration": "GI bleeding, tinnitus at high doses"
-  },
-  {
-    "Brand": "Ativan",
-    "Generic": "Lorazepam",
-    "Class": "Benzodiazepine",
-    "Use": "Anxiety, Seizures",
-    "EMS_Consideration": "Respiratory depression risk"
-  },
-  {
-    "Brand": "Amiodarone",
-    "Generic": "Amiodarone",
-    "Class": "Antiarrhythmic",
-    "Use": "Ventricular arrhythmias",
-    "EMS_Consideration": "Prolonged QT, bradycardia"
-  },
-  {
-    "Brand": "Glucophage",
-    "Generic": "Metformin",
-    "Class": "Biguanide",
-    "Use": "Type 2 Diabetes",
-    "EMS_Consideration": "Lactic acidosis risk in sepsis"
-  },
-  {
-    "Brand": "Norvasc",
-    "Generic": "Amlodipine",
-    "Class": "Calcium Channel Blocker",
-    "Use": "Hypertension",
-    "EMS_Consideration": "Hypotension, dizziness"
-  },
-  {
-    "Brand": "Protonix",
-    "Generic": "Pantoprazole",
-    "Class": "PPI",
-    "Use": "GERD, ulcers",
-    "EMS_Consideration": "Few acute EMS concerns"
-  },
-  {
-    "Brand": "Xarelto",
-    "Generic": "Rivaroxaban",
-    "Class": "Anticoagulant",
-    "Use": "AFib, DVT/PE prevention",
-    "EMS_Consideration": "Bleeding risk; no reversal agent"
-  },
-  {
-    "Brand": "Zofran",
-    "Generic": "Ondansetron",
-    "Class": "Antiemetic",
-    "Use": "Nausea/vomiting",
-    "EMS_Consideration": "Watch for prolonged QT"
-  },
-  {
-    "Brand": "Tenormin",
-    "Generic": "Atenolol",
-    "Class": "Beta Blocker",
-    "Use": "Hypertension, Angina",
-    "EMS_Consideration": "Bradycardia, hypotension"
-  },
-  {
-    "Brand": "Spiriva",
-    "Generic": "Tiotropium",
-    "Class": "Anticholinergic",
-    "Use": "COPD",
-    "EMS_Consideration": "Dry mouth, not a rescue inhaler"
-  },
-  {
-    "Brand": "Atrovent",
-    "Generic": "Ipratropium",
-    "Class": "Anticholinergic",
-    "Use": "COPD, Asthma (with Albuterol)",
-    "EMS_Consideration": "Used in DuoNeb; monitor airway"
-  }
+  {"Brand":"Zestril / Prinivil (examples)","Generic":"Lisinopril","Class":"ACE inhibitor","Use":"Hypertension; heart failure; selected cardiovascular/renal indications","History_Clue":"Suggests hypertension, heart failure, or cardiovascular risk management.","EMS_Consideration":"Check blood pressure and medication changes. Facial, tongue, or airway swelling can represent ACE-inhibitor angioedema and is an airway emergency."},
+  {"Brand":"Lopressor / Toprol-XL (examples)","Generic":"Metoprolol","Class":"Beta blocker","Use":"Hypertension; angina; heart failure; rate control","History_Clue":"May point to hypertension, coronary disease, heart failure, or a tachyarrhythmia history.","EMS_Consideration":"Can contribute to bradycardia and hypotension and may blunt the expected tachycardic response to illness or shock."},
+  {"Brand":"Lasix","Generic":"Furosemide","Class":"Loop diuretic","Use":"Edema from heart failure or other causes; hypertension","History_Clue":"Often suggests a history of heart failure or chronic fluid retention.","EMS_Consideration":"Ask about recent dose changes and intake/output. Volume depletion and electrolyte abnormalities are possible; the medication list alone does not prove the patient is currently fluid overloaded."},
+  {"Brand":"Coumadin / Jantoven (examples)","Generic":"Warfarin","Class":"Vitamin K antagonist anticoagulant","Use":"Prevention/treatment of thromboembolism; selected atrial fibrillation and valve indications","History_Clue":"Raises the likelihood of atrial fibrillation, prior DVT/PE, or another thromboembolic indication.","EMS_Consideration":"Bleeding risk matters after trauma or with GI, intracranial, or other suspected hemorrhage. Document the indication, last dose, and recent INR if the patient knows it."},
+  {"Brand":"Lipitor","Generic":"Atorvastatin","Class":"Statin","Use":"Hyperlipidemia and cardiovascular risk reduction","History_Clue":"Often signals dyslipidemia or known cardiovascular disease risk.","EMS_Consideration":"Usually not an acute EMS treatment issue, but it is useful context for cardiovascular history. Severe unexplained muscle pain or weakness can be medication-related and warrants further evaluation."},
+  {"Brand":"Synthroid (example)","Generic":"Levothyroxine","Class":"Thyroid hormone","Use":"Hypothyroidism / thyroid hormone replacement","History_Clue":"Suggests hypothyroidism or prior thyroid treatment.","EMS_Consideration":"Dose changes, missed doses, and signs of severe hypo- or hyperthyroid physiology can be relevant; do not infer thyroid status from the medication list alone."},
+  {"Brand":"Plavix","Generic":"Clopidogrel","Class":"P2Y12 antiplatelet","Use":"Acute coronary syndrome; coronary stents; selected stroke/peripheral arterial disease indications","History_Clue":"May indicate coronary stenting, prior ACS, stroke/TIA, or peripheral arterial disease.","EMS_Consideration":"Treat as an important bleeding-risk medication. Document the indication and last dose when feasible, especially in trauma or suspected hemorrhage."},
+  {"Brand":"Ventolin and other albuterol products","Generic":"Albuterol","Class":"Short-acting beta-2 agonist bronchodilator","Use":"Relief of bronchospasm in asthma/COPD","History_Clue":"Suggests reactive airway disease such as asthma or COPD.","EMS_Consideration":"Frequent rescue-inhaler use can signal poor control or a severe current episode. Tachycardia and tremor can occur after use; reassess work of breathing and air movement rather than relying on wheeze alone."},
+  {"Brand":"Advair (example)","Generic":"Fluticasone / salmeterol","Class":"Inhaled corticosteroid / long-acting beta agonist","Use":"Maintenance therapy for asthma or COPD","History_Clue":"Suggests chronic obstructive or reactive airway disease requiring controller therapy.","EMS_Consideration":"This is maintenance therapy, not a substitute for rapid rescue treatment during acute bronchospasm. Ask what rescue medications the patient has used today."},
+  {"Brand":"Zoloft","Generic":"Sertraline","Class":"SSRI antidepressant","Use":"Depression; anxiety disorders; PTSD and other approved psychiatric indications","History_Clue":"May indicate a mood, anxiety, or trauma-related disorder.","EMS_Consideration":"In overdose or with multiple serotonergic drugs, agitation, hyperthermia, clonus, and autonomic findings may raise concern for serotonin toxicity. Avoid assuming a psychiatric cause for new symptoms."},
+  {"Brand":"Common OTC aspirin products","Generic":"Aspirin","Class":"Antiplatelet / salicylate NSAID","Use":"Antiplatelet therapy; pain/fever at other doses","History_Clue":"Daily low-dose use may suggest coronary, cerebrovascular, or other vascular disease prevention.","EMS_Consideration":"Ask why the patient takes it and about allergy or active bleeding. Chronic aspirin on the medication list does not automatically mean an additional dose is indicated; follow the patient presentation and local ACS protocol."},
+  {"Brand":"Ativan","Generic":"Lorazepam","Class":"Benzodiazepine","Use":"Anxiety; seizures; procedural/sedation indications","History_Clue":"May indicate seizure history, anxiety, or another condition treated with a benzodiazepine.","EMS_Consideration":"Can cause sedation and respiratory depression, especially with opioids, alcohol, or other sedatives. Medication reconciliation matters in altered mental status."},
+  {"Brand":"Pacerone / Cordarone (examples)","Generic":"Amiodarone","Class":"Antiarrhythmic","Use":"Selected atrial and ventricular arrhythmias","History_Clue":"Strong clue to a significant prior arrhythmia history.","EMS_Consideration":"Bradycardia, conduction slowing, QT prolongation, drug interactions, and chronic pulmonary/thyroid effects may matter. Identify the underlying rhythm history rather than treating the medication name as a diagnosis."},
+  {"Brand":"Glucophage (example)","Generic":"Metformin","Class":"Biguanide antihyperglycemic","Use":"Type 2 diabetes","History_Clue":"Suggests type 2 diabetes or insulin-resistance management.","EMS_Consideration":"Check glucose in relevant presentations. Severe illness, dehydration, renal dysfunction, or overdose can increase concern for metabolic complications; hypoglycemia is less typical from metformin alone than from insulin or sulfonylureas."},
+  {"Brand":"Norvasc","Generic":"Amlodipine","Class":"Dihydropyridine calcium-channel blocker","Use":"Hypertension; angina","History_Clue":"Usually indicates hypertension or coronary disease management.","EMS_Consideration":"Therapeutic use can contribute to hypotension or dizziness; overdose can cause profound vasodilatory shock and requires poison-center/critical-care guidance."},
+  {"Brand":"Protonix","Generic":"Pantoprazole","Class":"Proton-pump inhibitor","Use":"GERD; erosive esophagitis; acid-related disorders","History_Clue":"May suggest reflux, ulcer disease, or chronic acid suppression.","EMS_Consideration":"Usually has few acute prehospital implications. Do not let a PPI on the medication list falsely reassure you when the presentation suggests a GI bleed or cardiac chest pain."},
+  {"Brand":"Xarelto","Generic":"Rivaroxaban","Class":"Direct factor Xa inhibitor anticoagulant","Use":"Atrial fibrillation stroke prevention; treatment/prevention of DVT/PE and other approved indications","History_Clue":"May indicate atrial fibrillation or previous/current venous thromboembolism.","EMS_Consideration":"Treat as a clinically important anticoagulant. In trauma or suspected bleeding, document the medication, indication, and last dose if known and alert the receiving team; routine INR does not measure its effect the way it does for warfarin."},
+  {"Brand":"Eliquis","Generic":"Apixaban","Class":"Direct factor Xa inhibitor anticoagulant","Use":"Atrial fibrillation stroke prevention; treatment/prevention of DVT/PE","History_Clue":"Often points to atrial fibrillation or a history of venous thromboembolism.","EMS_Consideration":"Bleeding risk is the key field concern. Record the last dose and indication when feasible; a normal-looking external exam does not exclude internal bleeding after significant trauma."},
+  {"Brand":"Zofran","Generic":"Ondansetron","Class":"5-HT3 antagonist antiemetic","Use":"Nausea and vomiting","History_Clue":"Often reflects recent or recurrent nausea treatment rather than one specific disease.","EMS_Consideration":"QT prolongation is a consideration, particularly with other QT-prolonging factors or medications. Persistent vomiting still requires assessment for the underlying cause and dehydration."},
+  {"Brand":"Tenormin","Generic":"Atenolol","Class":"Beta blocker","Use":"Hypertension; angina; selected cardiac indications","History_Clue":"Suggests cardiovascular disease or hypertension.","EMS_Consideration":"Bradycardia and hypotension can occur, and beta blockade can blunt tachycardia. In overdose, cardiovascular toxicity can be severe."},
+  {"Brand":"Spiriva","Generic":"Tiotropium","Class":"Long-acting muscarinic antagonist bronchodilator","Use":"COPD maintenance; selected asthma maintenance use","History_Clue":"Strong clue to chronic obstructive airway disease or maintenance asthma therapy.","EMS_Consideration":"This is maintenance therapy, not a rapid rescue bronchodilator. Ask about baseline oxygen use, recent exacerbations, and rescue-medication use."},
+  {"Brand":"Atrovent","Generic":"Ipratropium","Class":"Short-acting muscarinic antagonist bronchodilator","Use":"Bronchospasm, especially COPD; often combined with albuterol","History_Clue":"Suggests obstructive airway disease and may appear as part of combination nebulizer therapy.","EMS_Consideration":"Assess response by respiratory effort, air movement, mental status, oxygenation and ventilation—not only by whether wheezing changes."},
+  {"Brand":"Lantus / Basaglar (examples)","Generic":"Insulin glargine","Class":"Long-acting insulin","Use":"Basal glucose control in diabetes","History_Clue":"Indicates insulin-treated diabetes.","EMS_Consideration":"Hypoglycemia can occur, especially with reduced intake or dosing errors. Ask when the patient last ate and took insulin and check glucose in altered, weak, seizure, or autonomic presentations."},
+  {"Brand":"Humalog (example)","Generic":"Insulin lispro","Class":"Rapid-acting insulin","Use":"Meal-time and correction insulin","History_Clue":"Indicates insulin-treated diabetes with rapid-acting dosing around meals or corrections.","EMS_Consideration":"Timing relative to food is important. A dosing/meal mismatch can cause rapid hypoglycemia; reassess glucose after treatment according to protocol."},
+  {"Brand":"Jardiance","Generic":"Empagliflozin","Class":"SGLT2 inhibitor","Use":"Type 2 diabetes; heart failure; chronic kidney disease indications","History_Clue":"May reflect diabetes, heart failure, kidney disease, or more than one of these.","EMS_Consideration":"Serious illness, fasting, or dehydration can be associated with ketoacidosis even when glucose is not dramatically elevated. Consider the whole clinical picture when nausea, abdominal pain, tachypnea, or acidosis is suspected."},
+  {"Brand":"Prednisone (generic commonly used)","Generic":"Prednisone","Class":"Systemic corticosteroid","Use":"Inflammatory, allergic, autoimmune, asthma/COPD and other conditions","History_Clue":"May indicate a recent exacerbation or chronic inflammatory/autoimmune disease.","EMS_Consideration":"Chronic or repeated steroid use can affect glucose and infection risk and may suppress adrenal function. Ask whether the course is short-term or chronic and why it was prescribed."},
+  {"Brand":"Lanoxin","Generic":"Digoxin","Class":"Cardiac glycoside","Use":"Selected heart failure and atrial fibrillation rate-control situations","History_Clue":"Suggests significant cardiac history, commonly heart failure or atrial fibrillation.","EMS_Consideration":"Toxicity can cause nausea, weakness, confusion, bradycardia, conduction disturbances or other dysrhythmias; renal dysfunction and drug interactions can increase risk."},
+  {"Brand":"Neurontin","Generic":"Gabapentin","Class":"Anticonvulsant / neuropathic-pain medication","Use":"Neuropathic pain; seizure adjunct and other approved/off-label uses","History_Clue":"May point to neuropathic pain, seizure history, or chronic pain treatment.","EMS_Consideration":"Drowsiness and dizziness are common concerns; combined CNS depressants can worsen sedation or respiratory risk. Avoid assuming gabapentin use explains altered mental status without a full assessment."},
+  {"Brand":"HydroDIURIL and generics","Generic":"Hydrochlorothiazide","Class":"Thiazide diuretic","Use":"Hypertension; selected edema indications","History_Clue":"Usually indicates hypertension management.","EMS_Consideration":"Volume depletion and electrolyte abnormalities can contribute to weakness, dizziness, dysrhythmia risk, or orthostasis. Ask about recent illness and intake."},
+  {"Brand":"Cozaar","Generic":"Losartan","Class":"Angiotensin II receptor blocker (ARB)","Use":"Hypertension; selected heart failure/renal-protection indications","History_Clue":"Suggests hypertension, cardiovascular disease, or diabetic/renal risk management.","EMS_Consideration":"Can contribute to hypotension and hyperkalemia, particularly with renal dysfunction or dehydration. Medication lists should be interpreted alongside vitals and history."},
+  {"Brand":"Nitrostat and other nitroglycerin products","Generic":"Nitroglycerin","Class":"Nitrate vasodilator","Use":"Angina; selected cardiovascular indications","History_Clue":"A prescribed rescue nitroglycerin product is a strong clue to known or suspected coronary disease.","EMS_Consideration":"Check blood pressure, presentation, recent doses, and contraindicating medication/history per local protocol. Do not use a medication list as a substitute for evaluating the cause of chest discomfort."},
+  {"Brand":"EpiPen and other autoinjectors","Generic":"Epinephrine autoinjector","Class":"Adrenergic agonist","Use":"Emergency self-treatment of severe allergic reactions/anaphylaxis","History_Clue":"Suggests a history of severe allergy or prior anaphylaxis risk.","EMS_Consideration":"In a compatible severe allergic reaction, epinephrine is time-critical; assess whether the patient used the device, when, and whether symptoms are improving or recurring, then follow local protocol."}
 ]

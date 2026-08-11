@@ -2,392 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>MedWord | Daily EMS Medical Terminology Game</title>
+  <meta name="description" content="Play MedWord, a free daily five-letter EMS and medical terminology game for EMT and paramedic learners." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://dailyemsquiz.com/medword.html" />
-  <meta name="description" content="Play MedWord, a daily EMS medical terminology word game for EMT and paramedic learners." />
-  <link rel="icon" href="favicon.png" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <meta name="theme-color" content="#f5f1e9" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Daily EMS Quiz" /><meta property="og:title" content="MedWord | Daily EMS Terminology Game" /><meta property="og:description" content="Guess one five-letter EMS or medical term in six tries." /><meta property="og:url" content="https://dailyemsquiz.com/medword.html" /><meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <link rel="stylesheet" href="/dailyemsquiz.css" />
   <style>
-    :root{
-      --bg:#0b0f14; --panel:#111827; --grid:#0f1624; --text:#eaf2ff; --muted:#9fb0c7;
-      --accent1:#60a5fa; --accent2:#22d3ee; --good:#10b981; --warn:#f59e0b; --edge:rgba(255,255,255,.12);
-    }
-    *{box-sizing:border-box}
-    html,body{
-      height:100%; margin:0; color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.14), transparent),
-        radial-gradient(1000px 700px at -20% 120%, rgba(96,165,250,.14), transparent),
-        var(--bg);
-      -webkit-text-size-adjust:100%;
-    }
-    .wrap{max-width:780px;margin:0 auto;padding:28px 16px 60px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    .title{display:flex;align-items:center;gap:12px}
-    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));
-      display:grid;place-items:center;box-shadow:0 10px 30px rgba(34,211,238,.2)}
-    .logo:before{content:"⚕️";font-size:22px}
-    h1{font-size:22px;line-height:1.1;margin:0}
-    .subtitle{font-size:13px;color:var(--muted)}
-    .streak{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--edge);
-      padding:10px 12px;border-radius:14px}
-    .streak .num{font-weight:700}
-
-    .panel{background:rgba(255,255,255,.04);border:1px solid var(--edge);border-radius:18px;padding:18px}
-
-    .grid{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;justify-content:center;max-width:420px;margin:18px auto}
-    .cell{aspect-ratio:1/1;border-radius:10px;background:var(--grid);border:1px solid var(--edge);display:grid;place-items:center;font-weight:700;font-size:28px;text-transform:uppercase}
-    .cell.filled{border-color:rgba(255,255,255,.35)}
-    .cell.reveal{transition:background .25s ease, transform .15s ease;transform:scale(1.02)}
-    .ok{background:#14532d;border-color:#14532d}
-    .near{background:#7a4b07;border-color:#7a4b07}
-    .no{background:#3b1d1d;border-color:#3b1d1d;color:#a6b0bf}
-
-    .keyboard{display:grid;gap:8px;grid-template-columns:repeat(10, minmax(0,1fr));max-width:720px;margin:24px auto 8px}
-    .key{padding:12px 0;border-radius:10px;background:#1f2937;border:1px solid var(--edge);text-transform:uppercase;font-weight:700;text-align:center;cursor:pointer;user-select:none}
-    .key[data-wide="1"]{grid-column: span 2}
-    .key.ok{background:#14532d;border-color:#14532d}
-    .key.near{background:#7a4b07;border-color:#7a4b07}
-    .key.no{background:#3b1d1d;border-color:#3b1d1d;color:#a6b0bf}
-
-    .row{display:flex;gap:8px;justify-content:center}
-    .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px}
-    .btn{background:linear-gradient(135deg,var(--accent1),var(--accent2));border:none;color:#07131f;padding:10px 14px;font-weight:700;border-radius:12px;cursor:pointer}
-    .btn.secondary{background:#1f2937;border:1px solid var(--edge);color:var(--text)}
-    .hint{font-size:14px;color:var(--muted);margin-top:4px}
-
-    .revealLine{margin:10px auto 0;max-width:520px;text-align:center;color:#cfe1ff;font-size:14px}
-    .toast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:#111827;border:1px solid var(--edge);
-      padding:10px 14px;border-radius:12px;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease; z-index:50}
-    .toast.show{opacity:1}
-
-    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:12px}
-    a{color:#7dd3fc;text-decoration:none}
-    a:hover{text-decoration:underline}
+    .word-shell{max-width:760px;margin:0 auto}.word-panel{border:1px solid var(--line-dark);background:var(--card);padding:20px;box-shadow:var(--shadow)}.word-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.word-board{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;width:min(100%,390px);margin:20px auto}.cell{aspect-ratio:1;border:2px solid var(--line-dark);background:#faf7f1;display:grid;place-items:center;font-family:Georgia,"Times New Roman",serif;font-size:30px;font-weight:700;text-transform:uppercase;border-radius:4px}.cell.filled{border-color:var(--ink)}.cell.ok{background:#dfeee4;border-color:var(--green);color:#173d2b}.cell.near{background:#f2e8c9;border-color:var(--amber);color:#614510}.cell.no{background:#e8e3dc;border-color:#aaa095;color:#76706a}.keyboard{display:flex;flex-direction:column;gap:6px;margin:18px auto 4px;max-width:650px}.key-row{display:flex;gap:5px;justify-content:center}.key{min-width:0;flex:1;max-width:52px;padding:11px 4px;border:1px solid var(--line-dark);background:#efe9df;color:var(--ink);font-weight:900;border-radius:4px;cursor:pointer}.key.wide{max-width:78px;flex:1.45}.key.ok{background:#dfeee4;border-color:var(--green)}.key.near{background:#f2e8c9;border-color:var(--amber)}.key.no{background:#ddd6cc;color:#777}.word-message{min-height:48px;border-left:4px solid var(--navy);background:#edf1f3;padding:11px 13px;line-height:1.5;margin-top:15px}.word-stat{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.word-actions{display:flex;gap:8px;flex-wrap:wrap}.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 14px;border-radius:5px;z-index:100;opacity:0;pointer-events:none;transition:opacity .15s}.toast.show{opacity:1}@media(max-width:560px){.word-panel{padding:14px}.cell{font-size:25px}.key{padding:10px 2px;font-size:12px}.word-actions{width:100%}.word-actions .btn{flex:1;min-width:0;padding:9px 10px}}
   </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Game","name":"MedWord","url":"https://dailyemsquiz.com/medword.html","description":"A daily five-letter EMS and medical terminology word game.","isAccessibleForFree":true,"audience":{"@type":"EducationalAudience","educationalRole":"student"}}</script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="title">
-        <a href="./" class="logo" title="Back to home"></a>
-        <div>
-          <h1>MedWord</h1>
-          <div class="subtitle">A daily EMS medical terminology mini-game</div>
-        </div>
-      </div>
-      <div class="streak" id="streakBox" title="Your daily streak">
-        <span>🔥</span> <span>Streak:</span> <span class="num" id="streakNum">0</span>
-      </div>
-    </header>
+  <a class="skip-link" href="#game">Skip to MedWord</a>
+  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">DEQ</span><span class="brand-text">Daily EMS Quiz <small>five-minute field review</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/clinical-judgment.html">Clinical Judgment</a><a href="/nremt-study-guide.html">Study Guide</a><a href="/ems_fact.html">EMS Fact</a><a href="/medword.html" aria-current="page">MedWord</a></nav></div></header>
 
-    <section class="panel">
-      <div class="bar">
-        <div>
-          <strong id="dateLabel"></strong>
-          <div class="hint" id="hintLine">Guess today’s 5-letter EMS term in 6 tries.</div>
-        </div>
-        <div class="row">
-          <button class="btn secondary" id="hintBtn" title="Reveal a short hint">Hint</button>
-          <button class="btn secondary" id="howBtn" title="How to play">How</button>
-          <button class="btn" id="shareBtn" title="Share result">Share</button>
-        </div>
-      </div>
-
-      <div id="board" class="grid" aria-label="Guess grid"></div>
-      <div id="kb"></div>
-      <div id="reveal" class="revealLine" hidden></div>
+  <main class="container quiz-shell word-shell" id="game">
+    <section class="quiz-title-card" style="margin-bottom:14px"><span class="eyebrow">Daily terminology drill</span><h1>MedWord</h1><p>Guess today’s five-letter EMS or medical term in six tries. The word bank is intentionally practical—anatomy, assessment, physiology, and terms you are likely to hear in class or patient care.</p></section>
+    <section class="word-panel">
+      <div class="word-top"><div><div class="word-stat" id="dateLabel">Today’s term</div><strong id="hintLine">Five letters • six tries</strong></div><div class="word-actions"><button class="btn btn-ghost" id="hintBtn" type="button">Hint</button><button class="btn btn-secondary" id="shareBtn" type="button">Share</button></div></div>
+      <div class="word-board" id="board" aria-label="MedWord guess grid"></div>
+      <div class="keyboard" id="keyboard" aria-label="On-screen keyboard"></div>
+      <div class="word-message" id="message">Enter a five-letter term, then press Enter.</div>
     </section>
+    <section class="helper-section"><h2>How the colors work</h2><p><strong>Green</strong> means the letter is in the correct position. <strong>Tan</strong> means the letter is in the word but belongs somewhere else. Gray means the letter is not used in the answer, except when duplicate-letter rules apply.</p><p class="editorial-note"><strong>Learning rule:</strong> After the answer is revealed, read the definition. The point is terminology recall, not just solving a word puzzle.</p></section>
+  </main>
 
-    <footer>
-      Built for DailyEMSQuiz • Terms curated for EMS learners • <a href="#" id="reset">Reset</a>
-    </footer>
-  </div>
-
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
+  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice.</div><div class="footer-links"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a></div></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-/* ========= Word Bank ========= */
-const WORDS = [
-  ["EDEMA","Swelling from fluid buildup"],
-  ["SHOCK","Life-threatening poor perfusion"],
-  ["STEMI","ST-elevation heart attack"],
-  ["NARES","Nostrils (external nose openings)"],
-  ["LUNGS","Organs for gas exchange"],
-  ["HEART","Pump that circulates blood"],
-  ["FEMUR","Thigh bone"],
-  ["TIBIA","Shin bone (medial)"],
-  ["RENAL","Related to the kidneys"],
-  ["ULNAR","Medial forearm side/artery/nerve"],
-  ["AORTA","Main artery from the heart"],
-  ["VEINS","Carry blood toward the heart"],
-  ["STOMA","Surgical opening to body surface"],
-  ["NASAL","Relating to the nose"],
-  ["ORBIT","Eye socket"],
-  ["RENIN","Kidney enzyme affecting BP"],
-  ["URINE","Liquid waste from kidneys"],
-  ["LIVER","Organ for metabolism & detox"],
-  ["SPINE","Vertebral column"],
-  ["BONES","Skeletal structures"],
-  ["NITRO","Nitroglycerin (angina med)"],
-  ["MUCUS","Airway/lining secretion"],
-  ["SEPTA","Walls/partitions (pl.)"],
-  ["UTERI","Uteruses (plural)"],
-  ["ILIAC","Relating to the ilium/pelvis"],
-  ["ILEUS","Bowel motility stop"],
-  ["ILEUM","Last part of small intestine"],
-  ["ILIUM","Pelvic bone"],
-  ["GONAD","Sex gland (ovary/testis)"],
-  ["OVARY","Female reproductive organ"],
-  ["SPERM","Male reproductive cell"],
-  ["NEVUS","Mole (skin lesion)"],
-  ["NEURO","Nerves/nerve system (root)"],
-  ["DERMA","Skin (root/term)"],
-  ["SKULL","Cranial bones"],
-  ["SCALP","Skin over skull"],
-  ["ULCER","Open sore"],
-  ["RALES","Crackles on lung exam"],
-  ["GAUZE","Medical dressing fabric"],
-  ["LATEX","Rubber used in gloves"],
-  ["STENT","Tube to keep vessel open"],
-  ["SHUNT","Bypass/alternate flow path"],
-  ["ALERT","Awake and responsive"],
-  ["FETAL","Relating to the fetus"],
-  ["FETUS","Developing baby (uterus)"],
-  ["SEIZE","Have a seizure"],
-  ["NARCS","Slang: narcotics"],
-  ["PLATE","Bone growth plate / lab"],
-  ["LAPSE","Loss of consciousness episode"],
-  ["LAPAR","Abdominal (root)"],
-  ["BRADY","Slow (prefix)"],
-  ["TACHY","Fast (prefix)"],
-  ["AURAL","Relating to the ear"]
-].filter(([w])=>w.length===5);
-
-/* ========= Daily Word (new each day) ========= */
-function yyyymmdd(d=new Date()){return d.toISOString().slice(0,10);} // YYYY-MM-DD
-function seededIndex(dateStr, mod){ let h=0; for(const ch of dateStr){h=(h*31 + ch.charCodeAt(0))>>>0} return h % mod; }
-const today = yyyymmdd(new Date());
-const todaysIdx = seededIndex(today, WORDS.length);
-const [ANSWER, DEFN] = WORDS[todaysIdx];
-
-/* ========= State ========= */
-const ROWS = 6, COLS = 5;
-let row=0, col=0;
-let gameOver = false;
-const board = Array.from({length:ROWS},()=>Array(COLS).fill(""));
-const kbState = {}; // letter → ok | near | no
-
-// Streaks
-const LS_KEY = "medwordle";
-const saved = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
-if(saved.lastDate && saved.lastDate!==today && saved.playedToday===true){
-  saved.streak = (saved.streak||0)+1;
-}else if(saved.lastDate && saved.lastDate!==today && saved.playedToday!==true){
-  saved.streak = 0;
-}
-saved.lastDate = today; saved.playedToday = false; saved.answer = ANSWER;
-localStorage.setItem(LS_KEY, JSON.stringify(saved));
-
-/* ========= UI Refs ========= */
-const boardEl = document.getElementById('board');
-const kbEl = document.getElementById('kb');
-const toastEl = document.getElementById('toast');
-const revealEl = document.getElementById('reveal');
-const streakNum = document.getElementById('streakNum');
-const dateLabel = document.getElementById('dateLabel');
-const hintBtn = document.getElementById('hintBtn');
-const howBtn = document.getElementById('howBtn');
-const shareBtn = document.getElementById('shareBtn');
-const hintLine = document.getElementById('hintLine');
-
-streakNum.textContent = saved.streak || 0;
-dateLabel.textContent = new Date().toLocaleDateString(undefined,{weekday:'long', month:'short', day:'numeric'});
-
-/* ========= Build UI ========= */
-function buildBoard(){
-  boardEl.innerHTML='';
-  for(let r=0;r<ROWS;r++){
-    for(let c=0;c<COLS;c++){
-      const cell = document.createElement('div');
-      cell.className = 'cell';
-      cell.id = `cell-${r}-${c}`;
-      boardEl.appendChild(cell);
-    }
-  }
-}
-function buildKeyboard(){
-  const layout = ['qwertyuiop','asdfghjkl','zxcvbnm'];
-  kbEl.innerHTML = '';
-  const wrap = document.createElement('div');
-  wrap.className = 'keyboard';
-  for(const rowStr of layout){
-    for(const ch of rowStr){
-      const k=document.createElement('div');
-      k.className='key'; k.textContent=ch; k.dataset.key=ch;
-      wrap.appendChild(k);
-    }
-  }
-  const enter = document.createElement('div'); enter.className='key'; enter.dataset.key='enter'; enter.textContent='Enter'; enter.dataset.wide='1';
-  const back = document.createElement('div'); back.className='key'; back.dataset.key='back'; back.textContent='⌫'; back.dataset.wide='1';
-  wrap.appendChild(enter); wrap.appendChild(back);
-  kbEl.appendChild(wrap);
-  wrap.addEventListener('click', (e)=>{
-    const k=e.target.closest('.key'); if(!k) return; onKey(k.dataset.key);
-  });
-}
-
-/* ========= Helpers ========= */
-function toast(msg, ms=1400){
-  toastEl.textContent=msg; toastEl.classList.add('show');
-  clearTimeout(toastEl._t); toastEl._t=setTimeout(()=>toastEl.classList.remove('show'), ms);
-}
-function render(){
-  for(let r=0;r<ROWS;r++){
-    for(let c=0;c<COLS;c++){
-      const cell=document.getElementById(`cell-${r}-${c}`);
-      cell.textContent = board[r][c] || '';
-      cell.classList.toggle('filled', !!board[r][c]);
-    }
-  }
-  for(const [ch,state] of Object.entries(kbState)){
-    const k = kbEl.querySelector(`.key[data-key="${ch}"]`);
-    if(k) k.className = `key ${state}`;
-  }
-}
-
-/* ========= Core Logic ========= */
-function commitRow(){
-  if(gameOver) return;
-
-  const guess = board[row].join('').toUpperCase();
-  if(guess.length<COLS){ toast('Not enough letters'); return; }
-
-  // Accept ANY 5-letter alphabetic guess to avoid dictionary blocks
-  if(!/^[A-Z]{5}$/.test(guess)){ toast('Use letters A–Z only'); return; }
-
-  // evaluate
-  const answer = ANSWER;
-  const ansCounts = {};
-  for(const ch of answer){ ansCounts[ch]=(ansCounts[ch]||0)+1; }
-
-  const res = Array(COLS).fill('no');
-  for(let i=0;i<COLS;i++){
-    if(guess[i]===answer[i]){ res[i]='ok'; ansCounts[guess[i]]--; }
-  }
-  for(let i=0;i<COLS;i++){
-    if(res[i]==='ok') continue;
-    const ch=guess[i];
-    if(ansCounts[ch]>0){ res[i]='near'; ansCounts[ch]--; }
-  }
-
-  for(let c=0;c<COLS;c++){
-    const cell=document.getElementById(`cell-${row}-${c}`);
-    cell.classList.add('reveal', res[c]);
-  }
-
-  // keyboard state with priority ok > near > no
-  for(let i=0;i<COLS;i++){
-    const ch=guess[i].toLowerCase();
-    const st=res[i];
-    const prev=kbState[ch];
-    if(prev==='ok') continue;
-    if(prev==='near' && st==='no') continue;
-    kbState[ch]=st;
-  }
-
-  if(guess===answer){
-    endGame(true);
-    return;
-  }
-
-  // advance to next row on miss
-  row = row + 1;
-  col = 0;
-
-  if(row>=ROWS){
-    endGame(false);
-    return;
-  }
-
-  render();
-}
-
-function endGame(win){
-  gameOver = true;
-  saved.playedToday=true; saved.lastDate=today;
-  if(win){
-    saved.streak=(saved.streak||0)+(saved.wonToday?0:1);
-    saved.wonToday=true;
-  } else {
-    saved.wonToday=false;
-  }
-  localStorage.setItem(LS_KEY, JSON.stringify(saved));
-  streakNum.textContent = saved.streak||0;
-
-  const msg = win ? `✅ ${ANSWER} — ${DEFN}` : `❌ ${ANSWER} — ${DEFN}`;
-  toast(msg, 3200);
-
-  // show final reveal line when lost
-  if(!win){
-    revealEl.hidden = false;
-    revealEl.textContent = `Answer: ${ANSWER} — ${DEFN}`;
-  }
-
-  // lock input at the very end only
-  document.removeEventListener('keydown', keyHandler);
-  kbEl.style.pointerEvents='none';
-}
-
-function onKey(k){
-  if(gameOver) return;
-  if(k==='enter') return commitRow();
-  if(k==='back'){
-    if(col>0){ col--; board[row][col]=''; render(); }
-    return;
-  }
-  if(/^[a-z]$/.test(k)){
-    if(col<COLS){ board[row][col]=k.toUpperCase(); col++; render(); }
-  }
-}
-
-function keyHandler(e){
-  if(gameOver) return;
-  if(e.key==='Enter') onKey('enter');
-  else if(e.key==='Backspace') onKey('back');
-  else if(/^[a-zA-Z]$/.test(e.key)) onKey(e.key.toLowerCase());
-}
-
-/* ========= Buttons ========= */
-hintBtn.addEventListener('click', ()=>{ hintLine.textContent = `Hint: ${DEFN}`; });
-howBtn.addEventListener('click', ()=>{ toast('Guess the 5-letter EMS term in 6 tries. Green=right spot, Orange=letter in word, Gray=not in word.'); });
-shareBtn.addEventListener('click', async()=>{
-  let rows='';
-  for(let r=0;r<=row && r<ROWS;r++){
-    let line='';
-    for(let c=0;c<COLS;c++){
-      const cell=document.getElementById(`cell-${r}-${c}`);
-      if(!cell || !cell.classList.contains('reveal')) continue;
-      if(cell.classList.contains('ok')) line+='🟩';
-      else if(cell.classList.contains('near')) line+='🟧';
-      else line+='⬛';
-    }
-    if(line) rows += line+"\n";
-  }
-  const text = `MedWord ${today}\n${rows}\n${saved.wonToday?`Solved (${Math.min(row+1,ROWS)}/${ROWS})`:'Unsolved'} — ${ANSWER}`;
-  try{ await navigator.clipboard.writeText(text); toast('Result copied to clipboard'); }
-  catch{ toast('Copy failed'); }
-});
-
-document.getElementById('reset').addEventListener('click',(e)=>{
-  e.preventDefault(); localStorage.removeItem(LS_KEY); location.reload();
-});
-
-/* ========= Init ========= */
-buildBoard(); buildKeyboard(); render();
-document.addEventListener('keydown', keyHandler);
+const WORDS=[
+ ['EDEMA','Swelling caused by excess fluid in tissue'],['SHOCK','Inadequate tissue perfusion'],['STEMI','ST-elevation myocardial infarction'],['NARES','The external openings of the nose'],['LUNGS','Primary organs of pulmonary gas exchange'],['HEART','Muscular pump of the circulatory system'],['FEMUR','The thigh bone'],['TIBIA','The larger, medial bone of the lower leg'],['RENAL','Relating to the kidneys'],['ULNAR','Relating to the ulna or ulnar side of the forearm'],['AORTA','The major artery leaving the left ventricle'],['VEINS','Vessels that return blood toward the heart'],['STOMA','A surgically created opening to a body surface'],['NASAL','Relating to the nose'],['ORBIT','The bony socket containing the eye'],['RENIN','An enzyme involved in the renin-angiotensin system'],['URINE','Liquid waste produced by the kidneys'],['LIVER','Organ central to metabolism, detoxification and many synthetic functions'],['SPINE','The vertebral column'],['SKULL','The bones protecting the brain and supporting the face'],['SCALP','Soft tissue covering the skull'],['ULCER','An open sore or break in a mucosal or skin surface'],['GAUZE','Woven medical material commonly used for dressings and packing'],['STENT','A device used to keep a vessel or passage open'],['SHUNT','A passage that redirects flow from one path to another'],['ALERT','Awake and appropriately responsive'],['FETAL','Relating to a fetus'],['FETUS','Developing offspring after the embryonic period'],['SEIZE','To experience a seizure'],['BRADY','Medical prefix/root indicating slow'],['TACHY','Medical prefix/root indicating fast'],['AURAL','Relating to the ear'],['ILEUS','Failure or severe reduction of normal intestinal motility'],['ILEUM','The final segment of the small intestine'],['ILIUM','The broad upper portion of the pelvic bone'],['OVARY','Female gonad that produces ova and hormones'],['SPERM','Male reproductive cell'],['NEVUS','A mole or localized skin lesion'],['MUCUS','Protective secretion produced by mucous membranes'],['PULSE','A palpable pressure wave from arterial blood flow'],['BLOOD','Circulating fluid containing cells and plasma'],['CHEST','The thorax'],['COUGH','A protective airway-expulsion reflex'],['ANKLE','Joint region between the leg and foot'],['GLAND','An organ or tissue that secretes substances'],['NERVE','Bundle of fibers carrying peripheral neural signals'],['BRAIN','Central organ of the nervous system'],['COLON','Major portion of the large intestine']
+];
+const ROWS=6,COLS=5;let row=0,col=0,gameOver=false,board=Array.from({length:ROWS},()=>Array(COLS).fill('')),keyState={};
+function localKey(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
+const [ANSWER,DEFN]=WORDS[hash(localKey()+' medword')%WORDS.length];
+const boardEl=document.getElementById('board'),kb=document.getElementById('keyboard'),message=document.getElementById('message'),toast=document.getElementById('toast');
+document.getElementById('dateLabel').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
+function renderBoard(){boardEl.innerHTML='';for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){const e=document.createElement('div');e.className='cell'+(board[r][c]?' filled':'');e.id=`c${r}-${c}`;e.textContent=board[r][c];boardEl.appendChild(e);}}
+const rows=['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'];function renderKeys(){kb.innerHTML='';rows.forEach((letters,ri)=>{const wrap=document.createElement('div');wrap.className='key-row';if(ri===2)wrap.appendChild(makeKey('ENTER',true));for(const ch of letters)wrap.appendChild(makeKey(ch,false));if(ri===2)wrap.appendChild(makeKey('DEL',true));kb.appendChild(wrap);});}
+function makeKey(label,wide){const b=document.createElement('button');b.type='button';b.className='key'+(wide?' wide':'')+(keyState[label]?' '+keyState[label]:'');b.textContent=label;b.addEventListener('click',()=>input(label));return b;}
+function input(k){if(gameOver)return;if(k==='ENTER')return submit();if(k==='DEL'){if(col>0){col--;board[row][col]='';renderBoard();}return;}if(/^[A-Z]$/.test(k)&&col<COLS){board[row][col]=k;col++;renderBoard();}}
+function scoreGuess(g){const res=Array(COLS).fill('no'),counts={};for(const ch of ANSWER)counts[ch]=(counts[ch]||0)+1;for(let i=0;i<COLS;i++)if(g[i]===ANSWER[i]){res[i]='ok';counts[g[i]]--;}for(let i=0;i<COLS;i++)if(res[i]!=='ok'&&(counts[g[i]]||0)>0){res[i]='near';counts[g[i]]--;}return res;}
+function submit(){if(col<COLS){show('Use five letters.');return;}const guess=board[row].join(''),res=scoreGuess(guess);res.forEach((state,i)=>{document.getElementById(`c${row}-${i}`).classList.add(state);const prev=keyState[guess[i]],rank={no:1,near:2,ok:3};if(!prev||rank[state]>rank[prev])keyState[guess[i]]=state;});renderKeys();if(guess===ANSWER){gameOver=true;message.innerHTML=`<strong>${ANSWER}</strong> — ${DEFN}. Solved in ${row+1}/${ROWS}.`;saveResult(true,row+1);return;}row++;col=0;if(row>=ROWS){gameOver=true;message.innerHTML=`Today’s term was <strong>${ANSWER}</strong> — ${DEFN}.`;saveResult(false,ROWS);}}
+function saveResult(win,tries){try{localStorage.setItem('medword_'+localKey(),JSON.stringify({win,tries,answer:ANSWER}));}catch(e){}}
+function show(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1200);}
+document.addEventListener('keydown',e=>{if(e.key==='Enter')input('ENTER');else if(e.key==='Backspace')input('DEL');else{const k=e.key.toUpperCase();if(/^[A-Z]$/.test(k))input(k);}});
+document.getElementById('hintBtn').addEventListener('click',()=>{document.getElementById('hintLine').textContent=DEFN;});
+document.getElementById('shareBtn').addEventListener('click',async()=>{const text=`MedWord ${localKey()} ${gameOver?Math.min(row+1,ROWS)+'/6':'in progress'}\nDailyEMSQuiz.com/medword.html`;try{if(navigator.share)await navigator.share({text});else{await navigator.clipboard.writeText(text);show('Result copied.');}}catch(e){}});
+try{const saved=JSON.parse(localStorage.getItem('medword_'+localKey())||'null');if(saved&&saved.answer===ANSWER){gameOver=true;message.innerHTML=saved.win?`You already solved today’s term: <strong>${ANSWER}</strong> — ${DEFN}.`:`Today’s term was <strong>${ANSWER}</strong> — ${DEFN}.`;}}catch(e){}
+renderBoard();renderKeys();
 </script>
 </body>
 </html>

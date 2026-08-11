@@ -3,40 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Daily Home Medication Review | Daily EMS Quiz</title>
-  <meta name="description" content="Review one common home medication each day, including medication class, common use, and EMS considerations." />
+  <title>Daily Home Medication Review for EMS | Daily EMS Quiz</title>
+  <meta name="description" content="Review one common home medication each day as an EMS history clue: class, common uses, what it may suggest, and practical assessment considerations." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://dailyemsquiz.com/home_med.html" />
   <link rel="icon" href="/favicon.png" type="image/png" />
-  <meta name="theme-color" content="#07111f" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Daily EMS Quiz" />
-  <meta property="og:title" content="Daily Home Medication Review | Daily EMS Quiz" />
-  <meta property="og:description" content="Review one common home medication each day, including medication class, common use, and EMS considerations." />
-  <meta property="og:url" content="https://dailyemsquiz.com/home_med.html" />
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <meta name="theme-color" content="#f5f1e9" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Daily EMS Quiz" /><meta property="og:title" content="Daily Home Medication Review for EMS" /><meta property="og:description" content="Use one common medication each day to sharpen SAMPLE-history and medication-reconciliation skills." /><meta property="og:url" content="https://dailyemsquiz.com/home_med.html" /><meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
   <link rel="stylesheet" href="/dailyemsquiz.css" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Daily Home Medication Review | Daily EMS Quiz",
-  "url": "https://dailyemsquiz.com/home_med.html",
-  "description": "Review one common home medication each day, including medication class, common use, and EMS considerations.",
-  "isPartOf": {
-    "@id": "https://dailyemsquiz.com/#website"
-  },
-  "inLanguage": "en-US"
-}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Daily Home Medication Review for EMS","url":"https://dailyemsquiz.com/home_med.html","description":"A daily EMS medication-recognition exercise focused on history clues and assessment considerations.","isPartOf":{"@id":"https://dailyemsquiz.com/#website"},"inLanguage":"en-US"}</script>
 </head>
 <body>
-  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">⚕</span><span class="brand-text">Daily EMS Quiz <small>EMT & Paramedic study tools</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html" >EMT Quiz</a><a href="/paramedic_quiz.html" >Paramedic Quiz</a><a href="/ems_fact.html" >EMS Facts</a><a href="/medword.html" >MedWord</a><a href="/home_med.html" aria-current="page">Home Meds</a></nav></div></header>
+  <a class="skip-link" href="#medication">Skip to today’s medication</a>
+  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">DEQ</span><span class="brand-text">Daily EMS Quiz <small>five-minute field review</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/nremt-study-guide.html">Study Guide</a><a href="/ems_fact.html">EMS Fact</a><a href="/medword.html">MedWord</a><a href="/home_med.html" aria-current="page">Home Meds</a></nav></div></header>
   <main class="container quiz-shell">
-    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">💊 Medication recognition practice</span><h1>Daily Home Medication</h1><p>Review one common home medication each day. This helps EMT and paramedic students recognize medication classes, common uses, and EMS assessment considerations.</p></div><aside class="score-card"><div class="daily-label"><span>Today’s medication</span><span>New daily</span></div><div class="score-big">Meds</div><p style="color:var(--muted);line-height:1.5;margin:0">Use this as a quick patient history review tool.</p></aside></section><section class="helper-section"><div class="question-kicker"><span>Home medication review</span><span>DailyEMSQuiz</span></div><div id="medication"><p>Loading today’s medication...</p></div><div class="cta-row"><a class="btn btn-primary" href="/emt_quiz.html">Practice EMT quiz</a><a class="btn btn-secondary" href="/paramedic_quiz.html">Practice paramedic quiz</a></div></section><section class="helper-section"><h2>How to use this page</h2><p>During patient assessment, home medications can provide clues about medical history, chronic conditions, and treatment risks. Review the class, common use, and EMS consideration, then connect it to your SAMPLE history and medication list documentation.</p></section>
+    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">Medication recognition • daily field note</span><h1>Daily Home Medication</h1><p>A medication list is not just paperwork. It can reveal chronic disease, bleeding risk, recent treatment changes, and clues that change your assessment. Learn one medication each day without turning this into a prescribing reference.</p></div><aside class="score-card"><div class="daily-label"><span>Today’s goal</span><span>History clue</span></div><div class="score-big" style="font-size:34px">Recognize. Ask. Reassess.</div><p class="score-meta">Brand names are examples and can change by market. Generic name and class matter more.</p></aside></section>
+
+    <section class="helper-section" id="medication"><div class="question-kicker"><span id="medCategory">Loading medication…</span><span id="medDay">Daily rotation</span></div><h2 id="medName" style="margin-top:12px">Loading today’s medication...</h2><p id="medUse" class="lead" style="font-size:20px;margin-bottom:18px"></p><div class="cards" id="medCards" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div><div class="explanation" id="medNote" style="margin-top:16px" hidden></div><div class="cta-row"><a class="btn btn-primary" href="/emt_quiz.html">Practice EMT</a><a class="btn btn-secondary" href="/paramedic_quiz.html">Practice Paramedic</a></div></section>
+
+    <section class="helper-section"><h2>How to use a home medication list</h2><ol><li><strong>Identify the generic drug and class.</strong> Brand names change; class often tells you more.</li><li><strong>Ask why this patient takes it.</strong> Never assume the indication from the drug alone.</li><li><strong>Look for field-relevant effects.</strong> Anticoagulation, bradycardia, hypotension, hypoglycemia, sedation, and airway disease can change risk.</li><li><strong>Ask about last dose and recent changes when they matter.</strong> This can be especially useful with anticoagulants, insulin, cardiac drugs, and acute medication changes.</li><li><strong>Report the medication accurately.</strong> Photograph or bring the list/bottles only when appropriate and permitted; document what the patient actually reports taking.</li></ol></section>
+
+    <section class="helper-section"><h2>Medication safety note</h2><p>This feature is for medication recognition and patient-history practice. It does <strong>not</strong> provide dosing instructions, prescribing advice, a complete adverse-effect list, or a substitute for medical direction. Medication indications and formulations change, and EMS scope/protocol varies by system.</p><p>For a current drug label, use the <a href="https://dailymed.nlm.nih.gov/dailymed/" rel="noopener">U.S. National Library of Medicine DailyMed database</a> or another approved reference used by your service.</p></section>
   </main>
-  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice site. Not affiliated with NREMT.</div><div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div></div></footer>
-  <script>
-function escapeHtml(value){return String(value ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
-fetch('/home_med.json').then(r=>r.json()).then(data=>{const today=new Date();const dayOfYear=Math.floor((today-new Date(today.getFullYear(),0,0))/86400000);const med=data[dayOfYear % data.length];document.getElementById('medication').innerHTML=`<h2>${escapeHtml(med.Generic||'Medication')}</h2><div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:14px"><div class="tool-card"><div class="tool-icon">🏷️</div><h3>Brand</h3><p>${escapeHtml(med.Brand||'Not listed')}</p></div><div class="tool-card"><div class="tool-icon">🧬</div><h3>Class</h3><p>${escapeHtml(med.Class||'Not listed')}</p></div><div class="tool-card"><div class="tool-icon">📋</div><h3>Common use</h3><p>${escapeHtml(med.Use||'Not listed')}</p></div></div><div class="explanation" style="margin-top:16px"><strong>EMS consideration:</strong> ${escapeHtml(med.EMS_Consideration||'Review patient history, allergies, dose, route, compliance, and adverse effects.')}</div>`;}).catch(()=>{document.getElementById('medication').textContent='Failed to load today’s medication.';});
+  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice; not affiliated with NREMT.</div><div class="footer-links"><a href="/nremt-study-guide.html#sources">Sources</a><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div></div></footer>
+<script>
+function safe(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function localDayKey(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function hash(s){let h=0;for(const c of s)h=(Math.imul(h,31)+c.charCodeAt(0))>>>0;return h;}
+fetch('/home_med.json').then(r=>{if(!r.ok)throw new Error('load');return r.json();}).then(data=>{if(!Array.isArray(data)||!data.length)throw new Error('empty');const med=data[hash(localDayKey()+' home med')%data.length];document.getElementById('medCategory').textContent=med.Class||'Medication';document.getElementById('medName').textContent=med.Generic||'Medication';document.getElementById('medUse').textContent=med.Use||'';document.getElementById('medCards').innerHTML=`<article class="tool-card"><div class="tool-icon">BRAND EXAMPLES</div><h3>${safe(med.Brand||'Not listed')}</h3><p>Generic: <strong>${safe(med.Generic||'Not listed')}</strong></p></article><article class="tool-card"><div class="tool-icon">WHAT IT MAY TELL YOU</div><h3>History clue</h3><p>${safe(med.History_Clue||'Ask the patient why it was prescribed and how they take it.')}</p></article>`;const note=document.getElementById('medNote');note.hidden=false;note.innerHTML=`<strong>EMS assessment consideration:</strong> ${safe(med.EMS_Consideration||'Confirm the indication, last dose, recent changes, and clinically relevant effects.')}`;}).catch(()=>{document.getElementById('medName').textContent='Medication card unavailable';document.getElementById('medUse').textContent='The medication dataset could not be loaded.';});
 </script>
 </body>
 </html>

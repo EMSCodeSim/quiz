@@ -3,44 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>The Daily Beat | EMS Rhythm Review</title>
-  <meta name="description" content="Practice estimating a simulated pulse or rhythm rate with The Daily Beat, a quick EMS vital-sign review tool." />
+  <title>Pulse Rate Practice | Free EMS Vital Signs Trainer</title>
+  <meta name="description" content="Practice estimating an adult pulse rate by sound with a free EMS vital signs drill. Count for 15 or 30 seconds, enter your estimate, and compare with the actual BPM." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://dailyemsquiz.com/daily_beat.html" />
   <link rel="icon" href="/favicon.png" type="image/png" />
-  <meta name="theme-color" content="#07111f" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Daily EMS Quiz" />
-  <meta property="og:title" content="The Daily Beat | EMS Rhythm Review" />
-  <meta property="og:description" content="Practice estimating a simulated pulse or rhythm rate with The Daily Beat, a quick EMS vital-sign review tool." />
-  <meta property="og:url" content="https://dailyemsquiz.com/daily_beat.html" />
-  <meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
+  <meta name="theme-color" content="#f5f1e9" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Daily EMS Quiz" /><meta property="og:title" content="Pulse Rate Practice | EMS Vital Signs Trainer" /><meta property="og:description" content="Listen, count, estimate, and check a simulated adult pulse rate." /><meta property="og:url" content="https://dailyemsquiz.com/daily_beat.html" /><meta property="og:image" content="https://dailyemsquiz.com/og-image.jpg" />
   <link rel="stylesheet" href="/dailyemsquiz.css" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "The Daily Beat | EMS Rhythm Review",
-  "url": "https://dailyemsquiz.com/daily_beat.html",
-  "description": "Practice estimating a simulated pulse or rhythm rate with The Daily Beat, a quick EMS vital-sign review tool.",
-  "isPartOf": {
-    "@id": "https://dailyemsquiz.com/#website"
-  },
-  "inLanguage": "en-US"
-}</script>
+  <style>
+    .beat-workspace{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}.beat-card{border:1px solid var(--line-dark);background:var(--card);padding:22px}.pulse-disc{width:170px;height:170px;border:3px solid var(--ink);border-radius:50%;margin:18px auto;display:grid;place-items:center;background:#faf7f1;position:relative}.pulse-disc:after{content:'';width:42px;height:42px;border-radius:50%;background:var(--red);transform:scale(.7)}.pulse-disc.beating:after{animation:pulseFlash var(--beat,1s) infinite ease-out}@keyframes pulseFlash{0%{transform:scale(.55);opacity:.7}18%{transform:scale(1.1);opacity:1}35%{transform:scale(.7);opacity:.8}100%{transform:scale(.55);opacity:.7}}.timer-big{font-family:Georgia,"Times New Roman",serif;font-size:64px;line-height:1;text-align:center}.estimate-row{display:flex;align-items:center;gap:10px;justify-content:center;margin:18px 0}.estimate-row input{width:110px;padding:12px;border:2px solid var(--line-dark);background:#fff;color:var(--ink);font-size:22px;font-weight:900;text-align:center}.count-options{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.count-options label{border:1px solid var(--line-dark);background:#faf7f1;padding:10px 12px;font-weight:900;cursor:pointer}.count-options input{accent-color:var(--red)}.beat-result{border-left:5px solid var(--navy);background:#edf1f3;padding:14px 16px;margin-top:14px;line-height:1.6}.quick-rule{border-bottom:1px solid var(--line);padding:12px 0}.quick-rule:last-child{border:0}.quick-rule strong{display:block;margin-bottom:4px}.quick-rule span{color:var(--muted);line-height:1.5;font-size:14px}@media(max-width:780px){.beat-workspace{grid-template-columns:1fr}.pulse-disc{width:140px;height:140px}.timer-big{font-size:52px}}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"EMS Pulse Rate Practice","url":"https://dailyemsquiz.com/daily_beat.html","learningResourceType":"interactive vital-sign trainer","educationalLevel":"EMT and Paramedic","isAccessibleForFree":true}</script>
 </head>
 <body>
-  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">⚕</span><span class="brand-text">Daily EMS Quiz <small>EMT & Paramedic study tools</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html" >EMT Quiz</a><a href="/paramedic_quiz.html" >Paramedic Quiz</a><a href="/ems_fact.html" >EMS Facts</a><a href="/medword.html" >MedWord</a><a href="/home_med.html" >Home Meds</a></nav></div></header>
-  <main class="container quiz-shell">
-    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">❤️ EMS pulse and rhythm practice</span><h1>The Daily Beat</h1><p>Listen to today’s simulated pulse rate, estimate the beats per minute, and check your answer. Built for quick EMS vital-sign practice.</p></div><aside class="score-card"><div class="daily-label"><span>Today’s rhythm</span><span>Audio practice</span></div><div class="score-big" id="bpmLabel">Ready</div><div class="progress-track"><div class="progress-bar" id="beatBar"></div></div></aside></section><section class="helper-section" style="text-align:center"><button class="btn btn-primary" type="button" onclick="startBeat()">▶️ Start the beat</button><div id="heart" style="font-size:100px;margin:24px 0;visibility:hidden">❤️</div><input type="range" id="slider" min="30" max="200" value="75" style="display:none;width:min(100%,620px);accent-color:#22d3ee"><p id="sliderText" style="display:none;color:var(--muted);font-size:18px">BPM Guess: <strong id="bpmValue">75</strong></p><button class="btn btn-secondary" onclick="checkAnswer()" id="checkBtn" style="display:none">Check Answer</button><div class="result" id="result" style="margin-top:20px">Tap start to hear today’s rhythm.</div></section>
+  <a class="skip-link" href="#trainer">Skip to pulse trainer</a>
+  <header class="site-header"><div class="container nav"><a class="brand" href="/" aria-label="Daily EMS Quiz home"><span class="brand-mark">DEQ</span><span class="brand-text">Daily EMS Quiz <small>five-minute field review</small></span></a><nav class="nav-links" aria-label="Main navigation"><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/clinical-judgment.html">Clinical Judgment</a><a href="/nremt-study-guide.html">Study Guide</a><a href="/ems_fact.html">EMS Fact</a><a href="/daily_sim.html">Skills Bench</a></nav></div></header>
+
+  <main class="container quiz-shell" id="trainer">
+    <section class="quiz-hero"><div class="quiz-title-card"><span class="eyebrow">Vital-sign estimation drill</span><h1>Pulse Rate Practice</h1><p>Listen to a simulated regular pulse, count beats for 15 or 30 seconds, calculate the rate, then check your estimate. The goal is to get comfortable with the mechanics of rate estimation—not to diagnose a rhythm from a metronome.</p></div><aside class="score-card"><div class="daily-label"><span>Skill focus</span><span>Rate estimation</span></div><div class="score-big" id="bestLabel">No attempts yet</div><p class="score-meta">Your best error for this device is saved locally.</p></aside></section>
+
+    <section class="beat-workspace">
+      <div class="beat-card">
+        <div class="question-kicker"><span>Listen and count</span><span id="roundLabel">New rate each round</span></div>
+        <div class="pulse-disc" id="pulseDisc" aria-label="visual pulse indicator"></div>
+        <div class="timer-big" id="timer">Ready</div>
+        <div class="count-options"><label><input type="radio" name="window" value="15" checked> 15-second count</label><label><input type="radio" name="window" value="30"> 30-second count</label></div>
+        <div class="cta-row" style="justify-content:center"><button class="btn btn-primary" id="startBtn" type="button">Start pulse</button><button class="btn btn-ghost" id="stopBtn" type="button" disabled>Stop early</button></div>
+        <div class="estimate-row"><label for="estimate"><strong>Your estimate:</strong></label><input id="estimate" type="number" min="20" max="240" inputmode="numeric" aria-label="estimated pulse rate"><span>BPM</span></div>
+        <div class="cta-row" style="justify-content:center"><button class="btn btn-secondary" id="checkBtn" type="button">Check rate</button><button class="btn btn-ghost" id="newBtn" type="button">New rate</button></div>
+        <div class="beat-result" id="result">Choose a counting window, press Start, and count each beat.</div>
+      </div>
+      <aside class="beat-card"><div class="question-kicker"><span>Field note</span><span>Adults</span></div><h2 style="font-size:28px;margin:12px 0">Counting shortcuts</h2><div class="quick-rule"><strong>15 seconds</strong><span>Count beats for 15 seconds and multiply by 4. Faster, but a single counting error has a bigger effect.</span></div><div class="quick-rule"><strong>30 seconds</strong><span>Count for 30 seconds and multiply by 2. Gives more observation time for rate and regularity.</span></div><div class="quick-rule"><strong>Irregular pulse</strong><span>This trainer uses a regular pulse. In real patients, an irregular pulse deserves a longer count and appropriate cardiac assessment rather than a shortcut.</span></div><div class="quick-rule"><strong>Rate is only one finding</strong><span>Document rhythm/regularity and pulse quality when relevant, and interpret the rate with perfusion, mental status, symptoms and the rest of the patient.</span></div></aside>
+    </section>
+
+    <section class="helper-section"><h2>What this simulator does—and does not do</h2><p>The audio is a synthetic timing cue, not a recorded human pulse or ECG rhythm. It is designed only to train rate-counting mechanics. A real pulse assessment also includes location, strength, regularity, symmetry when relevant, and the patient’s overall perfusion.</p></section>
   </main>
-  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS education practice site. Not affiliated with NREMT.</div><div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/sitemap.xml">Sitemap</a><a href="https://emscodesim.com/" rel="noopener">EMSCodeSim</a></div></div></footer>
-  <script>
-const heart=document.getElementById('heart'),slider=document.getElementById('slider'),bpmDisplay=document.getElementById('bpmValue'),result=document.getElementById('result'),checkBtn=document.getElementById('checkBtn'),sliderText=document.getElementById('sliderText'),bpmLabel=document.getElementById('bpmLabel'),beatBar=document.getElementById('beatBar');
-function getDailyBPM(){const today=new Date().toISOString().split('T')[0];let hash=0;for(let i=0;i<today.length;i++)hash=today.charCodeAt(i)+((hash<<5)-hash);return 30+Math.abs(hash%171);}const actualBPM=getDailyBPM();const beatInterval=60/actualBPM;
-function playBeatPattern(){const AudioContext=window.AudioContext||window.webkitAudioContext;const ctx=new AudioContext();const duration=20;const now=ctx.currentTime;for(let i=0;i<Math.ceil(actualBPM*(duration/60));i++){const start=now+i*beatInterval;const osc=ctx.createOscillator();const gain=ctx.createGain();osc.frequency.value=660;gain.gain.setValueAtTime(0.9,start);gain.gain.exponentialRampToValueAtTime(0.001,start+0.1);osc.connect(gain).connect(ctx.destination);osc.start(start);osc.stop(start+0.1);}}
-function startBeat(){document.querySelector('.btn-primary').style.display='none';heart.style.visibility='visible';slider.style.display='inline-block';checkBtn.style.display='inline-flex';sliderText.style.display='block';bpmLabel.textContent='Listen';beatBar.style.width='50%';playBeatPattern();heart.style.animation=`beat ${beatInterval}s infinite ease-in-out`;}
-function checkAnswer(){const guess=parseInt(slider.value);const diff=Math.abs(guess-actualBPM);beatBar.style.width='100%';bpmLabel.textContent=actualBPM+' BPM';result.innerHTML=diff<=3?`✅ Correct! It was <strong>${actualBPM} BPM</strong>. Come back tomorrow for a new rhythm.`:`❌ Not quite. It was <strong>${actualBPM} BPM</strong>. Review rate estimation and try again tomorrow.`;}
-slider.addEventListener('input',()=>{bpmDisplay.textContent=slider.value;});
-</script><style>@keyframes beat{0%{transform:scale(1)}20%{transform:scale(1.25)}40%{transform:scale(1)}100%{transform:scale(1)}}</style>
+
+  <footer class="site-footer"><div class="container footer-grid"><div>© 2026 Daily EMS Quiz. Independent EMS skills practice.</div><div class="footer-links"><a href="/daily_sim.html">Skills Bench</a><a href="/emt_quiz.html">EMT Quiz</a><a href="/paramedic_quiz.html">Paramedic Quiz</a><a href="/privacy.html">Privacy</a></div></div></footer>
+<script>
+let actualBPM=0,audioCtx=null,intervalId=null,timerId=null,endAt=0,attempt=0;
+const disc=document.getElementById('pulseDisc'),timer=document.getElementById('timer'),result=document.getElementById('result'),startBtn=document.getElementById('startBtn'),stopBtn=document.getElementById('stopBtn'),estimate=document.getElementById('estimate'),bestLabel=document.getElementById('bestLabel');
+function loadBest(){const v=Number(localStorage.getItem('deq_pulse_best'));bestLabel.textContent=v||v===0?`Best: ±${v} BPM`:'No attempts yet';}
+function newRate(){stop();attempt++;actualBPM=48+Math.floor(Math.random()*93);timer.textContent='Ready';estimate.value='';result.textContent='Choose a counting window, press Start, and count each beat.';document.getElementById('roundLabel').textContent=`Round ${attempt}`;}
+function clickBeat(){try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator(),g=audioCtx.createGain(),now=audioCtx.currentTime;o.frequency.value=520;g.gain.setValueAtTime(.18,now);g.gain.exponentialRampToValueAtTime(.001,now+.07);o.connect(g).connect(audioCtx.destination);o.start(now);o.stop(now+.08);}catch(e){}}
+function start(){stop();const secs=Number(document.querySelector('input[name=window]:checked').value);endAt=Date.now()+secs*1000;const ms=60000/actualBPM;disc.style.setProperty('--beat',ms+'ms');disc.classList.add('beating');clickBeat();intervalId=setInterval(clickBeat,ms);startBtn.disabled=true;stopBtn.disabled=false;updateTimer();timerId=setInterval(updateTimer,100);}
+function updateTimer(){const left=Math.max(0,endAt-Date.now());timer.textContent=(left/1000).toFixed(1);if(left<=0)stop(true);}
+function stop(finished=false){if(intervalId)clearInterval(intervalId);if(timerId)clearInterval(timerId);intervalId=timerId=null;disc.classList.remove('beating');startBtn.disabled=false;stopBtn.disabled=true;if(finished)timer.textContent='Done';}
+function check(){const guess=Number(estimate.value);if(!guess){result.textContent='Enter your BPM estimate first.';return;}const diff=Math.abs(guess-actualBPM);const quality=diff<=3?'Excellent count.':diff<=6?'Close—repeat the count and watch your multiplication.':'Recount this rate and compare your beat count with the timer.';result.innerHTML=`<strong>Actual rate: ${actualBPM} BPM.</strong> Your estimate was ${guess} BPM (off by ${diff}). ${quality}`;const prior=Number(localStorage.getItem('deq_pulse_best'));if(!localStorage.getItem('deq_pulse_best')||diff<prior){localStorage.setItem('deq_pulse_best',String(diff));loadBest();}}
+startBtn.addEventListener('click',start);stopBtn.addEventListener('click',()=>stop(false));document.getElementById('checkBtn').addEventListener('click',check);document.getElementById('newBtn').addEventListener('click',newRate);loadBest();newRate();
+</script>
 </body>
 </html>
