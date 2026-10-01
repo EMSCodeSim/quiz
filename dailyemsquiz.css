@@ -61,3 +61,18 @@ h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,7vw,74px);li
 @media (max-width:950px){.hero-grid,.quiz-hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.domain-grid{grid-template-columns:repeat(2,1fr)}.nav{align-items:flex-start}.section-head{display:block}.info-grid{grid-template-columns:1fr}.field-strip{grid-template-columns:1fr}.field-strip>div{border-right:0;border-bottom:1px solid var(--line)}.field-strip>div:last-child{border-bottom:0}}
 @media (max-width:660px){.container{width:min(100% - 22px,1120px)}.nav{display:block;padding:10px 0}.brand{margin-bottom:8px}.nav-links{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}.nav-links a{white-space:nowrap}.hero{padding-top:34px}.cards,.domain-grid,.review-grid{grid-template-columns:1fr}.cta-row .btn{width:100%}.hero-panel{transform:none}.mini-stats{grid-template-columns:repeat(3,1fr)}.quiz-actions{position:static;display:grid;grid-template-columns:1fr}.quiz-actions .btn{width:100%;min-width:0}.result{text-align:center}.question-text{font-size:18px}.score-card{display:block}.score-big{font-size:38px}.study-table{font-size:13px}.study-table th,.study-table td{padding:9px}.brand-mark{width:38px;height:38px}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Daily return loop and progress dashboard */
+.learning-loop{padding:26px 0 4px}
+.learning-loop>.container{border:1px solid var(--line-dark);background:var(--card);padding:24px;box-shadow:var(--shadow)}
+.loop-head{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.loop-head h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:10px 0 6px}
+.loop-head p{color:var(--muted);line-height:1.6;margin:0;max-width:650px}
+.loop-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:20px}
+.loop-stats>div{border:1px solid var(--line);background:#faf7f1;padding:13px}
+.loop-stats strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:28px}
+.loop-stats span{display:block;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+.loop-foot{border-top:1px solid var(--line);margin-top:16px;padding-top:13px;color:var(--muted);font-size:14px;line-height:1.6}
+.loop-foot strong{color:var(--green)}
+.loop-foot a{font-weight:800;margin-left:4px}
+@media(max-width:660px){.loop-head{align-items:stretch;flex-direction:column}.loop-head .btn{width:100%}.loop-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.learning-loop>.container{padding:17px}}
